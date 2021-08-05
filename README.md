@@ -6685,5 +6685,3 @@ possam ter surgido durante seus estudos!
 
 \#VAIIII
 
-[^1]: Aqui usamos a maneira antiga para listar *containers*, ainda
-    funciona! :D
