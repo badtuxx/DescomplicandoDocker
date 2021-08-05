@@ -1,2 +1,2 @@
 # DescomplicandoDocker
-Descomplicando o Docker, o livro.
+Em breve o livro Descomplicando o Docker estará morando aqui e aberto para todos!
