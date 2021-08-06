@@ -326,7 +326,7 @@ equalizá-los\...
 \...Então este livro e o Docker foram feitos para você! Boa leitura e
 divirta-se!
 
-1. O que é *container*?
+1\. O que é *container*?
 =======================
 
 1.1. Então vamos lá, o que é um *container*?
@@ -423,7 +423,7 @@ de novas aplicações em fração de segundos e tudo isso com uma facilidade
 que impressiona. Amigo, estamos falando do simplesmente sensacional
 **Docker**.
 
-2. O que é o Docker?
+2\. O que é o Docker?
 ====================
 
 2.1. Onde entra o Docker nessa história?
@@ -883,7 +883,7 @@ abordar com mais detalhes no final deste livro.
 Ainda temos diversos outros motivos para utilizar *containers* e que
 vamos descobrindo conforme evoluímos com a utilização do Docker. :D
 
-3. Instalando o Docker
+3\. Instalando o Docker
 ======================
 
 3.1. Quero instalar, vamos lá?
@@ -1021,7 +1021,7 @@ basta rodar:
 
 Dica de um milhão de dólares: **user** = **seu usuário**. :D
 
-4. Executando e administrando *containers* Docker
+4\. Executando e administrando *containers* Docker
 =================================================
 
 4.1. Então vamos brincar com esse tal de *container*!
@@ -1508,7 +1508,7 @@ b34f4987bdce
 Para confirmar a remoção do *container*, utilize o comando "docker
 container ls -a".
 
-5. Configurando CPU e memória para os meus *containers*
+5\. Configurando CPU e memória para os meus *containers*
 =======================================================
 
 Vamos imaginar que você precise subir quatro *containers* para um
@@ -1724,7 +1724,7 @@ referentes à memória e ao CPU!
 Existem outros parâmetros do "docker container update". Para verificar a
 lista completa, digite "docker update \--help".
 
-6. Meu primeiro e tosco *dockerfile*\...
+6\. Meu primeiro e tosco *dockerfile*\...
 ========================================
 
 Tudo que nós fizemos até agora foi escrever na linha de comando, o que é
@@ -1804,7 +1804,7 @@ diretório onde o arquivo se encontra.
 
 **Lembre apenas que é o *path* do diretório e não do arquivo.**
 
-7. Entendendo volumes
+7\. Entendendo volumes
 =====================
 
 7.1. Introdução a volumes no Docker
@@ -2070,7 +2070,7 @@ que somente o *path* do diretório no *host*. Vamos usar a opção
 
 /var/lib/docker/volumes/giropopos/\_data
 
-7.3. Criando e montando um *data-only container*
+7.4. Criando e montando um *data-only container*
 ------------------------------------------------
 
 Uma opção bastante interessante em relação aos volumes diz respeito ao
@@ -2179,7 +2179,7 @@ Sensacional! Como percebemos, os dois *containers* do PostgreSQL estão
 escrevendo seus dados no volume "/data" do *container* "dbdados". Chega
 a ser lacrimejante! :D
 
-7.4. Sempre é bom um *backup*\...
+7.5. Sempre é bom um *backup*\...
 ---------------------------------
 
 Outra coisa bem bacana é a possibilidade de fazer *backups* dos seus
@@ -2210,7 +2210,7 @@ Lembrando que os volumes são sempre criados dentro de
 "/var/lib/docker/volumes". Caso queira fazer o *backup* de todos os
 volumes, basta tratar esse diretório em suas rotinas de *backup*. ;)
 
-8. Criando e gerenciando imagens
+8\. Criando e gerenciando imagens
 ================================
 
 8.1. Agora eu quero criar minha imagem, posso?
@@ -2817,7 +2817,7 @@ testar a comunicação com o Apache2 a partir do *host*:
 Ele retornará a página de boas-vindas do Apache2! Tudo funcionando
 conforme esperado!
 
-9. Compartilhando as imagens
+9\. Compartilhando as imagens
 ============================
 
 Bem, já aprendemos como criar uma imagem de *container*, seja via
@@ -3332,7 +3332,7 @@ utilizar recursos como controle de usuários, certificados, outras opções
 de *storage*, etc., visite a página do projeto no GitHub:
 https://github.com/docker/distribution.
 
-10. Gerenciando a rede dos *containers*
+10\. Gerenciando a rede dos *containers*
 =======================================
 
 Quando o Docker é executado, ele cria uma *bridge* virtual chamada
@@ -3600,7 +3600,7 @@ da porta 8080 do *host* para a 80 do *container.* Veja a seguir:
 Tudo isso feito "automagicamente" pelo Docker, sem a necessidade de
 precisar configurar diversas regras de *iptables*. \<3
 
-11. Controlando o *daemon* do Docker
+11\. Controlando o *daemon* do Docker
 ====================================
 
 Antes de tudo, vamos tentar entender o que é um *daemon*. Sabemos que,
@@ -3850,7 +3850,7 @@ rede:
     > *troubleshoot*) você pode precisar de um *log* mais "verboso", por
     > exemplo.
 
-12. Docker Machine
+12\. Docker Machine
 ==================
 
 12.1. Ouvi dizer que minha vida ficaria melhor com o Docker Machine!
@@ -4304,8 +4304,8 @@ Successfully removed linuxtips
 
 []{#_heading=h.2nusc19 .anchor}
 
-13. Docker Swarm
-----------------
+13\. Docker Swarm
+=================
 
 Bom, agora temos uma ferramenta muito interessante e que nos permite
 construir *clusters* de *containers* de forma nativa e com extrema
@@ -4328,7 +4328,8 @@ a um *manager* e diversos *workers*. O *manager* é o responsável por
 orquestrar os *containers* e distribuí-los entre os *hosts workers*. Os
 *workers* são os que carregam o piano, que hospedam os *containers*.
 
-### 13.1.1. Criando o nosso *cluster*!
+13.1. Criando o nosso *cluster*!
+--------------------------------
 
 Uma coisa importante que começou após a versão 1.12 foi a inclusão do
 Docker Swarm dentro do Docker, ou seja, hoje quando você realiza a
@@ -4718,7 +4719,8 @@ Agora, basta removê-lo também em nosso *node manager*:
 
 **root\@LINUXtips-01:\~\#**
 
-### 13.1.1. O sensacional *services*!
+13.2. O sensacional *services*!
+-------------------------------
 
 Uma das melhores coisas que o Docker Swarm nos oferece é justamente a
 possibilidade de fazer o uso dos *services*.
@@ -5087,8 +5089,8 @@ que esse volume estará disponível em todos os meus *containers* desse
 *service*, ou seja, o volume com o nome de "teste" estará montado em
 todos os *containers* no diretório "/app"*.*
 
-14. Docker Secrets
-------------------
+14\. Docker Secrets
+===================
 
 Ninguém tem dúvida de que a arquitetura de microsserviços já se provou
 eficiente. Porém, implementar segurança, principalmente em um contexto
@@ -5109,7 +5111,8 @@ verdade, não é claro se vai algum dia ser diferente. Por enquanto somos
 encorajados a usar um *service* para fazer *deploy* de *containers*
 individuais.
 
-### 14.1.1. O comando *docker secret*
+14.1. O comando *docker secret*
+-------------------------------
 
 O comando "docker secret" vem com alguns subcomandos. São eles:
 
@@ -5229,7 +5232,8 @@ minha\_secret
 
 root\@linuxtips:\~\#
 
-### 14.1.2. Tudo bem, mas como uso isso?
+14.2. Tudo bem, mas como uso isso?
+----------------------------------
 
 As *secrets* são consumidas por serviços, como já citamos, e isso
 acontece através de associação explícita, usando a *flag* "\--secret" na
@@ -5278,7 +5282,8 @@ da *flag* "\--secret-add" do comando "docker service update", assim como
 revogá-las, usando a *flag* "\--secret-rm" no mesmo comando. Ver o
 tópico "Atualizando a *secret* de um serviço".
 
-### 14.1.3. Acessando a *secret*
+14.3. Acessando a *secret*
+--------------------------
 
 Com o serviço criado, a *secret* ficará disponível para todos os
 *containers* daquele *service* e estará em arquivos dentro do diretório
@@ -5330,7 +5335,8 @@ minha secret e: nova\_senha
 
 \>\>\>
 
-### 14.1.4. Atualizando a *secret* de um serviço
+14.4. Atualizando a *secret* de um serviço
+------------------------------------------
 
 *Secrets* foram criadas para serem imutáveis, ou seja, caso você queira
 trocar a *secret* de um serviço, você precisará criar outra *secret*. A
@@ -5371,8 +5377,8 @@ root\@linuxtips:\~\#
 
 []{#_heading=h.2fk6b3p .anchor}
 
-15. Docker Compose
-------------------
+15\. Docker Compose
+===================
 
 Bem, agora chegamos em uma das partes mais importantes do livro, o
 sensacional e completo Docker Compose!
@@ -5503,7 +5509,8 @@ algumas opções que utilizamos anteriormente:
 
 Simples como voar, não? :D
 
-### 15.1.1. O comando *docker stack*
+15.1. O comando *docker stack*
+------------------------------
 
 Agora precisamos realizar o *deploy* desse *service* através do *compose
 file* que criamos. Para isso, vamos utilizar o sensacional "docker
