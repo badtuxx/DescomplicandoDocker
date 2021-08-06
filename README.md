@@ -72,221 +72,183 @@ agradável e proveitosa.
 Sumário
 =======
 
-[**Introdução 1**](#introdução)
+- [**Introdução**](#introdução)
 
-[**1. O que é *container*? 3**](#o-que-é-container)
+- [**1. O que é *container*?**](#1-o-que-é-container)
 
-[1.1. Então vamos lá, o que é um *container*?
-3](#então-vamos-lá-o-que-é-um-container)
+	- [1.1. Então vamos lá, o que é um *container*?](#11-então-vamos-lá-o-que-é-um-container)
 
-[1.2. E quando começou que eu não vi?
-4](#e-quando-começou-que-eu-não-vi)
+	- [1.2. E quando começou que eu não vi?](#12-e-quando-começou-que-eu-não-vi)
 
-[**2. O que é o Docker? 6**](#o-que-é-o-docker)
+- [**2. O que é o Docker?**](#2-o-que-é-o-docker)
 
-[2.1. Onde entra o Docker nessa história?
-6](#onde-entra-o-docker-nessa-história)
+	- [2.1. Onde entra o Docker nessa história?](#21-onde-entra-o-docker-nessa-história)
 
-[2.2. E esse negócio de camadas? 7](#e-esse-negócio-de-camadas)
+	- [2.2. E esse negócio de camadas?](#22-e-esse-negócio-de-camadas)
 
-[2.2.1. *Copy-On-Write* (COW) e Docker 7](#copy-on-write-cow-e-docker)
+		- [2.2.1. *Copy-On-Write* (COW) e Docker](#221-copy-on-write-cow-e-docker)
 
-[2.3. Storage drivers 7](#storage-drivers)
+	- [2.3. Storage drivers](#23-storage-drivers)
 
-[2.3.1. AUFS (*Another Union File System*)
-8](#aufs-another-union-file-system)
+		- [2.3.1. AUFS (*Another Union File System*)](#231-aufs-another-union-file-system)
 
-[2.3.2. *Device Mapper* 8](#device-mapper)
+		- [2.3.2. *Device Mapper*](#232-device-mapper)
 
-[2.3.3. *Overlay* e *Overlay2* 9](#overlayfs-e-overlayfs2)
+		- [2.3.3. *Overlay* e *Overlay2*](#233-overlayfs-e-overlayfs2)
 
-[2.3.3. BTRFS 10](#btrfs)
+		- [2.3.4. BTRFS](#234-btrfs)
 
-[2.4. Docker Internals 10](#docker-internals)
+	- [2.4. Docker Internals](#24-docker-internals)
 
-[2.5. *Namespaces* 11](#namespaces)
+	- [2.5. *Namespaces*](#25-namespaces)
 
-[2.5.1. PID *namespace* 11](#pid-namespace)
+		- [2.5.1. PID *namespace*](#251-pid-namespace)
 
-[2.5.2. *Net Namespace* 11](#net-namespace)
+		- [2.5.2. *Net Namespace*](#252-net-namespace)
 
-[2.5.3. *Mnt Namespace* 13](#mnt-namespace)
+		- [2.5.3. *Mnt Namespace*](#253-mnt-namespace)
 
-[2.5.4. IPC *namespace* 13](#ipc-namespace)
+		- [2.5.4. IPC *namespace*](#254-ipc-namespace)
 
-[2.5.5. UTS *namespace* 13](#uts-namespace)
+		- [2.5.5. UTS *namespace*](#255-uts-namespace)
 
-[2.5.6. User *namespace* 13](#user-namespace)
+		- [2.5.6. User *namespace*](#256-user-namespace)
 
-[2.6. *Cgroups* 13](#cgroups)
+	- [2.6. *Cgroups*](#26-cgroups)
 
-[2.7. *Netfilter* 13](#netfilter)
+	- [2.7. *Netfilter*](#27-netfilter)
 
-[2.8. Para quem ele é bom? 14](#para-quem-ele-é-bom)
+	- [2.8. Para quem ele é bom?](#28-para-quem-ele-é-bom)
 
-[**3. Instalando o Docker 15**](#instalando-o-docker)
+- [**3. Instalando o Docker**](#3-instalando-o-docker)
 
-[3.1. Quero instalar, vamos lá? 15](#quero-instalar-vamos-lá)
+	- [3.1. Quero instalar, vamos lá?](#31-quero-instalar-vamos-lá)
 
-[3.2. Instalando no Debian/Centos/Ubuntu/Suse/Fedora
-16](#instalando-no-debiancentosubuntususefedora)
+	- [3.2. Instalando no Debian/Centos/Ubuntu/Suse/Fedora](#32-instalando-no-debiancentosubuntususefedora)
 
-[3.3. Instalando 'manualmente' no Debian
-16](#instalando-manualmente-no-debian)
+	- [3.3. Instalando 'manualmente' no Debian](#33-instalando-manualmente-no-debian)
 
-[3.3.1. Dica importante 17](#dica-importante)
+		- [3.3.1. Dica importante](#331-dica-importante)
 
-[**4. Executando e administrando *containers*** **Docker
-18**](#executando-e-administrando-containers-docker)
+- [**4. Executando e administrando *containers* Docker**](#4-executando-e-administrando-containers-docker)
 
-[4.1. Então vamos brincar com esse tal de *container*!
-18](#então-vamos-brincar-com-esse-tal-de-container)
+	- [4.1. Então vamos brincar com esse tal de *container*!](#41-então-vamos-brincar-com-esse-tal-de-container)
 
-[4.2. Legal, quero mais! 21](#legal-quero-mais)
+	- [4.2. Legal, quero mais!](#42-legal-quero-mais)
 
-[4.2.1. Modo interativo 21](#modo-interativo)
+		- [4.2.1. Modo interativo](#421-modo-interativo)
 
-[4.2.2. *Daemonizando* o *container* 21](#daemonizando-o-container)
+		- [4.2.2. *Daemonizando* o *container*](#422-daemonizando-o-container)
 
-[4.3. Entendi, agora vamos praticar um pouco?
-22](#entendi-agora-vamos-praticar-um-pouco)
+	- [4.3. Entendi, agora vamos praticar um pouco?](#43-entendi-agora-vamos-praticar-um-pouco)
 
-[4.4. Tá, agora quero sair\... 22](#tá-agora-quero-sair...)
+	- [4.4. Tá, agora quero sair\...](#44-tá-agora-quero-sair)
 
-[4.5. Posso voltar ao *container*? 23](#posso-voltar-ao-container)
+	- [4.5. Posso voltar ao *container*?](#45-posso-voltar-ao-container)
 
-[4.6. Continuando com a brincadeira\...
-23](#continuando-com-a-brincadeira...)
+	- [4.6. Continuando com a brincadeira\...](#46-continuando-com-a-brincadeira)
 
-[4.7. Subindo e matando *containers*...
-24](#subindo-e-matando-containers)
+	- [4.7. Subindo e matando *containers*...](#47-subindo-e-matando-containers)
 
-[4.8. Visualizando o consumo de recursos pelo *container*\...
-25](#visualizando-o-consumo-de-recursos-pelo-container...)
+	- [4.8. Visualizando o consumo de recursos pelo *container*\...](#48-visualizando-o-consumo-de-recursos-pelo-container)
 
-[4.9. Cansei de brincar de container, quero removê-lo!
-26](#cansei-de-brincar-de-container-quero-removê-lo)
+	- [4.9. Cansei de brincar de container, quero removê-lo!](#49-cansei-de-brincar-de-container-quero-removê-lo)
 
-[**5. Configurando CPU e memória para os meus *containers***
-**27**](#configurando-cpu-e-memória-para-os-meus-containers)
+- [**5. Configurando CPU e memória para os meus *containers***](#5-configurando-cpu-e-memória-para-os-meus-containers)
 
-[5.1. Especificando a quantidade de memória
-27](#especificando-a-quantidade-de-memória)
+	- [5.1. Especificando a quantidade de memória](#51-especificando-a-quantidade-de-memória)
 
-[5.2. Especificando a quantidade de CPU
-28](#especificando-a-quantidade-de-cpu)
+	- [5.2. Especificando a quantidade de CPU](#52-especificando-a-quantidade-de-cpu)
 
-[5.3. Eu consigo alterar CPU e memória dos meus *containers* em
-execução?
-29](#eu-consigo-alterar-cpu-e-memória-dos-meus-containers-em-execução)
+	- [5.3. Eu consigo alterar CPU e memória dos meus *containers* em execução?](#53-eu-consigo-alterar-cpu-e-memória-dos-meus-containers-em-execução)
 
-[**6. Meu primeiro e tosco *dockerfile*\...
-31**](#meu-primeiro-e-tosco-dockerfile...)
+- [**6. Meu primeiro e tosco *dockerfile*\...**](#6-meu-primeiro-e-tosco-dockerfile)
 
-[**7. Entendendo volumes 33**](#entendendo-volumes)
+- [**7. Entendendo volumes**](#7-entendendo-volumes)
 
-[7.1. Introdução a volumes no Docker
-33](#introdução-a-volumes-no-docker)
+	- [7.1. Introdução a volumes no Docker](#71-introdução-a-volumes-no-docker)
 
-[7.2. Criando volumes 36](#criando-volumes)
+	- [7.2. Criando volumes](#72-criando-volumes)
 
-[7.3. Localizando volumes 37](#localizando-volumes)
+	- [7.3. Localizando volumes](#73-localizando-volumes)
 
-[7.3. Criando e montando um *data-only container*
-37](#criando-e-montando-um-data-only-container)
+	- [7.4. Criando e montando um *data-only container*](#74-criando-e-montando-um-data-only-container)
 
-[7.4. Sempre é bom um *backup*\... 39](#sempre-é-bom-um-backup...)
+	- [7.5. Sempre é bom um *backup*\...](#75-sempre-é-bom-um-backup)
 
-[**8. Criando e gerenciando imagens
-40**](#criando-e-gerenciando-imagens)
+- [**8. Criando e gerenciando imagens**](#8-criando-e-gerenciando-imagens)
 
-[8.1. Agora eu quero criar minha imagem, posso?
-40](#agora-eu-quero-criar-minha-imagem-posso)
+	- [8.1. Agora eu quero criar minha imagem, posso?](#81-agora-eu-quero-criar-minha-imagem-posso)
 
-[8.2. Vamos começar do começo então, *dockerfile*!
-40](#vamos-começar-do-começo-então-dockerfile)
+	- [8.2. Vamos começar do começo então, *dockerfile*!](#82-vamos-começar-do-começo-então-dockerfile)
 
-[8.3. 'Bora aprender um pouco mais sobre *dockerfile*?
-44](#vamos-aprender-um-pouco-mais-sobre-dockerfile)
+	- [8.3. 'Bora aprender um pouco mais sobre *dockerfile*?](#83-vamos-aprender-um-pouco-mais-sobre-dockerfile)
 
-[8.4. *Multi-stage* 45](#multi-stage)
+	- [8.4. *Multi-stage*](#84-multi-stage)
 
-[8.5. Vamos customizar uma imagem base agora?
-48](#vamos-customizar-uma-imagem-base-agora)
+	- [8.5. Vamos customizar uma imagem base agora?](#85-vamos-customizar-uma-imagem-base-agora)
 
-[**9. Compartilhando as imagens 51**](#compartilhando-as-imagens)
+- [**9. Compartilhando as imagens**](#9-compartilhando-as-imagens)
 
-[9.1. O que é o *Docker Hub*? 51](#o-que-é-o-docker-hub)
+	- [9.1. O que é o *Docker Hub*?](#91-o-que-é-o-docker-hub)
 
-[9.2. Vamos criar uma conta? 54](#vamos-criar-uma-conta)
+	- [9.2. Vamos criar uma conta?](#92-vamos-criar-uma-conta)
 
-[9.3. Agora vamos compartilhar essas imagens na *interwebs*!
-55](#agora-vamos-compartilhar-essas-imagens-na-interwebs)
+	- [9.3. Agora vamos compartilhar essas imagens na *interwebs*!](#93-agora-vamos-compartilhar-essas-imagens-na-interwebs)
 
-[9.4. Não confio na internet; posso criar o meu *registry* local?
-57](#não-confio-na-internet-posso-criar-o-meu-registry-local)
+	- [9.4. Não confio na internet; posso criar o meu *registry* local?](#94-não-confio-na-internet-posso-criar-o-meu-registry-local)
 
-[**10. Gerenciando a rede dos *containers***
-**59**](#gerenciando-a-rede-dos-containers)
+- [**10. Gerenciando a rede dos *containers***](#10-gerenciando-a-rede-dos-containers)
 
-[10.1. Consigo fazer com que a porta do *container* responda na porta do
-*host*?
-60](#consigo-fazer-com-que-a-porta-do-container-responda-na-porta-do-host)
+	- [10.1. Consigo fazer com que a porta do *container* responda na porta do *host*?](#101-consigo-fazer-com-que-a-porta-do-container-responda-na-porta-do-host)
 
-[10.2. E como ele faz isso? Mágica? 62](#e-como-ele-faz-isso-mágica)
+	- [10.2. E como ele faz isso? Mágica?](#102-e-como-ele-faz-isso-mágica)
 
-[**11. Controlando o *daemon*** **do Docker
-64**](#controlando-o-daemon-do-docker)
+- [**11. Controlando o *daemon* do Docker**](#11-controlando-o-daemon-do-docker)
 
-[11.1. O Docker sempre utiliza 172.16.X.X ou posso configurar outro
-intervalo de IP?
-64](#o-docker-sempre-utiliza-172.16.x.x-ou-posso-configurar-outro-intervalo-de-ip)
+	- [11.1. O Docker sempre utiliza 172.16.X.X ou posso configurar outro intervalo de IP?](#111-o-docker-sempre-utiliza-17216xx-ou-posso-configurar-outro-intervalo-de-ip)
 
-[11.2. Opções de *sockets* 65](#opções-de-sockets)
+	- [11.2. Opções de *sockets*](#112-opções-de-sockets)
 
-[11.2.1. *Unix Domain Socket* 65](#unix-domain-socket)
+		- [11.2.1. *Unix Domain Socket*](#1121-unix-domain-socket)
 
-[11.2.2. TCP 66](#tcp)
+		- [11.2.2. TCP](#1122-tcp)
 
-[11.3. Opções de *storage* 66](#opções-de-storage)
+	- [11.3. Opções de *storage*](#113-opções-de-storage)
 
-[11.4. Opções de rede 67](#opções-de-rede)
+	- [11.4. Opções de rede](#114-opções-de-rede)
 
-[11.5. Opções diversas 68](#opções-diversas)
+	- [11.5. Opções diversas](#115-opções-diversas)
 
-[**12. Utilizando Docker Machine, Docker Swarm, Docker Secrets e Docker
-Compose** **69**](#docker-machine)
+- [**12. Docker Machine**](#12-docker-machine)
 
-[12.1. Ouvi dizer que minha vida ficaria melhor com o Docker Machine!
-69](#ouvi-dizer-que-minha-vida-ficaria-melhor-com-o-docker-machine)
+	- [12.1. Ouvi dizer que minha vida ficaria melhor com o Docker Machine!](#121-ouvi-dizer-que-minha-vida-ficaria-melhor-com-o-docker-machine)
 
-[12.1.1. Vamos instalar? 70](#vamos-instalar)
+		- [12.1.1. Vamos instalar?](#1211-vamos-instalar)
 
-[12.1.2. Vamos iniciar nosso primeiro projeto?
-71](#vamos-iniciar-nosso-primeiro-projeto)
+		- [12.1.2. Vamos iniciar nosso primeiro projeto?](#1212-vamos-iniciar-nosso-primeiro-projeto)
 
-[12.2. Agora vamos brincar com o Docker Swarm? 75](#_heading=h.2nusc19)
+- [**13. Docker Swarm**](#13-docker-swarm)
 
-[12.2.1. Criando o nosso *cluster*! 76](#criando-o-nosso-cluster)
+	- [13.1. Criando o nosso *cluster*!](#131-criando-o-nosso-cluster)
 
-[12.2.2. O sensacional services! 81](#o-sensacional-services)
+	- [13.2. O sensacional services!](#132-o-sensacional-services)
 
-[12.3. Docker Secrets 86](#docker-secrets)
+- [**14. Docker Secrets**](#14-docker-secrets)
 
-[12.3.1. O comando *docker secret* 86](#o-comando-docker-secret)
+	- [14.1. O comando *docker secret*](#141-o-comando-docker-secret)
 
-[12.3.2. Tudo bem, mas como uso isso? 88](#tudo-bem-mas-como-uso-isso)
+	- [14.2. Tudo bem, mas como uso isso?](#142-tudo-bem-mas-como-uso-isso)
 
-[12.3.3. Acessando a *secret* 89](#acessando-a-secret)
+	- [14.3. Acessando a *secret*](#143-acessando-a-secret)
 
-[12.3.4. Atualizando a *secret* de um serviço
-89](#atualizando-a-secret-de-um-serviço)
+	- [14.4. Atualizando a *secret* de um serviço](#144-atualizando-a-secret-de-um-serviço)
 
-[12.4. Docker Compose 90](#_heading=h.2fk6b3p)
+- [**15. Docker Compose**](#15-docker-compose)
 
-[12.4.1. O comando docker stack 92](#o-comando-docker-stack)
+	- [15.1. O comando docker stack](#151-o-comando-docker-stack)
 
-[12.5. E já acabou? :( 105](#e-já-acabou)
+	- [15.2. E já acabou? :(](#152-e-já-acabou-)
 
 Introdução
 ==========
