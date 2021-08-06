@@ -1,7 +1,5 @@
-![](.//media/image2.png)
-
-Prefácio da primeira edição
-===========================
+Prefácio
+========
 
 If you are a developer, you probably have heard about Docker by now:
 Docker is the ideal platform to run applications in containers. Fine,
@@ -391,8 +389,7 @@ aplicações sendo executadas nativamente, máquinas virtuais e por fim em
 operacional quando estamos utilizando *containers*, diferentemente das
 máquinas virtuais.
 
-![](.//media/image3.png){width="4.7207294400699915in"
-height="2.111008311461067in"}
+![DIFERENCAS ENTRE MÁQUINA VIRTUAL E CONTAINERS](.//media/image3.png)
 
 Outro ponto interessante na utilização de *containers* é a
 portabilidade. Não importa em qual ambiente você criou o seu
@@ -656,8 +653,7 @@ O Docker utiliza algumas *features* básicas do *kernel* Linux para seu
 funcionamento. A seguir temos um diagrama no qual é possível visualizar
 os módulos e *features* do *kernel* de que o Docker faz uso:
 
-![](.//media/image5.png){width="3.0265463692038495in"
-height="2.97375in"}
+![MODULOS E FEATURES DO KERNEL](.//media/image5.png)
 
 2.5. *Namespaces*
 -----------------
@@ -3186,8 +3182,7 @@ Acessando a URL
 você conseguirá visualizar o repositório que acabou de criar, conforme a
 imagem a seguir:
 
-![](.//media/image4.png){width="4.715912073490814in"
-height="2.5730293088363956in"}
+![REPOSITORIO NO DOCKER HUB](.//media/image4.png)
 
 Por padrão, ele cria o repositório como público. ;)
 
@@ -6585,4 +6580,3 @@ Junte-se a nós no Discord para que possa acompanhar e tirar dúvidas que
 possam ter surgido durante seus estudos!
 
 \#VAIIII
-
