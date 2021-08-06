@@ -649,7 +649,7 @@ root@linuxtips:~# ip addr
            valid_lft forever preferred_lft forever
        inet6 ::1/128 scope host
            valid_lft forever preferred_lft forever
-2: **eth1**: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+2: eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
         link/ether 00:1c:42:c7:bd:d8 brd ff:ff:ff:ff:ff:ff
         inet 10.211.55.35/24 brd 10.211.55.255 scope global eth1
             valid_lft forever preferred_lft forever
@@ -657,13 +657,13 @@ root@linuxtips:~# ip addr
             valid_lft 2591419sec preferred_lft 604219sec
         inet6 fe80::21c:42ff:fec7:bdd8/64 scope link
             valid_lft forever preferred_lft forever
-3: **docker0**: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
+3: docker0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
         link/ether 02:42:c7:c1:37:14 brd ff:ff:ff:ff:ff:ff
         inet 172.17.0.1/16 scope global docker0
             valid_lft forever preferred_lft forever
         inet6 fe80::42:c7ff:fec1:3714/64 scope link
             valid_lft forever preferred_lft forever
-5: **vetha2e1681**: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master docker0 state UP group default
+5: vetha2e1681: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master docker0 state UP group default
         link/ether 52:99:bc:ab:62:5e brd ff:ff:ff:ff:ff:ff
         inet6 fe80::5099:bcff:feab:625e/64 scope link
              valid_lft forever preferred_lft forever
@@ -675,13 +675,13 @@ Interfaces do *container*:
 ```bash
 root@6ec75484a5df:/# ip addr
 
-1: **lo**: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default
         link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
         inet 127.0.0.1/8 scope host lo
             valid_lft forever preferred_lft forever
         inet6 ::1/128 scope host
             valid_lft forever preferred_lft forever
-6: **eth0**: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
+6: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
         link/ether 02:42:ac:11:00:03 brd ff:ff:ff:ff:ff:ff
         inet 172.17.0.3/16 scope global eth0
             valid_lft forever preferred_lft forever
@@ -800,18 +800,14 @@ simples. Precisamos somente observar alguns pontos:
 
 -   O Docker não suporta processadores 32 *bits*.
 
--   O Docker é suportado (*stable*) somente na versão do *kernel* 3.8 ou
-    > superior.
+-   O Docker é suportado (*stable*) somente na versão do *kernel* 3.8 ou superior.
 
--   O *kernel* deve ter suporte aos sistemas de arquivos utilizados pelo
-    > Docker, como o AUFS, *Device Mapper*, OverlayFS, etc.
+-   O *kernel* deve ter suporte aos sistemas de arquivos utilizados pelo Docker, como o AUFS, *Device Mapper*, OverlayFS, etc.
 
--   O *kernel* deverá ter suporte a *cgroups* e *namespaces*, o que
-    > normalmente já vem por *default* habilitado na maioria das
-    > *distros*.
+-   O *kernel* deverá ter suporte a *cgroups* e *namespaces*, o que normalmente já vem por *default* habilitado na maioria das *distros*.
 
 Você também pode acessar a URL:
-\<[[https://docs.docker.com/install/]{.underline}](https://docs.docker.com/install/)\>.
+[https://docs.docker.com/install/](https://docs.docker.com/install/).
 Lá é possível aprender a instalar o Docker em diversas distribuições
 Linux, nos principais *clouds* e também no MacOS e no Windows.
 
@@ -822,7 +818,7 @@ Primeiro, vamos verificar a versão do *kernel* para saber se ele é
 compatível com o Docker:
 
 ```bash
-#  uname -r
+# uname -r
 ```
 
 ## 3.2. Instalando no Debian/Centos/Ubuntu/Suse/Fedora
@@ -837,7 +833,7 @@ estamos utilizando, para então adicionar o repositório oficial do Docker
 em nosso gerenciador de pacotes, o *rpm* ou *apt*, por exemplo.
 
 ```bash
-#  curl -fsSL https://get.docker.com/ \| sh
+# curl -fsSL https://get.docker.com/ | sh
 ```
 
 Assim ele sempre buscará a versão mais recente do Docker. :)
@@ -858,7 +854,7 @@ Debian. No nosso caso estamos utilizando a versão Debian 8, também
 conhecida como Jessie.
 
 ```bash
-#  vim /etc/apt/sources.list.d/docker.list # Debian Jessie
+# vim /etc/apt/sources.list.d/docker.list # Debian Jessie
 
 deb https://apt.dockerproject.org/repo debian-jessie main
 ```
@@ -867,14 +863,14 @@ Após adicionar a linha anterior, é necessário atualizar a lista de
 repositórios executando:
 
 ```bash
-#  apt-get update
+# apt-get update
 ```
 
 Após finalizar a atualização da lista de repositórios disponíveis, já
 podemos fazer a instalação do Docker. O nome do pacote é "docker-ce". :)
 
 ```bash
-#  apt-get install docker-ce
+# apt-get install docker-ce
 ```
 
 Vamos verificar se o Docker está em execução. Digite na linha de comando
@@ -887,7 +883,7 @@ o seguinte:
 Ou:
 
 ```bash
-#  service docker status
+# service docker status
 
 docker container stop/waiting
 ```
@@ -897,10 +893,10 @@ notar, o *daemon* do Docker não está em execução, portanto vamos
 iniciá-lo.
 
 ```bash
-#  service docker start
+# service docker start
 docker container start/running, process 4303
 
-#  service docker status
+# service docker status
 docker container start/running, process 4303
 ```
 
@@ -920,9 +916,9 @@ Docker, crie um grupo chamado *docker* e adicione o seu usuário a ele.
 Pare o serviço e inicie-o novamente.
 
 Infelizmente, nem tudo são flores. Esse procedimento faz com que o
-usuário tenha **os mesmos privilégios do usuário *root ***em operações
+usuário tenha **os mesmos privilégios do usuário *root*** em operações
 relacionadas ao Docker. Mais informações no link:
-\<[[https://docs.docker.com/engine/security/]{.underline}](https://docs.docker.com/engine/security/)\>.
+[https://docs.docker.com/engine/security/](https://docs.docker.com/engine/security/).
 
 Para criar um grupo no Linux e adicionar um usuário não tem segredo,
 basta rodar:
@@ -995,18 +991,13 @@ Apesar de ser uma tarefa simples, quando você executou o comando "docker
 container run hello-world" foram necessárias quatro etapas para sua
 conclusão, vamos ver quais:
 
-1.  O comando "docker" se comunica com o *daemon* do Docker informando a
-    > ação desejada.
+1.  O comando "docker" se comunica com o *daemon* do Docker informando a ação desejada.
 
-2.  O *daemon* do Docker verifica se a imagem "hello-world" existe em
-    > seu *host*; caso ainda não, o Docker faz o *download* da imagem
-    > diretamente do Docker Hub.
+2.  O *daemon* do Docker verifica se a imagem "hello-world" existe em seu *host*; caso ainda não, o Docker faz o *download* da imagem diretamente do Docker Hub.
 
-3.  O *daemon* do Docker cria um novo *container* utilizando a imagem
-    > que você acabou de baixar.
+3.  O *daemon* do Docker cria um novo *container* utilizando a imagem que você acabou de baixar.
 
-4.  O *daemon* do Docker envia a saída para o comando "docker", que
-    > imprime a mensagem em seu terminal.
+4.  O *daemon* do Docker envia a saída para o comando "docker", que imprime a mensagem em seu terminal.
 
 Viu? É simples como voar! :)
 
@@ -1057,8 +1048,7 @@ que elas nos dizem:
 
 -   **CONTAINER ID** -- Identificação única do *container.*
 
--   **IMAGE** -- A imagem que foi utilizada para a execução do
-    > *container.*
+-   **IMAGE** -- A imagem que foi utilizada para a execução do *container.*
 
 -   **COMMAND** -- O comando em execução.
 
@@ -1066,8 +1056,7 @@ que elas nos dizem:
 
 -   **STATUS** -- O seu status atual.
 
--   **PORTS** -- A porta do *container* e do *host* que esse *container*
-    > utiliza.
+-   **PORTS** -- A porta do *container* e do *host* que esse *container* utiliza.
 
 -   **NAMES** -- O nome do *container.*
 
@@ -1096,11 +1085,9 @@ falando dos parâmetros "-t", "-i" e "-d".
 
 -   **-t** -- Disponibiliza um TTY (console) para o nosso *container*.
 
--   **-i** -- Mantém o STDIN aberto mesmo que você não esteja conectado
-    > no *container.*
+-   **-i** -- Mantém o STDIN aberto mesmo que você não esteja conectado no *container.*
 
--   **-d** -- Faz com que o *container* rode como um *daemon*, ou seja,
-    > sem a interatividade que os outros dois parâmetros nos fornecem.
+-   **-d** -- Faz com que o *container* rode como um *daemon*, ou seja, sem a interatividade que os outros dois parâmetros nos fornecem.
 
 Com isso temos dois modos de execução de nossos *containers*: modo
 interativo ou *daemonizando* o *container*.
@@ -1276,13 +1263,13 @@ Caso eu queira parar um *container* em execução, basta utilizar o
 parâmetro "stop" seguido do "CONTAINER ID":
 
 ```bash
-#  docker container stop [CONTAINER ID]
+# docker container stop [CONTAINER ID]
 ```
 
 Verificando se o *container* continua em execução:
 
 ```bash
-#  docker container ls
+# docker container ls
 ```
 
 Lembrando que para visualizar os *containers* que não estão em execução
@@ -1293,7 +1280,7 @@ necessário utilizar o parâmetro "start" do comando "docker container"
 seguido do "CONTAINER ID":
 
 ```bash
-#  docker container start [CONTAINER ID]
+# docker container start [CONTAINER ID]
 ```
 
 Da mesma forma como podemos utilizar o *stop/start* para
@@ -1301,13 +1288,13 @@ desligar/iniciar um *container*, podemos também fazer o uso do
 "restart", como notamos a seguir:
 
 ```bash
-#  docker container restart [CONTAINER ID]
+# docker container restart [CONTAINER ID]
 ```
 
 Para pausar um *container*, execute:
 
 ```bash
-#  docker container pause [CONTAINER ID]
+# docker container pause [CONTAINER ID]
 ```
 
 E verifique o status do *container*:
@@ -1322,7 +1309,7 @@ root@linuxtips:~#
 
 Para "despausar" o *container*:
 ```bash
-#  docker container unpause [CONTAINER ID]
+# docker container unpause [CONTAINER ID]
 ```
 ## 4.8. Visualizando o consumo de recursos pelo *container*\...
 
@@ -1332,7 +1319,7 @@ parâmetro "stats" para verificar o consumo de CPU, memória e rede pelo
 *container* em tempo real.
 
 ```bash
-#  docker container stats [CONTAINER ID]
+# docker container stats [CONTAINER ID]
 
 CONTAINER       CPU%     MEM USAGE/LIMIT     MEM %    NET I/O     BLOCK I/O   PIDS
 b34f4987bdce    0.00%    503.8kB/2.094GB     0.02%    648B/648B   0B/0B       2
@@ -1344,7 +1331,7 @@ Para visualizar todos os *containers* de uma só vez, basta não
 especificar o \[CONTAINER ID\],conforme segue:
 
 ```bash
-#  docker container stats
+# docker container stats
 ```
 
 Agora, se você quer visualizar quais processos estão em execução em
@@ -1353,7 +1340,7 @@ consegue informações sobre os processos em execução, como, por exemplo,
 UID e o PID do processo.
 
 ```bash
-#  docker container top [CONTAINER ID]
+# docker container top [CONTAINER ID]
 UID  PID   PPID C STIME  TTY   TIME      COMMAND
 root 10656 4303 0 20:24  pts/3 00:00:00  /bin/bash
 ```
@@ -1362,7 +1349,7 @@ Para verificar os *logs* de um determinado *container*, utilize o
 parâmetro "logs", simples assim. :D
 
 ```bash
-#  docker container logs [CONTAINER ID]
+# docker container logs [CONTAINER ID]
 ```
 
 Lembre-se: ele exibe o STDOUT, a saída padrão. Ou seja, normalmente você
@@ -1373,7 +1360,7 @@ Para exibir os *logs* de forma dinâmica, ou seja, conforme aparecem
 novas mensagens ele atualiza a saída no terminal utilizamos a opção "-f"
 
 ```bash
-#  docker container logs -f [CONTAINER ID]
+# docker container logs -f [CONTAINER ID]
 ```
 
 . Com isso seu terminal ficará travado, apenas escutando o *log*, e
@@ -1616,9 +1603,9 @@ Primeira coisa: vamos criar um diretório onde deixaremos o nosso arquivo
 Depois basta criar o *dockerfile* conforme exemplo a seguir:
 
 ```bash
-#  mkdir /root/primeiro_dockerfile
-#  cd /root/primeiro_dockerfile
-#  vim Dockerfile
+# mkdir /root/primeiro_dockerfile
+# cd /root/primeiro_dockerfile
+# vim Dockerfile
 ```
 
 Vamos adicionar as instruções que queremos para essa imagem de
@@ -1684,16 +1671,13 @@ valem a pena ser mencionadas:
 
 -   O volume é inicializado quando o *container* é criado.
 
--   Caso ocorra de já haver dados no diretório em que você está montando
-    > como volume, ou seja, se o diretório já existe e está "populado"
-    > na imagem base, aqueles dados serão copiados para o volume.
+-   Caso ocorra de já haver dados no diretório em que você está montando como volume, ou seja, se o diretório já existe e está "populado" na imagem base, aqueles dados serão copiados para o volume.
 
 -   Um volume pode ser reusado e compartilhado entre *containers*.
 
 -   Alterações em um volume são feitas diretamente no volume.
 
--   Alterações em um volume não irão com a imagem quando você fizer uma
-    > cópia ou *snapshot* de um *container*.
+-   Alterações em um volume não irão com a imagem quando você fizer uma cópia ou *snapshot* de um *container*.
 
 -   Volumes continuam a existir mesmo se você deletar o *container*.
 
@@ -1746,7 +1730,7 @@ para guardar o nosso primeiro *dockerfile*, e montá-lo no *container* em
 um volume chamado "/volume" da seguinte forma:
 
 ```bash
-#  docker container run -ti --mount type=bind,src=/root/primeiro_container,dst=/volume ubuntu
+# docker container run -ti --mount type=bind,src=/root/primeiro_container,dst=/volume ubuntu
 
 root@3d372a410ea2:/# df -h
 Filesystem                   Size Used Avail  Use%  Mounted on
@@ -1765,7 +1749,7 @@ Com isso, estamos montando o diretório "/root/primeiro\_dockerfile" do
 No *container*:
 
 ```bash
-root@3d372a410ea2:/# ls /volume/**
+root@3d372a410ea2:/# ls /volume/
 Dockerfile
 
 root@3d372a410ea2:/#
@@ -1785,7 +1769,7 @@ possível. Basta passar o parâmetro "ro" após o destino onde será montado
 o volume:
 
 ```bash
-#  docker container run -ti --mount type=bind,src=/root/primeiro_container,dst=/volume,ro ubuntu
+# docker container run -ti --mount type=bind,src=/root/primeiro_container,dst=/volume,ro ubuntu
 root@8d7863b1d9af:/# df -h
 
 Filesystem                   Size   Used  Avail  Use%  Mounted on
@@ -1809,7 +1793,7 @@ Assim como é possível montar um diretório como volume, também é possível
 montar um arquivo:
 
 ```bash
-#  docker container run -ti --mount type=bind,src=/root/primeiro_container/Dockerfile,dst=/Dockerfile ubuntu
+# docker container run -ti --mount type=bind,src=/root/primeiro_container/Dockerfile,dst=/Dockerfile ubuntu
 
 root@df0e3e58280a:/# df -h
 
@@ -1848,47 +1832,44 @@ indicado no *container*. Vamos aos exemplos! :D
 do comando:
 
 ```bash
-#  docker volume create giropops
+# docker volume create giropops
 ```
 
 É possível removê-lo através do comando:
 
 ```bash
-#  docker volume rm giropops
+# docker volume rm giropops
 ```
 
 Para verificar detalhes sobre esse volume:
 
 ```bash
-#  docker volume inspect giropops
+# docker volume inspect giropops
 ```
 
 Para remover os volumes que não estão sendo utilizados (use com extrema
 moderação! :D):
 
 ```bash
-#  docker volume prune
+# docker volume prune
 ```
 
 Para que você possa montar o volume criado em algum
 *container*/*service*, basta executar o seguinte comando:
 
 ```bash
-#  docker container run -d --mount type=volume,source=giropops,destination=/var/opa nginx
+# docker container run -d --mount type=volume,source=giropops,destination=/var/opa nginx
 ```
 
 Onde:
 
 -   **\--mount** -- Comando utilizado para montar volumes.
 
--   **type=volume** -- Indica que o tipo é "volume". Ainda existe o tipo
-    > "bind", onde, em vez de indicar um volume, você indicaria um
-    > diretório como *source*.
+-   **type=volume** -- Indica que o tipo é "volume". Ainda existe o tipo "bind", onde, em vez de indicar um volume, você indicaria um diretório como *source*.
 
 -   **source=giropops** -- Qual o volume que pretendo montar.
 
--   **destination=/var/opa** -- Onde no *container* montarei esse
-    > volume.
+-   **destination=/var/opa** -- Onde no *container* montarei esse volume.
 
 Simples como voar, não?
 
@@ -1939,7 +1920,7 @@ Para que possamos criar um *container* especificando um nome para ele,
 utilizamos o parâmetro "\--name", conforme veremos no exemplo a seguir:
 
 ```bash
-#  docker container create -v /data --name dbdados centos
+# docker container create -v /data --name dbdados centos
 ```
 
 Com isso, apenas criamos o *container* e especificamos um volume para
@@ -1975,22 +1956,19 @@ volume "/data" do *container* "dbdados" para guardar os dados.
 Para que possamos fazer o exemplo, precisamos conhecer mais dois
 parâmetros superimportantes:
 
--   **\--volumes-from** -- É utilizado quando queremos montar um volume
-    > disponibilizado por outro *container*.
+-   **\--volumes-from** -- É utilizado quando queremos montar um volume disponibilizado por outro *container*.
 
--   **-e** -- É utilizado para informar variáveis de ambiente para o
-    > *container*. No exemplo, estamos passando as variáveis de ambiente
-    > do PostgreSQL.
+-   **-e** -- É utilizado para informar variáveis de ambiente para o *container*. No exemplo, estamos passando as variáveis de ambiente do PostgreSQL.
 
 Pronto, agora estamos preparados! Vamos criar os *containers* com o
 PostgreSQL:
 
 ```bash
-#  docker run -d -p 5432:5432 --name pgsql1 --volumes-from dbdados \
+# docker run -d -p 5432:5432 --name pgsql1 --volumes-from dbdados \
     -e POSTGRESQL_USER=docker -e POSTGRESQL_PASS=docker \
     -e POSTGRESQL_DB=docker kamui/postgresql
 
-#  docker run -d -p 5433:5432 --name pgsql2 --volumes-from dbdados \
+# docker run -d -p 5433:5432 --name pgsql2 --volumes-from dbdados \
    -e POSTGRESQL_USER=docker -e POSTGRESQL_PASS=docker \
    -e POSTGRESQL_DB=docker kamui/postgresql
 ```
@@ -2080,7 +2058,7 @@ um *dockerfile*. Você verá o quanto é simples a criação de um
 Para começar, vamos criar um diretório chamado "/root/Dockerfiles".
 
 ```bash
-#  mkdir /root/Dockerfiles
+# mkdir /root/Dockerfiles
 ```
 
 Agora começaremos a criação do nosso *dockerfile*, nosso mapa de criação
@@ -2089,16 +2067,16 @@ diretório chamado "apache", onde guardaremos esse nosso primeiro
 exemplo:
 
 ```bash
-#  cd /root/Dockerfiles/
-#  mkdir apache
+# cd /root/Dockerfiles/
+# mkdir apache
 ```
 
 Por enquanto, vamos apenas criar um arquivo chamado "Dockerfile" e
 adicionar o conteúdo conforme exemplo a seguir:
 
 ```bash
-#  cd apache
-#  vim Dockerfile
+# cd apache
+# vim Dockerfile
 ```
 
 ```Dockerfile
@@ -2129,13 +2107,11 @@ exemplo, vamos entender cada seção utilizada nesse nosso primeiro
 
 -   **FROM** -- Indica a imagem a servir como base.
 
--   **RUN** -- Lista de comandos que deseja executar na criação da
-    > imagem.
+-   **RUN** -- Lista de comandos que deseja executar na criação da imagem.
 
 -   **ENV** -- Define variáveis de ambiente.
 
--   **LABEL** -- Adiciona *metadata* à imagem, como descrição, versão,
-    > etc.
+-   **LABEL** -- Adiciona *metadata* à imagem, como descrição, versão, etc.
 
 -   **VOLUME** -- Define um volume a ser montado no *container.*
 
@@ -2143,7 +2119,7 @@ Após a criação do arquivo, vamos *buildar* (construir a nossa imagem) da
 seguinte forma:
 
 ```bash
-#  docker build .
+# docker build .
 ```
 
 Lembre-se: você deverá estar no diretório onde está o seu *dockerfile*.
@@ -2175,7 +2151,7 @@ Vamos executar novamente o *build*, porém passando o parâmetro '-t',
 conforme o exemplo a seguir:
 
 ```bash
-#  docker build -t linuxtips/apache:1.0 .
+# docker build -t linuxtips/apache:1.0 .
 ```
 
 Agora vamos ver se realmente a imagem foi criada, adicionando um nome e
@@ -2192,7 +2168,7 @@ Maravilha! Funcionou conforme esperávamos!
 Vamos executar um *container* utilizando nossa imagem como base:
 
 ```bash
-#  docker container run -ti linuxtips/apache:1.0
+# docker container run -ti linuxtips/apache:1.0
 ```
 
 Agora já estamos no *container*. Vamos verificar se o Apache2 está em
@@ -2239,7 +2215,7 @@ No código anterior é possível observar o IP do *container* na saída do
 No *host*, digite:
 
 ```bash
-#  curl <IP DO CONTAINER>
+# curl <IP DO CONTAINER>
 ```
 
 O "curl" retornou a página de boas-vindas do Apache2, ou seja, tudo está
@@ -2255,7 +2231,7 @@ aperfeiçoá-lo e deixá-lo como deve estar! :D
 A primeira coisa é deixar o nosso *dockerfile* como segue:
 
 ```bash
-#  vim Dockerfile
+# vim Dockerfile
 ```
 
 ```Dockerfile
@@ -2297,44 +2273,31 @@ opções possíveis de serem adicionadas em um *dockerfile*!
 Vamos agora aprender um pouco mais sobre as opções que podemos utilizar
 quando estamos criando um *dockerfile*:
 
--   **ADD** -- Copia novos arquivos, diretórios, arquivos TAR ou
-    > arquivos remotos e os adiciona ao *filesystem* do *container*.
+-   **ADD** -- Copia novos arquivos, diretórios, arquivos TAR ou arquivos remotos e os adiciona ao *filesystem* do *container*.
 
--   **CMD** -- Executa um comando. Diferentemente do RUN, que executa o
-    > comando no momento em que está "buildando" a imagem, o CMD irá
-    > fazê-lo somente quando o container é iniciado.
+-   **CMD** -- Executa um comando. Diferentemente do RUN, que executa o comando no momento em que está "buildando" a imagem, o CMD irá fazê-lo somente quando o container é iniciado.
 
--   **LABEL** -- Adiciona metadados à imagem, como versão, descrição e
-    > fabricante.
+-   **LABEL** -- Adiciona metadados à imagem, como versão, descrição e fabricante.
 
--   **COPY** -- Copia novos arquivos e diretórios e os adiciona ao
-    > *filesystem* do *container*.
+-   **COPY** -- Copia novos arquivos e diretórios e os adiciona ao *filesystem* do *container*.
 
--   **ENTRYPOINT** -- Permite que você configure um *container* para
-    > rodar um executável. Quando esse executável for finalizado, o
-    > *container* também será.
+-   **ENTRYPOINT** -- Permite que você configure um *container* para rodar um executável. Quando esse executável for finalizado, o *container* também será.
 
 -   **ENV** -- Informa variáveis de ambiente ao *container*.
 
 -   **EXPOSE** -- Informa qual porta o *container* estará ouvindo.
 
--   **FROM** -- Indica qual imagem será utilizada como base. Ela precisa
-    > ser a primeira linha do *dockerfile*.
+-   **FROM** -- Indica qual imagem será utilizada como base. Ela precisa ser a primeira linha do *dockerfile*.
 
 -   **MAINTAINER** -- Autor da imagem.
 
--   **RUN** -- Executa qualquer comando em uma nova camada no topo da
-    > imagem e "commita" as alterações. Essas alterações você poderá
-    > utilizar nas próximas instruções de seu *dockerfile*.
+-   **RUN** -- Executa qualquer comando em uma nova camada no topo da imagem e "commita" as alterações. Essas alterações você poderá utilizar nas próximas instruções de seu *dockerfile*.
 
--   **USER** -- Determina qual usuário será utilizado na imagem. Por
-    > *default* é o *root*.
+-   **USER** -- Determina qual usuário será utilizado na imagem. Por *default* é o *root*.
 
--   **VOLUME** -- Permite a criação de um ponto de montagem no
-    > *container*.
+-   **VOLUME** -- Permite a criação de um ponto de montagem no *container*.
 
--   **WORKDIR** -- Responsável por mudar do diretório "/" (raiz) para o
-    > especificado nele.
+-   **WORKDIR** -- Responsável por mudar do diretório "/" (raiz) para o especificado nele.
 
 Um detalhe superimportante de mencionar é que quando estamos trabalhando
 com o ENTRYPOINT e o CMD dentro do mesmo *dockerfile*, o CMD somente
@@ -2356,7 +2319,7 @@ Onde:
 No *shell*, por exemplo, a execução ficaria assim:
 
 ```bash
-#  /usr/sbin/apachectl -D FOREGROUND
+# /usr/sbin/apachectl -D FOREGROUND
 ```
 
 Ou seja, assim você está iniciando o Apache passando a instrução para
@@ -2364,7 +2327,7 @@ que ele seja iniciado em primeiro plano, como deve ser. :D
 
 Para maiores detalhes sobre como criar imagens, veja essa apresentação
 criada pelo Jeferson:
-\<[[https://www.slideshare.net/jfnredes/images-deep-dive]{.underline}](https://www.slideshare.net/jfnredes/images-deep-dive)\>.
+[https://www.slideshare.net/jfnredes/images-deep-dive](https://www.slideshare.net/jfnredes/images-deep-dive).
 
 ## 8.4. *Multi-stage*
 
@@ -2388,7 +2351,7 @@ Para isso, preparei uma *app* escrita em Golang superavançada para o
 nosso teste:
 
 ```bash
-#  vim goapp.go
+# vim goapp.go
 ```
 
 ```golang
@@ -2409,7 +2372,7 @@ Bem, agora vamos criar um *dockerfile* para criar a nossa imagem e assim
 executar a nossa *app*.
 
 ```bash
-#  vim Dockerfile
+# vim Dockerfile
 ```
 
 ```Dockerfile
@@ -2427,20 +2390,20 @@ ENTRYPOINT ./goapp
 Pronto! Agora vamos realizar o *build*.
 
 ```bash
-#  docker build -t goapp:1.0 .
+# docker build -t goapp:1.0 .
 ```
 
 Listando a nossa imagem:
 
 ```bash
-#  docker image ls | grep goapp
+# docker image ls | grep goapp
 goapp    1.0    50451808b384    11 seconds ago      781MB
 ```
 
 Agora vamos executá-la e ver a nossa fantástica *app* em execução:
 
 ```bash
-#  docker container run -ti goapp:1.0
+# docker container run -ti goapp:1.0
 GIROPOPS STRIGUS GIRUS -- LINUXTIPS
 ```
 
@@ -2484,56 +2447,42 @@ seções. Cada entrada FROM define o início de um bloco, uma etapa.
 
 Então, em nosso primeiro bloco temos:
 
--   **FROM golang AS buildando** -- Estamos utilizando a imagem do
-    > Golang para criação da imagem de *container*, e aqui estamos
-    > apelidando esse bloco como "buildando".
+-   **FROM golang AS buildando** -- Estamos utilizando a imagem do Golang para criação da imagem de *container*, e aqui estamos apelidando esse bloco como "buildando".
 
--   **ADD . /src** -- Adicionando o código de nossa *app* dentro do
-    > *container* no diretório "/src".
+-   **ADD . /src** -- Adicionando o código de nossa *app* dentro do *container* no diretório "/src".
 
--   **WORKDIR /src** -- Definindo que o diretório de trabalho é o
-    > "/src", ou seja, quando o *container* iniciar, estaremos nesse
-    > diretório.
+-   **WORKDIR /src** -- Definindo que o diretório de trabalho é o "/src", ou seja, quando o *container* iniciar, estaremos nesse diretório.
 
--   **RUN go build -o goapp** -- Vamos executar o *build* de nossa *app*
-    > Golang.
+-   **RUN go build -o goapp** -- Vamos executar o *build* de nossa *app* Golang.
 
 Já no segundo bloco temos o seguinte:
 
--   **FROM alpine:3.1** -- Iniciando o segundo bloco e utilizando a
-    > imagem do Alpine para criação da imagem de *container*.
+-   **FROM alpine:3.1** -- Iniciando o segundo bloco e utilizando a imagem do Alpine para criação da imagem de *container*.
 
--   **WORKDIR /app** -- Definindo que o diretório de trabalho é o
-    > "/app", ou seja, quando o *container* iniciar, estaremos nesse
-    > diretório.
+-   **WORKDIR /app** -- Definindo que o diretório de trabalho é o "/app", ou seja, quando o *container* iniciar, estaremos nesse diretório.
 
--   **COPY \--from=buildando /src/goapp /app** -- Aqui está a mágica:
-    > vamos copiar do bloco chamado "buildando" um arquivo dentro de
-    > "/src/goapp" para o diretório "/app" do *container* que estamos
-    > tratando nesse bloco, ou seja, copiamos o binário que foi
-    > compilado no bloco anterior e o trouxemos para esse.
+-   **COPY \--from=buildando /src/goapp /app** -- Aqui está a mágica: vamos copiar do bloco chamado "buildando" um arquivo dentro de "/src/goapp" para o diretório "/app" do *container* que estamos tratando nesse bloco, ou seja, copiamos o binário que foi compilado no bloco anterior e o trouxemos para esse.
 
--   **ENTRYPOINT ./goapp** -- Aqui vamos executar a nossa sensacional
-    > *app*. :)
+-   **ENTRYPOINT ./goapp** -- Aqui vamos executar a nossa sensacional *app*. :)
 
 Agora que já entendemos todas as linhas do nosso novo *dockerfile*,
 'bora realizar o *build* dele.
 
 ```bash
-#  docker build -t goapp_multistage:1.0 .
+# docker build -t goapp_multistage:1.0 .
 ```
 
 Vamos executar a nossa imagem para ver se está tudo funcionando:
 
 ```bash
-#  docker container run -ti goapp_multistage:1.0
+# docker container run -ti goapp_multistage:1.0
 GIROPOPS STRIGUS GIRUS - LINUXTIPS
 ```
 
 Será que existe diferença de tamanho entre elas? Vamos conferir:
 
 ```bash
-#  docker image ls | grep goapp
+# docker image ls | grep goapp
 goapp_multistage  1.0    dfe57485b7f0    22 seconds ago    7.07MB
 goapp             1.0    50451808b384    15 minutes ago     781MB
 ```
@@ -2582,9 +2531,9 @@ Lembre-se de que para sair do *container* e deixá-lo ainda em execução é
 necessário pressionar **Ctrl + p + q**. ;)
 
 ```bash
-#  docker container ls
-#  docker commit -m "meu container" CONTAINERID
-#  docker image ls
+# docker container ls
+# docker commit -m "meu container" CONTAINERID
+# docker image ls
 REPOSITORY   TAG     IMAGE ID       CREATED         SIZE
 <none>       <none>  fd131aedd43a   4 seconds ago   193.4 MB
 ```
@@ -2594,7 +2543,7 @@ que possamos ajustar e dar um nome e uma versão à nossa imagem, vamos
 usar o comando "docker tag", conforme mostramos a seguir:
 
 ```bash
-#  docker tag IMAGEID linuxtips/apache_2:1.0
+# docker tag IMAGEID linuxtips/apache_2:1.0
 REPOSITORY          TAG   IMAGE ID       CREATED          SIZE
 linuxtips/apache_2  1.0   fd131aedd43a   2 minutes ago    193.4 MB
 ```
@@ -2604,7 +2553,7 @@ Agora sim!!! Temos a nossa imagem criada e nome e versão especificados.
 Vamos iniciar um *container* utilizando a imagem que acabamos de criar:
 
 ```bash
-#  docker container run -ti linuxtips/apache_2:1.0 /bin/bash
+# docker container run -ti linuxtips/apache_2:1.0 /bin/bash
 ```
 
 Vamos subir o Apache2 e testar a comunicação do *container*:
@@ -2644,7 +2593,7 @@ Boaaa! Agora já temos o Apache2 em execução. Vamos sair do *container* e
 testar a comunicação com o Apache2 a partir do *host*:
 
 ```bash
-#  curl <Container IP>
+# curl <Container IP>
 ```
 
 Ele retornará a página de boas-vindas do Apache2! Tudo funcionando
@@ -2800,7 +2749,7 @@ Docker Hub através da instrução "FROM".
 Existe também um site chamado "ImageLayers": ele faz exatamente a mesma
 coisa que o "docker history", mas você não precisa baixar a imagem -- e,
 bom, é *web*. O ImageLayers pode ser acessado em:
-\<[[https://imagelayers.io/]{.underline}](https://imagelayers.io/)\>.
+[https://imagelayers.io/](https://imagelayers.io/).
 
 O Docker Hub, como já falamos, tem muitos componentes, dentre eles o
 responsável pelo repositório de imagens: o *registry*.
@@ -2815,7 +2764,7 @@ imagens, é necessário criar uma conta.
 ## 9.2. Vamos criar uma conta?
 
 Para que consiga realizar a criação da sua conta, é necessário acessar a
-URL \<[[https://hub.docker.com]{.underline}](https://hub.docker.com)\>.
+URL [https://hub.docker.com](https://hub.docker.com).
 Antes era possível através do comando "docker login". Hoje, o comando
 "docker login" somente é utilizado para autenticar no Docker Hub após a
 criação da conta.
@@ -2843,7 +2792,7 @@ Caso você queira especificar outro *registry* em vez do Docker Hub,
 basta passar o endereço como parâmetro, como segue:
 
 ```bash
-#  docker login registry.seilaqual.com
+# docker login registry.seilaqual.com
 ```
 
 ## 9.3. Agora vamos compartilhar essas imagens na *interwebs*!
@@ -2885,7 +2834,7 @@ root@linuxtips:~#
 ```
 
 Acessando a URL
-\<[[https://hub.docker.com/]{.underline}](https://hub.docker.com/)\>
+[https://hub.docker.com/](https://hub.docker.com/)
 você conseguirá visualizar o repositório que acabou de criar, conforme a
 imagem a seguir:
 
@@ -2912,8 +2861,8 @@ Primeiro vamos parar os *containers* que utilizam a imagem
 "linuxtips/apache":
 
 ```bash
-#  docker container ls | grep seu_usuario/sua_imagem
-#  docker container stop CONTAINERID
+# docker container ls | grep seu_usuario/sua_imagem
+# docker container stop CONTAINERID
 ```
 
 Não é possível remover uma imagem se algum *container* estiver em
@@ -2928,7 +2877,7 @@ utilizam essa imagem como base, é necessário forçar a remoção da imagem
 utilizando o parâmetro "-f":
 
 ```bash
-#  docker image rm -f linuxtips/apache:1.0
+# docker image rm -f linuxtips/apache:1.0
 Untagged: linuxtips/apache:1.0
 ```
 
@@ -2978,7 +2927,7 @@ com outras pessoas de sua empresa, funcionando como repositório de
 imagens Docker. Sensacional!
 
 A URL do projeto fica em
-\<[[https://github.com/docker/distribution]{.underline}](https://github.com/docker/distribution)\>.
+[https://github.com/docker/distribution](https://github.com/docker/distribution).
 O Docker Distribution é um *registry* que serve para guardar e
 compartilhar suas imagens. Ele substitui o Docker Registry, que se
 tornou obsoleto.
@@ -3015,8 +2964,8 @@ Você pode verificar o *container* do *registry* em execução, bem como
 sua imagem:
 
 ```bash
-#  docker container ls
-#  docker image ls
+# docker container ls
+# docker image ls
 ```
 
 Muito bom, nosso *registry* já está em execução! Agora vamos testá-lo
@@ -3028,8 +2977,8 @@ utilizávamos quando queríamos fazer o *push* para o Docker Hub. Para
 isso, vamos utilizar novamente o comando "docker tag":
 
 ```bash
-#  docker tag IMAGEMID localhost:5000/apache
-#  docker image ls
+# docker tag IMAGEMID localhost:5000/apache
+# docker image ls
 ```
 
 Agora basta fazer o *push* para o nosso *registry* local da seguinte
@@ -3066,14 +3015,9 @@ irão nos ajudar com a rede em que os *containers* irão se comunicar.
 
 -   **\--hostname** -- Indica um *hostname.*
 
--   **\--link** -- Cria um *link* entre os *containers*, sem a
-    > necessidade de se saber o IP um do outro.
+-   **\--link** -- Cria um *link* entre os *containers*, sem a necessidade de se saber o IP um do outro.
 
--   **\--net** -- Permite configurar o modo de rede que você usará com o
-    > *container*. Temos quatro opções, mas a mais conhecida e utilizada
-    > é a "\--net=host", que permite que o *container* utilize a rede do
-    > *host* para se comunicar e não crie um *stack* de rede para o
-    > *container*.
+-   **\--net** -- Permite configurar o modo de rede que você usará com o *container*. Temos quatro opções, mas a mais conhecida e utilizada é a "\--net=host", que permite que o *container* utilize a rede do *host* para se comunicar e não crie um *stack* de rede para o *container*.
 
 -   **\--expose** -- Expõe a porta do *container* apenas.
 
@@ -3088,16 +3032,13 @@ sua inicialização completa:
 
 1.  Cria-se um par de interfaces virtuais.
 
-2.  Cria-se uma interface com nome único, como "veth1234", e em se-
-    > guida *linka-se* com a *bridge* do Docker, a "docker0".
+2.  Cria-se uma interface com nome único, como "veth1234", e em seguida *linka-se* com a *bridge* do Docker, a "docker0".
 
-3.  Com isso, é disponibilizada a interface "eth0" dentro do
-    > *container*, em um *network namespace* único.
+3.  Com isso, é disponibilizada a interface "eth0" dentro do *container*, em um *network namespace* único.
 
 4.  Configura-se o MAC *address* da interface virtual do *container.*
 
-5.  Aloca-se um IP na "eth0" do *container*. Esse IP tem que pertencer
-    > ao *range* da *bridge* "docker0"*.*
+5.  Aloca-se um IP na "eth0" do *container*. Esse IP tem que pertencer ao *range* da *bridge* "docker0"*.*
 
 Com isso, o *container* já possui uma interface de rede e já está apto a
 se comunicar com outros *containers* ou com o *host*. :D
@@ -3161,8 +3102,7 @@ root@4a0645de6d94:/#
 
 Repare que passamos o parâmetro "-p" da seguinte forma:
 
--   **-p 8080:80** -- Onde "8080" é a porta do host e "80", a do
-    > container.
+-   **-p 8080:80** -- Onde "8080" é a porta do host e "80" a do container.
 
 Com isso, estamos dizendo que toda requisição que chegar na porta 8080
 do meu *host* deverá ser encaminhada para a porta 80 do *container.*
@@ -3300,7 +3240,7 @@ Para que você consiga configurar um *range* diferente para utilização do
 Docker é necessário iniciá-lo com o parâmetro "\--bip".
 
 ```bash
-#  dockerd --bip 192.168.0.1/24
+# dockerd --bip 192.168.0.1/24
 ```
 
 Assim, você estará informando ao Docker que deseja utilizar o IP
@@ -3312,7 +3252,7 @@ o *range* que o Docker irá utilizar para a *bridge* "docker0" e para a
 *subnet* dos *containers*.
 
 ```bash
-#  dockerd --fixed-cidr 192.168.0.0/24
+# dockerd --fixed-cidr 192.168.0.0/24
 ```
 
 ## 11.2. Opções de *sockets*
@@ -3394,10 +3334,7 @@ Essas opções são passadas para o *daemon* pelo parâmetro
 recebem o prefixo "dm" e "zfs" para (adivinha?) o ZFS. A seguir vamos
 demonstrar algumas opções mais comuns:
 
--   **dm.thinpooldev** -- Com esta opção você consegue especificar o
-    > *device* que será usado pelo *Device Mapper* para desenvolver o
-    > *thin-pool* que ele usa para criar os *snapshots* usados por
-    > *containers* e imagens.
+-   **dm.thinpooldev** -- Com esta opção você consegue especificar o *device* que será usado pelo *Device Mapper* para desenvolver o *thin-pool* que ele usa para criar os *snapshots* usados por *containers* e imagens.
 
 Exemplo:
 
@@ -3416,10 +3353,7 @@ INFO[0000] Docker daemon commit=c3959b1 execdriver=native-0.2 graphdriver=aufs v
 INFO[0000] API listen on /var/run/docker.sock
 ```
 
--   **dm.basesize** -- Este parâmetro define o tamanho máximo
-    > do*container*. O chato disso é que você precisa deletar tudo
-    > dentro de "/var/lib/docker" (o que implica em matar todos os
-    > *containers* e imagens) e *restartar* o serviço do Docker.
+-   **dm.basesize** -- Este parâmetro define o tamanho máximo do *container*. O chato disso é que você precisa deletar tudo dentro de "/var/lib/docker" (o que implica em matar todos os *containers* e imagens) e *restartar* o serviço do Docker.
 
 
 ```bash
@@ -3437,41 +3371,28 @@ INFO[0000] Docker daemon commit=c3959b1 execdriver=native-0.2 graphdriver=aufs v
 INFO[0000] API listen on /var/run/docker.sock
 ```
 
--   **dm.fs** -- Especifica o *filesystem* do *container*. As opções
-    > suportadas são: **EXT4** e **XFS**.
+-   **dm.fs** -- Especifica o *filesystem* do *container*. As opções suportadas são: **EXT4** e **XFS**.
 
 ## 11.4. Opções de rede
 
 Também é possível controlar como o *daemon* se comportará em relação à
 rede:
 
--   **\--default-gateway** -- Autoexplicativo, né? Todos os *containers*
-    > receberão esse IP como *gateway*.
+-   **\--default-gateway** -- Autoexplicativo, né? Todos os *containers* receberão esse IP como *gateway*.
 
--   **\--dns** -- Também sem segredo: é o DNS que será usado para
-    > consultas.
+-   **\--dns** -- Também sem segredo: é o DNS que será usado para consultas.
 
--   **\--dns-search** -- Especifica o domínio a ser procurado, assim
-    > você consegue pesquisar máquinas sem usar o fqdn.
+-   **\--dns-search** -- Especifica o domínio a ser procurado, assim você consegue pesquisar máquinas sem usar o fqdn.
 
--   **\--ip-forward** -- Esta opção habilita o roteamento entre
-    > *containers.* Por padrão, ela já vem *setada* como *true*.
+-   **\--ip-forward** -- Esta opção habilita o roteamento entre *containers.* Por padrão, ela já vem *setada* como *true*.
 
 ## 11.5. Opções diversas
 
--   **\--default-ulimit** -- Passando isso para o *daemon*, todos os
-    > *containers* serão iniciados com esse valor para o "ulimit". Esta
-    > opção é sobrescrita pelo parâmetro "\--ulimit" do comando "docker
-    > container run", que geralmente vai dar uma visão mais específica.
+-   **\--default-ulimit** -- Passando isso para o *daemon*, todos os *containers* serão iniciados com esse valor para o "ulimit". Esta opção é sobrescrita pelo parâmetro "\--ulimit" do comando "docker container run", que geralmente vai dar uma visão mais específica.
 
--   **\--icc** -- "icc" vem de *inter container comunication*. Por
-    > padrão, ele vem marcado como *true*; caso você não queira esse
-    > tipo de comunicação, você pode marcar no *daemon* como *false*.
+-   **\--icc** -- "icc" vem de *inter container comunication*. Por padrão, ele vem marcado como *true*; caso você não queira esse tipo de comunicação, você pode marcar no *daemon* como *false*.
 
--   **\--log-level** -- É possível alterar também a forma como o Docker
-    > trabalha com *log*; em algumas situações (geralmente
-    > *troubleshoot*) você pode precisar de um *log* mais "verboso", por
-    > exemplo.
+-   **\--log-level** -- É possível alterar também a forma como o Docker trabalha com *log*; em algumas situações (geralmente *troubleshoot*) você pode precisar de um *log* mais "verboso", por exemplo.
 
 # 12. Docker Machine
 
@@ -3498,7 +3419,7 @@ Rackspace, Azure, etc.
 
 Para que você possa ter acesso a todos os *drivers* que o Docker Machine
 suporta, acesse:
-\<[[https://docs.docker.com/machine/drivers/]{.underline}](https://docs.docker.com/machine/drivers/)\>.
+[https://docs.docker.com/machine/drivers/](https://docs.docker.com/machine/drivers/).
 
 Quando você utiliza o Docker Machine para instalar um Docker Host na
 AWS, por exemplo, ele disponibilizará uma máquina com Linux e com o
@@ -3513,7 +3434,7 @@ Machine no Linux, MacOS ou Windows.
 Para fazer a instalação do Docker Machine no Linux, faça:
 
 ```bash
-#  curl -L https://github.com/docker/machine/releases/download/v0.12.0/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine
+# curl -L https://github.com/docker/machine/releases/download/v0.12.0/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine
 # chmod +x /tmp/docker-machine
 # sudo cp /tmp/docker-machine /usr/local/bin/docker-machine
 ```
@@ -3888,7 +3809,7 @@ Com o comando anterior, iniciamos o nosso *cluster*!
 Repare no seguinte trecho da saída do último comando:
 
 ```bash
-#  docker swarm join --token SWMTKN-1-100qtga34hfnf14xdbbhtv8ut6ugcvuhsx427jtzwaw1td2otj-18wccykydxte59gch2pix 172.31.58.90:2377
+# docker swarm join --token SWMTKN-1-100qtga34hfnf14xdbbhtv8ut6ugcvuhsx427jtzwaw1td2otj-18wccykydxte59gch2pix 172.31.58.90:2377
 ```
 
 Essa linha nada mais é do que toda informação que você precisa para
@@ -4169,14 +4090,17 @@ Imagine que precisamos disponibilizar o serviço do Nginx para ser o novo
 *web server*. Antes de criar esse *service*, precisamos de algumas
 informações:
 
--   Nome do *service* que desejo criar -- **webserver**.
+-   Nome do *service* que desejo criar 
+    >**webserver**.
 
--   Quantidade de *containers* que desejo debaixo do *service* -- **5**.
+-   Quantidade de *containers* que desejo debaixo do *service* 
+    > **5**.
 
--   Portas que iremos "bindar", entre o *service* e o *node --*
+-   Portas que iremos "bindar", entre o *service* e o *node* 
     > **8080:80**.
 
--   Imagem dos *containers* que irei utilizar -- **Nginx**.
+-   Imagem dos *containers* que irei utilizar 
+    > **nginx**.
 
 Agora que já temos essas informações, 'bora criar o nosso primeiro
 service. :)
@@ -4234,7 +4158,7 @@ Se eu preciso saber maiores detalhes sobre o meu *service*, basta
 utilizar o subcomando "inspect".
 
 ```bash
-**root@linuxtips-01:~# docker service inspect webserver**
+root@linuxtips-01:~# docker service inspect webserver
 [
     {
         "ID": "0azz4psgfpkf0i5i3mbfdiptk",
@@ -4464,11 +4388,9 @@ Commands:
 Run 'docker secret COMMAND --help' for more information on a command.
 ```
 
--   **create** -- Cria uma *secret* a partir do conteúdo de um arquivo
-    > ou STDIN.
+-   **create** -- Cria uma *secret* a partir do conteúdo de um arquivo ou STDIN.
 
--   **inspect** -- Mostra informações detalhadas de uma ou mais
-    > *secrets*.
+-   **inspect** -- Mostra informações detalhadas de uma ou mais *secrets*.
 
 -   **ls** -- Lista as *secrets* existentes.
 
@@ -4706,17 +4628,17 @@ Lembre-se: para que possamos seguir com os próximos exemplos, o seu
 ainda não estiver com o *swarm* ativo, execute:
 
 ```bash
-#  docker swarm init
+# docker swarm init
 ```
 
 Vamos criar um diretório chamado "Composes", somente para que possamos
 organizar melhor nossos arquivos.
 
 ```bash
-#  mkdir /root/Composes
-#  mkdir /root/Composes/1
-#  cd /root/Composes/1
-#  vim docker-compose.yml
+# mkdir /root/Composes
+# mkdir /root/Composes/1
+# cd /root/Composes/1
+# vim docker-compose.yml
 ```
 
 ```yaml
@@ -4768,20 +4690,17 @@ algumas opções que utilizamos anteriormente:
 
 -   **restart\_policy:** -- Políticas de *restart*.
 
--   **condition: on-failure** -- Somente irá "restartar" o *container*
-    > em caso de falha.
+-   **condition: on-failure** -- Somente irá "restartar" o *container* em caso de falha.
 
 -   **ports:** -- Quais portas desejamos expor.
 
 -   **- \"8080:80\"** -- Portas expostas e "bindadas".
 
--   **networks:** -- Definição das redes que irei utilizar nesse
-    > serviço.
+-   **networks:** -- Definição das redes que irei utilizar nesse serviço.
 
 -   ***-* webserver** -- Nome da rede desse serviço.
 
--   **networks:** -- Declarando as redes que usaremos nesse
-    > *docker-compose*.
+-   **networks:** -- Declarando as redes que usaremos nesse *docker-compose*.
 
 -   **webserver:** -- Nome da rede a ser criada, caso não exista.
 
@@ -4970,8 +4889,7 @@ utilizar no *docker-compose*. São eles:
 
 -   **- db\_data:/var/lib/mysql** -- Volume e destino.
 
--   **environment:** -- Definição de variáveis de ambiente utilizados
-    > pelo *service.*
+-   **environment:** -- Definição de variáveis de ambiente utilizados pelo *service.*
 
 -   **MYSQL\_ROOT\_PASSWORD: somewordpress** -- Variável e valor.
 
@@ -4981,8 +4899,7 @@ utilizar no *docker-compose*. São eles:
 
 -   **MYSQL\_PASSWORD: wordpress** -- Variável e valor.
 
--   **depends\_on:** -- Indica que esse *service* depende de outro para
-    > subir.
+-   **depends\_on:** -- Indica que esse *service* depende de outro para subir.
 
 -   **- db** -- Nome do service que necessário para sua execução.
 
@@ -5089,11 +5006,9 @@ opções que estão no *compose file* desse exemplo:
 
 **deploy:**
 
--   **placement:** -- Usado para definir a localização do nosso
-    > *service.*
+-   **placement:** -- Usado para definir a localização do nosso *service.*
 
--   **constraints: \[node.role == manager\]** -- Regra que obriga a
-    > criação desse *service* somente nos *nodes manager*.
+-   **constraints: \[node.role == manager\]** -- Regra que obriga a criação desse *service* somente nos *nodes manager*.
 
 Agora vamos atualizar o nosso *stack*:
 
@@ -5113,7 +5028,7 @@ Que tal aumentar ainda mais a complexidade e o número de *services* de
 um *stack*? 'Bora?
 
 Para esse exemplo, vamos utilizar um projeto do próprio Docker
-(\<[[https://github.com/dockersamples/example-voting-app]{.underline}](https://github.com/dockersamples/example-voting-app)\>),
+([https://github.com/dockersamples/example-voting-app](https://github.com/dockersamples/example-voting-app)),
 onde teremos diversos *services*. Vamos criar mais um diretório para
 receber o nosso projeto:
 
@@ -5224,17 +5139,11 @@ Temos algumas novas opções nesse exemplo, vamos conhecê-las:
 
 **deploy:**
 
--   **mode: replicated** -- Qual é o tipo de deployment? Temos dois, o
-    > *global* e o *replicated*. No *replicated* você escolhe a
-    > quantidade de réplicas do seu *service*, já no *global* você não
-    > escolhe a quantidade de réplicas, ele irá subir uma réplica por
-    > *node* de seu *cluster* (uma réplica em cada *node* de seu
-    > *cluster*).
+-   **mode: replicated** -- Qual é o tipo de deployment? Temos dois, o *global* e o *replicated*. No *replicated* você escolhe a quantidade de réplicas do seu *service*, já no *global* você não escolhe a quantidade de réplicas, ele irá subir uma réplica por *node* de seu *cluster* (uma réplica em cada *node* de seu *cluster*).
 
 **update\_config:**
 
--   **parallelism: 2** -- Como irão ocorrer os updates (no caso, de 2 em
-    > 2).
+-   **parallelism: 2** -- Como irão ocorrer os updates (no caso, de 2 em 2).
 
 -   **delay: 10s** -- Com intervalo de 10 segundos.
 
@@ -5246,8 +5155,7 @@ Temos algumas novas opções nesse exemplo, vamos conhecê-las:
 
 -   **max\_attempts: 3** -- Com no máximo três tentativas.
 
--   **window: 120s** -- Tempo para definir se o *restart* do *container*
-    > ocorreu com sucesso.
+-   **window: 120s** -- Tempo para definir se o *restart* do *container* ocorreu com sucesso.
 
 Agora vamos realizar o *deploy* do nosso *stack*:
 
@@ -5291,8 +5199,7 @@ seguintes endereços:
 
 -   **Visualizar a página de resultados:** http://IP\_CLUSTER:5001/
 
--   **Visualizar a página de com os *containers* e seus *nodes*:**
-    > http://IP\_CLUSTER:8080/
+-   **Visualizar a página de com os *containers* e seus *nodes*:** http://IP\_CLUSTER:8080/
 
 Vamos para mais um exemplo. Agora vamos realizar o *deploy* de um
 *stack* completo de monitoração para o nosso *cluster* e todas as demais
@@ -5300,28 +5207,19 @@ máquinas de nossa infraestrutura. Nesse exemplo vamos utilizar um
 arquivo YML que realizará o *deploy* de diversos *containers* para que
 possamos ter as seguintes ferramentas integradas:
 
--   **Prometheus** -- Para armazenar todas as métricas de nosso
-    > ambiente.
+-   **Prometheus** -- Para armazenar todas as métricas de nosso ambiente.
 
 -   **cAdvisor** -- Para coletar informações dos *containers*.
 
--   **Node Exporter** -- Para coletar informações dos *nodes* do
-    > *cluster* e demais máquinas do ambiente.
+-   **Node Exporter** -- Para coletar informações dos *nodes* do *cluster* e demais máquinas do ambiente.
 
--   **Netdata** -- Para coletar mais de 5 mil métricas de nossas
-    > máquinas, além de prover um *dashboard* sensacional.
+-   **Netdata** -- Para coletar mais de 5 mil métricas de nossas máquinas, além de prover um *dashboard* sensacional.
 
--   **Rocket.Chat** -- Para que possamos nos comunicar com outros times
-    > e pessoas e também para integrá-lo ao sistema de monitoração,
-    > notificando quando os alertas acontecem. O Rocket.Chat é uma
-    > excelente alternativa ao Slack.
+-   **Rocket.Chat** -- Para que possamos nos comunicar com outros times e pessoas e também para integrá-lo ao sistema de monitoração, notificando quando os alertas acontecem. O Rocket.Chat é uma excelente alternativa ao Slack.
 
--   **AlertManager** -- Integrado ao Prometheus e ao Rocket.Chat, é o
-    > responsável por gerenciar nossos alertas.
+-   **AlertManager** -- Integrado ao Prometheus e ao Rocket.Chat, é o responsável por gerenciar nossos alertas.
 
--   **Grafana** -- Integrado à nossa solução de monitoração, ele é o
-    > responsável pelos *dashboards* que são produzidos através das
-    > métricas que estão armazenadas no Prometheus.
+-   **Grafana** -- Integrado à nossa solução de monitoração, ele é o responsável pelos *dashboards* que são produzidos através das métricas que estão armazenadas no Prometheus.
 
 Com esse *stack* é possível monitorar *containers*, VMs e máquinas
 físicas. Porém, o nosso foco agora é somente no que se refere ao livro e
@@ -5330,19 +5228,19 @@ definirão nosso *stack*.
 
 Para maiores detalhes em relação ao *Giropops-Monitoring*, acesse o
 repositório no endereço:
-\<[[https://github.com/badtuxx/giropops-monitoring]{.underline}](https://github.com/badtuxx/giropops-monitoring)\>.
+[https://github.com/badtuxx/giropops-monitoring](https://github.com/badtuxx/giropops-monitoring).
 
 Antes de conhecer nosso *compose file*, precisamos realizar o clone do
 projeto:
 
 ```bash
-#  git clone https://github.com/badtuxx/giropops-monitoring.git
+# git clone https://github.com/badtuxx/giropops-monitoring.git
 ```
 
 Acesse o diretório "giropops-monitoring":
 
 ```bash
-#  cd giropops-monitoring
+# cd giropops-monitoring
 ```
 
 O nosso foco aqui será em três caras: o arquivo "grafana.config", o
@@ -5362,7 +5260,7 @@ nós possamos realizar o *deploy* de nosso *stack*.
 Como o nosso foco é o *compose file*, 'bora lá conhecê-lo!
 
 ```bash
-#  cat docker-compose.yml
+# cat docker-compose.yml
 version: '3.3'
 services:
     prometheus:
@@ -5472,7 +5370,7 @@ de novo. :D
 O que precisamos agora é realizar o *deploy* de nosso *stack*:
 
 ```bash
-#  docker stack deploy -c docker-compose.yml giropops
+# docker stack deploy -c docker-compose.yml giropops
 Creating network giropops_backend
 Creating network giropops_frontend
 Creating network giropops_default
@@ -5489,13 +5387,13 @@ Creating service giropops_cadvisor
 Caso queira verificar se os *services* estão em execução:
 
 ```bash
-#  docker service ls
+# docker service ls
 ```
 
 Para listar os *stacks*:
 
 ```bash
-#  docker stack ls
+# docker stack ls
 ```
 
 Para acessar os serviços do quais acabamos de realizar o *deploy*, basta
@@ -5516,7 +5414,7 @@ acessar os seguintes endereços:
 Para remover o *stack*:
 
 ```bash
-#  docker stack rm giropops
+# docker stack rm giropops
 ```
 
 Lembrando: para conhecer mais sobre o *giropops-monitoring* acesse o
@@ -5524,10 +5422,10 @@ repositório no GitHub e assista à série de vídeos em que o Jeferson fala
 detalhadamente como montou essa solução:
 
 -   **Repo**:
-    > \<[[https://github.com/badtuxx/giropops-monitoring]{.underline}](https://github.com/badtuxx/giropops-monitoring)\>
+    > [https://github.com/badtuxx/giropops-monitoring](https://github.com/badtuxx/giropops-monitoring)
 
 -   **Vídeos**:
-    > \<[[https://www.youtube.com/playlist?list=PLf-O3X2-mxDls9uH8gyCQTnyXNMe10iml]{.underline}](https://www.youtube.com/playlist?list=PLf-O3X2-mxDls9uH8gyCQTnyXNMe10iml)\>
+    > [https://www.youtube.com/playlist?list=PLf-O3X2-mxDls9uH8gyCQTnyXNMe10iml](https://www.youtube.com/playlist?list=PLf-O3X2-mxDls9uH8gyCQTnyXNMe10iml)
 
 E assim termina a nossa jornada no mundo do Docker. Esperamos que você
 tenha aprendido e, mais do que isso, tenha gostado de dividir esse tempo
@@ -5540,8 +5438,7 @@ aprendizado sobre *containers* e principalmente sobre o ecossistema do
 Docker, que é sensacional!
 
 Não pare de aprender mais sobre Docker! Continue acompanhando o Canal
-LinuxTips no
-\<[[https://www.youtube.com/linuxtips]{.underline}](https://www.youtube.com/linuxtips)\>
+LinuxTips no [https://www.youtube.com/linuxtips](https://www.youtube.com/linuxtips)
 e fique ligado no site do Docker, pois sempre tem novidades e ótima
 documentação!
 
