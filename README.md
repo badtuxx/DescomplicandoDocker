@@ -599,33 +599,30 @@ A seguir temos o processo "testando.sh" sendo executado no *container*.
 
 Perceba o PID desse processo na árvore de processos dele:
 
-**root\@c774fa1d6083:/\# bash testando.sh &**
+```bash
+root@c774fa1d6083:/# bash testando.sh &
+[1] 7
 
-\[1\] 7
+root@c774fa1d6083:/# ps -ef
+UID  PID PPID C STIME TTY TIME     CMD
+root 1   0    0 18:06 ?   00:00:00 /bin/bash
+root 7   1    0 18:07 ?   00:00:00 bash testando.sh
+root 8   7    0 18:07 ?   00:00:00 sleep 60
+root 9   1    0 18:07 ?   00:00:00 ps -ef
 
-**root\@c774fa1d6083:/\# ps -ef**
-
-UID PID PPID C STIME TTY TIME CMD
-
-root 1 0 0 18:06 ? 00:00:00 /bin/bash
-
-root **7** 1 0 18:07 ? 00:00:00 bash testando.sh
-
-root 8 7 0 18:07 ? 00:00:00 sleep 60
-
-root 9 1 0 18:07 ? 00:00:00 ps -ef
-
-**root\@c774fa1d6083:/\#**
+root@c774fa1d6083:/#
+```
 
 Agora, perceba o PID do mesmo processo exibido através do *host*:
 
-**root\@linuxtips:\~\# ps -ef \| grep testando.sh**
+```bash
+root@linuxtips:~# ps -ef | grep testando.sh
 
-root **2958** 2593 0 18:12 pts/2 00:00:00 bash testando.sh
+root 2958 2593 0 18:12 pts/2 00:00:00 bash testando.sh
+root 2969 2533 0 18:12 pts/0 00:00:00 grep --color=auto testando.sh
 
-root 2969 2533 0 18:12 pts/0 00:00:00 grep \--color=auto testando.sh
-
-**root\@linuxtips:\~\#**
+root@linuxtips:~#
+```
 
 Diferentes, né? Porém, são o mesmo processo. :)
 
@@ -643,93 +640,56 @@ comunicação entre os *containers* através de roteamento de pacotes.
 
 Conforme falamos, veja as interfaces. Interfaces do *host*:
 
-**root\@linuxtips:\~\# ip addr**
+```bash
+root@linuxtips:~# ip addr
 
-1: **lo**: \<LOOPBACK,UP,LOWER\_UP\> mtu 65536 qdisc noqueue state
-UNKNOWN group default
-
-link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-
-inet 127.0.0.1/8 scope host lo
-
-valid\_lft forever preferred\_lft forever
-
-inet6 ::1/128 scope host
-
-valid\_lft forever preferred\_lft forever
-
-2: **eth1**: \<BROADCAST,MULTICAST,UP,LOWER\_UP\> mtu 1500 qdisc
-pfifo\_fast state UP group default qlen 1000
-
-link/ether 00:1c:42:c7:bd:d8 brd ff:ff:ff:ff:ff:ff
-
-inet 10.211.55.35/24 brd 10.211.55.255 scope global eth1
-
-valid\_lft forever preferred\_lft forever
-
-inet6 fdb2:2c26:f4e4:0:21c:42ff:fec7:bdd8/64 scope global dynamic
-
-valid\_lft 2591419sec preferred\_lft 604219sec
-
-inet6 fe80::21c:42ff:fec7:bdd8/64 scope link
-
-valid\_lft forever preferred\_lft forever
-
-3: **docker0**: \<BROADCAST,MULTICAST,UP,LOWER\_UP\> mtu 1500 qdisc
-noqueue state UP group default
-
-link/ether 02:42:c7:c1:37:14 brd ff:ff:ff:ff:ff:ff
-
-inet 172.17.0.1/16 scope global docker0
-
-valid\_lft forever preferred\_lft forever
-
-inet6 fe80::42:c7ff:fec1:3714/64 scope link
-
-valid\_lft forever preferred\_lft forever
-
-5: **vetha2e1681**: \<BROADCAST,MULTICAST,UP,LOWER\_UP\> mtu 1500 qdisc
-noqueue master docker0 state UP group default
-
-link/ether 52:99:bc:ab:62:5e brd ff:ff:ff:ff:ff:ff
-
-inet6 fe80::5099:bcff:feab:625e/64 scope link
-
-valid\_lft forever preferred\_lft forever
-
-**root\@linuxtips:\~\#**
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default
+       link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+       inet 127.0.0.1/8 scope host lo
+           valid_lft forever preferred_lft forever
+       inet6 ::1/128 scope host
+           valid_lft forever preferred_lft forever
+2: **eth1**: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+        link/ether 00:1c:42:c7:bd:d8 brd ff:ff:ff:ff:ff:ff
+        inet 10.211.55.35/24 brd 10.211.55.255 scope global eth1
+            valid_lft forever preferred_lft forever
+        inet6 fdb2:2c26:f4e4:0:21c:42ff:fec7:bdd8/64 scope global dynamic
+            valid_lft 2591419sec preferred_lft 604219sec
+        inet6 fe80::21c:42ff:fec7:bdd8/64 scope link
+            valid_lft forever preferred_lft forever
+3: **docker0**: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
+        link/ether 02:42:c7:c1:37:14 brd ff:ff:ff:ff:ff:ff
+        inet 172.17.0.1/16 scope global docker0
+            valid_lft forever preferred_lft forever
+        inet6 fe80::42:c7ff:fec1:3714/64 scope link
+            valid_lft forever preferred_lft forever
+5: **vetha2e1681**: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master docker0 state UP group default
+        link/ether 52:99:bc:ab:62:5e brd ff:ff:ff:ff:ff:ff
+        inet6 fe80::5099:bcff:feab:625e/64 scope link
+             valid_lft forever preferred_lft forever
+root@linuxtips:~#
+```
 
 Interfaces do *container*:
 
-**root\@6ec75484a5df:/\# ip addr**
+```bash
+root@6ec75484a5df:/# ip addr
 
-1: **lo**: \<LOOPBACK,UP,LOWER\_UP\> mtu 65536 qdisc noqueue state
-UNKNOWN group default
+1: **lo**: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default
+        link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+        inet 127.0.0.1/8 scope host lo
+            valid_lft forever preferred_lft forever
+        inet6 ::1/128 scope host
+            valid_lft forever preferred_lft forever
+6: **eth0**: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
+        link/ether 02:42:ac:11:00:03 brd ff:ff:ff:ff:ff:ff
+        inet 172.17.0.3/16 scope global eth0
+            valid_lft forever preferred_lft forever
+        inet6 fe80::42:acff:fe11:3/64 scope link
+            valid_lft forever preferred_lft forever
 
-link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-
-inet 127.0.0.1/8 scope host lo
-
-valid\_lft forever preferred\_lft forever
-
-inet6 ::1/128 scope host
-
-valid\_lft forever preferred\_lft forever
-
-6: **eth0**: \<BROADCAST,MULTICAST,UP,LOWER\_UP\> mtu 1500 qdisc noqueue
-state UP group default
-
-link/ether 02:42:ac:11:00:03 brd ff:ff:ff:ff:ff:ff
-
-inet 172.17.0.3/16 scope global eth0
-
-valid\_lft forever preferred\_lft forever
-
-inet6 fe80::42:acff:fe11:3/64 scope link
-
-valid\_lft forever preferred\_lft forever
-
-**root\@6ec75484a5df:/\#**
+root@6ec75484a5df:/#
+```
 
 Conseguiu visualizar as interfaces Docker0 e veth\* do *host*? E a eth0
 do *container*? Sim? *Otémooo*! :D
@@ -771,37 +731,29 @@ A já conhecida ferramenta *iptables* faz parte de um módulo chamado
 constrói diversas regras de roteamento através do *iptables*; inclusive
 utiliza o NAT, que veremos mais adiante no livro.
 
-**root\@linuxtips:\~\# iptables -t nat -L**
+```bash
+root@linuxtips:~# iptables -t nat -L
+Chain PREROUTING (policy ACCEPT)
+target prot opt source destination
+DOCKER all -- anywhere anywhere ADDRTYPE match dst-type LOCAL
 
-**Chain PREROUTING (policy ACCEPT)**
-
+Chain INPUT (policy ACCEPT)
 target prot opt source destination
 
-DOCKER all \-- anywhere anywhere ADDRTYPE match dst-type LOCAL
-
-**Chain INPUT (policy ACCEPT)**
-
+Chain OUTPUT (policy ACCEPT)
 target prot opt source destination
+DOCKER all -- anywhere !127.0.0.0/8 ADDRTYPE match dst-type LOCAL
 
-**Chain OUTPUT (policy ACCEPT)**
-
+Chain POSTROUTING (policy ACCEPT)
 target prot opt source destination
+MASQUERADE all -- 172.17.0.0/16 anywhere
 
-DOCKER all \-- anywhere !127.0.0.0/8 ADDRTYPE match dst-type LOCAL
-
-**Chain POSTROUTING (policy ACCEPT)**
-
+Chain DOCKER (2 references)
 target prot opt source destination
+RETURN all -- anywhere anywhere
 
-MASQUERADE all \-- 172.17.0.0/16 anywhere
-
-**Chain DOCKER (2 references)**
-
-target prot opt source destination
-
-RETURN all \-- anywhere anywhere
-
-**root\@linuxtips:\~\#**
+root@linuxtips:~#
+```
 
 ## 2.8. Para quem ele é bom?
 
@@ -869,7 +821,9 @@ nada para outras distribuições. Chega de conversa, vamos lá!
 Primeiro, vamos verificar a versão do *kernel* para saber se ele é
 compatível com o Docker:
 
-**\# uname -r**
+```bash
+#  uname -r
+```
 
 ## 3.2. Instalando no Debian/Centos/Ubuntu/Suse/Fedora
 
@@ -882,7 +836,9 @@ seguir, que irá executar um *script* e detectará qual a distribuição que
 estamos utilizando, para então adicionar o repositório oficial do Docker
 em nosso gerenciador de pacotes, o *rpm* ou *apt*, por exemplo.
 
-**\# curl -fsSL https://get.docker.com/ \| sh**
+```bash
+#  curl -fsSL https://get.docker.com/ \| sh
+```
 
 Assim ele sempre buscará a versão mais recente do Docker. :)
 
@@ -891,50 +847,62 @@ Assim ele sempre buscará a versão mais recente do Docker. :)
 Caso você esteja utilizando o Debian e queira realizar a instalação
 através dos pacotes disponíveis no repositório, faça:
 
-**\#apt-key adv \--keyserver \\ hkp://pgp.mit.edu:80 \--recv-keys \\
-58118E89F3A912897C070ADBF76221572C52609D**
+```bash
+# apt-key adv --keyserver \
+  hkp://pgp.mit.edu:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+```
 
 Agora vamos criar/editar o arquivo "/etc/apt/sources.list.d/docker.list"
 e adicionar o endereço do repositório correspondente à versão do seu
 Debian. No nosso caso estamos utilizando a versão Debian 8, também
 conhecida como Jessie.
 
-**\# vim /etc/apt/sources.list.d/docker.list \# Debian Jessie**
+```bash
+#  vim /etc/apt/sources.list.d/docker.list # Debian Jessie
 
-*deb https://apt.dockerproject.org/repo debian-jessie main*
+deb https://apt.dockerproject.org/repo debian-jessie main
+```
 
 Após adicionar a linha anterior, é necessário atualizar a lista de
 repositórios executando:
 
-**\# apt-get update**
+```bash
+#  apt-get update
+```
 
 Após finalizar a atualização da lista de repositórios disponíveis, já
 podemos fazer a instalação do Docker. O nome do pacote é "docker-ce". :)
 
-**\# apt-get install docker-ce**
+```bash
+#  apt-get install docker-ce
+```
 
 Vamos verificar se o Docker está em execução. Digite na linha de comando
 o seguinte:
 
-**\#/etc/init.d/docker status**
+```bash
+# /etc/init.d/docker status
+```
 
 Ou:
 
-**\# service docker status**
+```bash
+#  service docker status
 
 docker container stop/waiting
+```
 
 Com isso, podemos verificar se o processo está em execução. Como podemos
 notar, o *daemon* do Docker não está em execução, portanto vamos
 iniciá-lo.
 
-**\# service docker start**
+```bash
+#  service docker start
+docker container start/running, process 4303
 
-*docker container start/running, process 4303*
-
-**\# service docker status**
-
-*docker container start/running, process 4303*
+#  service docker status
+docker container start/running, process 4303
+```
 
 Perfeito! Agora já temos o Docker instalado e pronto para começar a
 brincar com os *containers*. \\o/
@@ -959,7 +927,9 @@ relacionadas ao Docker. Mais informações no link:
 Para criar um grupo no Linux e adicionar um usuário não tem segredo,
 basta rodar:
 
-**\$ sudo usermod -aG docker user**
+```bash
+$ sudo usermod -aG docker user
+```
 
 Dica de um milhão de dólares: **user** = **seu usuário**. :D
 
@@ -987,47 +957,36 @@ conforme o esperado. :D
 Para que possamos executar um *container*, utilizamos o parâmetro "run"
 do subcomando "container" do comando "docker". Simples, não? :D
 
-**root\@linuxtips:\~\# docker container run hello-world**
-
+```bash
+root@linuxtips:~# docker container run hello-world
 Unable to find image 'hello-world:latest' locally
-
 latest: Pulling from library/hello-world
-
 03f4658f8b78: Pull complete a3ed95caeb02: Pull complete
-
-Digest: sha256:8be990ef2aeb16dbcb9271ddfe2610fa6658d13f6dfb8b
-c72074cc1ca36966a7
-
+Digest: sha256:8be990ef2aeb16dbcb9271ddfe2610fa6658d13f6dfb8bc72074cc1ca36966a7
 Status: Downloaded newer image for hello-world:latest
 
 Hello from Docker.
+This message shows that your installation appears to be working correctly.
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
 
-This message shows that your installation appears to be working
-correctly.
-
-To generate this message, Docker took the following steps:
-
-The Docker client contacted the Docker daemon.
-
-The Docker daemon pulled the "hello-world" image from the Docker Hub.
-
-The Docker daemon created a new container from that image which runs the
-executable that produces the output you are currently reading.
-
-The Docker daemon streamed that output to the Docker client, which sent
-it to your terminal.
 
 To try something more ambitious, you can run an Ubuntu container with:
+  $ docker run -it ubuntu bash
 
-\$ docker run -it ubuntu bash
+Share images, automate workflows, and more with a free Docker Hub account: 
+  https://hub.docker.com
 
-Share images, automate workflows, and more with a free Docker
+For more examples and ideas, visit: 
+  https://docs.docker.com/userguide/
 
-Hub account: https://hub.docker.com
-
-For more examples and ideas, visit: https://docs.docker.com/userguide/
-
-**root\@linuxtips:\~\#**
+root@linuxtips:~#
+```
 
 No exemplo anterior, estamos executando um *container* utilizando a
 imagem personalizada do *hello-world*.
@@ -1056,13 +1015,13 @@ faço para visualizá-la?
 
 Muito simples, basta digitar o seguinte comando:
 
-**root\@linuxtips:\~\# docker image ls**
-
-REPOSITORY TAG IMAGE ID CREATED SIZE
-
+```bash
+root@linuxtips:~# docker image ls
+REPOSITORY  TAG    IMAGE ID     CREATED  SIZE
 hello-world latest 690ed74de00f 5 months 960 B
 
-**root\@linuxtips:\~\#**
+root@linuxtips:~#
+```
 
 Como você pode notar no código, a saída traz cinco colunas:
 
@@ -1083,11 +1042,13 @@ era exibir a mensagem, e depois foi finalizado.
 
 Para ter certeza de que ele realmente foi finalizado, digite:
 
-**root\@linuxtips:\~\# docker container ls**
+```bash
+root@linuxtips:~# docker container ls
 
 CONTAINER ID IMAGE COMMAND CREATED STATUS PORT NAMES
 
-**root\@linuxtips:\~\#**
+root@linuxtips:~#
+```
 
 Com o "docker container ls", você consegue visualizar todos os
 *containers* em execução e ainda obter os detalhes sobre eles. A saída
@@ -1112,14 +1073,14 @@ que elas nos dizem:
 
 Uma opção interessante do "docker container ls" é o parâmetro "-a".
 
-**root\@linuxtips:\~\# docker container ls -a**
+```bash
+root@linuxtips:~# docker container ls -a
 
-CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
+CONTAINER ID  IMAGE        COMMAND   CREATED    STATUS     PORTS      NAMES
+6e45cf509282  hello-world  "/hello"  4 seconds  Exited(0)             tracted_ardinghelli
 
-6e45cf509282 hello-world \"/hello\" 4seconds Exited(0)
-tracted\_ardinghelli
-
-**root\@linuxtips:\~\#**
+root@linuxtips:~#
+```
 
 Com a opção "-a" você consegue visualizar não somente os *containers* em
 execução, como também *containers* que estão parados ou que foram
@@ -1185,20 +1146,16 @@ parâmetros que aprendemos.
 
 Para o nosso exemplo, vamos subir um *container* do Centos 7:
 
-**root\@linuxtips:\~\# docker container run -ti centos:7**
-
+```bash
+root@linuxtips:~# docker container run -ti centos:7
 Unable to find image 'centos:7' locally
-
 7: Pulling from library/centos
-
 a3ed95caeb02: Pull complete 196355c4b639: Pull complete
-
-Digest: sha256:3cdc0670fe9130ab3741b126cfac6d7720492dd2c1c8ae
-033dcd77d32855bab2
-
+Digest: sha256:3cdc0670fe9130ab3741b126cfac6d7720492dd2c1c8ae033dcd77d32855bab2
 Status: Downloaded newer image for centos:7
 
-**\[root\@3c975fb7fbb5 /\]\#**
+[root@3c975fb7fbb5 /]#
+```
 
 Como a imagem não existia em nosso *host*, ele começou a baixar do
 Docker Hub, porém, caso a imagem já estivesse em nosso *host*, ele a
@@ -1208,11 +1165,12 @@ Perceba que mudou o seu *prompt* (variável \$PS1), pois agora você já
 está dentro do *container*. Para provar que estamos dentro do nosso
 *container* Centos, execute o seguinte comando:
 
-**\[root\@3c975fb7fbb5 /\]\# cat /etc/redhat-release**
-
+```bash
+[root@3c975fb7fbb5 /]# cat /etc/redhat-release
 CentOS Linux release 7.2.1511 (Core)
 
-**\[root\@3c975fb7fbb5 /\]\#**
+[root@3c975fb7fbb5 /]#
+```
 
 O arquivo "/etc/redhat-release" indica qual a versão do Centos que
 estamos utilizando, ou seja, estamos realmente em nosso *container*
@@ -1232,13 +1190,13 @@ execução, é necessário sair com o seguinte atalho do teclado:
 Assim, você sairá do *container* e ele continuará em execução. Para
 confirmar se o *container* continua em execução, faça:
 
-**root\@linuxtips:\~\# docker ps**[^1]
+```bash
+root@linuxtips:~# docker ps
+CONTAINER ID  IMAGE     COMMAND      CREATED    STATUS        PORTS   NAMES
+3c975fb7fbb5  centos:7  "/bin/bash"  2 minutes  Up 2 minutes           angry_wescoff
 
-CONTAINER IDIMAGE COMMAND CREATED STATUS PORTS NAMES
-
-3c975fb7fbb5 centos:7 \"/bin/bash\" 2minutes Up 2 minutes angry\_wescoff
-
-**root\@linuxtips:\~\#**
+root@linuxtips:~#
+```
 
 ## 4.5. Posso voltar ao *container*?
 
@@ -1247,7 +1205,9 @@ novamente. Como podemos fazer?
 
 Simples! Basta digitar o seguinte comando:
 
-**root\@linuxtips:\~\# docker container attach \<CONTAINER ID\>**
+```bash
+root@linuxtips:~# docker container attach <CONTAINER ID>
+```
 
 O parâmetro "attach" do comando "docker container" possibilita nos
 conectarmos a um *container* em execução. Para isso, basta passar como
@@ -1261,58 +1221,51 @@ imediatamente. Quando fazemos o uso do parâmetro "create" do comando
 "docker container", ele apenas cria o *container*, não o inicializando,
 conforme notamos no exemplo a seguir:
 
-**root\@linuxtips:\~\# docker container create -ti ubuntu**
-
-Unable to find image \'ubuntu:latest\' locally
-
+```bash
+root@linuxtips:~# docker container create -ti ubuntu
+Unable to find image 'ubuntu:latest' locally
 latest: Pulling from library/ubuntu
-
 5a132a7e7af1: Pull complete
-
 fd2731e4c50c: Pull complete
-
 28a2f68d1120: Pull complete
-
 a3ed95caeb02: Pull complete
+Digest:sha256:4e85ebe01d056b43955250bbac22bdb8734271122e3c78d21e55ee235fc6802d
+Status: Downloaded newer image for  ubuntu:latest3e63e65db85a6e36950959dc6bdc00279e2208a335580c478e01723819de9467
 
-Digest:
-sha256:4e85ebe01d056b43955250bbac22bdb8734271122e3c78d21e55ee235fc6802d
-
-Status: Downloaded newer image for ubuntu:latest
-
-3e63e65db85a6e36950959dc6bdc00279e2208a335580c478e01723819de9467
-
-**root\@linuxtips:\~\#**
+root@linuxtips:~#
+```
 
 Perceba que quando você digita "docker container ls" ele não traz o
 *container* recém-criado, afinal a saída do "docker container ls"
 somente traz os *containers* em execução. Para visualizar o *container*
 recém-criado foi necessário utilizar o parâmetro "-a".
 
-**root\@linuxtips:\~\# docker container ls -a**
+```bash
+root@linuxtips:~# docker container ls -a
+CONTAINER ID  IMAGE    COMMAND       CREATED          STATUS    PORTS   NAMES
+3e63e65db85a  ubuntu   "/bin/bash"   18 seconds ago   Created           elo_visves
 
-CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
-
-3e63e65db85a ubuntu \"/bin/bash\" 18 seconds ago **Created** elo\_visves
-
-**root\@linuxtips:\~\#**
+root@linuxtips:~#
+```
 
 Para que o nosso *container* recém-criado seja executado, basta utilizar
 o "docker container start \[CONTAINER ID\]", conforme segue:
 
-***root\@linuxtips:\~\# docker container start* \[CONTAINER ID\]**
+```bash
+root@linuxtips:~# docker container start [CONTAINER ID]
+root@linuxtips:~# docker container attach [CONTAINER ID]
 
-***root\@linuxtips:\~\# docker container attach* \[CONTAINER ID\]**
-
-root\@b422f04df14c:/\#
+root@b422f04df14c:/#
+```
 
 Verificando se estamos realmente utilizando o *container* do Ubuntu:
 
-**root\@b422f04df14c:/\# cat /etc/issue**
+```bash
+root@b422f04df14c:/# cat /etc/issue
+Ubuntu 18.04 LTS \n \l
 
-Ubuntu 18.04 LTS \\n \\l
-
-**root\@b422f04df14c:/\#**
+root@b422f04df14c:/#
+```
 
 Lembrando que para sair do *container* e mantê-lo em execução é
 necessário utilizar o atalho: **Ctrl + p + q**.
@@ -1322,11 +1275,15 @@ necessário utilizar o atalho: **Ctrl + p + q**.
 Caso eu queira parar um *container* em execução, basta utilizar o
 parâmetro "stop" seguido do "CONTAINER ID":
 
-**\# docker container stop \[CONTAINER ID\]**
+```bash
+#  docker container stop [CONTAINER ID]
+```
 
 Verificando se o *container* continua em execução:
 
-**\# docker container ls**
+```bash
+#  docker container ls
+```
 
 Lembrando que para visualizar os *containers* que não estão em execução
 é necessário utilizar o parâmetro "-a".
@@ -1335,33 +1292,38 @@ Para colocar novamente em execução um *container* que está parado, é
 necessário utilizar o parâmetro "start" do comando "docker container"
 seguido do "CONTAINER ID":
 
-**\# docker container start \[CONTAINER ID\]**
+```bash
+#  docker container start [CONTAINER ID]
+```
 
 Da mesma forma como podemos utilizar o *stop/start* para
 desligar/iniciar um *container*, podemos também fazer o uso do
 "restart", como notamos a seguir:
 
-**\# docker container restart \[CONTAINER ID\]**
+```bash
+#  docker container restart [CONTAINER ID]
+```
 
 Para pausar um *container*, execute:
 
-**\# docker container pause \[CONTAINER ID\]**
+```bash
+#  docker container pause [CONTAINER ID]
+```
 
 E verifique o status do *container*:
 
-**root\@linuxtips:\~\# docker container ls**
+```bash
+root@linuxtips:~# docker container ls
+CONTAINER ID   IMAGE   COMMAND      CREATED         STATUS                 PORTS     NAMES
+b34f4987bdce   ubuntu  "/bin/bash"  12 seconds ago  Up 11 seconds (Paused)           drunk_turi
 
-CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
-
-b34f4987bdce ubuntu \"/bin/bash\" 12 seconds ago Up
-11seconds(**Paused**) drunk\_turi
-
-**root\@linuxtips:\~\#**
+root@linuxtips:~#
+```
 
 Para "despausar" o *container*:
-
-**\# docker container unpause \[CONTAINER ID\]**
-
+```bash
+#  docker container unpause [CONTAINER ID]
+```
 ## 4.8. Visualizando o consumo de recursos pelo *container*\...
 
 Caso você queira visualizar informações referentes ao consumo de
@@ -1369,34 +1331,39 @@ recursos pelo *container*, também é bastante simples: basta utilizar o
 parâmetro "stats" para verificar o consumo de CPU, memória e rede pelo
 *container* em tempo real.
 
-**\# docker container stats \[CONTAINER ID\]**
+```bash
+#  docker container stats [CONTAINER ID]
 
-CONTAINER CPU% MEM USAGE / LIMIT MEM % NET I/O BLOCK I/O PIDS
-
-b34f4987bdce 0.00% 503.8 kB / 2.094 GB 0.02% 648 B / 648 B 0 B / 0 B 2
+CONTAINER       CPU%     MEM USAGE/LIMIT     MEM %    NET I/O     BLOCK I/O   PIDS
+b34f4987bdce    0.00%    503.8kB/2.094GB     0.02%    648B/648B   0B/0B       2
+```
 
 Para sair, pressione **Ctrl + C.**
 
 Para visualizar todos os *containers* de uma só vez, basta não
 especificar o \[CONTAINER ID\],conforme segue:
 
-**\# docker container stats**
+```bash
+#  docker container stats
+```
 
 Agora, se você quer visualizar quais processos estão em execução em
 determinado *container*, utilize o parâmetro "top". Com ele você
 consegue informações sobre os processos em execução, como, por exemplo,
 UID e o PID do processo.
 
-**\# docker container top \[CONTAINER ID\]**
-
-UID PID PPID C STIME TTY TIME COMMAND
-
-root 10656 4303 0 20:24 pts/3 00:00:00 /bin/bash
+```bash
+#  docker container top [CONTAINER ID]
+UID  PID   PPID C STIME  TTY   TIME      COMMAND
+root 10656 4303 0 20:24  pts/3 00:00:00  /bin/bash
+```
 
 Para verificar os *logs* de um determinado *container*, utilize o
 parâmetro "logs", simples assim. :D
 
-**\# docker container logs \[CONTAINER ID\]**
+```bash
+#  docker container logs [CONTAINER ID]
+```
 
 Lembre-se: ele exibe o STDOUT, a saída padrão. Ou seja, normalmente você
 irá visualizar o histórico de mensagens que aparecerem em primeiro plano
@@ -1405,7 +1372,9 @@ durante a execução do *container*.
 Para exibir os *logs* de forma dinâmica, ou seja, conforme aparecem
 novas mensagens ele atualiza a saída no terminal utilizamos a opção "-f"
 
-**\# docker container logs -f \[CONTAINER ID\]**
+```bash
+#  docker container logs -f [CONTAINER ID]
+```
 
 . Com isso seu terminal ficará travado, apenas escutando o *log*, e
 qualquer nova entrada ele exibirá na tela. Saída parecida com o "tail
@@ -1418,24 +1387,27 @@ Bem, remover um *container* é mais simples ainda do que sua criação.
 Quando removemos um *container*, a imagem que foi utilizada para a sua
 criação permanece no *host*; somente o *container* é apagado.
 
-**root\@linuxtips:\~\# docker container rm b34f4987bdce**
+```bash
+root@linuxtips:~# docker container rm b34f4987bdce
 
 Failed to remove container (b34f4987bdce): Error response from daemon:
 Conflict, You cannot remove a running container. Stop the container
 before attempting removal or use -f
 
-**root\@linuxtips:\~\#**
+root@linuxtips:~#
+```
 
 Perceba que, quando você tentou remover o *container*, ele retornou um
 erro dizendo que falhou em remover, pois o *container* estava em
 execução. Ele inclusive recomenda que você pare o *container* antes de
 removê-lo ou então utilize a opção "-f", forçando assim sua remoção.
 
-**root\@linuxtips:\~\# docker container rm -f b34f4987bdce**
-
+```bash
+root@linuxtips:~# docker container rm -f b34f4987bdce
 b34f4987bdce
 
-**root\@linuxtips:\~\#**
+root@linuxtips:~#
+```
 
 Para confirmar a remoção do *container*, utilize o comando "docker
 container ls -a".
@@ -1472,25 +1444,23 @@ computacionais, como veremos agora. :)
 Primeiro, vamos executar um *container* para realizarmos o nosso
 exemplo.
 
-**root\@linuxtips:\~\# docker container run -ti \--name teste debian**
+```bash
+root@linuxtips:~# docker container run -ti --name teste debian
+```
 
 Agora vamos visualizar a quantidade de memória que está configurada para
 esse *container*. Uma forma fácil é utilizar a saída do comando "docker
 container inspect":
 
-**root\@linuxtips:\~\# docker container inspect teste \| grep -i mem**
-
-\"CpusetMems\": \"\",
-
-\"KernelMemory\": 0,
-
-\"Memory\": 0,
-
-\"MemoryReservation\": 0,
-
-\"MemorySwap\": 0,
-
-\"MemorySwappiness\": -1,
+```bash
+root@linuxtips:~# docker container inspect teste | grep -i mem
+	"CpusetMems": "",
+	"KernelMemory": 0,
+	"Memory": 0,
+	"MemoryReservation": 0,
+	"MemorySwap": 0,
+	"MemorySwappiness": -1,
+```
 
 Como percebemos, os valores correspondentes à memória estão zerados, ou
 seja, sem nenhum limite estabelecido.
@@ -1498,28 +1468,24 @@ seja, sem nenhum limite estabelecido.
 Vamos agora subir um novo *container*, porém passando os valores para
 que utilize 512 MB de memória:
 
-**root\@linuxtips:\~\# docker container run -ti -m 512M \--name
-novo\_container debian**
+```bash
+root@linuxtips:~# docker container run -ti -m 512M --name novo_container debian
+```
 
 Utilizamos o parâmetro "-m" para especificar a quantidade de memória que
 desejamos disponibilizar ao *container*. Vamos utilizar o "docker
 container inspect" novamente para verificar se a nossa configuração
 funcionou:
 
-**root\@linuxtips:\~\# docker container inspect novo\_container \| grep
--i mem**
-
-\"CpusetMems\": \"\",
-
-\"KernelMemory\": 0,
-
-\"Memory\": 536870912,
-
-\"MemoryReservation\": 0,
-
-\"MemorySwap\": -1,
-
-\"MemorySwappiness\": -1,
+```bash
+root@linuxtips:~# docker container inspect novo_container | grep -i mem
+	"CpusetMems": "",
+	"KernelMemory": 0,
+	"Memory": 536870912,
+	"MemoryReservation": 0,
+	"MemorySwap": -1,
+	"MemorySwappiness": -1,
+```
 
 Muito bom, parece que deu certo!
 
@@ -1538,7 +1504,9 @@ determinado *container*. Por exemplo, se utilizarmos "\--cpus=0.5"
 estamos dizendo ao Docker para limitar o consumo pelo *container* em
 meio CPU. Fácil, não?
 
-**\#docker container run \--cpus=0.5 \--name teste1 nginx**
+```bash
+# docker container run --cpus=0.5 --name teste1 nginx
+```
 
 Com o comando anterior, estamos subindo um *container* utilizando a
 imagem do Nginx -- até aqui nenhuma novidade, certo? Porém, agora
@@ -1548,19 +1516,15 @@ passamos o parâmetro "\--cpus=0.5" falando para o Docker que esse
 
 Para verificar, vamos utilizar o comando "docker container inspect":
 
-**root\@linuxtips:\~\# docker container inspect teste1 \| grep -i cpu**
-
-\"CpuShares\": 0,
-
-\"NanoCpus\": 500000000,
-
-\"CpuPeriod\": 0,
-
-\"CpuQuota\": 0,
-
-\"CpusetCpus\": \"\",
-
-\"CpusetMems\": \"\",
+```bash
+root@linuxtips:~# docker container inspect teste1 | grep -i cpu
+	"CpuShares": 0,
+	"NanoCpus": 500000000,
+	"CpuPeriod": 0,
+	"CpuQuota": 0,
+	"CpusetCpus": "",
+	"CpusetMems": "",
+```
 
 O campo "NanoCpus" traz a informação que configuramos. :)
 
@@ -1578,71 +1542,48 @@ fantástico!
 Como exemplo, iremos subir um *container* e também alterar as
 informações referentes a memória e CPU:
 
-**root\@linuxtips:\~\# docker container run -ti \--cpus=4 -m 512m
-\--name teste1 nginx**
+```bash
+root@linuxtips:~# docker container run -ti --cpus=4 -m 512m --name teste1 nginx
 
-**root\@linuxtips:\~\# docker container inspect teste1 \| grep -i cpu**
+root@linuxtips:~# docker container inspect teste1 | grep -i cpu
+	"CpuShares": 0,
+	"NanoCpus": 4000000000,
+	"CpuPeriod": 0,
+	"CpuQuota": 0,
+	"CpusetCpus": "",
+	"CpusetMems": "",
 
-\"CpuShares\": 0,
-
-\"NanoCpus\": 4000000000,
-
-\"CpuPeriod\": 0,
-
-\"CpuQuota\": 0,
-
-\"CpusetCpus\": \"\",
-
-\"CpusetMems\": \"\",
-
-**root\@linuxtips:\~\# docker container inspect teste1 \| grep -i mem**
-
-\"CpusetMems\": \"\",
-
-\"KernelMemory\": 0,
-
-\"Memory\": 536870912,
-
-\"MemoryReservation\": 0,
-
-\"MemorySwap\": -1,
-
-\"MemorySwappiness\": -1,
+root@linuxtips:~# docker container inspect teste1 | grep -i mem
+	"CpusetMems": "",
+	"KernelMemory": 0,
+	"Memory": 536870912,
+	"MemoryReservation": 0,
+	"MemorySwap": -1,
+	"MemorySwappiness": -1,
+```
 
 Agora, vamos alterar os valores de limite de CPU e memória:
 
-**root\@linuxtips:\~\# docker container update -m 256m \--cpus=1
-teste1**
-
+```bash
+root@linuxtips:~# docker container update -m 256m --cpus=1 teste1
 teste1
 
-**root\@linuxtips:\~\# docker container inspect teste1 \| grep -i cpu**
+root@linuxtips:~# docker container inspect teste1 \| grep -i cpu
+	"CpuShares": 0,
+	"NanoCpus": 1000000000,
+	"CpuPeriod": 0,
+	"CpuQuota": 0,
+	"CpusetCpus": "",
+	"CpusetMems": "",
 
-\"CpuShares\": 0,
-
-\"NanoCpus\": 1000000000,
-
-\"CpuPeriod\": 0,
-
-\"CpuQuota\": 0,
-
-\"CpusetCpus\": \"\",
-
-\"CpusetMems\": \"\",
-
-**root\@linuxtips:\~\# docker container inspect teste1 \| grep -i mem**
-
-\"CpusetMems\": \"\",
-
-\"KernelMemory\": 0,
-
-\"Memory\": 268435456,
-
-\"MemoryReservation\": 0,
-
-\"MemorySwap\": -1,
-
-\"MemorySwappiness\": -1,
+root@linuxtips:~# docker container inspect teste1 \| grep -i mem
+	"CpusetMems": "",
+	"KernelMemory": 0,
+	"Memory": 268435456,
+	"MemoryReservation": 0,
+	"MemorySwap": -1,
+	"MemorySwappiness": -1,
+```
 
 Funcionou? SIMMM!
 
@@ -1674,55 +1615,46 @@ Primeira coisa: vamos criar um diretório onde deixaremos o nosso arquivo
 
 Depois basta criar o *dockerfile* conforme exemplo a seguir:
 
-**\# mkdir /root/primeiro\_dockerfile**
-
-**\# cd /root/primeiro\_dockerfile**
-
-**\# vim Dockerfile**
+```bash
+#  mkdir /root/primeiro_dockerfile
+#  cd /root/primeiro_dockerfile
+#  vim Dockerfile
+```
 
 Vamos adicionar as instruções que queremos para essa imagem de
 *container* que iremos criar:
 
+```Dockerfile
 FROM debian
 
 RUN /bin/echo "HELLO DOCKER"
+```
 
 Apenas isso por enquanto. Salve e saia do *vim*.
 
 Agora vamos rodar o comando "docker build" para fazer a criação dessa
 imagem de *container* utilizando o *dockerfile* criado.
 
-**root\@linuxtips:\~/primeiro\_dockerfile\# docker build -t tosko:1.0
-.**
-
+```bash
+root@linuxtips:~/primeiro_dockerfile# docker build -t tosko:1.0 .
 Sending build context to Docker daemon 2.048 kB
-
 Step 1/2 : FROM debian
-
 latest: Pulling from library/debian
-
-fdd5d7827f33: Pull complete a3ed95caeb02: Pull complete
-
-Digest: sha256:e7d38b3517548a1c71e41bffe9c8ae6d6d29546ce46bf6
-2159837aad072c90aa
-
+fdd5d7827f33: Pull complete 
+a3ed95caeb02: Pull complete
+Digest: sha256:e7d38b3517548a1c71e41bffe9c8ae6d6d29546ce46bf62159837aad072c90aa
 Status: Downloaded newer image for debian:latest
-
-\-\--\> f50f9524513f
-
+   ---> f50f9524513f
 Step 2/2 : RUN /bin/echo "HELLO DOCKER"
-
-\-\--\> Running in df60a0644bed HELLO DOCKER
-
-\-\--\> fd3af97a8940
-
+   ---> Running in df60a0644bed 
+HELLO DOCKER
+   ---> fd3af97a8940
 Removing intermediate container df60a0644bed
-
 Successfully built fd3af97a8940
-
 Successfully tagged tosko:1.0
 
-**root\@linuxtips:\~/primeiro\_dockerfile\#**
+root@linuxtips:~/primeiro_dockerfile#
+```
 
 Veja que usamos o diretório corrente, representado pelo caractere ".",
 para indicar o *path* do meu arquivo *dockerfile*, mas você não precisa
@@ -1780,31 +1712,23 @@ Porém, podemos aprender como funciona e utilizar em algum momento, caso
 se faça necessário. Para evitar erros, primeiro crie o diretório
 "/volume" na sua máquina.
 
-**root\@linuxtips:\~\# mkdir /volume**
+```bash
+root@linuxtips:~# mkdir /volume
+root@linuxtips:~# docker container run -ti --mount type=bind,src=/volume,dst=/volume ubuntu
+root@7db02e999bf2:/# df -h
 
-**root\@linuxtips:\~\# docker container run -ti \--mount
-type=bind,src=/volume,dst=/volume ubuntu**
+Filesystem                  Size  Used Avail Use%   Mounted on
+none                         13G  6.8G 5.3G   57%   /
+tmpfs                       999M     0 999M    0%   /dev
+tmpfs                       999M     0 999M    0%   /sys/fs/cgroup
+/dev/mapper/ubuntu--vg-root  13G  6.8G 5.3G   57%   /volume 
+shm                          64M     0  64M    0%   /dev/shm
 
-**root\@7db02e999bf2:/\# df -h**
+root@7db02e999bf2:/# ls
+bin boot dev etc home lib lib64 media mnt opt proc root run sbin srv sys tmp usr var volume
 
-Filesystem Size Used Avail Use% Mounted on
-
-none 13G 6.8G 5.3G 57% /
-
-tmpfs 999M 0 999M 0% /dev
-
-tmpfs 999M 0 999M 0% /sys/fs/cgroup
-
-**/dev/mapper/ubuntu\--vg-root 13G 6.8G 5.3G 57% /volume**
-
-shm 64M 0 64M 0% /dev/shm
-
-**root\@7db02e999bf2:/\# ls**
-
-bin boot dev etc home lib lib64 media mnt opt proc root run sbin srv sys
-tmp usr var **volume**
-
-**root\@7db02e999bf2:/\#**
+root@7db02e999bf2:/#
+```
 
 No exemplo anterior, conhecemos um novo parâmetro do comando "docker
 container run", o "\--mount".
@@ -1821,105 +1745,87 @@ compartilhar o diretório "/root/primeiro\_container", que utilizamos
 para guardar o nosso primeiro *dockerfile*, e montá-lo no *container* em
 um volume chamado "/volume" da seguinte forma:
 
-**\# docker container run -ti \--mount
-type=bind,src=/root/primeiro\_container,dst=/volume ubuntu**
+```bash
+#  docker container run -ti --mount type=bind,src=/root/primeiro_container,dst=/volume ubuntu
 
-**root\@3d372a410ea2:/\# df -h**
+root@3d372a410ea2:/# df -h
+Filesystem                   Size Used Avail  Use%  Mounted on
+none                          13G 6.8G  5.3G   57%  /
+tmpfs                        999M    0  999M    0%  /dev
+tmpfs                        999M    0  999M    0%  /sys/fs/cgroup
+/dev/mapper/ubuntu--vg-root   13G 6.8G  5.3G   57%  /volume
+shm                           64M    0   64M    0%  /dev/shm
 
-Filesystem Size Used Avail Use% Mounted on
-
-none 13G 6.8G 5.3G 57% /
-
-tmpfs 999M 0 999M 0% /dev
-
-tmpfs 999M 0 999M 0% /sys/fs/cgroup
-
-**/dev/mapper/ubuntu\--vg-root 13G 6.8G 5.3G 57% /volume**
-
-shm 64M 0 64M 0% /dev/shm
-
-**root\@3d372a410ea2:/\#**
+root@3d372a410ea2:/#
+```
 
 Com isso, estamos montando o diretório "/root/primeiro\_dockerfile" do
 *host* dentro do *container* com o nome de "/volume".
 
 No *container*:
 
-**root\@3d372a410ea2:/\# ls /volume/**
-
+```bash
+root@3d372a410ea2:/# ls /volume/**
 Dockerfile
 
-**root\@3d372a410ea2:/\#**
+root@3d372a410ea2:/#
+```
 
 No *host*:
 
-**root\@linuxtips:\~\# ls /root/primeiro\_dockerfile/**
-
+```bash
+root@linuxtips:~# ls /root/primeiro_dockerfile/
 Dockerfile
 
-**root\@linuxtips:\~\#**
+root@linuxtips:~#
+```
 
 Caso eu queira deixar o volume no *container* apenas como *read-only,* é
 possível. Basta passar o parâmetro "ro" após o destino onde será montado
 o volume:
 
-**\# docker container run -ti \--mount
-type=bind,src=/root/primeiro\_container,dst=/volume,ro ubuntu**
+```bash
+#  docker container run -ti --mount type=bind,src=/root/primeiro_container,dst=/volume,ro ubuntu
+root@8d7863b1d9af:/# df -h
 
-**root\@8d7863b1d9af:/\# df -h**
+Filesystem                   Size   Used  Avail  Use%  Mounted on
+none                          13G   6.8G   5.3G   57%  /
+tmpfs                        999M      0   999M    0%  /dev
+tmpfs                        999M      0   999M    0%  /sys/fs/cgroup
+/dev/mapper/ubuntu--vg-root   13G   6.8G   5.3G   57%  /volume
+shm                           64M      0    64M    0%  /dev/shm
 
-Filesystem Size Used Avail Use% Mounted on
-
-none 13G 6.8G 5.3G 57% /
-
-tmpfs 999M 0 999M 0% /dev
-
-tmpfs 999M 0 999M 0% /sys/fs/cgroup
-
-**/dev/mapper/ubuntu\--vg-root 13G 6.8G 5.3G 57% /volume**
-
-shm 64M 0 64M 0% /dev/shm
-
-**root\@8d7863b1d9af:/\# cd /volume/**
-
-**root\@8d7863b1d9af:/volume\# ls**
-
+root@8d7863b1d9af:/# cd /volume/
+root@8d7863b1d9af:/volume# ls
 Dockerfile
 
-**root\@8d7863b1d9af:/volume\# mkdir teste**
+root@8d7863b1d9af:/volume# mkdir teste
+mkdir: cannot create directory 'teste': Read-only file system
 
-mkdir: cannot create directory \'teste\': Read-only file system
-
-**root\@8d7863b1d9af:/volume\#**
+root@8d7863b1d9af:/volume#
+```
 
 Assim como é possível montar um diretório como volume, também é possível
 montar um arquivo:
 
-**\# docker container run -ti \--mount
-type=bind,src=/root/primeiro\_container/Dockerfile,dst=/Dockerfile/
-ubuntu**
+```bash
+#  docker container run -ti --mount type=bind,src=/root/primeiro_container/Dockerfile,dst=/Dockerfile ubuntu
 
-**root\@df0e3e58280a:/\# df -h**
+root@df0e3e58280a:/# df -h
 
-Filesystem Size Used Avail Use% Mounted on
+Filesystem                   Size   Used  Avail  Use%  Mounted on
+none                          13G   6.8G   5.3G   57%  /
+tmpfs                        999M      0   999M    0%  /dev
+tmpfs                        999M      0   999M    0%  /sys/fs/cgroup
+/dev/mapper/ubuntu--vg-root   13G   6.8G   5.3G   57%  /Dockerfile
+shm                           64M      0    64M    0%  /dev/shm
 
-none 13G 6.8G 5.3G 57% /
-
-tmpfs 999M 0 999M 0% /dev
-
-tmpfs 999M 0 999M 0% /sys/fs/cgroup
-
-**/dev/mapper/ubuntu\--vg-root 13G 6.8G 5.3G 57% /Dockerfile**
-
-shm 64M 0 64M 0% /dev/shm
-
-**root\@df0e3e58280a:/\# cat Dockerfile**
-
+root@df0e3e58280a:/# cat Dockerfile
 FROM debian
+RUN /bin/echo "HELLO DOCKER"
 
-RUN /bin/echo \"HELLO DOCKER\"
-
-**root\@df0e3e58280a:/\#**
+root@df0e3e58280a:/#
+```
 
 Isso faz com que o arquivo "/root/primeiro\_dockerfile/Dockerfile" seja
 montado em "/Dockerfile" no *container*.
@@ -1941,26 +1847,35 @@ indicado no *container*. Vamos aos exemplos! :D
 É possível fazer a criação de volumes e toda a sua administração através
 do comando:
 
-**\# docker volume create giropops**
+```bash
+#  docker volume create giropops
+```
 
 É possível removê-lo através do comando:
 
-**\# docker volume rm giropops**
+```bash
+#  docker volume rm giropops
+```
 
 Para verificar detalhes sobre esse volume:
 
-**\# docker volume inspect giropops**
+```bash
+#  docker volume inspect giropops
+```
 
 Para remover os volumes que não estão sendo utilizados (use com extrema
 moderação! :D):
 
-**\# docker volume prune**
+```bash
+#  docker volume prune
+```
 
 Para que você possa montar o volume criado em algum
 *container*/*service*, basta executar o seguinte comando:
 
-**\# docker container run -d \--mount
-type=volume,source=giropops,destination=/var/opa nginx**
+```bash
+#  docker container run -d --mount type=volume,source=giropops,destination=/var/opa nginx
+```
 
 Onde:
 
@@ -1989,9 +1904,10 @@ A saída do comando "docker volume inspect" retorna mais informação do
 que somente o *path* do diretório no *host*. Vamos usar a opção
 "\--format" ou "-f" para filtrar a saída do "inspect".
 
-**docker volume inspect \--format \'{{ .Mountpoint }}\' giropops**
-
-/var/lib/docker/volumes/giropopos/\_data
+```bash
+docker volume inspect --format '{{ .Mountpoint }}' giropops
+/var/lib/docker/volumes/giropopos/_data
+```
 
 ## 7.3. Criando e montando um *data-only container*
 
@@ -2022,7 +1938,9 @@ banco PostgreSQL.
 Para que possamos criar um *container* especificando um nome para ele,
 utilizamos o parâmetro "\--name", conforme veremos no exemplo a seguir:
 
-**\# docker container create -v /data \--name dbdados centos**
+```bash
+#  docker container create -v /data --name dbdados centos
+```
 
 Com isso, apenas criamos o *container* e especificamos um volume para
 ele, mas ainda não o iniciamos.
@@ -2032,11 +1950,11 @@ Porém, qual a localização desse volume no *host*?
 
 Lembra do "docker inspect"? Vamos utilizá-lo novamente:
 
-**root\@linuxtips:\~\# docker inspect -f {{.Mounts}} dbdados**
+```bash
+root@linuxtips:~# docker inspect -f {{.Mounts}} dbdados
 
-\[{46255137fe3f6d5f593e9ba9aaaf570b2f8b5c870f587c2fb34f29b79f97c30c
-/var/lib/docker/volumes/46255137fe3f6d5f593e9ba9aaaf570b2f8b5c870f587c2fb34f29b79f97c30c/\_data
-/data local true }\]
+[{46255137fe3f6d5f593e9ba9aaaf570b2f8b5c870f587c2fb34f29b79f97c30c /var/lib/docker/volumes/46255137fe3f6d5f593e9ba9aaaf570b2f8b5c870f587c2fb34f29b79f97c30c/_data /data local true }]
+```
 
 Perceba que agora utilizamos o nome do *container* em vez do "CONTAINER
 ID". Totalmente possível e muito mais intuitivo.
@@ -2044,8 +1962,10 @@ ID". Totalmente possível e muito mais intuitivo.
 Quando executamos o "docker inspect", ele nos retornou o caminho do
 nosso volume. Vamos ver se existe algum conteúdo dentro dele:
 
-**root\@linuxtips:\~\# ls \\ /var/lib/docker/volumes/46255137fe3f6d
-5f593e9ba9aaaf570b2f8b5c870f \\ 587c2fb34f29b79f97c30c/\_data**
+```bash
+root@linuxtips:~# ls \
+ /var/lib/docker/volumes/46255137fe3f6d5f593e9ba9aaaf570b2f8b5c870f587c2fb34f29b79f97c30c/_data
+```
 
 Como vimos, o diretório ainda não possui conteúdo.
 
@@ -2065,19 +1985,15 @@ parâmetros superimportantes:
 Pronto, agora estamos preparados! Vamos criar os *containers* com o
 PostgreSQL:
 
-**\# docker run -d -p 5432:5432 \--name pgsql1 \--volumes-from dbdados
-\\**
+```bash
+#  docker run -d -p 5432:5432 --name pgsql1 --volumes-from dbdados \
+    -e POSTGRESQL_USER=docker -e POSTGRESQL_PASS=docker \
+    -e POSTGRESQL_DB=docker kamui/postgresql
 
-**-e POSTGRESQL\_USER=docker -e POSTGRESQL\_PASS=docker \\**
-
-**-e POSTGRESQL\_DB=docker kamui/postgresql**
-
-**\# docker run -d -p 5433:5432 \--name pgsql2 \--volumes-from dbdados
-\\**
-
-**-e POSTGRESQL\_USER=docker -e POSTGRESQL\_PASS=docker \\**
-
-**-e POSTGRESQL\_DB=docker kamui/postgresql**
+#  docker run -d -p 5433:5432 --name pgsql2 --volumes-from dbdados \
+   -e POSTGRESQL_USER=docker -e POSTGRESQL_PASS=docker \
+   -e POSTGRESQL_DB=docker kamui/postgresql
+```
 
 Para verificar os dois *containers* com o PostgreSQL em execução,
 utilize o "docker container ls".
@@ -2087,15 +2003,13 @@ Será que já temos algum dado no volume "/data" do *container* "dbdados"?
 
 Vamos verificar novamente no *host* se o volume agora possui algum dado:
 
-**root\@linuxtips:\~\# ls
-/var/lib/docker/volumes/46255137fe3f6d5f593e9ba9aaaf570b2f8b5c870f587c2fb34f29b79f97c30c/\_data**
+```bash
+root@linuxtips:~# ls /var/lib/docker/volumes/46255137fe3f6d5f593e9ba9aaaf570b2f8b5c870f587c2fb34f29b79f97c30c/_data
 
-base pg\_clog pg\_ident.conf pg\_notify pg\_snapshots pg\_stat\_tmp
-pg\_tblspc PG\_VERSION postgresql.conf postmaster.pid server.key global
-pg\_hba.conf pg\_multixact pg\_serial pg\_stat pg\_subtrans pg\_twophase
-pg\_xlog postmaster.opts server.crt
+base pg_clog pg_ident.conf pg_notify pg_snapshots pg_stat_tmp pg_tblspc PG_VERSION postgresql.conf postmaster.pid server.key global pg_hba.conf pg_multixact pg_serial pg_stat pg_subtrans pg_twophase pg_xlog postmaster.opts server.crt
 
-**root\@linuxtips:\~\#**
+root@linuxtips:~#
+```
 
 Sensacional! Como percebemos, os dois *containers* do PostgreSQL estão
 escrevendo seus dados no volume "/data" do *container* "dbdados". Chega
@@ -2110,10 +2024,10 @@ Outra coisa bem bacana é a possibilidade de fazer *backups* dos seus
 Digamos que você queira fazer o *backup* do diretório "/data" do
 *container* "dbdados" que nós criamos há pouco; como faríamos?
 
-**root\@linuxtips:\~\# cd backup/**
-
-**root\@linuxtips:\~/backup\# docker run -ti \--volumes-from dbdados -v
-\$(pwd):/backup debian tar -cvf /backup/backup.tar /data**
+```bash
+root@linuxtips:~# cd backup/
+root@linuxtips:~/backup# docker run -ti --volumes-from dbdados -v $(pwd):/backup debian tar -cvf /backup/backup.tar /data
+```
 
 Quando executamos o comando anterior, é criado um novo *container*
 montando o(s) volume(s) do *container* "dbdados" (que no caso é o
@@ -2122,11 +2036,11 @@ montando o(s) volume(s) do *container* "dbdados" (que no caso é o
 comando do *tar* para empacotar o diretório "/data" dentro do diretório
 "/backup". Bem simples, né?
 
-**root\@linuxtips:\~/backup\# ls**
-
+```bash
+root@linuxtips:~/backup# ls
 backup.tar
-
-**root\@linuxtips:\~/backup\#**
+root@linuxtips:~/backup#
+```
 
 Lembrando que os volumes são sempre criados dentro de
 "/var/lib/docker/volumes". Caso queira fazer o *backup* de todos os
@@ -2165,43 +2079,49 @@ um *dockerfile*. Você verá o quanto é simples a criação de um
 
 Para começar, vamos criar um diretório chamado "/root/Dockerfiles".
 
-**\# mkdir /root/Dockerfiles**
+```bash
+#  mkdir /root/Dockerfiles
+```
 
 Agora começaremos a criação do nosso *dockerfile*, nosso mapa de criação
 da imagem. Para que possamos organizá-lo melhor, vamos criar um
 diretório chamado "apache", onde guardaremos esse nosso primeiro
 exemplo:
 
-**\# cd /root/Dockerfiles/**
-
-**\# mkdir apache**
+```bash
+#  cd /root/Dockerfiles/
+#  mkdir apache
+```
 
 Por enquanto, vamos apenas criar um arquivo chamado "Dockerfile" e
 adicionar o conteúdo conforme exemplo a seguir:
 
-**\# cd apache**
+```bash
+#  cd apache
+#  vim Dockerfile
+```
 
-**\# vim Dockerfile**
-
+```Dockerfile
 FROM debian
 
 RUN apt-get update && apt-get install -y apache2 && apt-get clean
 
-ENV APACHE\_LOCK\_DIR=\"/var/lock\"
+ENV APACHE_LOCK_DIR="/var/lock"
 
-ENV APACHE\_PID\_FILE=\"/var/run/apache2.pid\"
+ENV APACHE_PID_FILE="/var/run/apache2.pid"
 
-ENV APACHE\_RUN\_USER=\"www-data\"
+ENV APACHE_RUN_USER="www-data"
 
-ENV APACHE\_RUN\_GROUP=\"www-data\"
+ENV APACHE_RUN_GROUP="www-data"
 
-ENV APACHE\_LOG\_DIR=\"/var/log/apache2\"
+ENV APACHE_LOG_DIR="/var/log/apache2"
 
-LABEL description=\"Webserver\"
+LABEL description="Webserver"
 
 VOLUME /var/www/html/
 
 EXPOSE 80
+```
 
 Muito bom! Agora que você já adicionou as informações conforme o
 exemplo, vamos entender cada seção utilizada nesse nosso primeiro
@@ -2222,7 +2142,9 @@ exemplo, vamos entender cada seção utilizada nesse nosso primeiro
 Após a criação do arquivo, vamos *buildar* (construir a nossa imagem) da
 seguinte forma:
 
-**\# docker build .**
+```bash
+#  docker build .
+```
 
 Lembre-se: você deverá estar no diretório onde está o seu *dockerfile*.
 
@@ -2237,11 +2159,11 @@ build", a imagem foi criada com sucesso! :D
 Vamos executar o "docker image ls" para ver se está tudo certo com a
 nossa primeira imagem!
 
-**root\@linuxtips:\~/Dockerfile/apache\# docker image ls**
-
-REPOSITORY TAG IMAGE ID CREATED SIZE
-
-**\<none\> \<none\>** 53de2cee9e71 2 minutes ago 193.4 MB
+```bash
+root@linuxtips:~/Dockerfile/apache# docker image ls
+REPOSITORY       TAG     IMAGE ID      CREATED         SIZE
+<none>           <none>  53de2cee9e71  2 minutes ago   193.4 MB
+```
 
 A nossa imagem foi criada! Porém, temos um problema. :/
 
@@ -2252,80 +2174,63 @@ adicionar uma *tag* ("nome:versão") à imagem.
 Vamos executar novamente o *build*, porém passando o parâmetro '-t',
 conforme o exemplo a seguir:
 
-**\# docker build -t linuxtips/apache:1.0 .**
+```bash
+#  docker build -t linuxtips/apache:1.0 .
+```
 
 Agora vamos ver se realmente a imagem foi criada, adicionando um nome e
 uma versão a ela:
 
-**root\@linuxtips:\~/Dockerfile/apache\# docker image ls**
-
-REPOSITORY TAG IMAGE ID CREATED SIZE
-
-**linuxtips/apache 1.0** 53de2cee9e71 5 minutes ago 193.4 MB
+```bash
+root@linuxtips:~/Dockerfile/apache# docker image ls
+REPOSITORY         TAG   IMAGE ID      CREATED        SIZE
+linuxtips/apache   1.0   53de2cee9e71  5 minutes ago  193.4 MB
+```
 
 Maravilha! Funcionou conforme esperávamos!
 
 Vamos executar um *container* utilizando nossa imagem como base:
 
-**\# docker container run -ti linuxtips/apache:1.0**
+```bash
+#  docker container run -ti linuxtips/apache:1.0
+```
 
 Agora já estamos no *container*. Vamos verificar se o Apache2 está em
 execução. Se ainda não estiver, vamos iniciá-lo e verificar se a porta
 80 está "LISTEN".
 
-**root\@70dd36fe2d3b:/\# ps -ef**
+```bash
+root@70dd36fe2d3b:/# ps -ef
+UID          PID    PPID  C STIME TTY          TIME CMD
+root           1       0  1 21:33 ?        00:00:00 /bin/bash
+root           6       1  0 21:33 ?        00:00:00 ps -ef
 
-UID PID PPID C STIME TTY TIME CMD
+root@70dd36fe2d3b:/# /etc/init.d/apache2 start
+[....] Starting Apache httpd web server: apache2AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.4. Set the 'ServerName' directive globally to suppress this message
+. ok 
 
-root 1 0 1 21:33 ? 00:00:00 /bin/bash
+root@70dd36fe2d3b:/# ps -ef
+UID          PID    PPID  C STIME TTY          TIME CMD
+root           1       0  0 21:33 ?        00:00:00 /bin/bash
+root          30       1  0 21:33 ?        00:00:00 /usr/sbin/apache2 -k start
+www-data      33      30  0 21:33 ?        00:00:00 /usr/sbin/apache2 -k start
+www-data      34      30  0 21:33 ?        00:00:00 /usr/sbin/apache2 -k start
+root         109       1  0 21:33 ?        00:00:00 ps -ef
 
-root 6 1 0 21:33 ? 00:00:00 ps -ef
+root@70dd36fe2d3b:/# ss -atn
+State      Recv-Q Send-Q     Local Address:Port    Peer Address:Port
+LISTEN          0    128            :::80                :::*
 
-**root\@70dd36fe2d3b:/\# /etc/init.d/apache2 start**
+root@70dd36fe2d3b:/# ip addr show eth0
+50: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
+        link/ether 02:42:ac:11:00:04 brd ff:ff:ff:ff:ff:ff
+        inet 172.17.0.4/16 scope global eth0
+             valid_lft forever preferred_lft forever
+        inet6 fe80::42:acff:fe11:4/64 scope link
+             valid_lft forever preferred_lft forever
 
-\[\....\] Starting web server: apache2AH00558: apache2: Could not
-reliably determine the server\'s fully qualified domain name, using
-172.17.0.4. Set the \'ServerName\' directive globally to suppress this
-message
-
-. ok
-
-**root\@70dd36fe2d3b:/\# ps -ef**
-
-UID PID PPID C STIME TTY TIME CMD
-
-root 1 0 0 21:33 ? 00:00:00 /bin/bash
-
-**root 30 1 0 21:33 ? 00:00:00 /usr/sbin/apache2 -k start**
-
-**www-data 33 30 0 21:33 ? 00:00:00 /usr/sbin/apache2 -k start**
-
-**www-data 34 30 0 21:33 ? 00:00:00 /usr/sbin/apache2 -k start**
-
-root 109 1 0 21:33 ? 00:00:00 ps -ef
-
-**root\@70dd36fe2d3b:/\# ss -atn**
-
-State Recv-Q Send-Q Local Address:Port Peer Address:Port
-
-**LISTEN** 0 **128** :::80 :::\*
-
-**root\@70dd36fe2d3b:/\# ip addr show eth0**
-
-50: eth0: \<BROADCAST,MULTICAST,UP,LOWER\_UP\> mtu 1500 qdisc noqueue
-state UP group default
-
-link/ether 02:42:ac:11:00:04 brd ff:ff:ff:ff:ff:ff
-
-inet **172.17.0.4**/16 scope global eth0
-
-valid\_lft forever preferred\_lft forever
-
-inet6 fe80::42:acff:fe11:4/64 scope link
-
-valid\_lft forever preferred\_lft forever
-
-**root\@70dd36fe2d3b:/\#**
+root@70dd36fe2d3b:/#
+```
 
 No código anterior é possível observar o IP do *container* na saída do
 "ip addr". Vamos testar a comunicação com o *container* a partir do
@@ -2333,7 +2238,9 @@ No código anterior é possível observar o IP do *container* na saída do
 
 No *host*, digite:
 
-**\# curl \<IP DO CONTAINER\>**
+```bash
+#  curl <IP DO CONTAINER>
+```
 
 O "curl" retornou a página de boas-vindas do Apache2, ou seja, tudo está
 funcionando muito bem e o Apache2, respondendo conforme esperado!
@@ -2347,33 +2254,37 @@ aperfeiçoá-lo e deixá-lo como deve estar! :D
 
 A primeira coisa é deixar o nosso *dockerfile* como segue:
 
-**\# vim Dockerfile**
+```bash
+#  vim Dockerfile
+```
 
+```Dockerfile
 FROM debian
 
 RUN apt-get update && apt-get install -y apache2 && apt-get clean
 
-ENV APACHE\_LOCK\_DIR=\"/var/lock\"
+ENV APACHE_LOCK_DIR="/var/lock"
 
-ENV APACHE\_PID\_FILE=\"/var/run/apache2/apache2.pid\"
+ENV APACHE_PID_FILE="/var/run/apache2/apache2.pid"
 
-ENV APACHE\_RUN\_USER=\"www-data\"
+ENV APACHE_RUN_USER="www-data"
 
-ENV APACHE\_RUN\_DIR=\"/var/run/apache2\"
+ENV APACHE_RUN_DIR="/var/run/apache2"
 
-ENV APACHE\_RUN\_GROUP=\"www-data\"
+ENV APACHE_RUN_GROUP="www-data"
 
-ENV APACHE\_LOG\_DIR=\"/var/log/apache2\"
+ENV APACHE_LOG_DIR="/var/log/apache2"
 
-LABEL description=\"Webserver\"
+LABEL description="Webserver"
 
 VOLUME /var/www/html/
 
 EXPOSE 80
 
-ENTRYPOINT \[\"/usr/sbin/apachectl\"\]
+ENTRYPOINT ["/usr/sbin/apachectl"]
 
-CMD \[\"-D\", \"FOREGROUND\"\]
+CMD ["-D", "FOREGROUND"]
+```
 
 Perceba que agora nós adicionamos mais duas opções: o ENTRYPOINT e o
 CMD!
@@ -2430,9 +2341,11 @@ com o ENTRYPOINT e o CMD dentro do mesmo *dockerfile*, o CMD somente
 aceita parâmetros do ENTRYPOINT, conforme nosso exemplo do *dockerfile*
 anterior:
 
-**ENTRYPOINT \[\"/usr/sbin/apachectl\"\]**
+```Dockerfile
+ENTRYPOINT ["/usr/sbin/apachectl"]
 
-**CMD \[\"-D\", \"FOREGROUND\"\]**
+CMD ["-D", "FOREGROUND"]
+```
 
 Onde:
 
@@ -2442,7 +2355,9 @@ Onde:
 
 No *shell*, por exemplo, a execução ficaria assim:
 
-**\# /usr/sbin/apachectl -D FOREGROUND**
+```bash
+#  /usr/sbin/apachectl -D FOREGROUND
+```
 
 Ou seja, assim você está iniciando o Apache passando a instrução para
 que ele seja iniciado em primeiro plano, como deve ser. :D
@@ -2472,8 +2387,11 @@ Vamos a um exemplo para que possamos entender melhor como isso funciona!
 Para isso, preparei uma *app* escrita em Golang superavançada para o
 nosso teste:
 
-**\# vim goapp.go**
+```bash
+#  vim goapp.go
+```
 
+```golang
 package main
 
 import \"fmt\"
@@ -2483,14 +2401,18 @@ func main() {
 fmt.Println(\"GIROPOPS STRIGUS GIRUS - LINUXTIPS\")
 
 }
+```
 
 Achou que seria algo avançado? Impossível, fomos nós que fizemos. :D
 
 Bem, agora vamos criar um *dockerfile* para criar a nossa imagem e assim
 executar a nossa *app*.
 
-**\# vim Dockerfile**
+```bash
+#  vim Dockerfile
+```
 
+```Dockerfile
 FROM golang
 
 WORKDIR /app
@@ -2500,22 +2422,27 @@ ADD . /app
 RUN go build -o goapp
 
 ENTRYPOINT ./goapp
+```
 
 Pronto! Agora vamos realizar o *build*.
 
-**\# docker build -t goapp:1.0 .**
+```bash
+#  docker build -t goapp:1.0 .
+```
 
 Listando a nossa imagem:
 
-**\# docker image ls \| grep goapp**
-
-goapp 1.0 50451808b384 11 seconds ago 781MB
+```bash
+#  docker image ls | grep goapp
+goapp    1.0    50451808b384    11 seconds ago      781MB
+```
 
 Agora vamos executá-la e ver a nossa fantástica *app* em execução:
 
-**\# docker container run -ti goapp:1.0**
-
+```bash
+#  docker container run -ti goapp:1.0
 GIROPOPS STRIGUS GIRUS -- LINUXTIPS
+```
 
 Pronto! Nossa *app* e nossa imagem estão funcionando! Sucesso!
 
@@ -2527,8 +2454,11 @@ como ele funciona e a diferença entre as duas imagens.
 
 Vamos deixar nosso *dockerfile* dessa maneira:
 
-\# vim Dockerfile
+```bash
+# vim Dockerfile
+```
 
+```Dockerfile
 FROM golang AS buildando
 
 ADD . /src
@@ -2541,9 +2471,10 @@ FROM alpine:3.1
 
 WORKDIR /app
 
-COPY \--from=buildando /src/goapp /app
+COPY --from=buildando /src/goapp /app
 
 ENTRYPOINT ./goapp
+```
 
 Perceba que agora nós temos duas entradas FROM, o que não era possível
 antes do *multi-stage*. Mas por que isso?
@@ -2588,21 +2519,24 @@ Já no segundo bloco temos o seguinte:
 Agora que já entendemos todas as linhas do nosso novo *dockerfile*,
 'bora realizar o *build* dele.
 
-**\# docker build -t goapp\_multistage:1.0 .**
+```bash
+#  docker build -t goapp_multistage:1.0 .
+```
 
 Vamos executar a nossa imagem para ver se está tudo funcionando:
 
-**\# docker container run -ti goapp\_multistage:1.0**
-
+```bash
+#  docker container run -ti goapp_multistage:1.0
 GIROPOPS STRIGUS GIRUS - LINUXTIPS
+```
 
 Será que existe diferença de tamanho entre elas? Vamos conferir:
 
-**\# docker image ls \| grep goapp**
-
-goapp\_multistage 1.0 dfe57485b7f0 22 seconds ago **7.07MB**
-
-goapp 1.0 50451808b384 15 minutes ago **781MB**
+```bash
+#  docker image ls | grep goapp
+goapp_multistage  1.0    dfe57485b7f0    22 seconds ago    7.07MB
+goapp             1.0    50451808b384    15 minutes ago     781MB
+```
 
 A diferença de tamanho é brutal, pois em nossa primeira imagem
 precisamos ter um monte de pacotes para que o *build* da *app* Golang
@@ -2627,16 +2561,18 @@ Simples, rápido e fácil!
 Bem, primeiro precisamos criar um *container*. Vamos dessa vez utilizar
 um *container* Debian, somente para variar. :D
 
-**root\@linuxtips:\~\# docker container run -ti debian:8 /bin/bash**
-
-root\@0b7e6f606aae:/\#
+```bash
+root@linuxtips:~# docker container run -ti debian:8 /bin/bash
+root@0b7e6f606aae:/#
+```
 
 Agora vamos fazer as alterações que desejamos. Vamos fazer o mesmo que
 fizemos quando montamos nossa primeira imagem com o *dockerfile*, ou
 seja, fazer a instalação do Apache2. :D
 
-**root\@0b7e6f606aae:/\# apt-get update && apt-get install -y apache2 &&
-apt-get clean**
+```bash
+root@0b7e6f606aae:/# apt-get update && apt-get install -y apache2 && apt-get clean
+```
 
 Agora que já instalamos o Apache2, vamos sair do *container* para que
 possamos *commitar* a nossa imagem com base nesse *container* em
@@ -2645,90 +2581,71 @@ execução.
 Lembre-se de que para sair do *container* e deixá-lo ainda em execução é
 necessário pressionar **Ctrl + p + q**. ;)
 
-**\# docker container ls**
-
-**\# docker commit -m \"meu container\" CONTAINERID**
-
-**\# docker image ls**
-
-REPOSITORY TAG IMAGE ID CREATED SIZE
-
-**\<none\> \<none\>** fd131aedd43a 4 seconds ago 193.4 MB
+```bash
+#  docker container ls
+#  docker commit -m "meu container" CONTAINERID
+#  docker image ls
+REPOSITORY   TAG     IMAGE ID       CREATED         SIZE
+<none>       <none>  fd131aedd43a   4 seconds ago   193.4 MB
+```
 
 Repare que nossa imagem ficou com o "\<none\>" em seu nome e "TAG". Para
 que possamos ajustar e dar um nome e uma versão à nossa imagem, vamos
 usar o comando "docker tag", conforme mostramos a seguir:
 
-**\# docker tag IMAGEID linuxtips/apache\_2:1.0**
-
-REPOSITORY TAG IMAGE ID CREATED SIZE
-
-**linuxtips/apache\_2 1.0** fd131aedd43a 2 minutes ago 193.4 MB
+```bash
+#  docker tag IMAGEID linuxtips/apache_2:1.0
+REPOSITORY          TAG   IMAGE ID       CREATED          SIZE
+linuxtips/apache_2  1.0   fd131aedd43a   2 minutes ago    193.4 MB
+```
 
 Agora sim!!! Temos a nossa imagem criada e nome e versão especificados.
 
 Vamos iniciar um *container* utilizando a imagem que acabamos de criar:
 
-**\# docker container run -ti linuxtips/apache\_2:1.0 /bin/bash**
+```bash
+#  docker container run -ti linuxtips/apache_2:1.0 /bin/bash
+```
 
 Vamos subir o Apache2 e testar a comunicação do *container*:
 
-**root\@57094ec894ce:/\# ps -ef**
+```bash
+root@57094ec894ce:/# ps -ef
+UID   PID PPID C  STIME TTY      TIME  CMD
+root    1    0 0  21:48 ?    00:00:00  /bin/bash
+root    6    1 0  21:48 ?    00:00:00  ps -ef
 
-UID PID PPID C STIME TTY TIME CMD
-
-root 1 0 0 21:48 ? 00:00:00 /bin/bash
-
-root 6 1 0 21:48 ? 00:00:00 ps -ef
-
-**root\@57094ec894ce:/\# /etc/init.d/apache2 start**
-
-\[\....\] Starting web server: apache2AH00558: apache2: Could not
-reliably determine the server\'s fully qualified domain name, using
-172.17.0.6. Set the \'ServerName\' directive globally to suppress this
-message
-
+root@57094ec894ce:/# /etc/init.d/apache2 start
+[....] Starting web server: apache2AH00558: apache2: Could notreliably determine the server's fully qualified domain name, using 172.17.0.6. Set the \'ServerName\' directive globally to suppress this message
 . ok
 
-**root\@70dd36fe2d3b:/\# ps -ef**
+root@70dd36fe2d3b:/# ps -ef
+UID          PID    PPID  C STIME TTY          TIME CMD
+root           1       0  0 21:43 ?        00:00:00 /bin/bash
+root          30       1  0 21:44 ?        00:00:00 /usr/sbin/apache2 -k start
+www-data      33      30  0 21:44 ?        00:00:00 /usr/sbin/apache2 -k start
+www-data      34      30  0 21:44 ?        00:00:00 /usr/sbin/apache2 -k start
+root         111       1  0 21:44 ?        00:00:00 ps -ef
 
-UID PID PPID C STIME TTY TIME CMD
+root@70dd36fe2d3b:/# ss -atn
+State     Recv-Q   Send-Q       Local Address:Port        Peer Address:Port
+LISTEN         0      128             :::80                      :::*
 
-root 1 0 0 21:43 ? 00:00:00 /bin/bash
-
-**root 30 1 0 21:44 ? 00:00:00 /usr/sbin/apache2 -k start**
-
-**www-data 33 30 0 21:44 ? 00:00:00 /usr/sbin/apache2 -k start**
-
-**www-data 34 30 0 21:44 ? 00:00:00 /usr/sbin/apache2 -k start**
-
-root 111 1 0 21:44 ? 00:00:00 ps -ef
-
-**root\@70dd36fe2d3b:/\# ss -atn**
-
-State Recv-Q Send-Q Local Address:Port Peer Address:Port
-
-**LISTEN** 0 **128** :::80 :::\*
-
-**root\@57094ec894ce:/\# ip addr show eth0**
-
-54: eth0: \<BROADCAST,MULTICAST,UP,LOWER\_UP\> mtu 1500 qdisc noqueue
-state UP group default
-
-link/ether 02:42:ac:11:00:06 brd ff:ff:ff:ff:ff:ff
-
-inet **172.17.0.6**/16 scope global eth0
-
-valid\_lft forever preferred\_lft forever
-
-inet6 fe80::42:acff:fe11:6/64 scope link
-
-valid\_lft forever preferred\_lft forever
+root@57094ec894ce:/# ip addr show eth0
+54: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
+       link/ether 02:42:ac:11:00:06 brd ff:ff:ff:ff:ff:ff
+       inet 172.17.0.6/16 scope global eth0
+          valid_lft forever preferred_lft forever
+       inet6 fe80::42:acff:fe11:6/64 scope link
+          valid_lft forever preferred_lft forever
+```
 
 Boaaa! Agora já temos o Apache2 em execução. Vamos sair do *container* e
 testar a comunicação com o Apache2 a partir do *host*:
 
-**\# curl \<Container IP\>**
+```bash
+#  curl <Container IP>
+```
 
 Ele retornará a página de boas-vindas do Apache2! Tudo funcionando
 conforme esperado!
@@ -2774,149 +2691,79 @@ retornar todas as informações contidas naquela imagem, desde a imagem
 base que foi utilizada até pontos de montagem, configurações, enfim,
 muita coisa. Teste aí:
 
-**root\@linuxtips:\~\# docker image inspect debian**
-
-\[
-
-{
-
-\"Id\":
-\"sha256:f50f9524513f5356d952965dc97c7e831b02bb6ea0619da9bfc1997e4b9781b7\",
-
-\"RepoTags\": \[
-
-\"debian:8\",
-
-\"debian:latest\"
-
-\],
-
-\"RepoDigests\": \[\],
-
-\"Parent\": \"\",
-
-\"Comment\": \"\",
-
-\"Created\": \"2016-03-01T18:51:14.143360029Z\",
-
-\"Container\":
-\"557177343b434b6797c19805d49c37728a4445d2610a6647c27055fbe4ec3451\",
-
-\"ContainerConfig\": {
-
-\"Hostname\": \"e5c68db50333\",
-
-\"Domainname\": \"\",
-
-\"User\": \"\",
-
-\"AttachStdin\": false,
-
-\"AttachStdout\": false,
-
-\"AttachStderr\": false,
-
-\"Tty\": false,
-
-\"OpenStdin\": false,
-
-\"StdinOnce\": false,
-
-\"Env\": null,
-
-\"Cmd\": \[
-
-\"/bin/sh\",
-
-\"-c\",
-
-\"\#(nop) CMD \[\\\"/bin/bash\\\"\]\"
-
-\],
-
-\"Image\":
-\"d8bd0657b25f17eef81a3d52b53da5bda4de0cf5cca3dcafec277634ae4b38fb\",
-
-\"Volumes\": null,
-
-\"WorkingDir\": \"\",
-
-\"Entrypoint\": null,
-
-\"OnBuild\": null,
-
-\"Labels\": {}
-
-},
-
-\"DockerVersion\": \"1.9.1\",
-
-\"Author\": \"\",
-
-\"Config\": {
-
-\"Hostname\": \"e5c68db50333\",
-
-\"Domainname\": \"\",
-
-\"User\": \"\",
-
-\"AttachStdin\": false,
-
-\"AttachStdout\": false,
-
-\"AttachStderr\": false,
-
-\"Tty\": false,
-
-\"OpenStdin\": false,
-
-\"StdinOnce\": false,
-
-\"Env\": null,
-
-\"Cmd\": \[
-
-\"/bin/bash\"
-
-\],
-
-\"Image\":
-\"d8bd0657b25f17eef81a3d52b53da5bda4de0cf5cca3dcafec277634ae4b38fb\",
-
-\"Volumes\": null,
-
-\"WorkingDir\": \"\",
-
-\"Entrypoint\": null,
-
-\"OnBuild\": null,
-
-\"Labels\": {}
-
-},
-
-\"Architecture\": \"amd64\",
-
-\"Os\": \"linux\",
-
-\"Size\": 125110803,
-
-\"VirtualSize\": 125110803,
-
-\"GraphDriver\": {
-
-\"Name\": \"aufs\",
-
-\"Data\": null
-
-}
-
-}
-
-\]
-
-**root\@linuxtips:\~\#**
+```bash
+root@linuxtips:~# docker image inspect debian
+[
+    {
+        "Id": "sha256:f50f9524513f5356d952965dc97c7e831b02bb6ea0619da9bfc1997e4b9781b7",
+        "RepoTags": [
+            "debian:8",
+            "debian:latest"
+        ],
+        "RepoDigests": [],
+        "Parent": "",
+        "Comment": "",
+        "Created": "2016-03-01T18:51:14.143360029Z",
+        "Container": "557177343b434b6797c19805d49c37728a4445d2610a6647c27055fbe4ec3451",
+        "ContainerConfig": {
+            "Hostname": "e5c68db50333",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": null,
+            "Cmd": [
+                "/bin/sh",
+                "-c",
+                "#(nop) CMD ["/bin/bash"]"
+            ],
+            "Image": "d8bd0657b25f17eef81a3d52b53da5bda4de0cf5cca3dcafec277634ae4b38fb",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {}
+        },
+        "DockerVersion": "1.9.1",
+        "Author": "",
+        "Config": {
+            "Hostname": "e5c68db50333",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": null,
+            "Cmd": [
+                "/bin/bash"
+            ],
+            "Image": "d8bd0657b25f17eef81a3d52b53da5bda4de0cf5cca3dcafec277634ae4b38fb",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {}
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 125110803,
+        "VirtualSize": 125110803,
+        "GraphDriver": {
+            "Name": "aufs",
+            "Data": null
+        }
+    }
+]
+
+root@linuxtips:~#
+```
 
 Às vezes será disponibilizado junto com a imagem o seu respectivo
 *dockerfile* e aí fica bem mais fácil: basta ler esse arquivo para saber
@@ -2926,42 +2773,24 @@ Um comando bastante interessante, que nos faz entender como uma imagem é
 dividida em camadas (e, principalmente, o que foi feito em cada camada),
 é o "docker history".
 
-**root\@linuxtips:\~\# docker history linuxtips/apache:1.0**
+```bash
+root@linuxtips:~# docker history linuxtips/apache:1.0
 
-IMAGE CREATED CREATED BY SIZE COMMENT
+IMAGE        CREATED        CREATED BY                                      SIZE         COMMENT
+4862def18dfd 36 minutes ago /bin/sh -c #(nop) EXPOSE 80/tcp                 0 B
+06210ac863da 36 minutes ago /bin/sh -c #(nop) VOLUME [/var/www/html/]       0 B
+fed9b6bc7ad9 36 minutes ago /bin/sh -c #(nop) LABEL description=Webserver   0 B
+68f6e8de3df3 36 minutes ago /bin/sh -c #(nop) ENV APACHE_LOG_DIR=/var/log   0 B
+1a129e753d1e 36 minutes ago /bin/sh -c #(nop) ENV APACHE_RUN_GROUP=www-da   0 B
+f0f9d7be7c70 36 minutes ago /bin/sh -c #(nop) ENV APACHE_RUN_USER=www-dat   0 B
+3dafea4a403a 36 minutes ago /bin/sh -c #(nop) ENV APACHE_PID_FILE=/var/ru   0 B
+f31eb176ecc8 36 minutes ago /bin/sh -c #(nop) ENV APACHE_LOCK_DIR=/var/lo   0 B
+0bbefd91da05 36 minutes ago /bin/sh -c apt-get update && apt-get install    68.29 MB
+f50f9524513f 12 days ago    /bin/sh -c #(nop) CMD ["/bin/bash"]             0 B
+<missing>    12 days ago    /bin/sh -c #(nop) ADD file:b5393172fb513d       125.1MB
 
-4862def18dfd 36 minutes ago /bin/sh -c \#(nop) EXPOSE 80/tcp 0 B
-
-06210ac863da 36 minutes ago /bin/sh -c \#(nop) VOLUME \[/var/www/html/\]
-0 B
-
-fed9b6bc7ad9 36 minutes ago /bin/sh -c \#(nop) LABEL
-description=Webserver 0 B
-
-68f6e8de3df3 36 minutes ago /bin/sh -c \#(nop) ENV
-APACHE\_LOG\_DIR=/var/log 0 B
-
-1a129e753d1e 36 minutes ago /bin/sh -c \#(nop) ENV
-APACHE\_RUN\_GROUP=www-da 0 B
-
-f0f9d7be7c70 36 minutes ago /bin/sh -c \#(nop) ENV
-APACHE\_RUN\_USER=www-dat 0 B
-
-3dafea4a403a 36 minutes ago /bin/sh -c \#(nop) ENV
-APACHE\_PID\_FILE=/var/ru 0 B
-
-f31eb176ecc8 36 minutes ago /bin/sh -c \#(nop) ENV
-APACHE\_LOCK\_DIR=/var/lo 0 B
-
-0bbefd91da05 36 minutesago /bin/sh -c apt-get update && apt-get install
-68.29 MB
-
-f50f9524513f 12 days ago /bin/sh -c \#(nop) CMD \[\"/bin/bash\"\] 0 B
-
-\<missing\> 12 days ago /bin/sh -c \#(nop) ADD file:b5393172fb513d 125.1
-MB
-
-**root\@linuxtips:\~\#**
+root@linuxtips:~#
+```
 
 Perceba que as primeiras linhas da saída do comando anterior são
 referentes às informações que pedimos para adicionar à imagem no
@@ -2994,19 +2823,16 @@ criação da conta.
 A partir da confirmação do seu e-mail, já é possível se autenticar e
 começar a fazer uso do Docker Hub.
 
-**root\@linuxtips:\~\# docker login**
-
-Login with your Docker ID to push and pull images from Docker Hub. If
-you don\'t have a Docker ID, head over to https://hub.docker.com to
-create one.
+```bash
+root@linuxtips:~# docker login
+Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
 
 Username: linuxtips01
-
 Password:
-
 Login Succeeded
 
-**root\@linuxtips:\~\#**
+root@linuxtips:~#
+```
 
 Você consegue criar repositórios públicos à vontade, porém na conta
 *free* você somente tem direito a um repositório privado. Caso precise
@@ -3016,7 +2842,9 @@ conta e o pagamento de uma mensalidade. :)
 Caso você queira especificar outro *registry* em vez do Docker Hub,
 basta passar o endereço como parâmetro, como segue:
 
-**\# docker login registry.seilaqual.com**
+```bash
+#  docker login registry.seilaqual.com
+```
 
 ## 9.3. Agora vamos compartilhar essas imagens na *interwebs*!
 
@@ -3045,21 +2873,16 @@ Agora vamos utilizar o comando "docker push", responsável por fazer o
 *upload* da imagem da sua máquina local para o *registry* do Docker Hub,
 como mostrado no exemplo a seguir:
 
-**root\@linuxtips:\~\# docker push linuxtips/apache:1.0**
-
-The push refers to a repository \[docker.io/linuxtips/apache\]
-
+```bash
+root@linuxtips:~# docker push linuxtips/apache:1.0
+The push refers to a repository [docker.io/linuxtips/apache]
 b3a691489ee1: Pushed
-
 5f70bf18a086: Layer already exists
-
 917c0fc99b35: Pushed
+1.0: digest: sha256:c8626093b19a686fd260dbe0c12db79a97ddfb6a6d8e4c4f44634f66991d93d0 size: 6861
 
-1.0: digest:
-sha256:c8626093b19a686fd260dbe0c12db79a97ddfb6a6d8e4c4f44634f66991d93d0
-size: 6861
-
-**root\@linuxtips:\~\#**
+root@linuxtips:~#
+```
 
 Acessando a URL
 \<[[https://hub.docker.com/]{.underline}](https://hub.docker.com/)\>
@@ -3074,11 +2897,12 @@ Caso você queira visualizar o seu novo repositório pela linha de
 comando, basta utilizar o comando "docker search" seguido de seu usuário
 do Docker Hub:
 
-**root\@linuxtips:\~\# docker search \<seu\_usuario\>**
+```bash
+root@linuxtips:~# docker search <seu_usuario>
 
-NAME DESCRIPTION STARS OFFICIAL AUTOMATED
-
-linuxtips/apache 0
+NAME                DESCRIPTION      STARS            OFFICIAL       AUTOMATED
+linuxtips/apache                     0
+```
 
 Já que possuímos a imagem no *registry* do Docker Hub, vamos testá-la
 fazendo o *pull* da imagem e em seguida vamos executando-a para saber se
@@ -3087,9 +2911,10 @@ realmente tudo isso funciona de forma simples e fácil assim. :)
 Primeiro vamos parar os *containers* que utilizam a imagem
 "linuxtips/apache":
 
-**\# docker container ls \| grep seu\_usuario/sua\_imagem**
-
-**\# docker container stop CONTAINERID**
+```bash
+#  docker container ls | grep seu_usuario/sua_imagem
+#  docker container stop CONTAINERID
+```
 
 Não é possível remover uma imagem se algum *container* estiver em
 execução utilizando-a como imagem base. Por isso é necessário parar os
@@ -3102,9 +2927,10 @@ Para que você possa remover uma imagem é necessário utilizar o comando
 utilizam essa imagem como base, é necessário forçar a remoção da imagem
 utilizando o parâmetro "-f":
 
-**\# docker image rm -f linuxtips/apache:1.0**
-
+```bash
+#  docker image rm -f linuxtips/apache:1.0
 Untagged: linuxtips/apache:1.0
+```
 
 Pronto! Removemos a imagem!
 
@@ -3112,36 +2938,33 @@ Agora vamos realizar o *pull* da imagem diretamente do *registry* do
 Docker Hub para que tenhamos a imagem novamente em nosso disco local e
 assim possamos subir um *container* utilizando-a.
 
-**root\@linuxtips:\~\# docker pull linuxtips/apache:1.0**
-
+```bash
+root@linuxtips:~# docker pull linuxtips/apache:1.0
 1.0: Pulling from linuxtips/apache
-
 fdd5d7827f33: Already exists
-
 a3ed95caeb02: Already exists
-
 11b590220174: Already exists
-
-Digest:
-sha256:c8626093b19a686fd260dbe0c12db79a97ddfb6a6d8e4c4f44634f66991d93d0
-
+Digest: sha256:c8626093b19a686fd260dbe0c12db79a97ddfb6a6d8e4c4f44634f66991d93d0
 Status: Downloaded newer image for linuxtips/apache:1.0
 
-**root\@linuxtips:\~\#**
+root@linuxtips:~#
+```
 
 Podemos novamente visualizá-la através do comando "docker image ls".
 
-**root\@linuxtips:\~\# docker image ls**
+```bash
+root@linuxtips:~# docker image ls
+REPOSITORY           TAG  IMAGE ID        CREATED             SIZE
+linuxtips/apache     1.0  4862def18dfd    About an hour ago   193.4 MB
 
-REPOSITORY TAG IMAGE ID CREATED SIZE
-
-linuxtips/apache 1.0 4862def18dfd About an hour ago 193.4 MB
-
-**root\@linuxtips:\~\#**
+root@linuxtips:~#
+```
 
 Para criar o *container* utilizando nossa imagem:
 
-**root\@linuxtips:\~\# docker container run -d linuxtips/apache:1.0**
+```bash
+root@linuxtips:~# docker container run -d linuxtips/apache:1.0
+```
 
 Simples como voar, não?
 
@@ -3164,31 +2987,21 @@ Para que possamos ter o Docker Distribution de forma simples e
 totalmente funcional, guardando e distribuindo nossas imagens Docker
 localmente, basta rodá-lo como um *container*! :D
 
-**root\@linuxtips:\~\# docker container run -d -p 5000:5000
-\--restart=always \--name registry registry:2**
-
-Unable to find image \'registry:2\' locally
-
+```bash
+root@linuxtips:~# docker container run -d -p 5000:5000 --restart=always --name registry registry:2
+Unable to find image 'registry:2' locally
 2: Pulling from library/registry
-
 fdd5d7827f33: Already exists
-
 a3ed95caeb02: Pull complete
-
 a79b4a92697e: Pull complete
-
 6cbb75c7cc30: Pull complete
-
 4831699594bc: Pull complete
-
-Digest:
-sha256:20f5d95004b71fe14dbe7468eff33f18ee7fa52502423c5d107d4fb0abb05c1d
-
+Digest: sha256:20f5d95004b71fe14dbe7468eff33f18ee7fa52502423c5d107d4fb0abb05c1d
 Status: Downloaded newer image for registry:2
-
 4f8efc8a71531656dc74e99dea74da203645c0f342b0706bc74200ae0a50cb20
 
-**root\@linuxtips:\~\#**
+root@linuxtips:~#
+```
 
 Com o comando anterior, criamos um *container* chamado "registry" que
 utiliza a imagem "registry:2" como base e usamos a opção
@@ -3201,9 +3014,10 @@ parâmetro "-p" em breve, no capítulo relacionado a redes. ;)
 Você pode verificar o *container* do *registry* em execução, bem como
 sua imagem:
 
-**\# docker container ls**
-
-**\# docker image ls**
+```bash
+#  docker container ls
+#  docker image ls
+```
 
 Muito bom, nosso *registry* já está em execução! Agora vamos testá-lo
 tentando realizar um *push* da nossa imagem para ele.
@@ -3213,28 +3027,24 @@ mencionando o endereço do novo *registry* em vez do nome do usuário que
 utilizávamos quando queríamos fazer o *push* para o Docker Hub. Para
 isso, vamos utilizar novamente o comando "docker tag":
 
-**\# docker tag IMAGEMID localhost:5000/apache**
-
-**\# docker image ls**
+```bash
+#  docker tag IMAGEMID localhost:5000/apache
+#  docker image ls
+```
 
 Agora basta fazer o *push* para o nosso *registry* local da seguinte
 forma:
 
-**root\@linuxtips:\~\# docker push localhost:5000/apache**
-
-The push refers to a repository \[localhost:5000/apache\]
-
+```bash
+root@linuxtips:~# docker push localhost:5000/apache
+The push refers to a repository [localhost:5000/apache]
 b3a691489ee1: Pushed
-
 5f70bf18a086: Pushed
-
 917c0fc99b35: Pushed
+latest: digest: sha256:0e69b8d5cea67fcfedb5d7128a9fd77270461aa5852e6fe9b465565ec8e4e12f size: 925
 
-latest: digest:
-sha256:0e69b8d5cea67fcfedb5d7128a9fd77270461aa5852e6fe9b465565ec8e4e12f
-size: 925
-
-**root\@linuxtips:\~\#**
+root@linuxtips:~#
+```
 
 Pronto! Agora nós possuímos um *registry* local!
 
@@ -3313,69 +3123,41 @@ Para conseguir fazer esse encaminhamento, precisamos utilizar o
 parâmetro "-p" do comando "docker container run", conforme faremos no
 exemplo a seguir:
 
-**root\@linuxtips:\~\# \# docker container run -ti -p 8080:80
-linuxtips/apache:1.0 /bin/bash**
+```bash
+root@linuxtips:~# # docker container run -ti -p 8080:80 linuxtips/apache:1.0 /bin/bash
+root@4a0645de6d94:/# ps -ef
+UID   PID PPID C STIME TTY      TIME CMD
+root    1    0 1 18:18 ?    00:00:00 /bin/bash
+root    6    1 0 18:18 ?    00:00:00 ps -ef
 
-**root\@4a0645de6d94:/\# ps -ef**
-
-UID PID PPID C STIME TTY TIME CMD
-
-root 1 0 1 18:18 ? 00:00:00 /bin/bash
-
-root 6 1 0 18:18 ? 00:00:00 ps -ef
-
-**root\@4a0645de6d94:/\# /etc/init.d/apache2 start**
-
-\[\....\] Starting web server: apache2AH00558: apache2: Could not
-reliably determine the server\'s fully qualified domain name, using
-172.17.0.3. Set the \'ServerName\' directive globally to suppress this
-message
-
+root@4a0645de6d94:/# /etc/init.d/apache2 start
+[....] Starting web server: apache2AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.3. Set the 'ServerName' directive globally to suppress this message
 . ok
 
-**root\@4a0645de6d94:/\# ps -ef**
+root@4a0645de6d94:/# ps -ef
+UID       PID PPID C STIME TTY        TIME CMD
+root        1    0 0 18:18 ?      00:00:00 /bin/bash
+root       30    1 0 18:19 ?      00:00:00 /usr/sbin/apache2 -k start
+www-data   33   30 0 18:19 ?      00:00:00 /usr/sbin/apache2 -k start
+www-data   34   30 0 18:19 ?      00:00:00 /usr/sbin/apache2 -k start
+root      109    1 0 18:19 ?      00:00:00 ps -ef
 
-UID PID PPID C STIME TTY TIME CMD
+root@4a0645de6d94:/# ip addr
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default
+        link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+        inet 127.0.0.1/8 scope host lo
+             valid_lft forever preferred_lft forever
+        inet6 ::1/128 scope host
+             valid_lft forever preferred_lft forever
+74: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
+        link/ether 02:42:ac:11:00:03 brd ff:ff:ff:ff:ff:ff
+        inet 172.17.0.3/16 scope global eth0
+             valid_lft forever preferred_lft forever
+        inet6 fe80::42:acff:fe11:3/64 scope link
+             valid_lft forever preferred_lft forever
 
-root 1 0 0 18:18 ? 00:00:00 /bin/bash
-
-root 30 1 0 18:19 ? 00:00:00 /usr/sbin/apache2 -k start
-
-www-data 33 30 0 18:19 ? 00:00:00 /usr/sbin/apache2 -k start
-
-www-data 34 30 0 18:19 ? 00:00:00 /usr/sbin/apache2 -k start
-
-root 109 1 0 18:19 ? 00:00:00 ps -ef
-
-**root\@4a0645de6d94:/\# ip addr**
-
-1: lo: \<LOOPBACK,UP,LOWER\_UP\> mtu 65536 qdisc noqueue state UNKNOWN
-group default
-
-link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-
-inet 127.0.0.1/8 scope host lo
-
-valid\_lft forever preferred\_lft forever
-
-inet6 ::1/128 scope host
-
-valid\_lft forever preferred\_lft forever
-
-74: eth0: \<BROADCAST,MULTICAST,UP,LOWER\_UP\> mtu 1500 qdisc noqueue
-state UP group default
-
-link/ether 02:42:ac:11:00:03 brd ff:ff:ff:ff:ff:ff
-
-inet **172.17.0.3/16** scope global eth0
-
-valid\_lft forever preferred\_lft forever
-
-inet6 fe80::42:acff:fe11:3/64 scope link
-
-valid\_lft forever preferred\_lft forever
-
-**root\@4a0645de6d94:/\#**
+root@4a0645de6d94:/#
+```
 
 Repare que passamos o parâmetro "-p" da seguinte forma:
 
@@ -3394,7 +3176,9 @@ A partir do *host*, vamos realizar um "curl" com destino ao IP do
 *container* na porta 80, depois com destino à porta 8080 do *host* e em
 seguida analisar as saídas:
 
-**root\@linuxtips:\~\# curl \<IPCONTAINER\>:80**
+```bash
+root@linuxtips:~# curl <IPCONTAINER>:80
+```
 
 Se tudo ocorreu bem até aqui, você verá o código da página de
 boas-vindas do Apache2.
@@ -3402,7 +3186,9 @@ boas-vindas do Apache2.
 O mesmo ocorre quando executamos o "curl" novamente, porém batendo no IP
 do *host*. Veja:
 
-**root\@linuxtips:\~\# curl \<IPHOST\>:8080**
+```bash
+root@linuxtips:~# curl <IPHOST>:8080
+```
 
 Muito fácil, chega a ser lacrimejante! \\o/
 
@@ -3416,94 +3202,72 @@ usar.
 Vamos dar uma olhada nas regras de *iptables* referentes a esse nosso
 *container*. Primeiro a tabela *filter*:
 
-**root\@linuxtips:\~\# iptables -L -n**
-
+```bash
+root@linuxtips:~# iptables -L -n
 Chain INPUT (policy ACCEPT)
-
 target prot opt source destination
 
 Chain FORWARD (policy ACCEPT)
-
 target prot opt source destination
-
-DOCKER-ISOLATION all \-- 0.0.0.0/0 0.0.0.0/0
-
-DOCKER all \-- 0.0.0.0/0 0.0.0.0/0
-
-ACCEPT all \-- 0.0.0.0/0 0.0.0.0/0 ctstate RELATED,ESTABLISHED
-
-ACCEPT all \-- 0.0.0.0/0 0.0.0.0/0
-
-ACCEPT all \-- 0.0.0.0/0 0.0.0.0/0
+DOCKER-ISOLATION all -- 0.0.0.0/0 0.0.0.0/0
+DOCKER all -- 0.0.0.0/0 0.0.0.0/0
+ACCEPT all -- 0.0.0.0/0 0.0.0.0/0 ctstate RELATED,ESTABLISHED
+ACCEPT all -- 0.0.0.0/0 0.0.0.0/0
+ACCEPT all -- 0.0.0.0/0 0.0.0.0/0
 
 Chain OUTPUT (policy ACCEPT)
-
 target prot opt source destination
 
 Chain DOCKER (1 references)
-
 target prot opt source destination
-
-ACCEPT tcp \-- 0.0.0.0/0 172.17.0.2 tcp dpt:5000
-
-ACCEPT tcp \-- 0.0.0.0/0 172.17.0.3 tcp dpt:80
+ACCEPT tcp -- 0.0.0.0/0 172.17.0.2 tcp dpt:5000
+ACCEPT tcp -- 0.0.0.0/0 172.17.0.3 tcp dpt:80
 
 Chain DOCKER-ISOLATION (1 references)
-
 target prot opt source destination
+RETURN all -- 0.0.0.0/0 0.0.0.0/0
 
-RETURN all \-- 0.0.0.0/0 0.0.0.0/0
-
-**root\@linuxtips:\~\#**
+root@linuxtips:~#
+```
 
 Agora a tabela NAT:
 
-**root\@linuxtips:\~\# iptables -L -n -t nat**
+```bash
+root@linuxtips:~# iptables -L -n -t nat
 
 Chain PREROUTING (policy ACCEPT)
-
 target prot opt source destination
-
-DOCKER all \-- 0.0.0.0/0 0.0.0.0/0 ADDRTYPE match dst-type LOCAL
+DOCKER all -- 0.0.0.0/0 0.0.0.0/0 ADDRTYPE match dst-type LOCAL
 
 Chain INPUT (policy ACCEPT)
-
 target prot opt source destination
 
 Chain OUTPUT (policy ACCEPT)
-
 target prot opt source destination
-
-DOCKER all \-- 0.0.0.0/0 !127.0.0.0/8 ADDRTYPE match dst-type LOCAL
+DOCKER all -- 0.0.0.0/0 !127.0.0.0/8 ADDRTYPE match dst-type LOCAL
 
 Chain POSTROUTING (policy ACCEPT)
-
 target prot opt source destination
-
-MASQUERADE all \-- 172.17.0.0/16 0.0.0.0/0
-
-MASQUERADE tcp \-- 172.17.0.2 172.17.0.2 tcp dpt:5000
-
-MASQUERADE tcp \-- 172.17.0.3 172.17.0.3 tcp dpt:80
+MASQUERADE all -- 172.17.0.0/16 0.0.0.0/0
+MASQUERADE tcp -- 172.17.0.2 172.17.0.2 tcp dpt:5000
+MASQUERADE tcp -- 172.17.0.3 172.17.0.3 tcp dpt:80
 
 Chain DOCKER (2 references)
-
 target prot opt source destination
+RETURN all -- 0.0.0.0/0 0.0.0.0/0
+DNAT tcp -- 0.0.0.0/0 0.0.0.0/0 tcp dpt:5000 to:172.17.0.2:5000
+DNAT tcp -- 0.0.0.0/0 0.0.0.0/0 tcp dpt:8080 to:172.17.0.3:80
 
-RETURN all \-- 0.0.0.0/0 0.0.0.0/0
-
-DNAT tcp \-- 0.0.0.0/0 0.0.0.0/0 tcp dpt:5000 to:172.17.0.2:5000
-
-DNAT tcp \-- 0.0.0.0/0 0.0.0.0/0 tcp dpt:8080 to:172.17.0.3:80
-
-**root\@linuxtips:\~\#**
+root@linuxtips:~#
+```
 
 Como podemos notar, temos regras de NAT configuradas que permitem o DNAT
 da porta 8080 do *host* para a 80 do *container.* Veja a seguir:
 
-**MASQUERADE tcp \-- 172.17.0.3 172.17.0.3 tcp dpt:80**
-
-**DNAT tcp \-- 0.0.0.0/0 0.0.0.0/0 tcp dpt:8080 to:172.17.0.3:80**
+```bash
+MASQUERADE tcp -- 172.17.0.3  172.17.0.3  tcp dpt:80
+DNAT       tcp -- 0.0.0.0/0   0.0.0.0/0   tcp dpt:8080 to:172.17.0.3:80
+```
 
 Tudo isso feito "automagicamente" pelo Docker, sem a necessidade de
 precisar configurar diversas regras de *iptables*. \<3
@@ -3535,7 +3299,9 @@ Sim, você pode configurar outro *range* para serem utilizados pela
 Para que você consiga configurar um *range* diferente para utilização do
 Docker é necessário iniciá-lo com o parâmetro "\--bip".
 
-**\# dockerd \--bip 192.168.0.1/24**
+```bash
+#  dockerd --bip 192.168.0.1/24
+```
 
 Assim, você estará informando ao Docker que deseja utilizar o IP
 "192.168.0.1" para sua *bridge* "docker0" e, consequentemente, para a
@@ -3545,7 +3311,9 @@ Você também poderá utilizar o parâmetro "\--fixed-cidr" para restringir
 o *range* que o Docker irá utilizar para a *bridge* "docker0" e para a
 *subnet* dos *containers*.
 
-**\# dockerd \--fixed-cidr 192.168.0.0/24**
+```bash
+#  dockerd --fixed-cidr 192.168.0.0/24
+```
 
 ## 11.2. Opções de *sockets*
 
@@ -3580,64 +3348,39 @@ Exemplos:
 
 ### 11.2.1. *Unix Domain Socket*
 
-**root\@linuxtips:\~\# dockerd -H unix:///var/run/docker.sock**
-
-INFO\[0000\] \[graphdriver\] using prior storage driver \"aufs\"
-
-INFO\[0000\] Graph migration to content-addressability took 0.00 seconds
-
-INFO\[0000\] Firewalld running: false
-
-INFO\[0000\] Default bridge (docker0) is assigned with an IP address
-172.17.0.0/16. Daemon option \--bip can be used to set a preferred IP
+```bash
+root@linuxtips:~# dockerd -H unix:///var/run/docker.sock
+INFO[0000] [graphdriver] using prior storage driver "aufs"
+INFO[0000] Graph migration to content-addressability took 0.00 seconds
+INFO[0000] Firewalld running: false
+INFO[0000] Default bridge (docker0) is assigned with an IP address 172.17.0.0/16. Daemon option --bip can be used to set a preferred IP
 address
-
-WARN\[0000\] Your kernel does not support swap memory limit.
-
-INFO\[0000\] Loading containers: start.
-
-\...\...\...\...\...\...\...\.....
-
-INFO\[0000\] Loading containers: done.
-
-INFO\[0000\] Daemon has completed initialization
-
-INFO\[0000\] Docker daemon commit=c3959b1 execdriver=native-0.2
-graphdriver=aufs version=1.10.2
-
-INFO\[0000\] API listen on /var/run/docker.sock
+WARN[0000] Your kernel does not support swap memory limit.
+INFO[0000] Loading containers: start.
+..........................
+INFO[0000] Loading containers: done.
+INFO[0000] Daemon has completed initialization
+INFO[0000] Docker daemon commit=c3959b1 execdriver=native-0.2 graphdriver=aufs version=1.10.2
+INFO[0000] API listen on /var/run/docker.sock
+```
 
 ### 11.2.2. TCP
 
-**root\@linuxtips:\~\# dockerd -H tcp://0.0.0.0:2375**
-
-WARN\[0000\] /!\\ DON\'T BIND ON ANY IP ADDRESS WITHOUT setting
--tlsverify IF YOU DON\'T KNOW WHAT YOU\'RE DOING /!\\
-
-INFO\[0000\] \[graphdriver\] using prior storage driver \"aufs\"
-
-INFO\[0000\] Graph migration to content-addressability took 0.01 seconds
-
-INFO\[0000\] Firewalld running: false
-
-INFO\[0000\] Default bridge (docker0) is assigned with an IP address
-172.17.0.0/16. Daemon option \--bip can be used to set a preferred IP
-address
-
-WARN\[0000\] Your kernel does not support swap memory limit.
-
-INFO\[0000\] Loading containers: start.
-
-\...\...\...\...\...\...\...\.....
-
-INFO\[0000\] Loading containers: done.
-
-INFO\[0000\] Daemon has completed initialization
-
-INFO\[0000\] Docker daemon commit=c3959b1 execdriver=native-0.2
-graphdriver=aufs version=1.10.2
-
-INFO\[0000\] API listen on \[::\]:2375
+```bash
+root@linuxtips:~# dockerd -H tcp://0.0.0.0:2375
+WARN[0000] /! DON'T BIND ON ANY IP ADDRESS WITHOUT setting -tlsverify IF YOU DON'T KNOW WHAT YOU'RE DOING /!
+INFO[0000] [graphdriver] using prior storage driver "aufs"
+INFO[0000] Graph migration to content-addressability took 0.01 seconds
+INFO[0000] Firewalld running: false
+INFO[0000] Default bridge (docker0) is assigned with an IP address 172.17.0.0/16. Daemon option --bip can be used to set a preferred IP address
+WARN[0000] Your kernel does not support swap memory limit.
+INFO[0000] Loading containers: start.
+..........................
+INFO[0000] Loading containers: done.
+INFO[0000] Daemon has completed initialization
+INFO[0000] Docker daemon commit=c3959b1 execdriver=native-0.2 graphdriver=aufs version=1.10.2
+INFO[0000] API listen on [::]:2375
+```
 
 ## 11.3. Opções de *storage*
 
@@ -3658,63 +3401,41 @@ demonstrar algumas opções mais comuns:
 
 Exemplo:
 
-**root\@linuxtips:\~\# dockerd \--storage-opt
-dm.thinpooldev=/dev/mapper/thin-pool**
-
-INFO\[0000\] \[graphdriver\] using prior storage driver "aufs"
-INFO\[0000\] Graph migration to content-addressability took
-
-0.00 seconds
-
-INFO\[0000\] Firewalld running: false
-
-INFO\[0000\] Default bridge (docker0) is assigned with an IP address
-172.17.0.0/16. Daemon option \--bip can be used to set a preferred IP
-address
-
-WARN\[0000\] Your kernel does not support swap memory limit.
-INFO\[0000\] Loading containers: start.
-
-\...\...\...\...\...\...\...\...\...\.....
-
-INFO\[0000\] Loading containers: done. INFO\[0000\] Daemon has completed
-initialization INFO\[0000\] Docker daemon
-
-commit=c3959b1 execdriver=native-0.2 graphdriver=aufs version=1.10.2
-
-INFO\[0000\] API listen on /var/run/docker.sock
+```bash
+root@linuxtips:~# dockerd --storage-opt dm.thinpooldev=/dev/mapper/thin-pool
+INFO[0000] [graphdriver] using prior storage driver "aufs"
+INFO[0000] Graph migration to content-addressability took 0.00 seconds
+INFO[0000] Firewalld running: false
+INFO[0000] Default bridge (docker0) is assigned with an IP address 172.17.0.0/16. Daemon option --bip can be used to set a preferred IP address
+WARN[0000] Your kernel does not support swap memory limit.
+INFO[0000] Loading containers: start.
+................................
+INFO[0000] Loading containers: done. 
+INFO[0000] Daemon has completed initialization 
+INFO[0000] Docker daemon commit=c3959b1 execdriver=native-0.2 graphdriver=aufs version=1.10.2
+INFO[0000] API listen on /var/run/docker.sock
+```
 
 -   **dm.basesize** -- Este parâmetro define o tamanho máximo
     > do*container*. O chato disso é que você precisa deletar tudo
     > dentro de "/var/lib/docker" (o que implica em matar todos os
     > *containers* e imagens) e *restartar* o serviço do Docker.
 
-**root\@linuxtips:\~\# dockerd \--storage-opt dm.basesize=10G**
 
-INFO\[0000\] \[graphdriver\] using prior storage driver \"aufs\"
-
-INFO\[0000\] Graph migration to content-addressability took 0.00 seconds
-
-INFO\[0000\] Firewalld running: false
-
-INFO\[0000\] Default bridge (docker0) is assigned with an IP address
-172.17.0.0/16. Daemon option \--bip can be used to set a preferred IP
-address
-
-WARN\[0000\] Your kernel does not support swap memory limit.
-
-INFO\[0000\] Loading containers: start.
-
-\...\...\...\...\...\...\...\.....
-
-INFO\[0000\] Loading containers: done.
-
-INFO\[0000\] Daemon has completed initialization
-
-INFO\[0000\] Docker daemon commit=c3959b1 execdriver=native-0.2
-graphdriver=aufs version=1.10.2
-
-INFO\[0000\] API listen on /var/run/docker.sock
+```bash
+root@linuxtips:~# dockerd --storage-opt dm.basesize=10G
+INFO[0000] [graphdriver] using prior storage driver "aufs"
+INFO[0000] Graph migration to content-addressability took 0.00 seconds
+INFO[0000] Firewalld running: false
+INFO[0000] Default bridge (docker0) is assigned with an IP address 172.17.0.0/16. Daemon option --bip can be used to set a preferred IP address
+WARN[0000] Your kernel does not support swap memory limit.
+INFO[0000] Loading containers: start.
+..........................
+INFO[0000] Loading containers: done.
+INFO[0000] Daemon has completed initialization
+INFO[0000] Docker daemon commit=c3959b1 execdriver=native-0.2 graphdriver=aufs version=1.10.2
+INFO[0000] API listen on /var/run/docker.sock
+```
 
 -   **dm.fs** -- Especifica o *filesystem* do *container*. As opções
     > suportadas são: **EXT4** e **XFS**.
@@ -3791,34 +3512,35 @@ Machine no Linux, MacOS ou Windows.
 
 Para fazer a instalação do Docker Machine no Linux, faça:
 
-**\# curl -L
-https://github.com/docker/machine/releases/download/v0.12.0/docker-machine-\`uname
--s\`-\`uname -m\` \>/tmp/docker-machine\
-\# chmod +x /tmp/docker-machine\
-\# sudo cp /tmp/docker-machine /usr/local/bin/docker-machine**
+```bash
+#  curl -L https://github.com/docker/machine/releases/download/v0.12.0/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine
+# chmod +x /tmp/docker-machine
+# sudo cp /tmp/docker-machine /usr/local/bin/docker-machine
+```
 
 Para seguir com a instalação no MacOS:
 
-**\$ curl -L
-https://github.com/docker/machine/releases/download/v0.15.0/docker-machine-\`uname
--s\`-\`uname -m\` \>/usr/local/bin/docker-machine\
-\$ chmod +x /usr/local/bin/docker-machine**
+```bash
+$ curl -L https://github.com/docker/machine/releases/download/v0.15.0/docker-machine-`uname -s`-`uname -m` >/usr/local/bin/docker-machine
+$ chmod +x /usr/local/bin/docker-machine
+```
 
 Para seguir com a instalação no Windows caso esteja usando o Git *bash*:
 
-**\$ if \[\[ ! -d \"\$HOME/bin\" \]\]; then mkdir -p \"\$HOME/bin\"; fi\
-\$ curl -L
-https://github.com/docker/machine/releases/download/v0.15.0/docker-machine-Windows-x86\_64.exe
-\> \"\$HOME/bin/docker-machine.exe\"\
-\$ chmod +x \"\$HOME/bin/docker-machine.exe\"**
+```bash
+$ if [[ ! -d "$HOME/bin" ]]; then mkdir -p "$HOME/bin"; fi
+$ curl -L https://github.com/docker/machine/releases/download/v0.15.0/docker-machine-Windows-x86_64.exe > "$HOME/bin/docker-machine.exe"
+$ chmod +x "$HOME/bin/docker-machine.exe"
+```
 
 Para verificar se ele foi instalado e qual a sua versão, faça:
 
-**root\@linuxtips:\~\# docker-machine version**
-
+```bash
+root@linuxtips:~# docker-machine version
 docker-machine version 0.15.0, build b48dc28
 
-**root\@linuxtips:\~\#**
+root@linuxtips:~#
+```
 
 Pronto. Como tudo que é feito pelo Docker, é simples de instalar e fácil
 de operar. :)
@@ -3842,70 +3564,44 @@ o VirtualBox em nossa máquina para que tudo funcione. ;)
 
 Portanto:
 
-**root\@linuxtips:\~\# apt-get install virtualbox**
+```bash
+root@linuxtips:~# apt-get install virtualbox
+```
 
 Para fazer a instalação de um novo Docker Host, utilizamos o comando
 "docker-machine create". Para escolher onde criaremos o Docker Host,
 utilizamos o parâmetro "\--driver", conforme segue:
 
-**root\@linuxtips:\~\# docker-machine create \--driver virtualbox
-linuxtips**
-
-Running pre-create checks\...
-
-(linuxtips) Default Boot2Docker ISO is out-of-date, downloading the
-latest release\...
-
-(linuxtips) Latest release for github.com/boot2docker/boot2docker is
-v17.05.0-ce
-
-(linuxtips) Downloading
-/Users/linuxtips/.docker/machine/cache/boot2docker.iso from
-https://github.com/boot2docker/boot2docker/releases/download/v17.05.0-ce/boot2docker.iso\...
-
-(linuxtips)
-0%\....10%\....20%\....30%\....40%\....50%\....60%\....70%\....80%\....90%\....100%
-
-Creating machine\...
-
-(linuxtips) Copying
-/Users/linuxtips/.docker/machine/cache/boot2docker.iso to
-/Users/linuxtips/.docker/machine/machines/linuxtips/boot2docker.iso\...
-
-(linuxtips) Creating VirtualBox VM\...
-
-(linuxtips) Creating SSH key\...
-
-(linuxtips) Starting the VM\...
-
-(linuxtips) Check network to re-create if needed\...
-
-(linuxtips) Waiting for an IP\...
-
-Waiting for machine to be running, this may take a few minutes\...
-
-Detecting operating system of created instance\...
-
-Waiting for SSH to be available\...
-
-Detecting the provisioner\...
-
-Provisioning with boot2docker\...
-
-Copying certs to the local machine directory\...
-
-Copying certs to the remote machine\...
-
-Setting Docker configuration on the remote daemon\...
-
-Checking connection to Docker\...
-
+```bash
+root@linuxtips:~# docker-machine create --driver virtualbox linuxtips
+Running pre-create checks...
+(linuxtips) Default Boot2Docker ISO is out-of-date, downloading the latest release...
+(linuxtips) Latest release for github.com/boot2docker/boot2docker is v17.05.0-ce
+(linuxtips) Downloading /Users/linuxtips/.docker/machine/cache/boot2docker.iso from https://github.com/boot2docker/boot2docker/releases/download/v17.05.0-ce/boot2docker.iso...
+(linuxtips) 0%....10%....20%....30%....40%....50%....60%....70%....80%....90%....100%
+Creating machine...
+(linuxtips) Copying /Users/linuxtips/.docker/machine/cache/boot2docker.iso to /Users/linuxtips/.docker/machine/machines/linuxtips/boot2docker.iso...
+(linuxtips) Creating VirtualBox VM...
+(linuxtips) Creating SSH key...
+(linuxtips) Starting the VM...
+(linuxtips) Check network to re-create if needed...
+(linuxtips) Waiting for an IP...
+Waiting for machine to be running, this may take a few minutes...
+Detecting operating system of created instance...
+Waiting for SSH to be available...
+Detecting the provisioner...
+Provisioning with boot2docker...
+Copying certs to the local machine directory...
+Copying certs to the remote machine...
+Setting Docker configuration on the remote daemon...
+Checking connection to Docker...
 Docker is up and running!
 
 To see how to connect your Docker Client to the Docker Engine running on
 this virtual machine, run: docker-machine env linuxtips
 
-**root\@linuxtips:\~\#**
+root@linuxtips:~#
+```
 
 Onde:
 
@@ -3918,11 +3614,11 @@ Onde:
 Para visualizar o *host* que acabou de criar, basta digitar o seguinte
 comando:
 
-**root\@linuxtips:\~\# docker-machine ls**
-
-NAME ACTIVE DRIVER STATE URL SWARM DOCKER ERRORS
-
-linuxtips - virtualbox Running tcp://192.168.99.100:2376 v18.06.0-
+```bash
+root@linuxtips:~# docker-machine ls
+NAME           ACTIVE  DRIVER     STATE   URL                         SWARM   DOCKER    ERRORS
+linuxtips      -       virtualbox Running tcp://192.168.99.100:2376           v18.06.0  -
+```
 
 Como podemos notar, o nosso *host* está sendo executado perfeitamente!
 Repare que temos uma coluna chamada URL, correto? Nela temos a URL para
@@ -3931,22 +3627,17 @@ que possamos nos comunicar com o nosso novo *host*.
 Outra forma de visualizar informações sobre o *host*, mais
 especificamente sobre as variáveis de ambiente dele, é digitar:
 
-**root\@linuxtips:\~\# docker-machine env linuxtips**
+```bash
+root@linuxtips:~# docker-machine env linuxtips
+export DOCKER_TLS_VERIFY="1"
+export DOCKER_HOST="tcp://192.168.99.100:2376"
+export DOCKER_CERT_PATH="/Users/linuxtips/.docker/machine/machines/linuxtips"
+export DOCKER_MACHINE_NAME="linuxtips"
+# Run this command to configure your shell:
+# eval "$(docker-machine env linuxtips)"
 
-export DOCKER\_TLS\_VERIFY=\"1\"
-
-export DOCKER\_HOST=\"tcp://192.168.99.100:2376\"
-
-export
-DOCKER\_CERT\_PATH=\"/Users/linuxtips/.docker/machine/machines/linuxtips\"
-
-export DOCKER\_MACHINE\_NAME=\"linuxtips\"
-
-\# Run this command to configure your shell:
-
-\# eval \"\$(docker-machine env linuxtips)\"
-
-**root\@linuxtips:\~\#**
+root@linuxtips:~#
+```
 
 Serão mostradas todas as variáveis de ambiente do *host*, como URL,
 certificado e nome.
@@ -3954,7 +3645,9 @@ certificado e nome.
 Para que você possa acessar o ambiente desse *host* que acabamos de
 criar, faça:
 
-**root\@linuxtips:\~\# eval \"\$(docker-machine env linuxtips)\"**
+```bash
+root@linuxtips:~# eval "$(docker-machine env linuxtips)"
+```
 
 O comando "eval" serve para definir variáveis de ambiente através da
 saída de um comando, ou seja, as variáveis que visualizamos na saída do
@@ -3963,30 +3656,25 @@ saída de um comando, ou seja, as variáveis que visualizamos na saída do
 Agora que já estamos no ambiente do *host* que criamos, vamos visualizar
 os *containers* em execução:
 
-**root\@linuxtips:\~\# docker container ls**
+```bash
+root@linuxtips:~# docker container ls
+```
 
 Claro que ainda não temos nenhum *container* em execução; vamos iniciar
 o nosso primeiro agora:
 
-**root\@linuxtips:\~\# docker container run busybox echo \"LINUXTIPS,
-VAIIII\"**
-
-Unable to find image \'busybox:latest\' locally
-
+```bash
+root@linuxtips:~# docker container run busybox echo "LINUXTIPS, VAIIII"
+Unable to find image 'busybox:latest' locally
 latest: Pulling from library/busybox
-
 385e281300cc: Pull complete
-
 a3ed95caeb02: Pull complete
-
-Digest:
-sha256:4a887a2326ec9e0fa90cce7b4764b0e627b5d6afcb81a3f73c85dc29cea00048
-
+Digest: sha256:4a887a2326ec9e0fa90cce7b4764b0e627b5d6afcb81a3f73c85dc29cea00048
 Status: Downloaded newer image for busybox:latest
+LINUXTIPS, VAIIII
 
-**LINUXTIPS, VAIIII**
-
-**root\@linuxtips:\~\#**
+root@linuxtips:~#
+```
 
 Como podemos observar, o *container* foi executado e imprimiu a mensagem
 "**LINUXTIPS, VAIIII**", conforme solicitamos.
@@ -3996,211 +3684,135 @@ criamos através do Docker Machine.
 
 Para verificar o IP do *host* que criamos, faça:
 
-**root\@linuxtips:\~\# docker-machine ip linuxtips**
-
+```bash
+root@linuxtips:~# docker-machine ip linuxtips
 192.168.99.100
 
-**root\@linuxtips:\~\#**
+root@linuxtips:~#
+```
 
 Para que possamos acessar o nosso *host*, utilizamos o parâmetro "ssh"
 passando o nome do *host* que queremos acessar:
 
-**root\@linuxtips:\~\# docker-machine ssh linuxtips**
+```bash
+root@linuxtips:~# docker-machine ssh linuxtips
+```
 
 Para saber mais detalhes sobre o *host*, podemos utilizar o parâmetro
 "inspect":
 
-**root\@linuxtips:\~\# docker-machine inspect linuxtips**
-
+```bash
+root@linuxtips:~# docker-machine inspect linuxtips
 {
-
-\"ConfigVersion\": 3,
-
-\"Driver\": {
-
-\"IPAddress\": \"192.168.99.100\",
-
-\"MachineName\": \"linuxtips\",
-
-\"SSHUser\": \"docker\",
-
-\"SSHPort\": 57249,
-
-\"SSHKeyPath\":
-\"/Users/jeferson/.docker/machine/machines/linuxtips/id\_rsa\",
-
-\"StorePath\": \"/Users/jeferson/.docker/machine\",
-
-\"SwarmMaster\": false,
-
-\"SwarmHost\": \"tcp://0.0.0.0:3376\",
-
-\"SwarmDiscovery\": \"\",
-
-\"VBoxManager\": {},
-
-\"HostInterfaces\": {},
-
-\"CPU\": 1,
-
-\"Memory\": 1024,
-
-\"DiskSize\": 20000,
-
-\"NatNicType\": \"82540EM\",
-
-\"Boot2DockerURL\": \"\",
-
-\"Boot2DockerImportVM\": \"\",
-
-\"HostDNSResolver\": false,
-
-\"HostOnlyCIDR\": \"192.168.99.1/24\",
-
-\"HostOnlyNicType\": \"82540EM\",
-
-\"HostOnlyPromiscMode\": \"deny\",
-
-\"UIType\": \"headless\",
-
-\"HostOnlyNoDHCP\": false,
-
-\"NoShare\": false,
-
-\"DNSProxy\": true,
-
-\"NoVTXCheck\": false,
-
-\"ShareFolder\": \"\"
-
-},
-
-\"DriverName\": \"virtualbox\",
-
-\"HostOptions\": {
-
-\"Driver\": \"\",
-
-\"Memory\": 0,
-
-\"Disk\": 0,
-
-\"EngineOptions\": {
-
-\"ArbitraryFlags\": \[\],
-
-\"Dns\": null,
-
-\"GraphDir\": \"\",
-
-\"Env\": \[\],
-
-\"Ipv6\": false,
-
-\"InsecureRegistry\": \[\],
-
-\"Labels\": \[\],
-
-\"LogLevel\": \"\",
-
-\"StorageDriver\": \"\",
-
-\"SelinuxEnabled\": false,
-
-\"TlsVerify\": true,
-
-\"RegistryMirror\": \[\],
-
-\"InstallURL\": \"https://get.docker.com\"
-
-},
-
-\"SwarmOptions\": {
-
-\"IsSwarm\": false,
-
-\"Address\": \"\",
-
-\"Discovery\": \"\",
-
-\"Agent\": false,
-
-\"Master\": false,
-
-\"Host\": \"tcp://0.0.0.0:3376\",
-
-\"Image\": \"swarm:latest\",
-
-\"Strategy\": \"spread\",
-
-\"Heartbeat\": 0,
-
-\"Overcommit\": 0,
-
-\"ArbitraryFlags\": \[\],
-
-\"ArbitraryJoinFlags\": \[\],
-
-\"Env\": null,
-
-\"IsExperimental\": false
-
-},
-
-\"AuthOptions\": {
-
-\"CertDir\": \"/Users/jeferson/.docker/machine/certs\",
-
-\"CaCertPath\": \"/Users/jeferson/.docker/machine/certs/ca.pem\",
-
-\"CaPrivateKeyPath\":
-\"/Users/jeferson/.docker/machine/certs/ca-key.pem\",
-
-\"CaCertRemotePath\": \"\",
-
-\"ServerCertPath\":
-\"/Users/jeferson/.docker/machine/machines/linuxtips/server.pem\",
-
-\"ServerKeyPath\":
-\"/Users/jeferson/.docker/machine/machines/linuxtips/server-key.pem\",
-
-\"ClientKeyPath\": \"/Users/jeferson/.docker/machine/certs/key.pem\",
-
-\"ServerCertRemotePath\": \"\",
-
-\"ServerKeyRemotePath\": \"\",
-
-\"ClientCertPath\": \"/Users/jeferson/.docker/machine/certs/cert.pem\",
-
-\"ServerCertSANs\": \[\],
-
-\"StorePath\": \"/Users/jeferson/.docker/machine/machines/linuxtips\"
-
+    "ConfigVersion": 3,
+    "Driver": {
+        "IPAddress": "192.168.99.100",
+        "MachineName": "linuxtips",
+        "SSHUser": "docker",
+        "SSHPort": 57249,
+        "SSHKeyPath": "/Users/jeferson/.docker/machine/machines/linuxtips/id_rsa",
+        "StorePath": "/Users/jeferson/.docker/machine",
+        "SwarmMaster": false,
+        "SwarmHost": "tcp://0.0.0.0:3376",
+        "SwarmDiscovery": "",
+        "VBoxManager": {},
+        "HostInterfaces": {},
+        "CPU": 1,
+        "Memory": 1024,
+        "DiskSize": 20000,
+        "NatNicType": "82540EM",
+        "Boot2DockerURL": "",
+        "Boot2DockerImportVM": "",
+        "HostDNSResolver": false,
+        "HostOnlyCIDR": "192.168.99.1/24",
+        "HostOnlyNicType": "82540EM",
+        "HostOnlyPromiscMode": "deny",
+        "UIType": "headless",
+        "HostOnlyNoDHCP": false,
+        "NoShare": false,
+        "DNSProxy": true,
+        "NoVTXCheck": false,
+        "ShareFolder": ""
+    },
+    "DriverName": "virtualbox",
+    "HostOptions": {
+        "Driver": "",
+        "Memory": 0,
+        "Disk": 0,
+        "EngineOptions": {
+            "ArbitraryFlags": [],
+            "Dns": null,
+            "GraphDir": "",
+            "Env": [],
+            "Ipv6": false,
+            "InsecureRegistry": [],
+            "Labels": [],
+            "LogLevel": "",
+            "StorageDriver": "",
+            "SelinuxEnabled": false,
+            "TlsVerify": true,
+            "RegistryMirror": [],
+            "InstallURL": "https://get.docker.com"
+        },
+        "SwarmOptions": {
+            "IsSwarm": false,
+            "Address": "",
+            "Discovery": "",
+            "Agent": false,
+            "Master": false,
+            "Host": "tcp://0.0.0.0:3376",
+            "Image": "swarm:latest",
+            "Strategy": "spread",
+            "Heartbeat": 0,
+            "Overcommit": 0,
+            "ArbitraryFlags": [],
+            "ArbitraryJoinFlags": [],
+            "Env": null,
+            "IsExperimental": false
+        },
+        "AuthOptions": {
+            "CertDir": "/Users/jeferson/.docker/machine/certs",
+            "CaCertPath": "/Users/jeferson/.docker/machine/certs/ca.pem",
+            "CaPrivateKeyPath": "/Users/jeferson/.docker/machine/certs/ca-key.pem",
+            "CaCertRemotePath": "",
+            "ServerCertPath": "/Users/jeferson/.docker/machine/machines/linuxtips/server.pem",
+            "ServerKeyPath": "/Users/jeferson/.docker/machine/machines/linuxtips/server-key.pem",
+            "ClientKeyPath": "/Users/jeferson/.docker/machine/certs/key.pem",
+            "ServerCertRemotePath": "",
+            "ServerKeyRemotePath": "",
+            "ClientCertPath": "/Users/jeferson/.docker/machine/certs/cert.pem",
+            "ServerCertSANs": [],
+            "StorePath": "/Users/jeferson/.docker/machine/machines/linuxtips"
+        }
+    },
+    "Name": "linuxtips"
 }
-
-},
-
-\"Name\": \"linuxtips\"
-
-}
+```
 
 Para parar o *host* que criamos:
 
-**root\@linuxtips:\~\# docker-machine stop linuxtips**
+```bash
+root@linuxtips:~# docker-machine stop linuxtips
+```
 
 Para que você consiga visualizar o status do seu *host* Docker, digite:
 
-**root\@linuxtips:\~\# docker-machine ls**
+```bash
+root@linuxtips:~# docker-machine ls
+```
 
 Para iniciá-lo novamente:
 
-**root\@linuxtips:\~\# docker-machine start linuxtips**
+```bash
+root@linuxtips:~# docker-machine start linuxtips
+```
 
 Para removê-lo definitivamente:
 
-**root\@linuxtips:\~\# docker-machine rm linuxtips**
-
+```bash
+root@linuxtips:~# docker-machine rm linuxtips
 Successfully removed linuxtips
+```
 
 []{#_heading=h.2nusc19 .anchor}
 
@@ -4258,33 +3870,26 @@ máquinas, certo, amiguinho? :D
 
 Para iniciar, vamos executar o seguinte comando na "LINUXtips-01":
 
-**root\@LINUXtips-01:\~\# docker swarm init**
-
-Swarm initialized: current node (2qacv429fvnret8v09fqmjm16) is now a
-manager.
+```bash
+root@linuxtips-01:~# docker swarm init
+Swarm initialized: current node (2qacv429fvnret8v09fqmjm16) is now a manager.
 
 To add a worker to this swarm, run the following command:
 
-***docker swarm join \--token \\
-SWMTKN-1-100qtga34hfnf14xdbbhtv8ut6ugcvuhsx427jtzwaw1td2otj-18wccykydxte59gch2pix
-\\***
+   docker swarm join --token SWMTKN-1-100qtga34hfnf14xdbbhtv8ut6ugcvuhsx427jtzwaw1td2otj-18wccykydxte59gch2pix 172.31.58.90:2377
 
-***172.31.58.90:2377***
+To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
 
-To add a manager to this swarm, run \'docker swarm join-token manager\'
-and follow the instructions.
-
-**root\@LINUXtips-01:\~\#**
+root@linuxtips-01:~#
+```
 
 Com o comando anterior, iniciamos o nosso *cluster*!
 
 Repare no seguinte trecho da saída do último comando:
 
-***\# docker swarm join \--token \\
-SWMTKN-1-100qtga34hfnf14xdbbhtv8ut6ugcvuhsx427jtzwaw1td2otj-18wccykydxte59gch2pix
-\\***
-
-***172.31.58.90:2377***
+```bash
+#  docker swarm join --token SWMTKN-1-100qtga34hfnf14xdbbhtv8ut6ugcvuhsx427jtzwaw1td2otj-18wccykydxte59gch2pix 172.31.58.90:2377
+```
 
 Essa linha nada mais é do que toda informação que você precisa para
 adicionar *workers* ao seu *cluster*! Como assim?
@@ -4298,30 +3903,26 @@ máquina "LINUXtips-03", correto? Então vamos acessá-la e executar
 exatamente a linha de comando recomendada na saída do "docker swarm
 init".
 
-**root\@LINUXtips-03:\~\# docker swarm join \--token \\
-SWMTKN-1-100qtga34hfnf14xdbbhtv8ut6ugcvuhsx427jtzwaw1td2otj-18wccykydxte59gch2pix
-\\**
+```bash
+root@linuxtips-03:~# docker swarm join --token SWMTKN-1-100qtga34hfnf14xdbbhtv8ut6ugcvuhsx427jtzwaw1td2otj-18wccykydxte59gch2pix 172.31.58.90:2377
+This node joined a swarm as a worker.
 
-**172.31.58.90:2377**
-
-**This node joined a swarm as a worker.**
-
-**root\@LINUXtips-03:\~\#**
+root@linuxtips-03:~#
+```
 
 Maravilha! Mais um *node* adicionado ao *cluster*!
 
 Para que você possa ver quais os *nodes* que existem no *cluster*, basta
 digitar o seguinte comando no ***manager* ativo**:
 
-**root\@LINUXtips-01:\~\# docker node ls**
+```bash
+root@linuxtips-01:~# docker node ls
+ID             HOSTNAME       STATUS    AVAILABILITY   MANAGER STATUS   ENGINE VERSION
+2qac           LINUXtips-01   Ready     Active         Leader           18.03.1-ce
+nmxl           LINUXtips-03   Ready     Active                          18.03.1-ce
 
-ID HOSTNAME STATUS AVAILABILITY MANAGER STATUS ENGINE VERSION
-
-2qac LINUXtips-01 Ready Active Leader 18.03.1-ce
-
-nmxl LINUXtips-03 Ready Active 18.03.1-ce
-
-**root\@LINUXtips-01:\~\#**
+root@linuxtips-01:~#
+```
 
 Como podemos notar na saída do comando, temos dois *nodes* em nosso
 *cluster*, um como *manager* e outro como *worker*. A coluna "MANAGER
@@ -4342,52 +3943,38 @@ saída ele nos trouxe somente o *token* para adicionarmos *workers*.
 Para que possamos visualizar o comando e o *token* referente aos
 *managers*, precisamos executar o seguinte comando no *manager* ativo:
 
-**root\@LINUXtips-01:\~\# docker swarm join-token manager**
-
+```bash
+root@linuxtips-01:~# docker swarm join-token manager
 To add a manager to this swarm, run the following command:
 
-**docker swarm join \\**
+    docker swarm join --token SWMTKN-1-100qtga34hfnf14xdbbhtv8ut6ugcvuhsx427jtzwaw1td2otj-3i4jsv4i70odu1mes0ebe1l1e 172.31.58.90:2377 
 
-**\--token
-SWMTKN-1-100qtga34hfnf14xdbbhtv8ut6ugcvuhsx427jtzwaw1td2otj-3i4jsv4i70odu1mes0ebe1l1e
-\\**
-
-**172.31.58.90:2377**
-
-**root\@LINUXtips-01:\~\#**
+root@linuxtips-01:~#
+```
 
 Para visualizar o comando e o *token* referente aos *workers*:
 
-**root\@LINUXtips-01:\~\# docker swarm join-token worker**
-
+```bash
+root@linuxtips-01:~# docker swarm join-token worker
 To add a worker to this swarm, run the following command:
 
-**docker swarm join \\**
+    docker swarm join --token SWMTKN-1-100qtga34hfnf14xdbbhtv8ut6ugcvuhsx427jtzwaw1td2otj-18wccykydxte59gch2pixq9av 172.31.58.90:2377 
 
-**\--token
-SWMTKN-1-100qtga34hfnf14xdbbhtv8ut6ugcvuhsx427jtzwaw1td2otj-18wccykydxte59gch2pixq9av
-\\**
-
-**172.31.58.90:2377**
-
-**root\@LINUXtips-01:\~\#**
+root@linuxtips-01:~#
+```
 
 Fácil, não?
 
 Agora o que precisamos é executar na "LINUXtips-02" o comando para
 inclusão de mais um *node* como *manager*. Portanto, execute:
 
-**root\@LINUXtips-02:\~\# docker swarm join \\**
+```bash
+root@linuxtips-02:~# docker swarm join --token SWMTKN-1-100qtga34hfnf14xdbbhtv8ut6ugcvuhsx427jtzwaw1td2otj-3i4jsv4i70odu1mes0ebe1l1e 172.31.58.90:2377
 
-**\--token
-SWMTKN-1-100qtga34hfnf14xdbbhtv8ut6ugcvuhsx427jtzwaw1td2otj-3i4jsv4i70odu1mes0ebe1l1e
-\\**
+This node joined a swarm as a manager.
 
-**172.31.58.90:2377**
-
-**This node joined a swarm as a manager.**
-
-**root\@LINUXtips-02:\~\#**
+root@linuxtips-02:~#
+```
 
 Pronto! Agora temos o nosso *cluster* completo com dois *managers* e um
 *worker*!
@@ -4397,17 +3984,15 @@ Lembre-se: qualquer comando para administração do *cluster* ou criação
 de serviços deverá obrigatoriamente ser executado no *manager* ativo,
 sempre!
 
-**root\@LINUXtips-01:\~\# docker node ls**
+```bash
+root@linuxtips-01:~# docker node ls
+ID             HOSTNAME       STATUS    AVAILABILITY   MANAGER STATUS   ENGINE VERSION
+2qac           LINUXtips-01   Ready     Active         Leader           18.03.1-ce
+j6lm           LINUXtips-02   Ready     Active         Reachable        18.03.1-ce
+nmxl           LINUXtips-03   Ready     Active                          18.03.1-ce
 
-ID HOSTNAME STATUS AVAILABILITY MANAGER STATUS ENGINE VERSION
-
-2qac LINUXtips-01 Ready Active Leader 18.03.1-ce
-
-j6lm LINUXtips-02 Ready Active Reachable 18.03.1-ce
-
-nmxl LINUXtips-03 Ready Active 18.03.1-ce
-
-**root\@LINUXtips-01:\~\#**
+root@linuxtips-01:~#
+```
 
 Perceba que o "MANAGER STATUS" da "LINUXtips-02" é "Reachable". Isso
 indica que ela é um *manager*, porém não é o *manager* ativo, que sempre
@@ -4416,184 +4001,122 @@ carrega o "MANAGER STATUS" como "Leader".
 Se nós quisermos saber detalhes sobre determinado *node*, podemos usar o
 subcomando "inspect":
 
-**root\@LINUXtips-01:\~\# docker node inspect LINUXtips-02**
+```bash
+root@linuxtips-01:~# docker node inspect LINUXtips-02
+[
+    {
+        "ID": "x3fuo6tdaqjyjl549r3lu0vbj",
+        "Version": {
+            "Index": 27
+        },
+        "CreatedAt": "2017-06-09T18:09:48.925847118Z",
+        "UpdatedAt": "2017-06-09T18:09:49.053416781Z",
+        "Spec": {
+            "Labels": {},
+            "Role": "worker",
+            "Availability": "active"
+        },
+        "Description": {
+            "Hostname": "LINUXtips-02",
+            "Platform": {
+                "Architecture": "x86_64",
+                "OS": "linux"
+            },
+            "Resources": {
+                "NanoCPUs": 1000000000,
+                "MemoryBytes": 1038807040
+            },
+            "Engine": {
+                "EngineVersion": "17.05.0-ce",
+                "Plugins": [
+                    {
+                        "Type": "Network",
+                        "Name": "bridge"
+                    },
+                    {
+                        "Type": "Network",
+                        "Name": "host"
+                    },
+                    {
+                        "Type": "Network",
+                        "Name": "null"
+                    },
+                    {
+                        "Type": "Network",
+                        "Name": "overlay"
+                    },
+                    {
+                        "Type": "Volume",
+                        "Name": "local"
+                    }
+                ]
+            }
+        },
+        "Status": {
+            "State": "ready",
+            "Addr": "172.31.53.23"
+        }
+    }
+]
 
-\[
-
-{
-
-\"ID\": \"x3fuo6tdaqjyjl549r3lu0vbj\",
-
-\"Version\": {
-
-\"Index\": 27
-
-},
-
-\"CreatedAt\": \"2017-06-09T18:09:48.925847118Z\",
-
-\"UpdatedAt\": \"2017-06-09T18:09:49.053416781Z\",
-
-\"Spec\": {
-
-\"Labels\": {},
-
-\"Role\": \"worker\",
-
-\"Availability\": \"active\"
-
-},
-
-\"Description\": {
-
-\"Hostname\": \"LINUXtips-02\",
-
-\"Platform\": {
-
-\"Architecture\": \"x86\_64\",
-
-\"OS\": \"linux\"
-
-},
-
-\"Resources\": {
-
-\"NanoCPUs\": 1000000000,
-
-\"MemoryBytes\": 1038807040
-
-},
-
-\"Engine\": {
-
-\"EngineVersion\": \"17.05.0-ce\",
-
-\"Plugins\": \[
-
-{
-
-\"Type\": \"Network\",
-
-\"Name\": \"bridge\"
-
-},
-
-{
-
-\"Type\": \"Network\",
-
-\"Name\": \"host\"
-
-},
-
-{
-
-\"Type\": \"Network\",
-
-\"Name\": \"macvlan\"
-
-},
-
-{
-
-\"Type\": \"Network\",
-
-\"Name\": \"null\"
-
-},
-
-{
-
-\"Type\": \"Network\",
-
-\"Name\": \"overlay\"
-
-},
-
-{
-
-\"Type\": \"Volume\",
-
-\"Name\": \"local\"
-
-}
-
-\]
-
-}
-
-},
-
-\"Status\": {
-
-\"State\": \"ready\",
-
-\"Addr\": \"172.31.53.23\"
-
-}
-
-}
-
-\]
-
-**root\@LINUXtips-01:\~\#**
+root@linuxtips-01:~#
+```
 
 E se nós quisermos promover um *node worker* para *manager*, como
 devemos fazer? Simples como voar, confira a seguir:
 
-**root\@LINUXtips-01:\~\# docker node promote LINUXtips-03**
-
+```bash
+root@linuxtips-01:~# docker node promote LINUXtips-03
 Node LINUXtips-03 promoted to a manager in the swarm.
 
-**root\@LINUXtips-01:\~\# docker node ls**
+root@linuxtips-01:~# docker node ls
+ID             HOSTNAME       STATUS    AVAILABILITY   MANAGER STATUS   ENGINE VERSION
+2qac           LINUXtips-01   Ready     Active         Leader           18.03.1-ce
+j6lm           LINUXtips-02   Ready     Active         Reachable        18.03.1-ce
+nmxl           LINUXtips-03   Ready    Active          Reachable        18.03.1-ce
 
-ID HOSTNAME STATUS AVAILABILITY MANAGER STATUS ENGINE VERSION
-
-2qac LINUXtips-01 Ready Active Leader 18.03.1-ce
-
-j6lm LINUXtips-02 Ready Active Reachable 18.03.1-ce
-
-nmxl LINUXtips-03 Ready Active Reachable 18.03.1-ce
-
-**root\@LINUXtips-01:\~\#**
+root@linuxtips-01:~#
+```
 
 Se quiser tornar um *node manager* em *worker*, faça:
 
-**root\@LINUXtips-01:\~\# docker node demote LINUXtips-03**
-
+```bash
+root@linuxtips-01:~# docker node demote LINUXtips-03
 Node LINUXtips-03 demoted to a manager in the swarm.
+```
 
 Vamos conferir:
 
-**root\@LINUXtips-01:\~\# docker node ls**
+```bash
+root@linuxtips-01:~# docker node ls
 
-ID HOSTNAME STATUS AVAILABILITY MANAGER STATUS ENGINE VERSION
+ID             HOSTNAME       STATUS    AVAILABILITY   MANAGER STATUS   ENGINE VERSION
+2qac           LINUXtips-01   Ready     Active         Leader           18.03.1-ce
+j6lm           LINUXtips-02   Ready     Active         Reachable        18.03.1-ce
+nmxl           LINUXtips-03   Ready     Active                          18.03.1-ce
 
-2qac LINUXtips-01 Ready Active Leader 18.03.1-ce
-
-j6lm LINUXtips-02 Ready Active Reachable 18.03.1-ce
-
-nmxl LINUXtips-03 Ready Active 18.03.1-ce
-
-**root\@LINUXtips-01:\~\#**
+root@linuxtips-01:~#
+```
 
 Agora, caso você queira remover um *node* do *cluster*, basta digitar o
 seguinte comando no *node* desejado:
 
-**root\@LINUXtips-03:\~\# docker swarm leave**
+```bash
+root@linuxtips-03:~# docker swarm leave
+Node left the swarm.
 
-**Node left the swarm.**
-
-**root\@LINUXtips-03:\~\#**
+root@linuxtips-03:~#
+```
 
 E precisamos ainda executar o comando de remoção desse *node* também em
 nosso *manager* ativo da seguinte forma:
 
-**root\@LINUXtips-01:\~\# docker node rm LINUXtips-03**
+```bash
+root@linuxtips-01:~# docker node rm LINUXtips-03
+LINUXtips-03
 
-**LINUXtips-03**
-
-**root\@LINUXtips-01:\~\#**
+root@linuxtips-01:~#
+```
 
 Com isso, podemos executar o "docker node ls" e constatar que o *node*
 foi realmente removido do *cluster*. Caso queira adicioná-lo novamente,
@@ -4604,19 +4127,21 @@ Para remover um *node* *manager* de nosso *cluster*, precisamos
 adicionar a *flag* "\--force" ao comando "docker swarm leave", como
 mostrado a seguir:
 
-**root\@LINUXtips-02:\~\# docker swarm leave \--force**
+```bash
+root@linuxtips-02:~# docker swarm leave --force
+Node left the swarm.
 
-**Node left the swarm.**
-
-**root\@LINUXtips-02:\~\#**
+root@linuxtips-02:~#
+```
 
 Agora, basta removê-lo também em nosso *node manager*:
 
-**root\@LINUXtips-01:\~\# docker node rm LINUXtips-02**
+```bash
+root@linuxtips-01:~# docker node rm LINUXtips-02
+LINUXtips-02
 
-**LINUXtips-02**
-
-**root\@LINUXtips-01:\~\#**
+root@linuxtips-01:~#
+```
 
 13.2. O sensacional *services*!
 -------------------------------
@@ -4656,16 +4181,18 @@ informações:
 Agora que já temos essas informações, 'bora criar o nosso primeiro
 service. :)
 
-**root\@LINUXtips-01:\~\# docker service create \--name webserver
-\--replicas 5 -p 8080:80 nginx**
-
+```bash
+root@linuxtips-01:~# docker service create --name webserver --replicas 5 -p 8080:80 nginx
 0azz4psgfpkf0i5i3mbfdiptk
 
-**root\@LINUXtips-01:\~\#**
+root@linuxtips-01:~#
+```
 
 Agora já temos o nosso *service* criado. Para testá-lo, basta executar:
 
-**root\@LINUXtips-01:\~\# curl QUALQUER\_IP\_NODES\_CLUSTER:8080**
+```bash
+root@linuxtips-01:~# curl QUALQUER_IP_NODES_CLUSTER:8080
+```
 
 O resultado do comando anterior lhe trará a página de boas-vindas do
 Nginx.
@@ -4676,11 +4203,11 @@ Como estamos utilizando o *services*, cada conexão cairá em um
 
 Para visualizar o *service* criado, execute:
 
-**root\@LINUXtips-01:\~\# docker service ls**
-
-ID NAME MODE REPLICAS IMAGE PORTS
-
-0azz4p webserver replicated 5/5 nginx:lates \*:8080-\>80/tcp
+```bash
+root@linuxtips-01:~# docker service ls
+ID       NAME      MODE           REPLICAS   IMAGE         PORTS
+0azz4p   webserver replicated     5/5        nginx:lates   *:8080->80/tcp
+```
 
 Conforme podemos notar, temos o *service* criado e com ele cinco
 réplicas em execução, ou seja, cinco *containers* em execução.
@@ -4688,26 +4215,17 @@ réplicas em execução, ou seja, cinco *containers* em execução.
 Se quisermos saber onde estão rodando nossos *containers*, em quais
 *nodes* eles estão sendo executados, basta digitar o seguinte comando:
 
-**root\@LINUXtips-01:\~\# docker service ps webserver**
+```bash
+root@linuxtips-01:~# docker service ps webserver
+ID       NAME          IMAGE          NODE           DESIRED STATE  CURRENT STATE              ERROR     PORTS
+zbt1j    webserver.1   nginx:latest   LINUXtips-01   Running        Running 8 minutes ago
+iqm9p    webserver.2   nginx:latest   LINUXtips-02   Running        Running 8 minutes ago
+jliht    webserver.3   nginx:latest   LINUXtips-01   Running        Running 8 minutes ago
+qcfth    webserver.4   nginx:latest   LINUXtips-03   Running        Running 8 minutes ago
+e17um    webserver.5   nginx:latest   LINUXtips-02   Running        Running 8 minutes ago
 
-ID NAME IMAGE NODE DESIRED STATE CURRENT STATE ERROR PORTS
-
-zbt1j webserver.1 nginx:latest LINUXtips-01 Running Running 8 minutes
-ago
-
-iqm9p webserver.2 nginx:latest LINUXtips-02 Running Running 8 minutes
-ago
-
-jliht webserver.3 nginx:latest LINUXtips-01 Running Running 8 minutes
-ago
-
-qcfth webserver.4 nginx:latest LINUXtips-03 Running Running 8 minutes
-ago
-
-e17um webserver.5 nginx:latest LINUXtips-02 Running Running 8 minutes
-ago
-
-**root\@LINUXtips-01:\~\#**
+root@linuxtips-01:~#
+```
 
 Assim conseguimos saber onde está rodando cada *container* e ainda o seu
 *status*.
@@ -4715,188 +4233,100 @@ Assim conseguimos saber onde está rodando cada *container* e ainda o seu
 Se eu preciso saber maiores detalhes sobre o meu *service*, basta
 utilizar o subcomando "inspect".
 
-**root\@LINUXtips-01:\~\# docker service inspect webserver**
-
-\[
-
-{
-
-\"ID\": \"0azz4psgfpkf0i5i3mbfdiptk\",
-
-\"Version\": {
-
-\"Index\": 29
-
-},
-
-\"CreatedAt\": \"2017-06-09T19:35:58.180235688Z\",
-
-\"UpdatedAt\": \"2017-06-09T19:35:58.18899891Z\",
-
-\"Spec\": {
-
-\"Name\": \"webserver\",
-
-\"Labels\": {},
-
-\"TaskTemplate\": {
-
-\"ContainerSpec\": {
-
-\"Image\":
-\"nginx:latest\@sha256:41ad9967ea448d7c2b203c699b429abe1ed5af331cd92533900c6d77490e0268\",
-
-\"StopGracePeriod\": 10000000000,
-
-\"DNSConfig\": {}
-
-},
-
-\"Resources\": {
-
-\"Limits\": {},
-
-\"Reservations\": {}
-
-},
-
-\"RestartPolicy\": {
-
-\"Condition\": \"any\",
-
-\"Delay\": 5000000000,
-
-\"MaxAttempts\": 0
-
-},
-
-\"Placement\": {},
-
-\"ForceUpdate\": 0
-
-},
-
-\"Mode\": {
-
-\"Replicated\": {
-
-\"Replicas\": 5
-
-}
-
-},
-
-\"UpdateConfig\": {
-
-\"Parallelism\": 1,
-
-\"FailureAction\": \"pause\",
-
-\"Monitor\": 5000000000,
-
-\"MaxFailureRatio\": 0,
-
-\"Order\": \"stop-first\"
-
-},
-
-\"RollbackConfig\": {
-
-\"Parallelism\": 1,
-
-\"FailureAction\": \"pause\",
-
-\"Monitor\": 5000000000,
-
-\"MaxFailureRatio\": 0,
-
-\"Order\": \"stop-first\"
-
-},
-
-\"EndpointSpec\": {
-
-\"Mode\": \"vip\",
-
-\"Ports\": \[
-
-{
-
-\"Protocol\": \"tcp\",
-
-\"TargetPort\": 80,
-
-\"PublishedPort\": 8080,
-
-\"PublishMode\": \"ingress\"
-
-}
-
-\]
-
-}
-
-},
-
-\"Endpoint\": {
-
-\"Spec\": {
-
-\"Mode\": \"vip\",
-
-\"Ports\": \[
-
-{
-
-\"Protocol\": \"tcp\",
-
-\"TargetPort\": 80,
-
-\"PublishedPort\": 8080,
-
-\"PublishMode\": \"ingress\"
-
-}
-
-\]
-
-},
-
-\"Ports\": \[
-
-{
-
-\"Protocol\": \"tcp\",
-
-\"TargetPort\": 80,
-
-\"PublishedPort\": 8080,
-
-\"PublishMode\": \"ingress\"
-
-}
-
-\],
-
-\"VirtualIPs\": \[
-
-{
-
-\"NetworkID\": \"89t2aobeik8j7jcre8lxhj04l\",
-
-\"Addr\": \"10.255.0.5/16\"
-
-}
-
-\]
-
-}
-
-}
-
-\]
-
-**root\@LINUXtips-01:\~\#**
+```bash
+**root@linuxtips-01:~# docker service inspect webserver**
+[
+    {
+        "ID": "0azz4psgfpkf0i5i3mbfdiptk",
+        "Version": {
+            "Index": 29
+        },
+        "CreatedAt": "2017-06-09T19:35:58.180235688Z",
+        "UpdatedAt": "2017-06-09T19:35:58.18899891Z",
+        "Spec": {
+            "Name": "webserver",
+            "Labels": {},
+            "TaskTemplate": {
+                "ContainerSpec": {
+                    "Image": "nginx:latest@sha256:41ad9967ea448d7c2b203c699b429abe1ed5af331cd92533900c6d77490e0268",
+                    "StopGracePeriod": 10000000000,
+                    "DNSConfig": {}
+                },
+                "Resources": {
+                    "Limits": {},
+                    "Reservations": {}
+                },
+                "RestartPolicy": {
+                    "Condition": "any",
+                    "Delay": 5000000000,
+                    "MaxAttempts": 0
+                },
+                "Placement": {},
+                "ForceUpdate": 0
+            },
+            "Mode": {
+                "Replicated": {
+                    "Replicas": 5
+                }
+            },
+            "UpdateConfig": {
+                "Parallelism": 1,
+                "FailureAction": "pause",
+                "Monitor": 5000000000,
+                "MaxFailureRatio": 0,
+                "Order": "stop-first"
+            },
+            "RollbackConfig": {
+                "Parallelism": 1,
+                "FailureAction": "pause",
+                "Monitor": 5000000000,
+                "MaxFailureRatio": 0,
+                "Order": "stop-first"
+            },
+            "EndpointSpec": {
+                "Mode": "vip",
+                "Ports": [
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 80,
+                        "PublishedPort": 8080,
+                        "PublishMode": "ingress"
+                    }
+                ]
+            }
+        },
+        "Endpoint": {
+            "Spec": {
+                "Mode": "vip",
+                "Ports": [
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 80,
+                        "PublishedPort": 8080,
+                        "PublishMode": "ingress"
+                    }
+                ]
+            },
+            "Ports": [
+                {
+                    "Protocol": "tcp",
+                    "TargetPort": 80,
+                    "PublishedPort": 8080,
+                    "PublishMode": "ingress"
+                }
+            ],
+            "VirtualIPs": [
+                {
+                    "NetworkID": "89t2aobeik8j7jcre8lxhj04l",
+                    "Addr": "10.255.0.5/16"
+                }
+            ]
+        }
+    }
+]
+
+root@linuxtips-01:~#
+```
 
 Na saída do "inspect" conseguiremos pegar informações importantes sobre
 nosso *service*, como portas expostas, volumes, *containers*,
@@ -4904,15 +4334,14 @@ limitações, entre outras coisas.
 
 Uma informação muito importante é o endereço do VIP do *service*:
 
-\"VirtualIPs\": \[
-
-{
-
-\"NetworkID\": \"89t2aobeik8j7jcre8lxhj04l\",
-
-\"Addr\": \"10.255.0.5/16\"
-
-}
+```json
+    "VirtualIPs": [
+        {
+            "NetworkID": "89t2aobeik8j7jcre8lxhj04l",
+            "Addr": "10.255.0.5/16"
+        }
+    ]
+```
 
 Esse é o endereço IP do "balanceador" desse *service*, ou seja, sempre
 que acessarem via esse IP, ele distribuirá a conexão entre os
@@ -4921,11 +4350,12 @@ que acessarem via esse IP, ele distribuirá a conexão entre os
 Agora, se quisermos aumentar o número de *containers* debaixo desse
 *service*, é muito simples. Basta executar o comando a seguir:
 
-**root\@LINUXtips-01:\~\# docker service scale webserver=10**
-
+```bash
+root@linuxtips-01:~# docker service scale webserver=10
 webserver scaled to 10
 
-**root\@LINUXtips-01:\~\#**
+root@linuxtips-01:~#
+```
 
 Pronto, simples assim!
 
@@ -4934,24 +4364,23 @@ Agora já temos dez *containers* respondendo requisições debaixo do nosso
 
 Para visualizar, basta executar:
 
-**root\@LINUXtips-01:\~\# docker service ls**
+```bash
+root@linuxtips-01:~# docker service ls
+ID      NAME      MODE        REPLICAS   IMAGE           PORTS
+0azz    webserver replicated  10/10      nginx:latest    *:8080->80/tcp
 
-ID NAME MODE REPLICAS IMAGE PORTS
-
-0azz webserver replicated 10/10 nginx:latest \*:8080-\>80/tcp
-
-**root\@LINUXtips-01:\~\#**
+root@linuxtips-01:~#
+```
 
 Para saber em quais *nodes* eles estão em execução, lembre-se do "docker
 service ls webserver".
 
 Para acessar os *logs* desse *service*, basta digitar:
 
-**root\@LINUXtips-01:\~\# docker service logs -f webserver**
-
-webserver.5.e17umj6u6bix\@LINUXtips-02 \| 10.255.0.2 - -
-\[09/Jun/2017:19:36:12 +0000\] \"GET / HTTP/1.1\" 200 612 \"-\"
-\"curl/7.47.0\" \"-\"
+```bash
+root@linuxtips-01:~# docker service logs -f webserver
+webserver.5.e17umj6u6bix@LINUXtips-02 | 10.255.0.2 - - [09/Jun/2017:19:36:12 +0000] "GET / HTTP/1.1" 200 612 "-" "curl/7.47.0" "-"
+```
 
 Assim, você terá acesso aos *logs* de todos os *containers* desse
 *service*. Muito prático!
@@ -4959,29 +4388,31 @@ Assim, você terá acesso aos *logs* de todos os *containers* desse
 "Cansei de brincar! Quero remover esse meu *service*!" É tão simples
 quanto criá-lo. Digite:
 
-**root\@LINUXtips-01:\~\# docker service rm webserver**
-
+```bash
+root@linuxtips-01:~# docker service rm webserver
 webserver
 
-**root\@LINUXtips-01:\~\#**
+root@linuxtips-01:~#
+```
 
 Pronto! Seu *service* foi excluído e você pode conferir na saída do
 comando a seguir:
 
-**root\@LINUXtips-01:\~\# docker service ls**
+```bash
+root@linuxtips-01:~# docker service ls
+ID      NAME      MODE        REPLICAS   IMAGE           PORTS
 
-ID NAME MODE REPLICAS IMAGE PORTS
-
-**root\@LINUXtips-01:\~\#**
+root@linuxtips-01:~#
+```
 
 Criar um *service* com um volume conectado é bastante simples. Faça:
 
-**root\@LINUXtips-01:\~\# docker service create \--name webserver
-\--replicas 5 -p 8080:80 \--mount type=volume,src=teste,dst=/app nginx**
-
+```bash
+root@linuxtips-01:~# docker service create --name webserver --replicas 5 -p 8080:80 --mount type=volume,src=teste,dst=/app nginx
 yfheu3k7b8u4d92jemglnteqa
 
-**root\@LINUXtips-01:\~\#**
+root@linuxtips-01:~#
+```
 
 Quando eu crio um *service* com um volume conectado a ele, isso indica
 que esse volume estará disponível em todos os meus *containers* desse
@@ -5014,27 +4445,24 @@ individuais.
 
 O comando "docker secret" vem com alguns subcomandos. São eles:
 
-docker secret \--help
+```bash
+docker secret --help
 
 Usage: docker secret COMMAND
 
 Manage Docker secrets
 
 Options:
-
-\--help Print usage
+     --help Print usage
 
 Commands:
+    create   Create a secret from a file or STDIN as content
+    inspect  Display detailed information on one or more secrets
+    ls       List secrets
+    rm       Remove one or more secrets
 
-create Create a secret from a file or STDIN as content
-
-inspect Display detailed information on one or more secrets
-
-ls List secrets
-
-rm Remove one or more secrets
-
-Run \'docker secret COMMAND \--help\' for more information on a command.
+Run 'docker secret COMMAND --help' for more information on a command.
+```
 
 -   **create** -- Cria uma *secret* a partir do conteúdo de um arquivo
     > ou STDIN.
@@ -5050,21 +4478,21 @@ Run \'docker secret COMMAND \--help\' for more information on a command.
 
 Como dito, o "create" aceita conteúdo tanto do STDIN\...
 
-root\@linuxtips:\~\# echo \'minha secret\' \| docker secret create
-minha\_secret -
-
+```bash
+root@linuxtips:~# echo 'minha secret' | docker secret create minha_secret -
 jxr0pilzhtqsiqi1f1fjmmg4t
 
-root\@linuxtips:\~\#
+root@linuxtips:~#
+```
 
 ...quanto de um arquivo:
 
-root\@linuxtips:\~\# docker secret create minha\_secret
-minha\_secret.txt
-
+```bash
+root@linuxtips:~# docker secret create minha_secret minha_secret.txt
 ci7mse43i5ak378sg3qc4xt04
 
-root\@linuxtips:\~\#
+root@linuxtips:~#
+```
 
 **Inspect**
 
@@ -5076,37 +4504,25 @@ modificar uma *secret*; uma vez criada, ela não pode ser atualizada via
 CLI, porém já há um *endpoint* na API do Docker Swarm para *update* de
 *secret* -- "/secrets/{id}/update", vamos aguardar!)
 
-root\@linuxtips:\~\# docker secret inspect minha\_secret
+```bash
+root@linuxtips:~# docker secret inspect minha_secret
+[
+    {
+        "ID": "ci7mse43i5ak378sg3qc4xt04",
+        "Version": {
+            "Index": 808
+        },
+        "CreatedAt": "2017-07-02T17:17:18.143116694Z",
+        "UpdatedAt": "2017-07-02T17:17:18.143116694Z",
+        "Spec": {
+            "Name": "minha_secret",
+            "Labels": {}
+        }
+    }
+]
 
-\[
-
-{
-
-\"ID\": \"ci7mse43i5ak378sg3qc4xt04\",
-
-\"Version\": {
-
-\"Index\": 808
-
-},
-
-\"CreatedAt\": \"2017-07-02T17:17:18.143116694Z\",
-
-\"UpdatedAt\": \"2017-07-02T17:17:18.143116694Z\",
-
-\"Spec\": {
-
-\"Name\": \"minha\_secret\",
-
-\"Labels\": {}
-
-}
-
-}
-
-\]
-
-root\@linuxtips:\~\#
+root@linuxtips:~#
+```
 
 O "inspect" aceita mais de uma *secret* por vez e mostrará o resultado
 na mesma sequência.
@@ -5115,20 +4531,17 @@ na mesma sequência.
 
 Servem respectivamente para listar suas *secrets* e removê-las.
 
-root\@linuxtips:\~\# docker secret ls
+```bash
+root@linuxtips:~# docker secret ls
+ID                         NAME           CREATED             UPDATED
+ci7mse43i5ak378sg3qc4xt04  minha_secret   About a minute ago  About a minute ago
 
-ID NAME CREATED UPDATED
+root@linuxtips:~#
+root@linuxtips:~# docker secret rm minha_secret
+minha_secret
 
-ci7mse43i5ak378sg3qc4xt04 minha\_secret About a minute ago About a
-minute ago
-
-root\@linuxtips:\~\#
-
-root\@linuxtips:\~\# docker secret rm minha\_secret
-
-minha\_secret
-
-root\@linuxtips:\~\#
+root@linuxtips:~#
+```
 
 14.2. Tudo bem, mas como uso isso?
 ----------------------------------
@@ -5140,40 +4553,32 @@ hora de criar um serviço. Vamos para um exemplo.
 Primeiro vamos criar uma *secret* com a senha do banco de dados da nossa
 aplicação *fake.*
 
-root\@linuxtips:\~\# echo \'senha\_do\_banco\' \| docker secret create
-db\_pass -
-
+```bash
+root@linuxtips:~# echo 'senha_do_banco' | docker secret create db_pass -
 kxzgmhlu3ytv64hbqzg30nc8u
 
-root\@linuxtips:\~\#
+root@linuxtips:~#
+```
 
 Agora, vamos associá-la à nossa *app*, criando um serviço.
 
-root\@linuxtips:\~\# docker service create \--name app \--detach=false
-\--secret db\_pass minha\_app:1.0
-
+```bash
+root@linuxtips:~# docker service create --name app --detach=false --secret db_pass minha_app:1.0
 npfmry3vcol61cmcql3jiljk2
-
 overall progress: 1 out of 1 tasks
+1/1: running [==================================================>]
+verify: Waiting 1 seconds to verify that tasks are stable...
 
-1/1: running \[==================================================\>\]
+root@linuxtips:~# docker service ls
+ID            NAME      MODE        REPLICAS   IMAGE           PORTS
+npfmry3vcol6  app       replicated  1/1        minha_app:1.0
 
-verify: Waiting 1 seconds to verify that tasks are stable\...
+root@linuxtips:~# docker container ls
+CONTAINER ID     IMAGE          COMMAND                   CREATED           STATUS           PORTS     NAMES
+65d1533f5b50     minha_app:1.0  "/bin/sh -c ./scri..."   40 seconds ago     Up 39 seconds              app.1.molbmj0649c7xkzfermkuwrx2
 
-root\@linuxtips:\~\# docker service ls
-
-ID NAME MODE REPLICAS IMAGE PORTS
-
-npfmry3vcol6 app replicated 1/1 minha\_app:1.0
-
-**root\@linuxtips:\~\# docker container ls**
-
-CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
-
-65d1533f5b50 minha\_app:1.0 \"/bin/sh -c ./scri\...\" 40 seconds ago Up
-39 seconds app.1.molbmj0649c7xkzfermkuwrx2
-
-root\@linuxtips:\~\#
+root@linuxtips:~#
+```
 
 Também é possível dar acesso a *keys* para serviços já criados, através
 da *flag* "\--secret-add" do comando "docker service update", assim como
@@ -5198,40 +4603,30 @@ minha\_app:1.0
 
 Dentro do *container* ficaria assim:
 
-root\@4dd6b9cbff1a:/app\# ls -lhart /run/secrets/
-
+```bash
+root@4dd6b9cbff1a:/app# ls -lhart /run/secrets/
 total 12K
-
--r\-\-\-\-\-\-\-- 1 2000 3000 15 Jul 2 17:44 password
-
+-r-------- 1 2000 3000   15 Jul 2 17:44 password
 drwxr-xr-x 7 root root 4.0K Jul 2 17:44 ..
-
 drwxr-xr-x 2 root root 4.0K Jul 2 17:44 .
 
-root\@4dd6b9cbff1a:/app\#
+root@4dd6b9cbff1a:/app#
+```
 
 E aí basta que a sua aplicação leia o conteúdo do arquivo.
 
-root\@8b16b5335334:/app\# python
-
+```bash
+root@8b16b5335334:/app# python
 Python 2.7.12 (default, Nov 19 2016, 06:48:10)
-
-\[GCC 5.4.0 20160609\] on linux2
-
-Type \"help\", \"copyright\", \"credits\" or \"license\" for more
-information.
-
-\>\>\>
-
-\>\>\> secret = open(\'/run/secrets/password\').read()
-
-\>\>\>
-
-\>\>\> print \"minha secret e: %s\" % (secret)
-
-minha secret e: nova\_senha
-
-\>\>\>
+[GCC 5.4.0 20160609] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+>>> secret = open('/run/secrets/password').read()
+>>>
+>>> print "minha secret e: %s" % (secret)
+minha secret e: nova_senha
+>>>
+```
 
 14.4. Atualizando a *secret* de um serviço
 ------------------------------------------
@@ -5243,35 +4638,33 @@ troca da *secret* é bem fácil. Por exemplo, para trocar a *secret*
 
 Criar uma nova *secret*:
 
-root\@linuxtips:\~\# echo \'nova\_senha\' \| docker secret create
-db\_pass\_1 -
-
+```bash
+root@linuxtips:~# echo 'nova_senha' | docker secret create db_pass_1 -
 221uzilbsl1ybna7g7014hoqr
 
-root\@linuxtips:\~\#
+root@linuxtips:~#
+```
 
 Adicionar à *secret* a *app* criada anteriormente:
 
-root\@linuxtips:\~\# docker service update \--secret-rm db\_pass
-\--detach=false \--secret-add source=db\_pass\_1,target=password app
-
+```bash
+root@linuxtips:~# docker service update --secret-rm db_pass --detach=false --secret-add source=db_pass_1,target=password app
 app
-
 overall progress: 1 out of 1 tasks
+1/1: running [==================================================>]
+verify: Waiting 1 seconds to verify that tasks are stable...
 
-1/1: running \[==================================================\>\]
-
-verify: Waiting 1 seconds to verify that tasks are stable\...
-
-root\@linuxtips:\~\#
+root@linuxtips:~#
+```
 
 Após a atualização, basta remover a *secret* antiga:
 
-root\@linuxtips:\~\# docker secret rm db\_pass
+```bash
+root@linuxtips:~# docker secret rm db_pass
+db_pass
 
-db\_pass
-
-root\@linuxtips:\~\#
+root@linuxtips:~#
+```
 
 []{#_heading=h.2fk6b3p .anchor}
 
@@ -5312,54 +4705,42 @@ Lembre-se: para que possamos seguir com os próximos exemplos, o seu
 *cluster* *swarm* deverá estar funcionando perfeitamente. Portanto, se
 ainda não estiver com o *swarm* ativo, execute:
 
-**\# docker swarm init**
+```bash
+#  docker swarm init
+```
 
 Vamos criar um diretório chamado "Composes", somente para que possamos
 organizar melhor nossos arquivos.
 
-**\# mkdir /root/Composes**
+```bash
+#  mkdir /root/Composes
+#  mkdir /root/Composes/1
+#  cd /root/Composes/1
+#  vim docker-compose.yml
+```
 
-**\# mkdir /root/Composes/1**
+```yaml
+version: "3"
 
-**\# cd /root/Composes/1**
+services:
+    web:
+        image: nginx
+        deploy:
+        replicas: 5
+        resources:
+        limits:
+            cpus: "0.1"
+            memory: 50M
+        restart_policy:
+            condition: on-failure
+        ports:
+        - "8080:80"
+        networks:
+        - webserver
 
-**\# vim docker-compose.yml**
-
-*version: \"3\"*
-
-*services:*
-
-*web:*
-
-*image: nginx*
-
-*deploy:*
-
-*replicas: 5*
-
-*resources:*
-
-*limits:*
-
-*cpus: \"0.1\"*
-
-*memory: 50M*
-
-*restart\_policy:*
-
-*condition: on-failure*
-
-*ports:*
-
-*- \"8080:80\"*
-
-*networks:*
-
-*- webserver*
-
-*networks:*
-
-*webserver:*
+networks:
+    webserver:
+```
 
 Pronto! Agora já temos o nosso primeiro *docker-compose*. O que
 precisamos agora é realizar o *deploy*, porém antes vamos conhecer
@@ -5413,113 +4794,76 @@ Agora precisamos realizar o *deploy* desse *service* através do *compose
 file* que criamos. Para isso, vamos utilizar o sensacional "docker
 stack":
 
-**root\@LINUXtips-01:\~/Composes/1\# docker stack deploy -c
-docker-compose.yml primeiro**
+```bash
+root@linuxtips-01:~/Composes/1# docker stack deploy -c docker-compose.yml primeiro
+Creating network primeiro_webserver
+Creating service primeiro_web
 
-Creating network primeiro\_webserver
-
-Creating service primeiro\_web
-
-**root\@LINUXtips-01:\~/Composes/1\#**
+root@linuxtips-01:~/Composes/1#
+```
 
 Simples assim, e nosso service já está disponível para uso. Agora vamos
 verificar se realmente o *service* subiu e se está respondendo conforme
 esperado:
 
-**root\@LINUXtips-01:\~/Composes/1\# curl 0:8080**
+```bash
+root@linuxtips-01:~/Composes/1# curl 0:8080
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome to nginx!</title>
+        <style>
+        body {
+            width: 35em;
+            margin: 0 auto;
+            font-family: Tahoma, Verdana, Arial, sans-serif;
+        }
+        </style>
+    </head>
+    <body>
+        <h1>Welcome to nginx!</h1>
+        <p>If you see this page, the nginx web server is successfully installed and working. Further configuration is required.</p>
+        <p>For online documentation and support please refer to
+        <a href="http://nginx.org/">nginx.org</a>.<br/>
+        Commercial support is available at
+        <a href="http://nginx.com/">nginx.com</a>.</p>
+        <p><em>Thank you for using nginx.</em></p>
+    </body>
+</html>
 
-\<!DOCTYPE html\>
-
-\<html\>
-
-\<head\>
-
-\<title\>Welcome to nginx!\</title\>
-
-\<style\>
-
-body {
-
-width: 35em;
-
-margin: 0 auto;
-
-font-family: Tahoma, Verdana, Arial, sans-serif;
-
-}
-
-\</style\>
-
-\</head\>
-
-\<body\>
-
-\<h1\>Welcome to nginx!\</h1\>
-
-\<p\>If you see this page, the nginx web server is successfully
-installed and
-
-working. Further configuration is required.\</p\>
-
-\<p\>For online documentation and support please refer to
-
-\<a href=\"http://nginx.org/\"\>nginx.org\</a\>.\<br/\>
-
-Commercial support is available at
-
-\<a href=\"http://nginx.com/\"\>nginx.com\</a\>.\</p\>
-
-\<p\>\<em\>Thank you for using nginx.\</em\>\</p\>
-
-\</body\>
-
-\</html\>
-
-**root\@LINUXtips-01:\~/Composes/1\#**
+root@linuxtips-01:~/Composes/1#
+```
 
 Sensacional, o nosso *service* está em pé, pois recebemos a página de
 boas-vindas do Nginx!
 
 Vamos verificar se está tudo certo com o *service*:
 
-**root\@LINUXtips-01:\~/Composes/1\# docker service ls**
+```bash
+root@linuxtips-01:~/Composes/1# docker service ls
+ID     NAME          MODE        REPLICAS    IMAGE           PORTS
+mw95t  primeiro_web  replicated  5/5         nginx:latest    *:8080->80/tcp
 
-ID NAME MODE REPLICAS IMAGE PORTS
+root@linuxtips-01:~/Composes/1# docker service ps primeiro_web
+ID            NAME             IMAGE         NODE           DESIRED STATE   CURRENT STATE           ERROR   PORTS
+lrcqo8ifultq  primeiro_web.1   nginx:latest  LINUXtips-02   Running         Running 2 minutes ago
+ty16mkcqdwyl  primeiro_web.2   nginx:latest  LINUXtips-03   Running         Running 2 minutes ago
+dv670shw22o2  primeiro_web.3   nginx:latest  LINUXtips-01   Running         Running 2 minutes ago
+sp0k1tnjftnr  primeiro_web.4   nginx:latest  LINUXtips-01   Running         Running 2 minutes ago
+4fpl35llq1ih  primeiro_web.5   nginx:latest  LINUXtips-03   Running         Running 2 minutes ago
 
-mw95t primeiro\_web replicated 5/5 nginx:latest \*:8080-\>80/tcp
-
-**root\@LINUXtips-01:\~/Composes/1\#**
-
-**docker service ps primeiro\_web**
-
-ID NAME IMAGE NODE DESIRED STATE CURRENT STATE ERROR PORTS
-
-lrcqo8ifultq primeiro\_web.1 nginx:latest LINUXtips-02 Running Running 2
-minutes ago
-
-ty16mkcqdwyl primeiro\_web.2 nginx:latest LINUXtips-03 Running Running 2
-minutes ago
-
-dv670shw22o2 primeiro\_web.3 nginx:latest LINUXtips-01 Running Running 2
-minutes ago
-
-sp0k1tnjftnr primeiro\_web.4 nginx:latest LINUXtips-01 Running Running 2
-minutes ago
-
-4fpl35llq1ih primeiro\_web.5 nginx:latest LINUXtips-03 Running Running 2
-minutes ago
-
-**root\@LINUXtips-01:\~/Composes/1\#**
+root@linuxtips-01:~/Composes/1#
+```
 
 Para listar todos os *stacks* criados, basta executar:
 
-**root\@LINUXtips-01:\~/Composes/1\# docker stack ls**
+```bash
+root@linuxtips-01:~/Composes/1# docker stack ls
+NAME        SERVICES
+primeiro    1
 
-NAME SERVICES
-
-primeiro 1
-
-**root\@LINUXtips-01:\~/Composes/1\#**
+root@linuxtips-01:~/Composes/1#
+```
 
 Perceba: a saída diz que possuímos somente um *stack* criado e esse
 *stack* possui um *service*, que é exatamente o nosso do Nginx.
@@ -5527,37 +4871,28 @@ Perceba: a saída diz que possuímos somente um *stack* criado e esse
 Para visualizar os *services* que existem em determinado *stack*,
 execute:
 
-**root\@LINUXtips-01:\~/Composes/1\# docker stack services primeiro**
+```bash
+root@linuxtips-01:~/Composes/1# docker stack services primeiro
+ID            NAME          MODE         REPLICAS   IMAGE          PORTS
+mx0p4vbrzfuj  primeiro_web  replicated   5/5        nginx:latest   *:8080->80/tcp
 
-ID NAME MODE REPLICAS IMAGE PORTS
-
-mx0p4vbrzfuj primeiro\_web replicated 5/5 nginx:latest \*:8080-\>80/tcp
-
-**root\@LINUXtips-01:\~/Composes/1\#**
+root@linuxtips-01:~/Composes/1#
+```
 
 Podemos verificar os detalhes do nosso *stack* criado através do comando
 a seguir:
 
-**root\@LINUXtips-01:\~/Composes/1\# docker stack ps primeiro**
+```bash
+root@linuxtips-01:~/Composes/1# docker stack ps primeiro
+ID             NAME             IMAGE          NODE           DESIRED STATE    CURRENT STATE            ERROR   PORTS
+x3u03509w9u3   primeiro_web.1   nginx:latest   LINUXtips-03   Running          Running 5 seconds ago
+3hpu5lo6yvld   primeiro_web.2   nginx:latest   LINUXtips-02   Running          Running 5 seconds ago
+m82wbwuwoza0   primeiro_web.3   nginx:latest   LINUXtips-03   Running          Running 5 seconds ago
+y7vizedqvust   primeiro_web.4   nginx:latest   LINUXtips-02   Running          Running 5 seconds ago
+wk0acjnyl6jm   primeiro_web.5   nginx:latest   LINUXtips-01   Running          Running 5 seconds ago
 
-ID NAME IMAGE NODE DESIRED STATE CURRENT STATE ERROR PORTS
-
-x3u03509w9u3 primeiro\_web.1 nginx:latest LINUXtips-03 Running Running 5
-seconds ago
-
-3hpu5lo6yvld primeiro\_web.2 nginx:latest LINUXtips-02 Running Running 5
-seconds ago
-
-m82wbwuwoza0 primeiro\_web.3 nginx:latest LINUXtips-03 Running Running 5
-seconds ago
-
-y7vizedqvust primeiro\_web.4 nginx:latest LINUXtips-02 Running Running 5
-seconds ago
-
-wk0acjnyl6jm primeiro\_web.5 nginx:latest LINUXtips-01 Running Running 5
-seconds ago
-
-**root\@LINUXtips-01:\~/Composes/1\#**
+root@linuxtips-01:~/Composes/1#
+```
 
 Maravilha! Nosso *service* está *UP* e tudo está em paz!
 
@@ -5567,21 +4902,22 @@ utilizando o *docker-compose* e o "docker stack", simples como voar!
 Agora vamos imaginar que eu queira remover esse meu *service*. Como eu
 faço? Simples:
 
-**root\@LINUXtips-01:\~/Composes/1\# docker stack rm primeiro**
+```bash
+root@linuxtips-01:~/Composes/1# docker stack rm primeiro
+Removing service primeiro_web
+Removing network primeiro_webserver
 
-Removing service primeiro\_web
-
-Removing network primeiro\_webserver
-
-**root\@LINUXtips-01:\~/Composes/1\#**
+root@linuxtips-01:~/Composes/1#
+```
 
 Para verificar se realmente removeu o *service*:
 
-**root\@LINUXtips-01:\~/Composes/1\# docker service ls**
+```bash
+root@linuxtips-01:~/Composes/1# docker service ls
+ID    NAME    MODE     REPLICAS     IMAGE     PORTS
 
-ID NAME MODE REPLICAS IMAGE PORTS
-
-**root\@LINUXtips-01:\~/Composes/1\#**
+root@linuxtips-01:~/Composes/1#
+```
 
 Pronto! Nosso *service* está removido!
 
@@ -5591,57 +4927,39 @@ Vamos aumentar um pouco a complexidade na criação de nosso
 Vamos criar mais um diretório, onde criaremos o nosso novo *compose
 file*:
 
-**root\@LINUXtips-01:\~/Composes\# mkdir 2**
+```bash
+root@linuxtips-01:~/Composes# mkdir 2
+root@linuxtips-01:~/Composes# cd 2
+root@linuxtips-01:~/Composes# vim docker-compose.yml
+```
 
-**root\@LINUXtips-01:\~/Composes\# cd 2**
+```yaml
+version: '3'
+    services:
+        db:
+            image: mysql:5.7
+            volumes:
+                - db_data:/var/lib/mysql
+            environment:
+                MYSQL_ROOT_PASSWORD: somewordpress
+                MYSQL_DATABASE: wordpress
+                MYSQL_USER: wordpress
+                MYSQL_PASSWORD: wordpress
 
-**root\@LINUXtips-01:\~/Composes\# vim docker-compose.yml**
+        wordpress:
+            depends_on:
+            - db
+            image: wordpress:latest
+            ports:
+            - "8000:80"
+            environment:
+                WORDPRESS_DB_HOST: db:3306
+                WORDPRESS_DB_USER: wordpress
+                WORDPRESS_DB_PASSWORD: wordpress
 
-*version: \'3\'*
-
-*services:*
-
-*db:*
-
-*image: mysql:5.7*
-
-*volumes:*
-
-*- db\_data:/var/lib/mysql*
-
-*environment:*
-
-*MYSQL\_ROOT\_PASSWORD: somewordpress*
-
-*MYSQL\_DATABASE: wordpress*
-
-*MYSQL\_USER: wordpress*
-
-*MYSQL\_PASSWORD: wordpress*
-
-*wordpress:*
-
-*depends\_on:*
-
-*- db*
-
-*image: wordpress:latest*
-
-*ports:*
-
-*- \"8000:80\"*
-
-*environment:*
-
-*WORDPRESS\_DB\_HOST: db:3306*
-
-*WORDPRESS\_DB\_USER: wordpress*
-
-*WORDPRESS\_DB\_PASSWORD: wordpress*
-
-*volumes:*
-
-*db\_data:*
+volumes:
+    db_data:
+```
 
 Perfeito!
 
@@ -5673,16 +4991,14 @@ Muito simples, não?!?
 Agora vamos realizar o *deploy* desse exemplo. Como se pode perceber, o
 nosso *stack* é composto por dois *services*, o Wordpress e o MySQL.
 
-***root\@LINUXtips-01:\~/Composes/2\# docker stack deploy -c
-docker-compose.yml segundo***
+```bash
+root@linuxtips-01:~/Composes/2# docker stack deploy -c docker-compose.yml segundo
+Creating network segundo_default
+Creating service segundo_db
+Creating service segundo_wordpress
 
-*Creating network segundo\_default*
-
-*Creating service segundo\_db*
-
-*Creating service segundo\_wordpress*
-
-***root\@LINUXtips-01:\~/Composes/2\#***
+root@linuxtips-01:~/Composes/2#
+```
 
 Conforme esperado, ele realizou a criação dos dois *services* e da rede
 do *stack*.
@@ -5696,117 +5012,73 @@ Seu Wordpress está pronto para uso!
 Para verificar se correu tudo bem com os *services*, lembre-se dos
 comandos:
 
-**root\@LINUXtips-01:\~/Composes/1\# docker stack ls**
-
-**root\@LINUXtips-01:\~/Composes/1\# docker stack services segundo**
-
-**root\@LINUXtips-01:\~/Composes/1\# docker service ls**
-
-**root\@LINUXtips-01:\~/Composes/1\# docker service ps segundo\_db**
-
-**root\@LINUXtips-01:\~/Composes/1\# docker service ps
-segundo\_wordpress**
+```bash
+root@linuxtips-01:~/Composes/1# docker stack ls
+root@linuxtips-01:~/Composes/1# docker stack services segundo
+root@linuxtips-01:~/Composes/1# docker service ls
+root@linuxtips-01:~/Composes/1# docker service ps segundo_db
+root@linuxtips-01:~/Composes/1# docker service ps segundo_wordpress
+```
 
 Para visualizar os *logs* de determinado *service*:
 
-**root\@LINUXtips-01:\~/Composes/2\# docker service logs
-segundo\_wordpress**
+```bash
+root@linuxtips-01:~/Composes/2# docker service logs segundo_wordpress
+segundo_wordpress.1.r6reuq8fsil0@LINUXtips-01 | WordPress not found in /var/www/html - copying now...
+segundo_wordpress.1.r6reuq8fsil0@LINUXtips-01 | Complete! WordPress has been successfully copied to /var/www/html
+segundo_wordpress.1.r6reuq8fsil0@LINUXtips-01 | AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 10.0.4.5. Set the 'ServerName' directive globally to suppress this message
+segundo_wordpress.1.r6reuq8fsil0@LINUXtips-01 | AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 10.0.4.5. Set the 'ServerName' directive globally to suppress this message
+segundo_wordpress.1.r6reuq8fsil0@LINUXtips-01 | [Sun Jun 11 10:32:47.392836 2017] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.10 (Debian) PHP/5.6.30 configured -- resuming normal operations
+segundo_wordpress.1.r6reuq8fsil0@LINUXtips-01 | [Sun Jun 11 10:32:47.392937 2017] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
 
-*segundo\_wordpress.1.r6reuq8fsil0\@LINUXtips-01 \| WordPress not found
-in /var/www/html - copying now\...*
-
-*segundo\_wordpress.1.r6reuq8fsil0\@LINUXtips-01 \| Complete! WordPress
-has been successfully copied to /var/www/html*
-
-*segundo\_wordpress.1.r6reuq8fsil0\@LINUXtips-01 \| AH00558: apache2:
-Could not reliably determine the server\'s fully qualified domain name,
-using 10.0.4.5. Set the \'ServerName\' directive globally to suppress
-this message*
-
-*segundo\_wordpress.1.r6reuq8fsil0\@LINUXtips-01 \| AH00558: apache2:
-Could not reliably determine the server\'s fully qualified domain name,
-using 10.0.4.5. Set the \'ServerName\' directive globally to suppress
-this message*
-
-*segundo\_wordpress.1.r6reuq8fsil0\@LINUXtips-01 \| \[Sun Jun 11
-10:32:47.392836 2017\] \[mpm\_prefork:notice\] \[pid 1\] AH00163:
-Apache/2.4.10 (Debian) PHP/5.6.30 configured \-- resuming normal
-operations*
-
-*segundo\_wordpress.1.r6reuq8fsil0\@LINUXtips-01 \| \[Sun Jun 11
-10:32:47.392937 2017\] \[core:notice\] \[pid 1\] AH00094: Command line:
-\'apache2 -D FOREGROUND\'*
-
-**root\@LINUXtips-01:\~/Composes/2\#**
+root@linuxtips-01:~/Composes/2#
+```
 
 E se for necessária uma modificação em meu *stack* e depois um
 *re-deploy*, como eu faço? É possível?
 
 Claro! Afinal, Docker é muita vida!
 
-**root\@LINUXtips-01:\~/Composes\# mkdir 3**
+```bash
+root@linuxtips-01:~/Composes# mkdir 3
+root@linuxtips-01:~/Composes# cd 3
+root@linuxtips-01:~/Composes/3# vim docker-compose.yml
+```
 
-**root\@LINUXtips-01:\~/Composes\# cd 3**
+```yaml
+version: "3"
+    services:
+        web:
+            image: nginx
+            deploy:
+                replicas: 5
+            resources:
+                limits:
+                cpus: "0.1"
+                memory: 50M
+            restart_policy:
+                condition: on-failure
+            ports:
+            - "8080:80"
+            networks:
+            - webserver
+        
+        visualizer:
+            image: dockersamples/visualizer:stable
+            ports:
+            - "8888:8080"
+            volumes:
+            - "/var/run/docker.sock:/var/run/docker.sock"
+            deploy:
+                placement:
+                    constraints: [node.role == manager]
 
-**root\@LINUXtips-01:\~/Composes/3\# vim docker-compose.yml**
+    networks:
+    - webserver
 
-*version: \"3\"*
-
-*services:*
-
-*web:*
-
-*image: nginx*
-
-*deploy:*
-
-*replicas: 5*
-
-*resources:*
-
-*limits:*
-
-*cpus: \"0.1\"*
-
-*memory: 50M*
-
-*restart\_policy:*
-
-*condition: on-failure*
-
-*ports:*
-
-*- \"8080:80\"*
-
-*networks:*
-
-*- webserver*
-
-***visualizer:***
-
-***image: dockersamples/visualizer:stable***
-
-***ports:***
-
-***- \"8888:8080\"***
-
-***volumes:***
-
-***- \"/var/run/docker.sock:/var/run/docker.sock\"***
-
-***deploy:***
-
-***placement:***
-
-***constraints: \[node.role == manager\]***
-
-***networks:***
-
-***- webserver***
-
-*networks:*
-
-*webserver:*
+networks:
+    webserver:
+```
 
 Perceba que apenas adicionamos um novo *service* ao nosso *stack*, o
 *visualizer*. A ideia é realizar o *update* somente no *stack* para
@@ -5825,14 +5097,13 @@ opções que estão no *compose file* desse exemplo:
 
 Agora vamos atualizar o nosso *stack*:
 
-**root\@LINUXtips-01:\~/Composes/3\# docker stack deploy -c
-docker-compose.yml primeiro**
+```bash
+root@linuxtips-01:~/Composes/3# docker stack deploy -c docker-compose.yml primeiro
+Creating service primeiro_visualizer
+Updating service primeiro_web (id: mx0p4vbrzfujk087c3xe2sjvo)
 
-Creating service primeiro\_visualizer
-
-Updating service primeiro\_web (id: mx0p4vbrzfujk087c3xe2sjvo)
-
-**root\@LINUXtips-01:\~/Composes/3\#**
+root@linuxtips-01:~/Composes/3#
+```
 
 Perceba que, para realizar o *update* do *stack*, utilizamos o mesmo
 comando que usamos para realizar o primeiro *deploy* do *stack*, o
@@ -5846,179 +5117,105 @@ Para esse exemplo, vamos utilizar um projeto do próprio Docker
 onde teremos diversos *services*. Vamos criar mais um diretório para
 receber o nosso projeto:
 
-**root\@LINUXtips-01:\~/Composes\# mkdir 4**
-
-**root\@LINUXtips-01:\~/Composes\# cd 4**
-
-**root\@LINUXtips-01:\~/Composes/4\# vim compose-file.yml**
-
-*version: \"3\"*
-
-*services:*
-
-*redis:*
-
-*image: redis:alpine*
-
-*ports:*
-
-*- \"6379\"*
-
-*networks:*
-
-*- frontend*
-
-*deploy:*
-
-*replicas: 2*
-
-*update\_config:*
-
-*parallelism: 2*
-
-*delay: 10s*
-
-*restart\_policy:*
-
-*condition: on-failure*
-
-*db:*
-
-*image: postgres:9.4*
-
-*volumes:*
-
-*- db-data:/var/lib/postgresql/data*
-
-*networks:*
-
-*- backend*
-
-*deploy:*
-
-*placement:*
-
-*constraints: \[node.role == manager\]*
-
-*vote:*
-
-*image: dockersamples/examplevotingapp\_vote:before*
-
-*ports:*
-
-*- 5000:80*
-
-*networks:*
-
-*- frontend*
-
-*depends\_on:*
-
-*- redis*
-
-*deploy:*
-
-*replicas: 2*
-
-*update\_config:*
-
-*parallelism: 2*
-
-*restart\_policy:*
-
-*condition: on-failure*
-
-*result:*
-
-*image: dockersamples/examplevotingapp\_result:before*
-
-*ports:*
-
-*- 5001:80*
-
-*networks:*
-
-*- backend*
-
-*depends\_on:*
-
-*- db*
-
-*deploy:*
-
-*replicas: 1*
-
-*update\_config:*
-
-*parallelism: 2*
-
-*delay: 10s*
-
-*restart\_policy:*
-
-*condition: on-failure*
-
-*worker:*
-
-*image: dockersamples/examplevotingapp\_worker*
-
-*networks:*
-
-*- frontend*
-
-*- backend*
-
-*deploy:*
-
-*mode: replicated*
-
-*replicas: 1*
-
-*labels: \[APP=VOTING\]*
-
-*restart\_policy:*
-
-*condition: on-failure*
-
-*delay: 10s*
-
-*max\_attempts: 3*
-
-*window: 120s*
-
-*placement:*
-
-*constraints: \[node.role == manager\]*
-
-*visualizer:*
-
-*image: dockersamples/visualizer:stable*
-
-*ports:*
-
-*- \"8080:8080\"*
-
-*stop\_grace\_period: 1m30s*
-
-*volumes:*
-
-*- \"/var/run/docker.sock:/var/run/docker.sock\"*
-
-*deploy:*
-
-*placement:*
-
-*constraints: \[node.role == manager\]*
-
-*networks:*
-
-*frontend:*
-
-*backend:*
-
-*volumes:*
-
-*db-data:*
+```bash
+root@linuxtips-01:~/Composes# mkdir 4
+root@linuxtips-01:~/Composes# cd 4
+root@linuxtips-01:~/Composes/4# vim compose-file.yml
+```
+
+```yaml
+version: "3"
+
+services:
+    redis:
+        image: redis:alpine
+        ports:
+        - "6379"
+        networks:
+        - frontend
+        deploy:
+            replicas: 2
+            update_config:
+                parallelism: 2
+                delay: 10s
+            restart_policy:
+                condition: on-failure
+    
+    db:
+        image: postgres:9.4
+        volumes:
+        - db-data:/var/lib/postgresql/data
+        networks:
+        - backend
+        deploy:
+            placement:
+                constraints: [node.role == manager]
+
+    vote:
+        image: dockersamples/examplevotingapp_vote:before
+        ports:
+        - 5000:80
+        networks:
+        - frontend
+        depends_on:
+        - redis
+        deploy:
+            replicas: 2
+            update_config:
+                parallelism: 2
+            restart_policy:
+                condition: on-failure
+    
+    result:
+        image: dockersamples/examplevotingapp_result:before
+        ports:
+        - 5001:80
+        networks:
+        - backend
+        depends_on:
+        - db
+        deploy:
+            replicas: 1
+            update_config:
+                parallelism: 2
+                delay: 10s
+            restart_policy:
+                condition: on-failure
+        
+    worker:
+        image: dockersamples/examplevotingapp_worker
+        networks:
+        - frontend
+        - backend
+        deploy:
+            mode: replicated
+            replicas: 1
+            labels: [APP=VOTING]
+            restart_policy:
+                condition: on-failure
+                delay: 10s
+                max_attempts: 3
+                window: 120s
+            placement:
+                constraints: [node.role == manager]
+    
+    visualizer:
+        image: dockersamples/visualizer:stable
+        ports:
+        - "8080:8080"
+        stop_grace_period: 1m30s
+        volumes:
+            - "/var/run/docker.sock:/var/run/docker.sock"
+        deploy:
+            placement:
+                constraints: [node.role == manager]
+networks:
+    frontend:
+    backend:
+
+volumes:
+    db-data:
+```
 
 Ficou mais complexo ou não? Acho que não, pois no Docker tudo é bastante
 simples!
@@ -6054,53 +5251,35 @@ Temos algumas novas opções nesse exemplo, vamos conhecê-las:
 
 Agora vamos realizar o *deploy* do nosso *stack*:
 
-**root\@LINUXtips-01:\~/Composes/4\# docker stack deploy -c**
+```bash
+root@linuxtips-01:~/Composes/4# docker stack deploy -c docker-compose.yml quarto
+Creating network quarto_default
+Creating network quarto_frontend
+Creating network quarto_backend
+Creating service quarto_worker
+Creating service quarto_visualizer
+Creating service quarto_redis
+Creating service quarto_db
+Creating service quarto_vote
+Creating service quarto_result
 
-**docker-compose.yml quarto**
-
-Creating network quarto\_default
-
-Creating network quarto\_frontend
-
-Creating network quarto\_backend
-
-Creating service quarto\_worker
-
-Creating service quarto\_visualizer
-
-Creating service quarto\_redis
-
-Creating service quarto\_db
-
-Creating service quarto\_vote
-
-Creating service quarto\_result
-
-**root\@LINUXtips-01:\~/Composes/4\#**
+root@linuxtips-01:~/Composes/4#
+```
 
 Verificando os *services*:
 
-**root\@LINUXtips-01:\~/Composes/4\# docker service ls**
+```bash
+root@linuxtips-01:~/Composes/4# docker service ls
+ID            NAME               MODE       REPLICAS   IMAGE                                             PORTS
+3hi3sx2on3t5  quarto_worker      replicated 1/1        dockersamples/examplevotingapp_worker:latest
+hbsp4fdcvgnz  quarto_visualizer  replicated 1/1        dockersamples/visualizer:stable                   :8080->8080/tcp
+k6xuqbq7g55a  quarto_db          replicated 1/1        postgres:9.4 
+p2reijydxnsw  quarto_result      replicated 1/1        dockersamples/examplevotingapp_result:before      :5001->80/tcp
+rtwnnkwftg9u  quarto_redis       replicated 2/2        redis:alpine                                      :0->6379/tcp
+w2ritqiklpok  quarto_vote        replicated 2/2        dockersamples/examplevotingapp_vote:before        :5000->80/tcp
 
-*ID NAME MODE REPLICAS IMAGE PORTS*
-
-*3hi3sx2on3t5 quarto\_worker replicated 1/1
-dockersamples/examplevotingapp\_worker:latest*
-
-*hbsp4fdcvgnz quarto\_visualizer replicated 1/1
-dockersamples/visualizer:stable \*:8080-\>8080/tcp*
-
-*k6xuqbq7g55a quarto\_db replicated 1/1 postgres:9.4*
-
-*p2reijydxnsw quarto\_result replicated 1/1
-dockersamples/examplevotingapp\_result:before \*:5001-\>80/tcp*
-
-*rtwnnkwftg9u quarto\_redis replicated 2/2 redis:alpine \*:0-\>6379/tcp*
-
-*w2ritqiklpok quarto\_vote replicated 2/2
-dockersamples/examplevotingapp\_vote:before \*:5000-\>80/tcp*
-
-**root\@LINUXtips-01:\~/Composes/4\#**
+root@linuxtips-01:~/Composes/4#
+```
 
 Lembre-se de sempre utilizar os comandos que já conhecemos para
 visualizar *stack*, *services*, volumes, *container*, etc.
@@ -6156,11 +5335,15 @@ repositório no endereço:
 Antes de conhecer nosso *compose file*, precisamos realizar o clone do
 projeto:
 
-**\# git clone https://github.com/badtuxx/giropops-monitoring.git**
+```bash
+#  git clone https://github.com/badtuxx/giropops-monitoring.git
+```
 
 Acesse o diretório "giropops-monitoring":
 
-**\# cd giropops-monitoring**
+```bash
+#  cd giropops-monitoring
+```
 
 O nosso foco aqui será em três caras: o arquivo "grafana.config", o
 diretório "conf" e o nosso querido e idolatrado "docker-compose.yml".
@@ -6178,233 +5361,142 @@ nós possamos realizar o *deploy* de nosso *stack*.
 
 Como o nosso foco é o *compose file*, 'bora lá conhecê-lo!
 
-**\# cat docker-compose.yml**
-
-version: \'3.3\'
-
+```bash
+#  cat docker-compose.yml
+version: '3.3'
 services:
+    prometheus:
+        image: linuxtips/prometheus_alpine
+        volumes:
+        - ./conf/prometheus/:/etc/prometheus/
+        - prometheus_data:/var/lib/prometheus
+        networks:
+        - backend
+        ports:
+        - 9090:9090
 
-prometheus:
+    node-exporter:
+        image: linuxtips/node-exporter_alpine
+        hostname: '{{.Node.ID}}'
+        volumes:
+        - /proc:/usr/proc
+        - /sys:/usr/sys
+        - /:/rootfs
+        deploy:
+            mode: global
+        networks:
+        - backend
+        ports:
+        - 9100:9100
 
-image: linuxtips/prometheus\_alpine
+    alertmanager:
+        image: linuxtips/alertmanager_alpine
+        volumes:
+        - ./conf/alertmanager/:/etc/alertmanager/
+        networks:
+        - backend
+        ports:
+        - 9093:9093
 
-volumes:
+    cadvisor:
+        image: google/cadvisor
+        hostname: '{{.Node.ID}}'
+        volumes:
+        - /:/rootfs:ro
+        - /var/run:/var/run:rw
+        - /sys:/sys:ro
+        - /var/lib/docker/:/var/lib/docker:ro
+        - /var/run/docker.sock:/var/run/docker.sock:ro
+        networks:
+        - backend
+        deploy:
+            mode: global
+        ports:
+        - 8080:8080
 
-\- ./conf/prometheus/:/etc/prometheus/
+    grafana:
+        image: nopp/grafana_alpine
+        depends_on:
+        - prometheus
+        volumes:
+        - ./conf/grafana/grafana.db:/grafana/data/grafana.db
+        env_file:
+        - grafana.config
+        networks:
+        - backend
+        - frontend
+        ports:
+        - 3000:3000
 
-\- prometheus\_data:/var/lib/prometheus
+    # If you already has a RocketChat instance running, just comment the code of rocketchat, mongo and mongo-init-replica services bellow
+    rocketchat:
+        image: rocketchat/rocket.chat:latest
+        volumes:
+        - rocket_uploads:/app/uploads
+        environment:
+        - PORT=3080
+        - ROOT_URL=http://YOUR_IP:3080
+        - MONGO_URL=mongodb://giropops_mongo:27017/rocketchat
+        - MONGO_OPLOG_URL=mongodb://giropops_mongo:27017/local
+        depends_on:
+        - giropops_mongo
+        ports:
+        - 3080:3080
 
-networks:
-
-\- backend
-
-ports:
-
-\- 9090:9090
-
-node-exporter:
-
-image: linuxtips/node-exporter\_alpine
-
-hostname: \'{{.Node.ID}}\'
-
-volumes:
-
-\- /proc:/usr/proc
-
-\- /sys:/usr/sys
-
-\- /:/rootfs
-
-deploy:
-
-mode: global
-
-networks:
-
-\- backend
-
-ports:
-
-\- 9100:9100
-
-alertmanager:
-
-image: linuxtips/alertmanager\_alpine
-
-volumes:
-
-\- ./conf/alertmanager/:/etc/alertmanager/
-
-networks:
-
-\- backend
-
-ports:
-
-\- 9093:9093
-
-cadvisor:
-
-image: google/cadvisor
-
-hostname: \'{{.Node.ID}}\'
-
-volumes:
-
-\- /:/rootfs:ro
-
-\- /var/run:/var/run:rw
-
-\- /sys:/sys:ro
-
-\- /var/lib/docker/:/var/lib/docker:ro
-
-\- /var/run/docker.sock:/var/run/docker.sock:ro
-
-networks:
-
-\- backend
-
-deploy:
-
-mode: global
-
-ports:
-
-\- 8080:8080
-
-grafana:
-
-image: nopp/grafana\_alpine
-
-depends\_on:
-
-\- prometheus
-
-volumes:
-
-\- ./conf/grafana/grafana.db:/grafana/data/grafana.db
-
-env\_file:
-
-\- grafana.config
+    mongo:
+        image: mongo:3.2
+        volumes:
+        - mongodb_data:/data/db
+        #- ./data/dump:/dump
+        command: mongod --smallfiles --oplogSize 128 --replSet rs0
+        mongo-init-replica:
+        image: mongo:3.2
+        command: 'mongo giropops_mongo/rocketchat --eval "rs.initiate({_id: ''rs0'', members: [ { _id: 0, host: ''localhost:27017''} ]})"'
+        depends_on:
+        - giropops_mongo
 
 networks:
-
-\- backend
-
-\- frontend
-
-ports:
-
-\- 3000:3000
-
-\# If you already has a RocketChat instance running, just comment the
-code of rocketchat, mongo and mongo-init-replica services bellow
-
-rocketchat:
-
-image: rocketchat/rocket.chat:latest
+    frontend:
+    backend:
 
 volumes:
-
-\- rocket\_uploads:/app/uploads
-
-environment:
-
-\- PORT=3080
-
-\- ROOT\_URL=http://YOUR\_IP:3080
-
-\- MONGO\_URL=mongodb://giropops\_mongo:27017/rocketchat
-
-\- MONGO\_OPLOG\_URL=mongodb://giropops\_mongo:27017/local
-
-depends\_on:
-
-\- giropops\_mongo
-
-ports:
-
-\- 3080:3080
-
-mongo:
-
-image: mongo:3.2
-
-volumes:
-
-\- mongodb\_data:/data/db
-
-\#- ./data/dump:/dump
-
-command: mongod \--smallfiles \--oplogSize 128 \--replSet rs0
-
-mongo-init-replica:
-
-image: mongo:3.2
-
-command: \'mongo giropops\_mongo/rocketchat \--eval \"rs.initiate({
-\_id: \'\'rs0\'\', members: \[ { \_id: 0, host: \'\'localhost:27017\'\'
-} \]})\"\'
-
-depends\_on:
-
-\- giropops\_mongo
-
-networks:
-
-frontend:
-
-backend:
-
-volumes:
-
-prometheus\_data:
-
-grafana\_data:
-
-rocket\_uploads:
-
-mongodb\_data:
+    prometheus_data:
+    grafana_data:
+    rocket_uploads:
+    mongodb_data:
+```
 
 Perceba que já conhecemos todas as opções que estão nesse exemplo, nada
 de novo. :D
 
 O que precisamos agora é realizar o *deploy* de nosso *stack*:
 
-**\# docker stack deploy -c docker-compose.yml giropops**
-
-Creating network giropops\_backend
-
-Creating network giropops\_frontend
-
-Creating network giropops\_default
-
-Creating service giropops\_grafana
-
-Creating service giropops\_rocketchat
-
-Creating service giropops\_mongo
-
-Creating service giropops\_mongo-init-replica
-
-Creating service giropops\_prometheus
-
-Creating service giropops\_node-exporter
-
-Creating service giropops\_alertmanager
-
-Creating service giropops\_cadvisor
+```bash
+#  docker stack deploy -c docker-compose.yml giropops
+Creating network giropops_backend
+Creating network giropops_frontend
+Creating network giropops_default
+Creating service giropops_grafana
+Creating service giropops_rocketchat
+Creating service giropops_mongo
+Creating service giropops_mongo-init-replica
+Creating service giropops_prometheus
+Creating service giropops_node-exporter
+Creating service giropops_alertmanager
+Creating service giropops_cadvisor
+```
 
 Caso queira verificar se os *services* estão em execução:
 
-**\# docker service ls**
+```bash
+#  docker service ls
+```
 
 Para listar os *stacks*:
 
-**\# docker stack ls**
+```bash
+#  docker stack ls
+```
 
 Para acessar os serviços do quais acabamos de realizar o *deploy*, basta
 acessar os seguintes endereços:
@@ -6423,7 +5515,9 @@ acessar os seguintes endereços:
 
 Para remover o *stack*:
 
-**\# docker stack rm giropops**
+```bash
+#  docker stack rm giropops
+```
 
 Lembrando: para conhecer mais sobre o *giropops-monitoring* acesse o
 repositório no GitHub e assista à série de vídeos em que o Jeferson fala
