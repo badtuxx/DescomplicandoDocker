@@ -1,13 +1,14 @@
-![](.//media/image2.png){width="3.903080708661417in"
-height="1.405262467191601in"}
+---
+title: "Descomplicando o Docker"
+---
 
-![](.//media/image6.png){width="4.1063265529308834in"
-height="3.5259076990376204in"}
+![LOGO](.//media/image2.png)
+
+![LOGO E AUTORES](.//media/image6.png)
 
 2ª edição
 
-![](.//media/image1.png){width="2.3999989063867018in"
-height="0.8533333333333334in"}
+![BRASPORT](.//media/image1.png)
 
 Copyright© 2018 por Brasport Livros e Multimídia Ltda.
 
@@ -557,8 +558,7 @@ aplicações sendo executadas nativamente, máquinas virtuais e por fim em
 operacional quando estamos utilizando *containers*, diferentemente das
 máquinas virtuais.
 
-![](.//media/image3.png){width="4.7207294400699915in"
-height="2.111008311461067in"}
+![DIFERENCAS ENTRE MÁQUINA VIRTUAL E CONTAINERS](.//media/image3.png)
 
 Outro ponto interessante na utilização de *containers* é a
 portabilidade. Não importa em qual ambiente você criou o seu
@@ -822,8 +822,7 @@ O Docker utiliza algumas *features* básicas do *kernel* Linux para seu
 funcionamento. A seguir temos um diagrama no qual é possível visualizar
 os módulos e *features* do *kernel* de que o Docker faz uso:
 
-![](.//media/image5.png){width="3.0265463692038495in"
-height="2.97375in"}
+![MODULOS E FEATURES DO KERNEL](.//media/image5.png)
 
 2.5. *Namespaces*
 -----------------
@@ -3352,8 +3351,7 @@ Acessando a URL
 você conseguirá visualizar o repositório que acabou de criar, conforme a
 imagem a seguir:
 
-![](.//media/image4.png){width="4.715912073490814in"
-height="2.5730293088363956in"}
+![REPOSITORIO NO DOCKER HUB](.//media/image4.png)
 
 Por padrão, ele cria o repositório como público. ;)
 
