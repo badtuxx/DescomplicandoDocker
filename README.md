@@ -1,7 +1,6 @@
 ![LOGO](.//media/image2.png)
 
-Prefácio
-========
+# Prefácio
 
 If you are a developer, you probably have heard about Docker by now:
 Docker is the ideal platform to run applications in containers. Fine,
@@ -40,8 +39,7 @@ better than you ever did before.
 
 Docker Tinkerer Extraordinaire
 
-Sobre o Livro
-=============
+# Sobre o Livro
 
 A proposta deste livro é ajudá-lo a construir ambientes utilizando
 *containers* com a ferramenta que está revolucionando as empresas de
@@ -69,8 +67,7 @@ restante do livro, visando torna-lo super atual e didático. Adicionamos
 mais exemplos práticos, para que sua experiência possa ser ainda mais
 agradável e proveitosa.
 
-Sumário
-=======
+# Sumário
 
 [**Introdução 1**](#introdução)
 
@@ -288,8 +285,7 @@ Compose** **69**](#docker-machine)
 
 [12.5. E já acabou? :( 105](#e-já-acabou)
 
-Introdução
-==========
+# Introdução
 
 Se você é um desenvolvedor que sempre sonhou em poder reproduzir o
 ambiente de produção em sua máquina ou a aplicação que você desenhou e
@@ -326,8 +322,7 @@ equalizá-los\...
 \...Então este livro e o Docker foram feitos para você! Boa leitura e
 divirta-se!
 
-1. O que é *container*?
-=======================
+# 1. O que é *container*?
 
 1.1. Então vamos lá, o que é um *container*?
 --------------------------------------------
@@ -423,8 +418,7 @@ de novas aplicações em fração de segundos e tudo isso com uma facilidade
 que impressiona. Amigo, estamos falando do simplesmente sensacional
 **Docker**.
 
-2. O que é o Docker?
-====================
+# 2. O que é o Docker?
 
 2.1. Onde entra o Docker nessa história?
 ----------------------------------------
@@ -883,8 +877,7 @@ abordar com mais detalhes no final deste livro.
 Ainda temos diversos outros motivos para utilizar *containers* e que
 vamos descobrindo conforme evoluímos com a utilização do Docker. :D
 
-3. Instalando o Docker
-======================
+# 3. Instalando o Docker
 
 3.1. Quero instalar, vamos lá?
 ------------------------------
@@ -1021,8 +1014,7 @@ basta rodar:
 
 Dica de um milhão de dólares: **user** = **seu usuário**. :D
 
-4. Executando e administrando *containers* Docker
-=================================================
+# 4. Executando e administrando *containers* Docker
 
 4.1. Então vamos brincar com esse tal de *container*!
 -----------------------------------------------------
@@ -1508,8 +1500,7 @@ b34f4987bdce
 Para confirmar a remoção do *container*, utilize o comando "docker
 container ls -a".
 
-5. Configurando CPU e memória para os meus *containers*
-=======================================================
+# 5. Configurando CPU e memória para os meus *containers*
 
 Vamos imaginar que você precise subir quatro *containers* para um
 projeto novo. Esses *containers* possuem as seguintes características:
@@ -1724,8 +1715,7 @@ referentes à memória e ao CPU!
 Existem outros parâmetros do "docker container update". Para verificar a
 lista completa, digite "docker update \--help".
 
-6. Meu primeiro e tosco *dockerfile*\...
-========================================
+# 6. Meu primeiro e tosco *dockerfile*\...
 
 Tudo que nós fizemos até agora foi escrever na linha de comando, o que é
 OK para aprender. Porém, principalmente nos dias de hoje, não dá para
@@ -1804,8 +1794,7 @@ diretório onde o arquivo se encontra.
 
 **Lembre apenas que é o *path* do diretório e não do arquivo.**
 
-7. Entendendo volumes
-=====================
+# 7. Entendendo volumes
 
 7.1. Introdução a volumes no Docker
 -----------------------------------
@@ -2210,8 +2199,7 @@ Lembrando que os volumes são sempre criados dentro de
 "/var/lib/docker/volumes". Caso queira fazer o *backup* de todos os
 volumes, basta tratar esse diretório em suas rotinas de *backup*. ;)
 
-8. Criando e gerenciando imagens
-================================
+# 8. Criando e gerenciando imagens
 
 8.1. Agora eu quero criar minha imagem, posso?
 ----------------------------------------------
@@ -2817,8 +2805,7 @@ testar a comunicação com o Apache2 a partir do *host*:
 Ele retornará a página de boas-vindas do Apache2! Tudo funcionando
 conforme esperado!
 
-9. Compartilhando as imagens
-============================
+# 9. Compartilhando as imagens
 
 Bem, já aprendemos como criar uma imagem de *container*, seja via
 *dockerfile* ou através da modificação de um *container*, e conhecemos
@@ -3332,8 +3319,7 @@ utilizar recursos como controle de usuários, certificados, outras opções
 de *storage*, etc., visite a página do projeto no GitHub:
 https://github.com/docker/distribution.
 
-10. Gerenciando a rede dos *containers*
-=======================================
+# 10. Gerenciando a rede dos *containers*
 
 Quando o Docker é executado, ele cria uma *bridge* virtual chamada
 "docker0", para que possa gerenciar a comunicação interna entre o
@@ -3600,8 +3586,7 @@ da porta 8080 do *host* para a 80 do *container.* Veja a seguir:
 Tudo isso feito "automagicamente" pelo Docker, sem a necessidade de
 precisar configurar diversas regras de *iptables*. \<3
 
-11. Controlando o *daemon* do Docker
-====================================
+# 11. Controlando o *daemon* do Docker
 
 Antes de tudo, vamos tentar entender o que é um *daemon*. Sabemos que,
 em sistemas operacionais *multitask*, isto é, em um sistema operacional
@@ -3850,8 +3835,7 @@ rede:
     > *troubleshoot*) você pode precisar de um *log* mais "verboso", por
     > exemplo.
 
-12. Docker Machine
-==================
+# 12. Docker Machine
 
 12.1. Ouvi dizer que minha vida ficaria melhor com o Docker Machine!
 --------------------------------------------------------------------
