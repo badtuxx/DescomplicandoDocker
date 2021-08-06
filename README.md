@@ -1,3 +1,5 @@
+![LOGO](.//media/image2.png)
+
 Prefácio
 ========
 
