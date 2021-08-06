@@ -237,7 +237,7 @@ Acessando a URL
 você conseguirá visualizar o repositório que acabou de criar, conforme a
 imagem a seguir:
 
-![REPOSITORIO NO DOCKER HUB](.//media/image4.png)
+![REPOSITORIO NO DOCKER HUB](../media/image4.png)
 
 Por padrão, ele cria o repositório como público. ;)
 

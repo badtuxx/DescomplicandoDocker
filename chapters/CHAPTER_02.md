@@ -195,7 +195,7 @@ O Docker utiliza algumas *features* básicas do *kernel* Linux para seu
 funcionamento. A seguir temos um diagrama no qual é possível visualizar
 os módulos e *features* do *kernel* de que o Docker faz uso:
 
-![MODULOS E FEATURES DO KERNEL](.//media/image5.png)
+![MODULOS E FEATURES DO KERNEL](../media/image5.png)
 
 ## 2.5. *Namespaces*
 

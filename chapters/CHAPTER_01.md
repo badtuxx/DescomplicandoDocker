@@ -31,7 +31,7 @@ aplicações sendo executadas nativamente, máquinas virtuais e por fim em
 operacional quando estamos utilizando *containers*, diferentemente das
 máquinas virtuais.
 
-![DIFERENCAS ENTRE MÁQUINA VIRTUAL E CONTAINERS](.//media/image3.png)
+![DIFERENCAS ENTRE MÁQUINA VIRTUAL E CONTAINERS](../media/image3.png)
 
 Outro ponto interessante na utilização de *containers* é a
 portabilidade. Não importa em qual ambiente você criou o seu
