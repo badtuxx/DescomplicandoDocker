@@ -2129,13 +2129,11 @@ exemplo, vamos entender cada seção utilizada nesse nosso primeiro
 
 -   **FROM** -- Indica a imagem a servir como base.
 
--   **RUN** -- Lista de comandos que deseja executar na criação da
-    > imagem.
+-   **RUN** -- Lista de comandos que deseja executar na criação da imagem.
 
 -   **ENV** -- Define variáveis de ambiente.
 
--   **LABEL** -- Adiciona *metadata* à imagem, como descrição, versão,
-    > etc.
+-   **LABEL** -- Adiciona *metadata* à imagem, como descrição, versão, etc.
 
 -   **VOLUME** -- Define um volume a ser montado no *container.*
 
@@ -2297,44 +2295,31 @@ opções possíveis de serem adicionadas em um *dockerfile*!
 Vamos agora aprender um pouco mais sobre as opções que podemos utilizar
 quando estamos criando um *dockerfile*:
 
--   **ADD** -- Copia novos arquivos, diretórios, arquivos TAR ou
-    > arquivos remotos e os adiciona ao *filesystem* do *container*.
+-   **ADD** -- Copia novos arquivos, diretórios, arquivos TAR ou arquivos remotos e os adiciona ao *filesystem* do *container*.
 
--   **CMD** -- Executa um comando. Diferentemente do RUN, que executa o
-    > comando no momento em que está "buildando" a imagem, o CMD irá
-    > fazê-lo somente quando o container é iniciado.
+-   **CMD** -- Executa um comando. Diferentemente do RUN, que executa o comando no momento em que está "buildando" a imagem, o CMD irá fazê-lo somente quando o container é iniciado.
 
--   **LABEL** -- Adiciona metadados à imagem, como versão, descrição e
-    > fabricante.
+-   **LABEL** -- Adiciona metadados à imagem, como versão, descrição e fabricante.
 
--   **COPY** -- Copia novos arquivos e diretórios e os adiciona ao
-    > *filesystem* do *container*.
+-   **COPY** -- Copia novos arquivos e diretórios e os adiciona ao *filesystem* do *container*.
 
--   **ENTRYPOINT** -- Permite que você configure um *container* para
-    > rodar um executável. Quando esse executável for finalizado, o
-    > *container* também será.
+-   **ENTRYPOINT** -- Permite que você configure um *container* para rodar um executável. Quando esse executável for finalizado, o *container* também será.
 
 -   **ENV** -- Informa variáveis de ambiente ao *container*.
 
 -   **EXPOSE** -- Informa qual porta o *container* estará ouvindo.
 
--   **FROM** -- Indica qual imagem será utilizada como base. Ela precisa
-    > ser a primeira linha do *dockerfile*.
+-   **FROM** -- Indica qual imagem será utilizada como base. Ela precisa ser a primeira linha do *dockerfile*.
 
 -   **MAINTAINER** -- Autor da imagem.
 
--   **RUN** -- Executa qualquer comando em uma nova camada no topo da
-    > imagem e "commita" as alterações. Essas alterações você poderá
-    > utilizar nas próximas instruções de seu *dockerfile*.
+-   **RUN** -- Executa qualquer comando em uma nova camada no topo da imagem e "commita" as alterações. Essas alterações você poderá utilizar nas próximas instruções de seu *dockerfile*.
 
--   **USER** -- Determina qual usuário será utilizado na imagem. Por
-    > *default* é o *root*.
+-   **USER** -- Determina qual usuário será utilizado na imagem. Por *default* é o *root*.
 
--   **VOLUME** -- Permite a criação de um ponto de montagem no
-    > *container*.
+-   **VOLUME** -- Permite a criação de um ponto de montagem no *container*.
 
--   **WORKDIR** -- Responsável por mudar do diretório "/" (raiz) para o
-    > especificado nele.
+-   **WORKDIR** -- Responsável por mudar do diretório "/" (raiz) para o especificado nele.
 
 Um detalhe superimportante de mencionar é que quando estamos trabalhando
 com o ENTRYPOINT e o CMD dentro do mesmo *dockerfile*, o CMD somente
@@ -2484,37 +2469,23 @@ seções. Cada entrada FROM define o início de um bloco, uma etapa.
 
 Então, em nosso primeiro bloco temos:
 
--   **FROM golang AS buildando** -- Estamos utilizando a imagem do
-    > Golang para criação da imagem de *container*, e aqui estamos
-    > apelidando esse bloco como "buildando".
+-   **FROM golang AS buildando** -- Estamos utilizando a imagem do Golang para criação da imagem de *container*, e aqui estamos apelidando esse bloco como "buildando".
 
--   **ADD . /src** -- Adicionando o código de nossa *app* dentro do
-    > *container* no diretório "/src".
+-   **ADD . /src** -- Adicionando o código de nossa *app* dentro do *container* no diretório "/src".
 
--   **WORKDIR /src** -- Definindo que o diretório de trabalho é o
-    > "/src", ou seja, quando o *container* iniciar, estaremos nesse
-    > diretório.
+-   **WORKDIR /src** -- Definindo que o diretório de trabalho é o "/src", ou seja, quando o *container* iniciar, estaremos nesse diretório.
 
--   **RUN go build -o goapp** -- Vamos executar o *build* de nossa *app*
-    > Golang.
+-   **RUN go build -o goapp** -- Vamos executar o *build* de nossa *app* Golang.
 
 Já no segundo bloco temos o seguinte:
 
--   **FROM alpine:3.1** -- Iniciando o segundo bloco e utilizando a
-    > imagem do Alpine para criação da imagem de *container*.
+-   **FROM alpine:3.1** -- Iniciando o segundo bloco e utilizando a imagem do Alpine para criação da imagem de *container*.
 
--   **WORKDIR /app** -- Definindo que o diretório de trabalho é o
-    > "/app", ou seja, quando o *container* iniciar, estaremos nesse
-    > diretório.
+-   **WORKDIR /app** -- Definindo que o diretório de trabalho é o "/app", ou seja, quando o *container* iniciar, estaremos nesse diretório.
 
--   **COPY \--from=buildando /src/goapp /app** -- Aqui está a mágica:
-    > vamos copiar do bloco chamado "buildando" um arquivo dentro de
-    > "/src/goapp" para o diretório "/app" do *container* que estamos
-    > tratando nesse bloco, ou seja, copiamos o binário que foi
-    > compilado no bloco anterior e o trouxemos para esse.
+-   **COPY \--from=buildando /src/goapp /app** -- Aqui está a mágica: vamos copiar do bloco chamado "buildando" um arquivo dentro de "/src/goapp" para o diretório "/app" do *container* que estamos tratando nesse bloco, ou seja, copiamos o binário que foi compilado no bloco anterior e o trouxemos para esse.
 
--   **ENTRYPOINT ./goapp** -- Aqui vamos executar a nossa sensacional
-    > *app*. :)
+-   **ENTRYPOINT ./goapp** -- Aqui vamos executar a nossa sensacional *app*. :)
 
 Agora que já entendemos todas as linhas do nosso novo *dockerfile*,
 'bora realizar o *build* dele.
@@ -3066,14 +3037,9 @@ irão nos ajudar com a rede em que os *containers* irão se comunicar.
 
 -   **\--hostname** -- Indica um *hostname.*
 
--   **\--link** -- Cria um *link* entre os *containers*, sem a
-    > necessidade de se saber o IP um do outro.
+-   **\--link** -- Cria um *link* entre os *containers*, sem a necessidade de se saber o IP um do outro.
 
--   **\--net** -- Permite configurar o modo de rede que você usará com o
-    > *container*. Temos quatro opções, mas a mais conhecida e utilizada
-    > é a "\--net=host", que permite que o *container* utilize a rede do
-    > *host* para se comunicar e não crie um *stack* de rede para o
-    > *container*.
+-   **\--net** -- Permite configurar o modo de rede que você usará com o *container*. Temos quatro opções, mas a mais conhecida e utilizada é a "\--net=host", que permite que o *container* utilize a rede do *host* para se comunicar e não crie um *stack* de rede para o *container*.
 
 -   **\--expose** -- Expõe a porta do *container* apenas.
 
@@ -3088,16 +3054,13 @@ sua inicialização completa:
 
 1.  Cria-se um par de interfaces virtuais.
 
-2.  Cria-se uma interface com nome único, como "veth1234", e em se-
-    > guida *linka-se* com a *bridge* do Docker, a "docker0".
+2.  Cria-se uma interface com nome único, como "veth1234", e em seguida *linka-se* com a *bridge* do Docker, a "docker0".
 
-3.  Com isso, é disponibilizada a interface "eth0" dentro do
-    > *container*, em um *network namespace* único.
+3.  Com isso, é disponibilizada a interface "eth0" dentro do *container*, em um *network namespace* único.
 
 4.  Configura-se o MAC *address* da interface virtual do *container.*
 
-5.  Aloca-se um IP na "eth0" do *container*. Esse IP tem que pertencer
-    > ao *range* da *bridge* "docker0"*.*
+5.  Aloca-se um IP na "eth0" do *container*. Esse IP tem que pertencer ao *range* da *bridge* "docker0"*.*
 
 Com isso, o *container* já possui uma interface de rede e já está apto a
 se comunicar com outros *containers* ou com o *host*. :D
@@ -3445,33 +3408,21 @@ INFO[0000] API listen on /var/run/docker.sock
 Também é possível controlar como o *daemon* se comportará em relação à
 rede:
 
--   **\--default-gateway** -- Autoexplicativo, né? Todos os *containers*
-    > receberão esse IP como *gateway*.
+-   **\--default-gateway** -- Autoexplicativo, né? Todos os *containers* receberão esse IP como *gateway*.
 
--   **\--dns** -- Também sem segredo: é o DNS que será usado para
-    > consultas.
+-   **\--dns** -- Também sem segredo: é o DNS que será usado para consultas.
 
--   **\--dns-search** -- Especifica o domínio a ser procurado, assim
-    > você consegue pesquisar máquinas sem usar o fqdn.
+-   **\--dns-search** -- Especifica o domínio a ser procurado, assim você consegue pesquisar máquinas sem usar o fqdn.
 
--   **\--ip-forward** -- Esta opção habilita o roteamento entre
-    > *containers.* Por padrão, ela já vem *setada* como *true*.
+-   **\--ip-forward** -- Esta opção habilita o roteamento entre *containers.* Por padrão, ela já vem *setada* como *true*.
 
 ## 11.5. Opções diversas
 
--   **\--default-ulimit** -- Passando isso para o *daemon*, todos os
-    > *containers* serão iniciados com esse valor para o "ulimit". Esta
-    > opção é sobrescrita pelo parâmetro "\--ulimit" do comando "docker
-    > container run", que geralmente vai dar uma visão mais específica.
+-   **\--default-ulimit** -- Passando isso para o *daemon*, todos os *containers* serão iniciados com esse valor para o "ulimit". Esta opção é sobrescrita pelo parâmetro "\--ulimit" do comando "docker container run", que geralmente vai dar uma visão mais específica.
 
--   **\--icc** -- "icc" vem de *inter container comunication*. Por
-    > padrão, ele vem marcado como *true*; caso você não queira esse
-    > tipo de comunicação, você pode marcar no *daemon* como *false*.
+-   **\--icc** -- "icc" vem de *inter container comunication*. Por padrão, ele vem marcado como *true*; caso você não queira esse tipo de comunicação, você pode marcar no *daemon* como *false*.
 
--   **\--log-level** -- É possível alterar também a forma como o Docker
-    > trabalha com *log*; em algumas situações (geralmente
-    > *troubleshoot*) você pode precisar de um *log* mais "verboso", por
-    > exemplo.
+-   **\--log-level** -- É possível alterar também a forma como o Docker trabalha com *log*; em algumas situações (geralmente *troubleshoot*) você pode precisar de um *log* mais "verboso", por exemplo.
 
 # 12. Docker Machine
 
@@ -4169,14 +4120,17 @@ Imagine que precisamos disponibilizar o serviço do Nginx para ser o novo
 *web server*. Antes de criar esse *service*, precisamos de algumas
 informações:
 
--   Nome do *service* que desejo criar -- **webserver**.
+-   Nome do *service* que desejo criar 
+    >**webserver**.
 
--   Quantidade de *containers* que desejo debaixo do *service* -- **5**.
+-   Quantidade de *containers* que desejo debaixo do *service* 
+    > **5**.
 
--   Portas que iremos "bindar", entre o *service* e o *node --*
+-   Portas que iremos "bindar", entre o *service* e o *node* 
     > **8080:80**.
 
--   Imagem dos *containers* que irei utilizar -- **Nginx**.
+-   Imagem dos *containers* que irei utilizar 
+    > **nginx**.
 
 Agora que já temos essas informações, 'bora criar o nosso primeiro
 service. :)
@@ -4464,11 +4418,9 @@ Commands:
 Run 'docker secret COMMAND --help' for more information on a command.
 ```
 
--   **create** -- Cria uma *secret* a partir do conteúdo de um arquivo
-    > ou STDIN.
+-   **create** -- Cria uma *secret* a partir do conteúdo de um arquivo ou STDIN.
 
--   **inspect** -- Mostra informações detalhadas de uma ou mais
-    > *secrets*.
+-   **inspect** -- Mostra informações detalhadas de uma ou mais *secrets*.
 
 -   **ls** -- Lista as *secrets* existentes.
 
@@ -4768,20 +4720,17 @@ algumas opções que utilizamos anteriormente:
 
 -   **restart\_policy:** -- Políticas de *restart*.
 
--   **condition: on-failure** -- Somente irá "restartar" o *container*
-    > em caso de falha.
+-   **condition: on-failure** -- Somente irá "restartar" o *container* em caso de falha.
 
 -   **ports:** -- Quais portas desejamos expor.
 
 -   **- \"8080:80\"** -- Portas expostas e "bindadas".
 
--   **networks:** -- Definição das redes que irei utilizar nesse
-    > serviço.
+-   **networks:** -- Definição das redes que irei utilizar nesse serviço.
 
 -   ***-* webserver** -- Nome da rede desse serviço.
 
--   **networks:** -- Declarando as redes que usaremos nesse
-    > *docker-compose*.
+-   **networks:** -- Declarando as redes que usaremos nesse *docker-compose*.
 
 -   **webserver:** -- Nome da rede a ser criada, caso não exista.
 
@@ -4970,8 +4919,7 @@ utilizar no *docker-compose*. São eles:
 
 -   **- db\_data:/var/lib/mysql** -- Volume e destino.
 
--   **environment:** -- Definição de variáveis de ambiente utilizados
-    > pelo *service.*
+-   **environment:** -- Definição de variáveis de ambiente utilizados pelo *service.*
 
 -   **MYSQL\_ROOT\_PASSWORD: somewordpress** -- Variável e valor.
 
@@ -4981,8 +4929,7 @@ utilizar no *docker-compose*. São eles:
 
 -   **MYSQL\_PASSWORD: wordpress** -- Variável e valor.
 
--   **depends\_on:** -- Indica que esse *service* depende de outro para
-    > subir.
+-   **depends\_on:** -- Indica que esse *service* depende de outro para subir.
 
 -   **- db** -- Nome do service que necessário para sua execução.
 
@@ -5089,11 +5036,9 @@ opções que estão no *compose file* desse exemplo:
 
 **deploy:**
 
--   **placement:** -- Usado para definir a localização do nosso
-    > *service.*
+-   **placement:** -- Usado para definir a localização do nosso *service.*
 
--   **constraints: \[node.role == manager\]** -- Regra que obriga a
-    > criação desse *service* somente nos *nodes manager*.
+-   **constraints: \[node.role == manager\]** -- Regra que obriga a criação desse *service* somente nos *nodes manager*.
 
 Agora vamos atualizar o nosso *stack*:
 
@@ -5224,17 +5169,11 @@ Temos algumas novas opções nesse exemplo, vamos conhecê-las:
 
 **deploy:**
 
--   **mode: replicated** -- Qual é o tipo de deployment? Temos dois, o
-    > *global* e o *replicated*. No *replicated* você escolhe a
-    > quantidade de réplicas do seu *service*, já no *global* você não
-    > escolhe a quantidade de réplicas, ele irá subir uma réplica por
-    > *node* de seu *cluster* (uma réplica em cada *node* de seu
-    > *cluster*).
+-   **mode: replicated** -- Qual é o tipo de deployment? Temos dois, o *global* e o *replicated*. No *replicated* você escolhe a quantidade de réplicas do seu *service*, já no *global* você não escolhe a quantidade de réplicas, ele irá subir uma réplica por *node* de seu *cluster* (uma réplica em cada *node* de seu *cluster*).
 
 **update\_config:**
 
--   **parallelism: 2** -- Como irão ocorrer os updates (no caso, de 2 em
-    > 2).
+-   **parallelism: 2** -- Como irão ocorrer os updates (no caso, de 2 em 2).
 
 -   **delay: 10s** -- Com intervalo de 10 segundos.
 
@@ -5246,8 +5185,7 @@ Temos algumas novas opções nesse exemplo, vamos conhecê-las:
 
 -   **max\_attempts: 3** -- Com no máximo três tentativas.
 
--   **window: 120s** -- Tempo para definir se o *restart* do *container*
-    > ocorreu com sucesso.
+-   **window: 120s** -- Tempo para definir se o *restart* do *container* ocorreu com sucesso.
 
 Agora vamos realizar o *deploy* do nosso *stack*:
 
@@ -5291,8 +5229,7 @@ seguintes endereços:
 
 -   **Visualizar a página de resultados:** http://IP\_CLUSTER:5001/
 
--   **Visualizar a página de com os *containers* e seus *nodes*:**
-    > http://IP\_CLUSTER:8080/
+-   **Visualizar a página de com os *containers* e seus *nodes*:** http://IP\_CLUSTER:8080/
 
 Vamos para mais um exemplo. Agora vamos realizar o *deploy* de um
 *stack* completo de monitoração para o nosso *cluster* e todas as demais
@@ -5300,28 +5237,19 @@ máquinas de nossa infraestrutura. Nesse exemplo vamos utilizar um
 arquivo YML que realizará o *deploy* de diversos *containers* para que
 possamos ter as seguintes ferramentas integradas:
 
--   **Prometheus** -- Para armazenar todas as métricas de nosso
-    > ambiente.
+-   **Prometheus** -- Para armazenar todas as métricas de nosso ambiente.
 
 -   **cAdvisor** -- Para coletar informações dos *containers*.
 
--   **Node Exporter** -- Para coletar informações dos *nodes* do
-    > *cluster* e demais máquinas do ambiente.
+-   **Node Exporter** -- Para coletar informações dos *nodes* do *cluster* e demais máquinas do ambiente.
 
--   **Netdata** -- Para coletar mais de 5 mil métricas de nossas
-    > máquinas, além de prover um *dashboard* sensacional.
+-   **Netdata** -- Para coletar mais de 5 mil métricas de nossas máquinas, além de prover um *dashboard* sensacional.
 
--   **Rocket.Chat** -- Para que possamos nos comunicar com outros times
-    > e pessoas e também para integrá-lo ao sistema de monitoração,
-    > notificando quando os alertas acontecem. O Rocket.Chat é uma
-    > excelente alternativa ao Slack.
+-   **Rocket.Chat** -- Para que possamos nos comunicar com outros times e pessoas e também para integrá-lo ao sistema de monitoração, notificando quando os alertas acontecem. O Rocket.Chat é uma excelente alternativa ao Slack.
 
--   **AlertManager** -- Integrado ao Prometheus e ao Rocket.Chat, é o
-    > responsável por gerenciar nossos alertas.
+-   **AlertManager** -- Integrado ao Prometheus e ao Rocket.Chat, é o responsável por gerenciar nossos alertas.
 
--   **Grafana** -- Integrado à nossa solução de monitoração, ele é o
-    > responsável pelos *dashboards* que são produzidos através das
-    > métricas que estão armazenadas no Prometheus.
+-   **Grafana** -- Integrado à nossa solução de monitoração, ele é o responsável pelos *dashboards* que são produzidos através das métricas que estão armazenadas no Prometheus.
 
 Com esse *stack* é possível monitorar *containers*, VMs e máquinas
 físicas. Porém, o nosso foco agora é somente no que se refere ao livro e
