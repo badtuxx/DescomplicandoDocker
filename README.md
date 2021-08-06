@@ -69,36 +69,6 @@ restante do livro, visando torna-lo super atual e didático. Adicionamos
 mais exemplos práticos, para que sua experiência possa ser ainda mais
 agradável e proveitosa.
 
-Sobre os Autores
-================
-
-***Jeferson Fernando***
-
-Profissional com mais de 15 anos de experiência em administração de
-servidores Unix/Linux em ambientes críticos de grandes empresas como
-Motorola, TIVIT, Votorantim, Alog, Locaweb, Walmart.com e Santander.
-Possuindo mais de 12 anos de experiência como instrutor em grandes
-centros de treinamento, passou por Impacta Tecnologia, Utah Linux
-Center, Green, 4Linux e foi instrutor oficial da Red Hat. Já ministrou
-treinamentos como consultor em empresas como Petrobras, Vale, Ministério
-do Exército, Polícia Militar do Estado de SP e HP. Possui diversas
-certificações, como *Docker Certified Associate*, *Certified Kubernetes
-Administrator*, LPI, RHCE, RHCI, Solaris, entre outras. É um grande
-entusiasta do software livre e especialista na administração de
-ambientes críticos com cultura DevOps. Possui ainda um canal no YouTube
-chamado LinuxTips, onde aborda temas interessantes para todos os níveis
-de administradores de sistemas Linux.
-
-***Marcus André***
-
-Profissional com mais de 10 anos de experiência em administração de
-redes e sistemas, tendo passado por grandes empresas nos últimos anos,
-como Walmart.com, IBM, Santander, atuando em diversas plataformas e
-ambiente homogêneo (\*nix, Windows).
-
-Focado em FOSS (*Free and Open Source Software*), é apaixonado e
-evangelista da linguagem Python e de toda a cultura DevOps.
-
 Sumário
 =======
 
