@@ -800,15 +800,11 @@ simples. Precisamos somente observar alguns pontos:
 
 -   O Docker não suporta processadores 32 *bits*.
 
--   O Docker é suportado (*stable*) somente na versão do *kernel* 3.8 ou
-    > superior.
+-   O Docker é suportado (*stable*) somente na versão do *kernel* 3.8 ou superior.
 
--   O *kernel* deve ter suporte aos sistemas de arquivos utilizados pelo
-    > Docker, como o AUFS, *Device Mapper*, OverlayFS, etc.
+-   O *kernel* deve ter suporte aos sistemas de arquivos utilizados pelo Docker, como o AUFS, *Device Mapper*, OverlayFS, etc.
 
--   O *kernel* deverá ter suporte a *cgroups* e *namespaces*, o que
-    > normalmente já vem por *default* habilitado na maioria das
-    > *distros*.
+-   O *kernel* deverá ter suporte a *cgroups* e *namespaces*, o que normalmente já vem por *default* habilitado na maioria das *distros*.
 
 Você também pode acessar a URL:
 [https://docs.docker.com/install/](https://docs.docker.com/install/).
@@ -995,18 +991,13 @@ Apesar de ser uma tarefa simples, quando você executou o comando "docker
 container run hello-world" foram necessárias quatro etapas para sua
 conclusão, vamos ver quais:
 
-1.  O comando "docker" se comunica com o *daemon* do Docker informando a
-    > ação desejada.
+1.  O comando "docker" se comunica com o *daemon* do Docker informando a ação desejada.
 
-2.  O *daemon* do Docker verifica se a imagem "hello-world" existe em
-    > seu *host*; caso ainda não, o Docker faz o *download* da imagem
-    > diretamente do Docker Hub.
+2.  O *daemon* do Docker verifica se a imagem "hello-world" existe em seu *host*; caso ainda não, o Docker faz o *download* da imagem diretamente do Docker Hub.
 
-3.  O *daemon* do Docker cria um novo *container* utilizando a imagem
-    > que você acabou de baixar.
+3.  O *daemon* do Docker cria um novo *container* utilizando a imagem que você acabou de baixar.
 
-4.  O *daemon* do Docker envia a saída para o comando "docker", que
-    > imprime a mensagem em seu terminal.
+4.  O *daemon* do Docker envia a saída para o comando "docker", que imprime a mensagem em seu terminal.
 
 Viu? É simples como voar! :)
 
@@ -1057,8 +1048,7 @@ que elas nos dizem:
 
 -   **CONTAINER ID** -- Identificação única do *container.*
 
--   **IMAGE** -- A imagem que foi utilizada para a execução do
-    > *container.*
+-   **IMAGE** -- A imagem que foi utilizada para a execução do *container.*
 
 -   **COMMAND** -- O comando em execução.
 
@@ -1066,8 +1056,7 @@ que elas nos dizem:
 
 -   **STATUS** -- O seu status atual.
 
--   **PORTS** -- A porta do *container* e do *host* que esse *container*
-    > utiliza.
+-   **PORTS** -- A porta do *container* e do *host* que esse *container* utiliza.
 
 -   **NAMES** -- O nome do *container.*
 
@@ -1096,11 +1085,9 @@ falando dos parâmetros "-t", "-i" e "-d".
 
 -   **-t** -- Disponibiliza um TTY (console) para o nosso *container*.
 
--   **-i** -- Mantém o STDIN aberto mesmo que você não esteja conectado
-    > no *container.*
+-   **-i** -- Mantém o STDIN aberto mesmo que você não esteja conectado no *container.*
 
--   **-d** -- Faz com que o *container* rode como um *daemon*, ou seja,
-    > sem a interatividade que os outros dois parâmetros nos fornecem.
+-   **-d** -- Faz com que o *container* rode como um *daemon*, ou seja, sem a interatividade que os outros dois parâmetros nos fornecem.
 
 Com isso temos dois modos de execução de nossos *containers*: modo
 interativo ou *daemonizando* o *container*.
@@ -1684,16 +1671,13 @@ valem a pena ser mencionadas:
 
 -   O volume é inicializado quando o *container* é criado.
 
--   Caso ocorra de já haver dados no diretório em que você está montando
-    > como volume, ou seja, se o diretório já existe e está "populado"
-    > na imagem base, aqueles dados serão copiados para o volume.
+-   Caso ocorra de já haver dados no diretório em que você está montando como volume, ou seja, se o diretório já existe e está "populado" na imagem base, aqueles dados serão copiados para o volume.
 
 -   Um volume pode ser reusado e compartilhado entre *containers*.
 
 -   Alterações em um volume são feitas diretamente no volume.
 
--   Alterações em um volume não irão com a imagem quando você fizer uma
-    > cópia ou *snapshot* de um *container*.
+-   Alterações em um volume não irão com a imagem quando você fizer uma cópia ou *snapshot* de um *container*.
 
 -   Volumes continuam a existir mesmo se você deletar o *container*.
 
@@ -1881,14 +1865,11 @@ Onde:
 
 -   **\--mount** -- Comando utilizado para montar volumes.
 
--   **type=volume** -- Indica que o tipo é "volume". Ainda existe o tipo
-    > "bind", onde, em vez de indicar um volume, você indicaria um
-    > diretório como *source*.
+-   **type=volume** -- Indica que o tipo é "volume". Ainda existe o tipo "bind", onde, em vez de indicar um volume, você indicaria um diretório como *source*.
 
 -   **source=giropops** -- Qual o volume que pretendo montar.
 
--   **destination=/var/opa** -- Onde no *container* montarei esse
-    > volume.
+-   **destination=/var/opa** -- Onde no *container* montarei esse volume.
 
 Simples como voar, não?
 
@@ -1975,12 +1956,9 @@ volume "/data" do *container* "dbdados" para guardar os dados.
 Para que possamos fazer o exemplo, precisamos conhecer mais dois
 parâmetros superimportantes:
 
--   **\--volumes-from** -- É utilizado quando queremos montar um volume
-    > disponibilizado por outro *container*.
+-   **\--volumes-from** -- É utilizado quando queremos montar um volume disponibilizado por outro *container*.
 
--   **-e** -- É utilizado para informar variáveis de ambiente para o
-    > *container*. No exemplo, estamos passando as variáveis de ambiente
-    > do PostgreSQL.
+-   **-e** -- É utilizado para informar variáveis de ambiente para o *container*. No exemplo, estamos passando as variáveis de ambiente do PostgreSQL.
 
 Pronto, agora estamos preparados! Vamos criar os *containers* com o
 PostgreSQL:
@@ -3124,8 +3102,7 @@ root@4a0645de6d94:/#
 
 Repare que passamos o parâmetro "-p" da seguinte forma:
 
--   **-p 8080:80** -- Onde "8080" é a porta do host e "80", a do
-    > container.
+-   **-p 8080:80** -- Onde "8080" é a porta do host e "80" a do container.
 
 Com isso, estamos dizendo que toda requisição que chegar na porta 8080
 do meu *host* deverá ser encaminhada para a porta 80 do *container.*
@@ -3357,10 +3334,7 @@ Essas opções são passadas para o *daemon* pelo parâmetro
 recebem o prefixo "dm" e "zfs" para (adivinha?) o ZFS. A seguir vamos
 demonstrar algumas opções mais comuns:
 
--   **dm.thinpooldev** -- Com esta opção você consegue especificar o
-    > *device* que será usado pelo *Device Mapper* para desenvolver o
-    > *thin-pool* que ele usa para criar os *snapshots* usados por
-    > *containers* e imagens.
+-   **dm.thinpooldev** -- Com esta opção você consegue especificar o *device* que será usado pelo *Device Mapper* para desenvolver o *thin-pool* que ele usa para criar os *snapshots* usados por *containers* e imagens.
 
 Exemplo:
 
@@ -3379,10 +3353,7 @@ INFO[0000] Docker daemon commit=c3959b1 execdriver=native-0.2 graphdriver=aufs v
 INFO[0000] API listen on /var/run/docker.sock
 ```
 
--   **dm.basesize** -- Este parâmetro define o tamanho máximo
-    > do*container*. O chato disso é que você precisa deletar tudo
-    > dentro de "/var/lib/docker" (o que implica em matar todos os
-    > *containers* e imagens) e *restartar* o serviço do Docker.
+-   **dm.basesize** -- Este parâmetro define o tamanho máximo do *container*. O chato disso é que você precisa deletar tudo dentro de "/var/lib/docker" (o que implica em matar todos os *containers* e imagens) e *restartar* o serviço do Docker.
 
 
 ```bash
@@ -3400,8 +3371,7 @@ INFO[0000] Docker daemon commit=c3959b1 execdriver=native-0.2 graphdriver=aufs v
 INFO[0000] API listen on /var/run/docker.sock
 ```
 
--   **dm.fs** -- Especifica o *filesystem* do *container*. As opções
-    > suportadas são: **EXT4** e **XFS**.
+-   **dm.fs** -- Especifica o *filesystem* do *container*. As opções suportadas são: **EXT4** e **XFS**.
 
 ## 11.4. Opções de rede
 
