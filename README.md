@@ -324,8 +324,7 @@ divirta-se!
 
 # 1. O que é *container*?
 
-1.1. Então vamos lá, o que é um *container*?
---------------------------------------------
+## 1.1. Então vamos lá, o que é um *container*?
 
 *Container* é, em português claro, o agrupamento de uma aplicação junto
 com suas dependências, que compartilham o *kernel* do sistema
@@ -374,8 +373,7 @@ Lembre-se: na máquina virtual você emula um novo sistema operacional
 dentro do sistema operacional do *host*. Já no *container* você emular
 somente as aplicações e suas dependências e as torna portáteis.
 
-1.2. E quando começou que eu não vi?
-------------------------------------
+## 1.2. E quando começou que eu não vi?
 
 Apesar de o termo ter se tornado *hype* nos últimos anos, durante
 décadas já utilizávamos *containers* em sistemas Unix através do comando
@@ -420,8 +418,7 @@ que impressiona. Amigo, estamos falando do simplesmente sensacional
 
 # 2. O que é o Docker?
 
-2.1. Onde entra o Docker nessa história?
-----------------------------------------
+## 2.1. Onde entra o Docker nessa história?
 
 Tudo começou em 2008, quando Solomon Hykes fundou a dotCloud, empresa
 especializada em PaaS com um grande diferencial: o seu
@@ -466,8 +463,7 @@ como Windows e MacOS, porém ainda não com a mesma performance e
 estabilidade do Docker sendo executado no Linux. Ahhh, o Linux! \<3 \<3
 \<3
 
-2.2. E esse negócio de camadas?
--------------------------------
+## 2.2. E esse negócio de camadas?
 
 ### 2.2.1. *Copy-On-Write* (COW) e Docker
 
@@ -496,8 +492,7 @@ camadas são usadas técnicas de *Copy-On-Write*. Um *container* é
 basicamente uma pilha de camadas compostas por N camadas *read-only* e
 uma, a superior, *read-write*.
 
-2.3. *Storage drivers*
-----------------------
+## 2.3. *Storage drivers*
 
 Apesar de um *container* possuir uma camada de escrita, na maior parte
 do tempo você não quer escrever dados diretamente nele, por vários
@@ -612,8 +607,7 @@ Server*).
 **IMPORTANTE: alterar o *storage drive* fará com que qualquer
 *container* já criado se torne inacessível ao sistema local. Cuidado!**
 
-2.4. Docker Internals
----------------------
+## 2.4. Docker Internals
 
 O Docker utiliza algumas *features* básicas do *kernel* Linux para seu
 funcionamento. A seguir temos um diagrama no qual é possível visualizar
@@ -621,8 +615,7 @@ os módulos e *features* do *kernel* de que o Docker faz uso:
 
 ![MODULOS E FEATURES DO KERNEL](.//media/image5.png)
 
-2.5. *Namespaces*
------------------
+## 2.5. *Namespaces*
 
 *Namespaces* foram adicionados no *kernel* Linux na versão 2.6.24 e são
 eles que permitem o isolamento de processos quando estamos utilizando o
@@ -803,15 +796,13 @@ O mais recente *namespace* adicionado no *kernel* Linux, disponível
 desde a versão 3.8. É o responsável por manter o mapa de identificação
 de usuários em cada *container*.
 
-2.6. *Cgroups*
---------------
+## 2.6. *Cgroups*
 
 É o *cgroups* o responsável por permitir a limitação da utilização de
 recursos do *host* pelos *containers*. Com o *cgroups* você consegue
 gerenciar a utilização de CPU, memória, dispositivos, I/O, etc.
 
-2.7. *Netfilter*
-----------------
+## 2.7. *Netfilter*
 
 A já conhecida ferramenta *iptables* faz parte de um módulo chamado
 *netfilter*. Para que os *containers* consigam se comunicar, o Docker
@@ -850,8 +841,7 @@ RETURN all \-- anywhere anywhere
 
 **root\@linuxtips:\~\#**
 
-2.8. Para quem ele é bom?
--------------------------
+## 2.8. Para quem ele é bom?
 
 O Docker é muito bom para os desenvolvedores, pois com ele você tem
 liberdade para escolher a sua linguagem de programação, seu banco de
@@ -879,8 +869,7 @@ vamos descobrindo conforme evoluímos com a utilização do Docker. :D
 
 # 3. Instalando o Docker
 
-3.1. Quero instalar, vamos lá?
-------------------------------
+## 3.1. Quero instalar, vamos lá?
 
 Bom, dado que você já sabe o que é um *container* e o que é o tal do
 Docker, chegou a hora de pôr a mão na massa. Vamos instalar o Docker
@@ -920,8 +909,7 @@ compatível com o Docker:
 
 **\# uname -r**
 
-3.2. Instalando no Debian/Centos/Ubuntu/Suse/Fedora
----------------------------------------------------
+## 3.2. Instalando no Debian/Centos/Ubuntu/Suse/Fedora
 
 A instalação do Docker é bastante simples. Você pode optar por
 instalá-lo utilizando os pacotes disponíveis para sua *distro* -- por
@@ -936,8 +924,7 @@ em nosso gerenciador de pacotes, o *rpm* ou *apt*, por exemplo.
 
 Assim ele sempre buscará a versão mais recente do Docker. :)
 
-3.3. Instalando 'manualmente' no Debian
----------------------------------------
+## 3.3. Instalando 'manualmente' no Debian
 
 Caso você esteja utilizando o Debian e queira realizar a instalação
 através dos pacotes disponíveis no repositório, faça:
@@ -1016,8 +1003,7 @@ Dica de um milhão de dólares: **user** = **seu usuário**. :D
 
 # 4. Executando e administrando *containers* Docker
 
-4.1. Então vamos brincar com esse tal de *container*!
------------------------------------------------------
+## 4.1. Então vamos brincar com esse tal de *container*!
 
 Como todos sabemos, o Docker utiliza a linha de comando para que você
 possa interagir com ele -- basicamente você utiliza o comando "docker".
@@ -1177,8 +1163,7 @@ Com a opção "-a" você consegue visualizar não somente os *containers* em
 execução, como também *containers* que estão parados ou que foram
 finalizados.
 
-4.2. Legal, quero mais!
------------------------
+## 4.2. Legal, quero mais!
 
 Agora que vimos como criar um simples *container*, bem como visualizar
 as imagens e *containers* que estão em nosso *host*, vamos criar um
@@ -1231,8 +1216,7 @@ interativo -- nesse caso utilizamos o parâmetro "-d", ou seja, o
 *container daemonizado*. Vamos acessar somente os serviços que ele
 provê, simples assim. :D
 
-4.3. Entendi, agora vamos praticar um pouco?
---------------------------------------------
+## 4.3. Entendi, agora vamos praticar um pouco?
 
 Perfeito. Vamos iniciar um novo *container* utilizando dois desses novos
 parâmetros que aprendemos.
@@ -1272,8 +1256,7 @@ O arquivo "/etc/redhat-release" indica qual a versão do Centos que
 estamos utilizando, ou seja, estamos realmente em nosso *container*
 Centos 7. :D
 
-4.4. Tá, agora quero sair\...
------------------------------
+## 4.4. Tá, agora quero sair\...
 
 Idealmente, no *container* vai haver apenas um processo rodando. No
 nosso caso, como estamos interagindo (opção "-ti"), é o processo do
@@ -1295,8 +1278,7 @@ CONTAINER IDIMAGE COMMAND CREATED STATUS PORTS NAMES
 
 **root\@linuxtips:\~\#**
 
-4.5. Posso voltar ao *container*?
----------------------------------
+## 4.5. Posso voltar ao *container*?
 
 Deixamos o nosso *container* em execução e agora queremos acessá-lo
 novamente. Como podemos fazer?
@@ -1310,8 +1292,7 @@ conectarmos a um *container* em execução. Para isso, basta passar como
 parâmetro o "CONTAINER ID", que você consegue através da saída do
 "docker ps", conforme mostramos no exemplo anterior.
 
-4.6. Continuando com a brincadeira\...
---------------------------------------
+## 4.6. Continuando com a brincadeira\...
 
 Existe a possibilidade de criar um *container,* porém não o executar
 imediatamente. Quando fazemos o uso do parâmetro "create" do comando
@@ -1374,8 +1355,7 @@ Ubuntu 18.04 LTS \\n \\l
 Lembrando que para sair do *container* e mantê-lo em execução é
 necessário utilizar o atalho: **Ctrl + p + q**.
 
-4.7. Subindo e matando *containers*...
---------------------------------------
+## 4.7. Subindo e matando *containers*...
 
 Caso eu queira parar um *container* em execução, basta utilizar o
 parâmetro "stop" seguido do "CONTAINER ID":
@@ -1420,8 +1400,7 @@ Para "despausar" o *container*:
 
 **\# docker container unpause \[CONTAINER ID\]**
 
-4.8. Visualizando o consumo de recursos pelo *container*\...
-------------------------------------------------------------
+## 4.8. Visualizando o consumo de recursos pelo *container*\...
 
 Caso você queira visualizar informações referentes ao consumo de
 recursos pelo *container*, também é bastante simples: basta utilizar o
@@ -1471,8 +1450,7 @@ qualquer nova entrada ele exibirá na tela. Saída parecida com o "tail
 -f" no Linux. Lembre-se, utilize o ctrl+c para cancelar a exibição dos
 logs.
 
-4.9. Cansei de brincar de *container*, quero removê-lo!
--------------------------------------------------------
+## 4.9. Cansei de brincar de *container*, quero removê-lo!
 
 Bem, remover um *container* é mais simples ainda do que sua criação.
 Quando removemos um *container*, a imagem que foi utilizada para a sua
@@ -1527,8 +1505,7 @@ Portanto, é muito importante limitar a utilização de recursos de seus
 *containers*, visando um melhor aproveitamento de seus recursos
 computacionais, como veremos agora. :)
 
-5.1. Especificando a quantidade de memória
-------------------------------------------
+## 5.1. Especificando a quantidade de memória
 
 Primeiro, vamos executar um *container* para realizarmos o nosso
 exemplo.
@@ -1590,8 +1567,7 @@ Podemos ver no campo "Memory" o valor utilizado na criação do
 Quando você utiliza o parâmetro "-m" ou "\--memory", você está passando
 o máximo de memória que o *container* utilizará do *host*.
 
-5.2. Especificando a quantidade de CPU
---------------------------------------
+## 5.2. Especificando a quantidade de CPU
 
 Para que você consiga limitar a quantidade de CPUs que os *containers*
 irão consumir, basta utilizar o parâmetro "\--cpu". Com ele é possível
@@ -1628,8 +1604,7 @@ O campo "NanoCpus" traz a informação que configuramos. :)
 
 Simples, fácil e rápido!
 
-5.3. Eu consigo alterar CPU e memória dos meus *containers* em execução?
-------------------------------------------------------------------------
+## 5.3. Eu consigo alterar CPU e memória dos meus *containers* em execução?
 
 Sim! \\o/
 
@@ -1796,8 +1771,7 @@ diretório onde o arquivo se encontra.
 
 # 7. Entendendo volumes
 
-7.1. Introdução a volumes no Docker
------------------------------------
+## 7.1. Introdução a volumes no Docker
 
 Bom, volumes nada mais são que diretórios externos ao *container*, que
 são montados diretamente nele, e dessa forma *bypassam* seu
@@ -1988,8 +1962,7 @@ RUN /bin/echo \"HELLO DOCKER\"
 Isso faz com que o arquivo "/root/primeiro\_dockerfile/Dockerfile" seja
 montado em "/Dockerfile" no *container*.
 
-7.2. Criando volumes
---------------------
+## 7.2. Criando volumes
 
 Agora vamos criar os volumes da maneira mais elegante e atual. Hoje
 temos a possibilidade de realizar o gerenciamento de volumes de maneira
@@ -2042,8 +2015,7 @@ Onde:
 
 Simples como voar, não?
 
-7.3. Localizando volumes
-------------------------
+## 7.3. Localizando volumes
 
 Caso você queira obter a localização do seu volume, é simples. Mas para
 isso você precisa conhecer o comando "docker volume inspect".
@@ -2059,8 +2031,7 @@ que somente o *path* do diretório no *host*. Vamos usar a opção
 
 /var/lib/docker/volumes/giropopos/\_data
 
-7.3. Criando e montando um *data-only container*
-------------------------------------------------
+## 7.3. Criando e montando um *data-only container*
 
 Uma opção bastante interessante em relação aos volumes diz respeito ao
 *data-only container*, cuja principal função é prover volumes para
@@ -2168,8 +2139,7 @@ Sensacional! Como percebemos, os dois *containers* do PostgreSQL estão
 escrevendo seus dados no volume "/data" do *container* "dbdados". Chega
 a ser lacrimejante! :D
 
-7.4. Sempre é bom um *backup*\...
----------------------------------
+## 7.4. Sempre é bom um *backup*\...
 
 Outra coisa bem bacana é a possibilidade de fazer *backups* dos seus
 *containers* de dados de forma muito simples e rápida.
@@ -2201,8 +2171,7 @@ volumes, basta tratar esse diretório em suas rotinas de *backup*. ;)
 
 # 8. Criando e gerenciando imagens
 
-8.1. Agora eu quero criar minha imagem, posso?
-----------------------------------------------
+## 8.1. Agora eu quero criar minha imagem, posso?
 
 Claro que pode!
 
@@ -2225,8 +2194,7 @@ do zero utilizando somente instruções através do *dockerfile* e outra
 realizando modificações em uma imagem já existente e salvando em uma
 imagem nova.
 
-8.2. Vamos começar do começo então, *dockerfile*!
--------------------------------------------------
+## 8.2. Vamos começar do começo então, *dockerfile*!
 
 Vamos montar a nossa primeira imagem utilizando como roteiro de criação
 um *dockerfile*. Você verá o quanto é simples a criação de um
@@ -2450,8 +2418,7 @@ CMD!
 Ficou curioso sobre o que eles fazem? Então 'bora aprender muito mais
 opções possíveis de serem adicionadas em um *dockerfile*!
 
-8.3. Vamos aprender um pouco mais sobre *dockerfile*?
------------------------------------------------------
+## 8.3. Vamos aprender um pouco mais sobre *dockerfile*?
 
 Vamos agora aprender um pouco mais sobre as opções que podemos utilizar
 quando estamos criando um *dockerfile*:
@@ -2521,8 +2488,7 @@ Para maiores detalhes sobre como criar imagens, veja essa apresentação
 criada pelo Jeferson:
 \<[[https://www.slideshare.net/jfnredes/images-deep-dive]{.underline}](https://www.slideshare.net/jfnredes/images-deep-dive)\>.
 
-8.4. *Multi-stage*
-------------------
+## 8.4. *Multi-stage*
 
 Um importante e recente recurso adicionado ao *dockerfile* visa
 facilitar a vida de quem pretende criar imagens de *containers* de forma
@@ -2686,8 +2652,7 @@ Ou seja, utilizamos o primeiro bloco para compilar a nossa *app* e o
 segundo bloco somente para executá-la. Simples assim, simples como voar!
 :D
 
-8.5. Vamos customizar uma imagem base agora?
---------------------------------------------
+## 8.5. Vamos customizar uma imagem base agora?
 
 Vamos agora criar uma nova imagem, porém sem utilizar o *dockerfile*.
 Vamos executar um *container* com uma imagem base, realizar as
@@ -2815,8 +2780,7 @@ commit".
 Agora vamos aprender a compartilhar essas imagens, seja em um *registry*
 local ou então no *registry* do próprio Docker Hub.
 
-9.1. O que é o Docker Hub?
---------------------------
+## 9.1. O que é o Docker Hub?
 
 Docker Hub é um repositório público e privado de imagens que
 disponibiliza diversos recursos, como, por exemplo, sistema de
@@ -3056,8 +3020,7 @@ internet. Falaremos disso com detalhes mais à frente. :P
 Para que você possa utilizar o Docker Hub para gerenciar as suas
 imagens, é necessário criar uma conta.
 
-9.2. Vamos criar uma conta?
----------------------------
+## 9.2. Vamos criar uma conta?
 
 Para que consiga realizar a criação da sua conta, é necessário acessar a
 URL \<[[https://hub.docker.com]{.underline}](https://hub.docker.com)\>.
@@ -3092,8 +3055,7 @@ basta passar o endereço como parâmetro, como segue:
 
 **\# docker login registry.seilaqual.com**
 
-9.3. Agora vamos compartilhar essas imagens na *interwebs*!
------------------------------------------------------------
+## 9.3. Agora vamos compartilhar essas imagens na *interwebs*!
 
 Uma vez que já criamos a nossa conta no Docker Hub, podemos começar a
 utilizá-la!
@@ -3220,8 +3182,7 @@ Para criar o *container* utilizando nossa imagem:
 
 Simples como voar, não?
 
-9.4. Não confio na internet; posso criar o meu *registry* local?
-----------------------------------------------------------------
+## 9.4. Não confio na internet; posso criar o meu *registry* local?
 
 Como muitas empresas não gostam de manter seus dados na nuvem em
 serviços de terceiros, existe a possibilidade de você configurar um
@@ -3368,8 +3329,7 @@ sua inicialização completa:
 Com isso, o *container* já possui uma interface de rede e já está apto a
 se comunicar com outros *containers* ou com o *host*. :D
 
-10.1. Consigo fazer com que a porta do *container* responda na porta do *host*?
--------------------------------------------------------------------------------
+## 10.1. Consigo fazer com que a porta do *container* responda na porta do *host*?
 
 Sim, isso é possível e bastante utilizado.
 
@@ -3483,8 +3443,7 @@ do *host*. Veja:
 
 Muito fácil, chega a ser lacrimejante! \\o/
 
-10.2. E como ele faz isso? Mágica?
-----------------------------------
+## 10.2. E como ele faz isso? Mágica?
 
 Não, não é mágica! Na verdade, o comando apenas utiliza um módulo
 bastante antigo do *kernel* do Linux chamado *netfilter*, que
@@ -3605,8 +3564,7 @@ Docker, ele foi substituído pelo "dockerd", que resolve de vez esse
 problema e trata especificamente de configurações referentes,
 obviamente, ao *daemon* do Docker.
 
-11.1. O Docker sempre utiliza 172.16.X.X ou posso configurar outro intervalo de IP?
------------------------------------------------------------------------------------
+## 11.1. O Docker sempre utiliza 172.16.X.X ou posso configurar outro intervalo de IP?
 
 Sim, você pode configurar outro *range* para serem utilizados pela
 *bridge* "docker0" e também pelas interfaces dos *containers*.
@@ -3626,8 +3584,7 @@ o *range* que o Docker irá utilizar para a *bridge* "docker0" e para a
 
 **\# dockerd \--fixed-cidr 192.168.0.0/24**
 
-11.2. Opções de *sockets*
--------------------------
+## 11.2. Opções de *sockets*
 
 *Sockets* são *end-points* com as quais duas ou mais aplicações ou
 processos se comunicam em um ambiente, geralmente um "IP:porta" ou um
@@ -3719,8 +3676,7 @@ graphdriver=aufs version=1.10.2
 
 INFO\[0000\] API listen on \[::\]:2375
 
-11.3. Opções de *storage*
--------------------------
+## 11.3. Opções de *storage*
 
 Sendo o cara que controla tudo, naturalmente é possível passar opções
 que mudam a forma como o Docker se comporta ao trabalhar com *storages*.
@@ -3800,8 +3756,7 @@ INFO\[0000\] API listen on /var/run/docker.sock
 -   **dm.fs** -- Especifica o *filesystem* do *container*. As opções
     > suportadas são: **EXT4** e **XFS**.
 
-11.4. Opções de rede
---------------------
+## 11.4. Opções de rede
 
 Também é possível controlar como o *daemon* se comportará em relação à
 rede:
@@ -3818,8 +3773,7 @@ rede:
 -   **\--ip-forward** -- Esta opção habilita o roteamento entre
     > *containers.* Por padrão, ela já vem *setada* como *true*.
 
-11.5. Opções diversas
----------------------
+## 11.5. Opções diversas
 
 -   **\--default-ulimit** -- Passando isso para o *daemon*, todos os
     > *containers* serão iniciados com esse valor para o "ulimit". Esta
@@ -3837,8 +3791,7 @@ rede:
 
 # 12. Docker Machine
 
-12.1. Ouvi dizer que minha vida ficaria melhor com o Docker Machine!
---------------------------------------------------------------------
+## 12.1. Ouvi dizer que minha vida ficaria melhor com o Docker Machine!
 
 Certamente!
 
@@ -4288,8 +4241,7 @@ Successfully removed linuxtips
 
 []{#_heading=h.2nusc19 .anchor}
 
-13. Docker Swarm
-----------------
+## 13. Docker Swarm
 
 Bom, agora temos uma ferramenta muito interessante e que nos permite
 construir *clusters* de *containers* de forma nativa e com extrema
@@ -5071,8 +5023,7 @@ que esse volume estará disponível em todos os meus *containers* desse
 *service*, ou seja, o volume com o nome de "teste" estará montado em
 todos os *containers* no diretório "/app"*.*
 
-14. Docker Secrets
-------------------
+## 14. Docker Secrets
 
 Ninguém tem dúvida de que a arquitetura de microsserviços já se provou
 eficiente. Porém, implementar segurança, principalmente em um contexto
@@ -5355,8 +5306,7 @@ root\@linuxtips:\~\#
 
 []{#_heading=h.2fk6b3p .anchor}
 
-15. Docker Compose
-------------------
+## 15. Docker Compose
 
 Bem, agora chegamos em uma das partes mais importantes do livro, o
 sensacional e completo Docker Compose!
@@ -6519,8 +6469,7 @@ E assim termina a nossa jornada no mundo do Docker. Esperamos que você
 tenha aprendido e, mais do que isso, tenha gostado de dividir esse tempo
 conosco para falar sobre o que nós mais amamos, tecnologia!
 
-15.2. E já acabou? :(
----------------------
+## 15.2. E já acabou? :(
 
 Esperamos que você tenha curtido viajar conosco durante o seu
 aprendizado sobre *containers* e principalmente sobre o ecossistema do
