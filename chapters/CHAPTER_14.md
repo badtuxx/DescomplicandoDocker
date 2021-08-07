@@ -1,4 +1,4 @@
-## 14. Docker Secrets
+# 14. Docker Secrets
 
 Ninguém tem dúvida de que a arquitetura de microsserviços já se provou
 eficiente. Porém, implementar segurança, principalmente em um contexto
@@ -19,8 +19,7 @@ verdade, não é claro se vai algum dia ser diferente. Por enquanto somos
 encorajados a usar um *service* para fazer *deploy* de *containers*
 individuais.
 
-14.1. O comando *docker secret*
--------------------------------
+## 14.1. O comando *docker secret*
 
 O comando "docker secret" vem com alguns subcomandos. São eles:
 
@@ -120,8 +119,7 @@ minha_secret
 root@linuxtips:~#
 ```
 
-14.2. Tudo bem, mas como uso isso?
-----------------------------------
+## 14.2. Tudo bem, mas como uso isso?
 
 As *secrets* são consumidas por serviços, como já citamos, e isso
 acontece através de associação explícita, usando a *flag* "\--secret" na
@@ -162,8 +160,7 @@ da *flag* "\--secret-add" do comando "docker service update", assim como
 revogá-las, usando a *flag* "\--secret-rm" no mesmo comando. Ver o
 tópico "Atualizando a *secret* de um serviço".
 
-14.3. Acessando a *secret*
---------------------------
+## 14.3. Acessando a *secret*
 
 Com o serviço criado, a *secret* ficará disponível para todos os
 *containers* daquele *service* e estará em arquivos dentro do diretório
@@ -205,8 +202,7 @@ minha secret e: nova_senha
 >>>
 ```
 
-14.4. Atualizando a *secret* de um serviço
-------------------------------------------
+## 14.4. Atualizando a *secret* de um serviço
 
 *Secrets* foram criadas para serem imutáveis, ou seja, caso você queira
 trocar a *secret* de um serviço, você precisará criar outra *secret*. A
