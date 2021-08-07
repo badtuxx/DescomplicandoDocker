@@ -246,7 +246,7 @@ root@linuxtips:~#
 
 Diferentes, né? Porém, são o mesmo processo. :)
 
-### 2.5.2. *Net Namespace*
+### 2.5.2. Net *namespace*
 
 O *Net Namespace* permite que cada *container* possua sua interface de
 rede e portas. Para que seja possível a comunicação entre os
@@ -314,7 +314,7 @@ root@6ec75484a5df:/#
 Conseguiu visualizar as interfaces Docker0 e veth\* do *host*? E a eth0
 do *container*? Sim? *Otémooo*! :D
 
-### 2.5.3. *Mnt Namespace*
+### 2.5.3. Mnt *namespace*
 
 É evolução do *chroot*. Com o *Mnt Namespace* cada *container* pode ser
 dono de seu ponto de montagem, bem como de seu sistema de arquivos raiz.

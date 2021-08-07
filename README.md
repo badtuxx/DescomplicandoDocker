@@ -62,7 +62,7 @@ utilizando o Swarm e aprender como escalar o nosso ambiente através do
 Compose.
 
 Nesta segunda edição adicionamos muitas novidades, como o 'docker
-secret' e o 'docker stack', e atualizamos todo o praticamente todo o
+secret' e o 'docker stack', e atualizamos praticamente todo o
 restante do livro, visando torna-lo super atual e didático. Adicionamos
 mais exemplos práticos, para que sua experiência possa ser ainda mais
 agradável e proveitosa.
@@ -101,9 +101,9 @@ agradável e proveitosa.
 
 		- [2.5.1. PID *namespace*](./chapters/CHAPTER_02.md#251-pid-namespace)
 
-		- [2.5.2. *Net Namespace*](./chapters/CHAPTER_02.md#252-net-namespace)
+		- [2.5.2. Net *namespace*](./chapters/CHAPTER_02.md#252-net-namespace)
 
-		- [2.5.3. *Mnt Namespace*](./chapters/CHAPTER_02.md#253-mnt-namespace)
+		- [2.5.3. Mnt *namespace*](./chapters/CHAPTER_02.md#253-mnt-namespace)
 
 		- [2.5.4. IPC *namespace*](./chapters/CHAPTER_02.md#254-ipc-namespace)
 
@@ -179,7 +179,7 @@ agradável e proveitosa.
 
 	- [8.2. Vamos começar do começo então, *dockerfile*!](./chapters/CHAPTER_08.md#82-vamos-começar-do-começo-então-dockerfile)
 
-	- [8.3. 'Bora aprender um pouco mais sobre *dockerfile*?](./chapters/CHAPTER_08.md#83-vamos-aprender-um-pouco-mais-sobre-dockerfile)
+	- [8.3. Bora aprender um pouco mais sobre *dockerfile*?](./chapters/CHAPTER_08.md#83-bora-aprender-um-pouco-mais-sobre-dockerfile)
 
 	- [8.4. *Multi-stage*](./chapters/CHAPTER_08.md#84-multi-stage)
 

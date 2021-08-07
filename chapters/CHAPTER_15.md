@@ -1,4 +1,4 @@
-## 15. Docker Compose
+# 15. Docker Compose
 
 Bem, agora chegamos em uma das partes mais importantes do livro, o
 sensacional e completo Docker Compose!
@@ -114,8 +114,7 @@ algumas opções que utilizamos anteriormente:
 
 Simples como voar, não? :D
 
-15.1. O comando *docker stack*
-------------------------------
+## 15.1. O comando *docker stack*
 
 Agora precisamos realizar o *deploy* desse *service* através do *compose
 file* que criamos. Para isso, vamos utilizar o sensacional "docker

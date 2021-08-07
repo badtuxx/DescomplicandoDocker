@@ -1,4 +1,4 @@
-## 13. Docker Swarm
+# 13. Docker Swarm
 
 Bom, agora temos uma ferramenta muito interessante e que nos permite
 construir *clusters* de *containers* de forma nativa e com extrema
@@ -21,8 +21,7 @@ a um *manager* e diversos *workers*. O *manager* é o responsável por
 orquestrar os *containers* e distribuí-los entre os *hosts workers*. Os
 *workers* são os que carregam o piano, que hospedam os *containers*.
 
-13.1. Criando o nosso *cluster*!
---------------------------------
+## 13.1. Criando o nosso *cluster*!
 
 Uma coisa importante que começou após a versão 1.12 foi a inclusão do
 Docker Swarm dentro do Docker, ou seja, hoje quando você realiza a
@@ -325,8 +324,7 @@ LINUXtips-02
 root@linuxtips-01:~#
 ```
 
-13.2. O sensacional *services*!
--------------------------------
+## 13.2. O sensacional *services*!
 
 Uma das melhores coisas que o Docker Swarm nos oferece é justamente a
 possibilidade de fazer o uso dos *services*.

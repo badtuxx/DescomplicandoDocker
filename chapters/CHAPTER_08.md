@@ -242,7 +242,7 @@ CMD!
 Ficou curioso sobre o que eles fazem? Então 'bora aprender muito mais
 opções possíveis de serem adicionadas em um *dockerfile*!
 
-## 8.3. Vamos aprender um pouco mais sobre *dockerfile*?
+## 8.3. Bora aprender um pouco mais sobre *dockerfile*?
 
 Vamos agora aprender um pouco mais sobre as opções que podemos utilizar
 quando estamos criando um *dockerfile*:
