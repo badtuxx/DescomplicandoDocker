@@ -603,11 +603,11 @@ visualizar *stack*, *services*, volumes, *container*, etc.
 Para acessar os services em execução, abra um navegador e vá aos
 seguintes endereços:
 
--   **Visualizar a página de votação:** http://IP\_CLUSTER:5000/
+-   **Visualizar a página de votação:** http://IP_CLUSTER:5000/
 
--   **Visualizar a página de resultados:** http://IP\_CLUSTER:5001/
+-   **Visualizar a página de resultados:** http://IP_CLUSTER:5001/
 
--   **Visualizar a página de com os *containers* e seus *nodes*:** http://IP\_CLUSTER:8080/
+-   **Visualizar a página de com os *containers* e seus *nodes*:** http://IP_CLUSTER:8080/
 
 Vamos para mais um exemplo. Agora vamos realizar o *deploy* de um
 *stack* completo de monitoração para o nosso *cluster* e todas as demais
@@ -807,17 +807,17 @@ Para listar os *stacks*:
 Para acessar os serviços do quais acabamos de realizar o *deploy*, basta
 acessar os seguintes endereços:
 
--   **Prometheus**: http://SEU\_IP:9090
+-   **Prometheus**: http://SEU_IP:9090
 
--   **AlertManager**: http://SEU\_IP:9093
+-   **AlertManager**: http://SEU_IP:9093
 
--   **Grafana**: http://SEU\_IP:3000
+-   **Grafana**: http://SEU_IP:3000
 
--   **Node\_Exporter**: http://SEU\_IP:9100
+-   **Node\_Exporter**: http://SEU_IP:9100
 
--   **Rocket.Chat:** http://SEU\_IP:3080
+-   **Rocket.Chat:** http://SEU_IP:3080
 
--   **cAdivisor**: http://SEU\_IP:8080
+-   **cAdivisor**: http://SEU_IP:8080
 
 Para remover o *stack*:
 

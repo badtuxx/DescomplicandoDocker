@@ -331,11 +331,11 @@ nosso teste:
 ```golang
 package main
 
-import \"fmt\"
+import "fmt"
 
 func main() {
 
-fmt.Println(\"GIROPOPS STRIGUS GIRUS - LINUXTIPS\")
+    fmt.Println("GIROPOPS STRIGUS GIRUS - LINUXTIPS")
 
 }
 ```
@@ -539,7 +539,7 @@ root    1    0 0  21:48 ?    00:00:00  /bin/bash
 root    6    1 0  21:48 ?    00:00:00  ps -ef
 
 root@57094ec894ce:/# /etc/init.d/apache2 start
-[....] Starting web server: apache2AH00558: apache2: Could notreliably determine the server's fully qualified domain name, using 172.17.0.6. Set the \'ServerName\' directive globally to suppress this message
+[....] Starting web server: apache2AH00558: apache2: Could notreliably determine the server's fully qualified domain name, using 172.17.0.6. Set the 'ServerName' directive globally to suppress this message
 . ok
 
 root@70dd36fe2d3b:/# ps -ef

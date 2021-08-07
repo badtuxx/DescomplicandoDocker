@@ -154,7 +154,7 @@ Agora, vamos alterar os valores de limite de CPU e memória:
 root@linuxtips:~# docker container update -m 256m --cpus=1 teste1
 teste1
 
-root@linuxtips:~# docker container inspect teste1 \| grep -i cpu
+root@linuxtips:~# docker container inspect teste1 | grep -i cpu
 	"CpuShares": 0,
 	"NanoCpus": 1000000000,
 	"CpuPeriod": 0,
@@ -162,7 +162,7 @@ root@linuxtips:~# docker container inspect teste1 \| grep -i cpu
 	"CpusetCpus": "",
 	"CpusetMems": "",
 
-root@linuxtips:~# docker container inspect teste1 \| grep -i mem
+root@linuxtips:~# docker container inspect teste1 | grep -i mem
 	"CpusetMems": "",
 	"KernelMemory": 0,
 	"Memory": 268435456,
