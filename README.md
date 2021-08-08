@@ -69,180 +69,180 @@ agradável e proveitosa.
 
 # Sumário
 
-- [**Introdução**](./chapters/CHAPTER_00.md#introdução)
+- [**Introdução**](./capitulos/CHAPTER_00.md#introdução)
 
-- [**1. O que é *container*?**](./chapters/CHAPTER_01.md#1-o-que-é-container)
+- [**1. O que é *container*?**](./capitulos/CHAPTER_01.md#1-o-que-é-container)
 
-	- [1.1. Então vamos lá, o que é um *container*?](./chapters/CHAPTER_01.md#11-então-vamos-lá-o-que-é-um-container)
+	- [1.1. Então vamos lá, o que é um *container*?](./capitulos/CHAPTER_01.md#11-então-vamos-lá-o-que-é-um-container)
 
-	- [1.2. E quando começou que eu não vi?](./chapters/CHAPTER_01.md#12-e-quando-começou-que-eu-não-vi)
+	- [1.2. E quando começou que eu não vi?](./capitulos/CHAPTER_01.md#12-e-quando-começou-que-eu-não-vi)
 
-- [**2. O que é o Docker?**](./chapters/CHAPTER_02.md#2-o-que-é-o-docker)
+- [**2. O que é o Docker?**](./capitulos/CHAPTER_02.md#2-o-que-é-o-docker)
 
-	- [2.1. Onde entra o Docker nessa história?](./chapters/CHAPTER_02.md#21-onde-entra-o-docker-nessa-história)
+	- [2.1. Onde entra o Docker nessa história?](./capitulos/CHAPTER_02.md#21-onde-entra-o-docker-nessa-história)
 
-	- [2.2. E esse negócio de camadas?](./chapters/CHAPTER_02.md#22-e-esse-negócio-de-camadas)
+	- [2.2. E esse negócio de camadas?](./capitulos/CHAPTER_02.md#22-e-esse-negócio-de-camadas)
 
-		- [2.2.1. *Copy-On-Write* (COW) e Docker](./chapters/CHAPTER_02.md#221-copy-on-write-cow-e-docker)
+		- [2.2.1. *Copy-On-Write* (COW) e Docker](./capitulos/CHAPTER_02.md#221-copy-on-write-cow-e-docker)
 
-	- [2.3. Storage drivers](./chapters/CHAPTER_02.md#23-storage-drivers)
+	- [2.3. Storage drivers](./capitulos/CHAPTER_02.md#23-storage-drivers)
 
-		- [2.3.1. AUFS (*Another Union File System*)](./chapters/CHAPTER_02.md#231-aufs-another-union-file-system)
+		- [2.3.1. AUFS (*Another Union File System*)](./capitulos/CHAPTER_02.md#231-aufs-another-union-file-system)
 
-		- [2.3.2. *Device Mapper*](./chapters/CHAPTER_02.md#232-device-mapper)
+		- [2.3.2. *Device Mapper*](./capitulos/CHAPTER_02.md#232-device-mapper)
 
-		- [2.3.3. *Overlay* e *Overlay2*](./chapters/CHAPTER_02.md#233-overlayfs-e-overlayfs2)
+		- [2.3.3. *Overlay* e *Overlay2*](./capitulos/CHAPTER_02.md#233-overlayfs-e-overlayfs2)
 
-		- [2.3.4. BTRFS](./chapters/CHAPTER_02.md#234-btrfs)
+		- [2.3.4. BTRFS](./capitulos/CHAPTER_02.md#234-btrfs)
 
-	- [2.4. Docker Internals](./chapters/CHAPTER_02.md#24-docker-internals)
+	- [2.4. Docker Internals](./capitulos/CHAPTER_02.md#24-docker-internals)
 
-	- [2.5. *Namespaces*](./chapters/CHAPTER_02.md#25-namespaces)
+	- [2.5. *Namespaces*](./capitulos/CHAPTER_02.md#25-namespaces)
 
-		- [2.5.1. PID *namespace*](./chapters/CHAPTER_02.md#251-pid-namespace)
+		- [2.5.1. PID *namespace*](./capitulos/CHAPTER_02.md#251-pid-namespace)
 
-		- [2.5.2. Net *namespace*](./chapters/CHAPTER_02.md#252-net-namespace)
+		- [2.5.2. Net *namespace*](./capitulos/CHAPTER_02.md#252-net-namespace)
 
-		- [2.5.3. Mnt *namespace*](./chapters/CHAPTER_02.md#253-mnt-namespace)
+		- [2.5.3. Mnt *namespace*](./capitulos/CHAPTER_02.md#253-mnt-namespace)
 
-		- [2.5.4. IPC *namespace*](./chapters/CHAPTER_02.md#254-ipc-namespace)
+		- [2.5.4. IPC *namespace*](./capitulos/CHAPTER_02.md#254-ipc-namespace)
 
-		- [2.5.5. UTS *namespace*](./chapters/CHAPTER_02.md#255-uts-namespace)
+		- [2.5.5. UTS *namespace*](./capitulos/CHAPTER_02.md#255-uts-namespace)
 
-		- [2.5.6. User *namespace*](./chapters/CHAPTER_02.md#256-user-namespace)
+		- [2.5.6. User *namespace*](./capitulos/CHAPTER_02.md#256-user-namespace)
 
-	- [2.6. *Cgroups*](./chapters/CHAPTER_02.md#26-cgroups)
+	- [2.6. *Cgroups*](./capitulos/CHAPTER_02.md#26-cgroups)
 
-	- [2.7. *Netfilter*](./chapters/CHAPTER_02.md#27-netfilter)
+	- [2.7. *Netfilter*](./capitulos/CHAPTER_02.md#27-netfilter)
 
-	- [2.8. Para quem ele é bom?](./chapters/CHAPTER_02.md#28-para-quem-ele-é-bom)
+	- [2.8. Para quem ele é bom?](./capitulos/CHAPTER_02.md#28-para-quem-ele-é-bom)
 
-- [**3. Instalando o Docker**](./chapters/CHAPTER_03.md#3-instalando-o-docker)
+- [**3. Instalando o Docker**](./capitulos/CHAPTER_03.md#3-instalando-o-docker)
 
-	- [3.1. Quero instalar, vamos lá?](./chapters/CHAPTER_03.md#31-quero-instalar-vamos-lá)
+	- [3.1. Quero instalar, vamos lá?](./capitulos/CHAPTER_03.md#31-quero-instalar-vamos-lá)
 
-	- [3.2. Instalando no Debian/Centos/Ubuntu/Suse/Fedora](./chapters/CHAPTER_03.md#32-instalando-no-debiancentosubuntususefedora)
+	- [3.2. Instalando no Debian/Centos/Ubuntu/Suse/Fedora](./capitulos/CHAPTER_03.md#32-instalando-no-debiancentosubuntususefedora)
 
-	- [3.3. Instalando 'manualmente' no Debian](./chapters/CHAPTER_03.md#33-instalando-manualmente-no-debian)
+	- [3.3. Instalando 'manualmente' no Debian](./capitulos/CHAPTER_03.md#33-instalando-manualmente-no-debian)
 
-		- [3.3.1. Dica importante](./chapters/CHAPTER_03.md#331-dica-importante)
+		- [3.3.1. Dica importante](./capitulos/CHAPTER_03.md#331-dica-importante)
 
-- [**4. Executando e administrando *containers* Docker**](./chapters/CHAPTER_04.md#4-executando-e-administrando-containers-docker)
+- [**4. Executando e administrando *containers* Docker**](./capitulos/CHAPTER_04.md#4-executando-e-administrando-containers-docker)
 
-	- [4.1. Então vamos brincar com esse tal de *container*!](./chapters/CHAPTER_04.md#41-então-vamos-brincar-com-esse-tal-de-container)
+	- [4.1. Então vamos brincar com esse tal de *container*!](./capitulos/CHAPTER_04.md#41-então-vamos-brincar-com-esse-tal-de-container)
 
-	- [4.2. Legal, quero mais!](./chapters/CHAPTER_04.md#42-legal-quero-mais)
+	- [4.2. Legal, quero mais!](./capitulos/CHAPTER_04.md#42-legal-quero-mais)
 
-		- [4.2.1. Modo interativo](./chapters/CHAPTER_04.md#421-modo-interativo)
+		- [4.2.1. Modo interativo](./capitulos/CHAPTER_04.md#421-modo-interativo)
 
-		- [4.2.2. *Daemonizando* o *container*](./chapters/CHAPTER_04.md#422-daemonizando-o-container)
+		- [4.2.2. *Daemonizando* o *container*](./capitulos/CHAPTER_04.md#422-daemonizando-o-container)
 
-	- [4.3. Entendi, agora vamos praticar um pouco?](./chapters/CHAPTER_04.md#43-entendi-agora-vamos-praticar-um-pouco)
+	- [4.3. Entendi, agora vamos praticar um pouco?](./capitulos/CHAPTER_04.md#43-entendi-agora-vamos-praticar-um-pouco)
 
-	- [4.4. Tá, agora quero sair\...](./chapters/CHAPTER_04.md#44-tá-agora-quero-sair)
+	- [4.4. Tá, agora quero sair\...](./capitulos/CHAPTER_04.md#44-tá-agora-quero-sair)
 
-	- [4.5. Posso voltar ao *container*?](./chapters/CHAPTER_04.md#45-posso-voltar-ao-container)
+	- [4.5. Posso voltar ao *container*?](./capitulos/CHAPTER_04.md#45-posso-voltar-ao-container)
 
-	- [4.6. Continuando com a brincadeira\...](./chapters/CHAPTER_04.md#46-continuando-com-a-brincadeira)
+	- [4.6. Continuando com a brincadeira\...](./capitulos/CHAPTER_04.md#46-continuando-com-a-brincadeira)
 
-	- [4.7. Subindo e matando *containers*...](./chapters/CHAPTER_04.md#47-subindo-e-matando-containers)
+	- [4.7. Subindo e matando *containers*...](./capitulos/CHAPTER_04.md#47-subindo-e-matando-containers)
 
-	- [4.8. Visualizando o consumo de recursos pelo *container*\...](./chapters/CHAPTER_04.md#48-visualizando-o-consumo-de-recursos-pelo-container)
+	- [4.8. Visualizando o consumo de recursos pelo *container*\...](./capitulos/CHAPTER_04.md#48-visualizando-o-consumo-de-recursos-pelo-container)
 
-	- [4.9. Cansei de brincar de container, quero removê-lo!](./chapters/CHAPTER_04.md#49-cansei-de-brincar-de-container-quero-removê-lo)
+	- [4.9. Cansei de brincar de container, quero removê-lo!](./capitulos/CHAPTER_04.md#49-cansei-de-brincar-de-container-quero-removê-lo)
 
-- [**5. Configurando CPU e memória para os meus *containers***](./chapters/CHAPTER_05.md#5-configurando-cpu-e-memória-para-os-meus-containers)
+- [**5. Configurando CPU e memória para os meus *containers***](./capitulos/CHAPTER_05.md#5-configurando-cpu-e-memória-para-os-meus-containers)
 
-	- [5.1. Especificando a quantidade de memória](./chapters/CHAPTER_05.md#51-especificando-a-quantidade-de-memória)
+	- [5.1. Especificando a quantidade de memória](./capitulos/CHAPTER_05.md#51-especificando-a-quantidade-de-memória)
 
-	- [5.2. Especificando a quantidade de CPU](./chapters/CHAPTER_05.md#52-especificando-a-quantidade-de-cpu)
+	- [5.2. Especificando a quantidade de CPU](./capitulos/CHAPTER_05.md#52-especificando-a-quantidade-de-cpu)
 
-	- [5.3. Eu consigo alterar CPU e memória dos meus *containers* em execução?](./chapters/CHAPTER_05.md#53-eu-consigo-alterar-cpu-e-memória-dos-meus-containers-em-execução)
+	- [5.3. Eu consigo alterar CPU e memória dos meus *containers* em execução?](./capitulos/CHAPTER_05.md#53-eu-consigo-alterar-cpu-e-memória-dos-meus-containers-em-execução)
 
-- [**6. Meu primeiro e tosco *dockerfile*\...**](./chapters/CHAPTER_06.md#6-meu-primeiro-e-tosco-dockerfile)
+- [**6. Meu primeiro e tosco *dockerfile*\...**](./capitulos/CHAPTER_06.md#6-meu-primeiro-e-tosco-dockerfile)
 
-- [**7. Entendendo volumes**](./chapters/CHAPTER_07.md#7-entendendo-volumes)
+- [**7. Entendendo volumes**](./capitulos/CHAPTER_07.md#7-entendendo-volumes)
 
-	- [7.1. Introdução a volumes no Docker](./chapters/CHAPTER_07.md#71-introdução-a-volumes-no-docker)
+	- [7.1. Introdução a volumes no Docker](./capitulos/CHAPTER_07.md#71-introdução-a-volumes-no-docker)
 
-	- [7.2. Criando volumes](./chapters/CHAPTER_07.md#72-criando-volumes)
+	- [7.2. Criando volumes](./capitulos/CHAPTER_07.md#72-criando-volumes)
 
-	- [7.3. Localizando volumes](./chapters/CHAPTER_07.md#73-localizando-volumes)
+	- [7.3. Localizando volumes](./capitulos/CHAPTER_07.md#73-localizando-volumes)
 
-	- [7.4. Criando e montando um *data-only container*](./chapters/CHAPTER_07.md#74-criando-e-montando-um-data-only-container)
+	- [7.4. Criando e montando um *data-only container*](./capitulos/CHAPTER_07.md#74-criando-e-montando-um-data-only-container)
 
-	- [7.5. Sempre é bom um *backup*\...](./chapters/CHAPTER_07.md#75-sempre-é-bom-um-backup)
+	- [7.5. Sempre é bom um *backup*\...](./capitulos/CHAPTER_07.md#75-sempre-é-bom-um-backup)
 
-- [**8. Criando e gerenciando imagens**](./chapters/CHAPTER_08.md#8-criando-e-gerenciando-imagens)
+- [**8. Criando e gerenciando imagens**](./capitulos/CHAPTER_08.md#8-criando-e-gerenciando-imagens)
 
-	- [8.1. Agora eu quero criar minha imagem, posso?](./chapters/CHAPTER_08.md#81-agora-eu-quero-criar-minha-imagem-posso)
+	- [8.1. Agora eu quero criar minha imagem, posso?](./capitulos/CHAPTER_08.md#81-agora-eu-quero-criar-minha-imagem-posso)
 
-	- [8.2. Vamos começar do começo então, *dockerfile*!](./chapters/CHAPTER_08.md#82-vamos-começar-do-começo-então-dockerfile)
+	- [8.2. Vamos começar do começo então, *dockerfile*!](./capitulos/CHAPTER_08.md#82-vamos-começar-do-começo-então-dockerfile)
 
-	- [8.3. Bora aprender um pouco mais sobre *dockerfile*?](./chapters/CHAPTER_08.md#83-bora-aprender-um-pouco-mais-sobre-dockerfile)
+	- [8.3. Bora aprender um pouco mais sobre *dockerfile*?](./capitulos/CHAPTER_08.md#83-bora-aprender-um-pouco-mais-sobre-dockerfile)
 
-	- [8.4. *Multi-stage*](./chapters/CHAPTER_08.md#84-multi-stage)
+	- [8.4. *Multi-stage*](./capitulos/CHAPTER_08.md#84-multi-stage)
 
-	- [8.5. Vamos customizar uma imagem base agora?](./chapters/CHAPTER_08.md#85-vamos-customizar-uma-imagem-base-agora)
+	- [8.5. Vamos customizar uma imagem base agora?](./capitulos/CHAPTER_08.md#85-vamos-customizar-uma-imagem-base-agora)
 
-- [**9. Compartilhando as imagens**](./chapters/CHAPTER_09.md#9-compartilhando-as-imagens)
+- [**9. Compartilhando as imagens**](./capitulos/CHAPTER_09.md#9-compartilhando-as-imagens)
 
-	- [9.1. O que é o *Docker Hub*?](./chapters/CHAPTER_09.md#91-o-que-é-o-docker-hub)
+	- [9.1. O que é o *Docker Hub*?](./capitulos/CHAPTER_09.md#91-o-que-é-o-docker-hub)
 
-	- [9.2. Vamos criar uma conta?](./chapters/CHAPTER_09.md#92-vamos-criar-uma-conta)
+	- [9.2. Vamos criar uma conta?](./capitulos/CHAPTER_09.md#92-vamos-criar-uma-conta)
 
-	- [9.3. Agora vamos compartilhar essas imagens na *interwebs*!](./chapters/CHAPTER_09.md#93-agora-vamos-compartilhar-essas-imagens-na-interwebs)
+	- [9.3. Agora vamos compartilhar essas imagens na *interwebs*!](./capitulos/CHAPTER_09.md#93-agora-vamos-compartilhar-essas-imagens-na-interwebs)
 
-	- [9.4. Não confio na internet; posso criar o meu *registry* local?](./chapters/CHAPTER_09.md#94-não-confio-na-internet-posso-criar-o-meu-registry-local)
+	- [9.4. Não confio na internet; posso criar o meu *registry* local?](./capitulos/CHAPTER_09.md#94-não-confio-na-internet-posso-criar-o-meu-registry-local)
 
-- [**10. Gerenciando a rede dos *containers***](./chapters/CHAPTER_10.md#10-gerenciando-a-rede-dos-containers)
+- [**10. Gerenciando a rede dos *containers***](./capitulos/CHAPTER_10.md#10-gerenciando-a-rede-dos-containers)
 
-	- [10.1. Consigo fazer com que a porta do *container* responda na porta do *host*?](./chapters/CHAPTER_10.md#101-consigo-fazer-com-que-a-porta-do-container-responda-na-porta-do-host)
+	- [10.1. Consigo fazer com que a porta do *container* responda na porta do *host*?](./capitulos/CHAPTER_10.md#101-consigo-fazer-com-que-a-porta-do-container-responda-na-porta-do-host)
 
-	- [10.2. E como ele faz isso? Mágica?](./chapters/CHAPTER_10.md#102-e-como-ele-faz-isso-mágica)
+	- [10.2. E como ele faz isso? Mágica?](./capitulos/CHAPTER_10.md#102-e-como-ele-faz-isso-mágica)
 
-- [**11. Controlando o *daemon* do Docker**](./chapters/CHAPTER_11.md#11-controlando-o-daemon-do-docker)
+- [**11. Controlando o *daemon* do Docker**](./capitulos/CHAPTER_11.md#11-controlando-o-daemon-do-docker)
 
-	- [11.1. O Docker sempre utiliza 172.16.X.X ou posso configurar outro intervalo de IP?](./chapters/CHAPTER_11.md#111-o-docker-sempre-utiliza-17216xx-ou-posso-configurar-outro-intervalo-de-ip)
+	- [11.1. O Docker sempre utiliza 172.16.X.X ou posso configurar outro intervalo de IP?](./capitulos/CHAPTER_11.md#111-o-docker-sempre-utiliza-17216xx-ou-posso-configurar-outro-intervalo-de-ip)
 
-	- [11.2. Opções de *sockets*](./chapters/CHAPTER_11.md#112-opções-de-sockets)
+	- [11.2. Opções de *sockets*](./capitulos/CHAPTER_11.md#112-opções-de-sockets)
 
-		- [11.2.1. *Unix Domain Socket*](./chapters/CHAPTER_11.md#1121-unix-domain-socket)
+		- [11.2.1. *Unix Domain Socket*](./capitulos/CHAPTER_11.md#1121-unix-domain-socket)
 
-		- [11.2.2. TCP](./chapters/CHAPTER_11.md#1122-tcp)
+		- [11.2.2. TCP](./capitulos/CHAPTER_11.md#1122-tcp)
 
-	- [11.3. Opções de *storage*](./chapters/CHAPTER_11.md#113-opções-de-storage)
+	- [11.3. Opções de *storage*](./capitulos/CHAPTER_11.md#113-opções-de-storage)
 
-	- [11.4. Opções de rede](./chapters/CHAPTER_11.md#114-opções-de-rede)
+	- [11.4. Opções de rede](./capitulos/CHAPTER_11.md#114-opções-de-rede)
 
-	- [11.5. Opções diversas](./chapters/CHAPTER_11.md#115-opções-diversas)
+	- [11.5. Opções diversas](./capitulos/CHAPTER_11.md#115-opções-diversas)
 
-- [**12. Docker Machine**](./chapters/CHAPTER_12.md#12-docker-machine)
+- [**12. Docker Machine**](./capitulos/CHAPTER_12.md#12-docker-machine)
 
-	- [12.1. Ouvi dizer que minha vida ficaria melhor com o Docker Machine!](./chapters/CHAPTER_12.md#121-ouvi-dizer-que-minha-vida-ficaria-melhor-com-o-docker-machine)
+	- [12.1. Ouvi dizer que minha vida ficaria melhor com o Docker Machine!](./capitulos/CHAPTER_12.md#121-ouvi-dizer-que-minha-vida-ficaria-melhor-com-o-docker-machine)
 
-		- [12.1.1. Vamos instalar?](./chapters/CHAPTER_12.md#1211-vamos-instalar)
+		- [12.1.1. Vamos instalar?](./capitulos/CHAPTER_12.md#1211-vamos-instalar)
 
-		- [12.1.2. Vamos iniciar nosso primeiro projeto?](./chapters/CHAPTER_12.md#1212-vamos-iniciar-nosso-primeiro-projeto)
+		- [12.1.2. Vamos iniciar nosso primeiro projeto?](./capitulos/CHAPTER_12.md#1212-vamos-iniciar-nosso-primeiro-projeto)
 
-- [**13. Docker Swarm**](./chapters/CHAPTER_13.md#13-docker-swarm)
+- [**13. Docker Swarm**](./capitulos/CHAPTER_13.md#13-docker-swarm)
 
-	- [13.1. Criando o nosso *cluster*!](./chapters/CHAPTER_13.md#131-criando-o-nosso-cluster)
+	- [13.1. Criando o nosso *cluster*!](./capitulos/CHAPTER_13.md#131-criando-o-nosso-cluster)
 
-	- [13.2. O sensacional services!](./chapters/CHAPTER_13.md#132-o-sensacional-services)
+	- [13.2. O sensacional services!](./capitulos/CHAPTER_13.md#132-o-sensacional-services)
 
-- [**14. Docker Secrets**](./chapters/CHAPTER_14.md#14-docker-secrets)
+- [**14. Docker Secrets**](./capitulos/CHAPTER_14.md#14-docker-secrets)
 
-	- [14.1. O comando *docker secret*](./chapters/CHAPTER_14.md#141-o-comando-docker-secret)
+	- [14.1. O comando *docker secret*](./capitulos/CHAPTER_14.md#141-o-comando-docker-secret)
 
-	- [14.2. Tudo bem, mas como uso isso?](./chapters/CHAPTER_14.md#142-tudo-bem-mas-como-uso-isso)
+	- [14.2. Tudo bem, mas como uso isso?](./capitulos/CHAPTER_14.md#142-tudo-bem-mas-como-uso-isso)
 
-	- [14.3. Acessando a *secret*](./chapters/CHAPTER_14.md#143-acessando-a-secret)
+	- [14.3. Acessando a *secret*](./capitulos/CHAPTER_14.md#143-acessando-a-secret)
 
-	- [14.4. Atualizando a *secret* de um serviço](./chapters/CHAPTER_14.md#144-atualizando-a-secret-de-um-serviço)
+	- [14.4. Atualizando a *secret* de um serviço](./capitulos/CHAPTER_14.md#144-atualizando-a-secret-de-um-serviço)
 
-- [**15. Docker Compose**](./chapters/CHAPTER_15.md#15-docker-compose)
+- [**15. Docker Compose**](./capitulos/CHAPTER_15.md#15-docker-compose)
 
-	- [15.1. O comando docker stack](./chapters/CHAPTER_15.md#151-o-comando-docker-stack)
+	- [15.1. O comando docker stack](./capitulos/CHAPTER_15.md#151-o-comando-docker-stack)
 
-	- [15.2. E já acabou? :(](./chapters/CHAPTER_15.md#152-e-já-acabou-)
+	- [15.2. E já acabou? :(](./capitulos/CHAPTER_15.md#152-e-já-acabou-)
