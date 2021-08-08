@@ -1,0 +1,17 @@
+title: Livro Descomplicando o Docker
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+collections:
+  chapters:
+    output: true
+
+defaults:
+  - 
+    scope:
+      path: ""
+      type: "chapters"
+    values:
+      layout: "default"
