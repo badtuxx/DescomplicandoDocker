@@ -1,4 +1,5 @@
 title: Livro Descomplicando o Docker
+baseurl: ""
 
 sass:
   sass_dir: _sass
