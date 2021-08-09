@@ -16,3 +16,5 @@ defaults:
       type: "chapters"
     values:
       layout: "default"
+
+theme: jekyll-theme-dinky
