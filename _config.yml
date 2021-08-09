@@ -1,20 +1,41 @@
-title: Livro Descomplicando o Docker
-baseurl: "/"
+# Configurations
+title:            Jekyll Gitbook
+longtitle:        Jekyll Gitbook
+author:           HE Tao
+email:            sighingnow@gmail.com
+description: >
+  Build Jekyll site with the GitBook style.
 
-sass:
-  sass_dir: _sass
-  style: compressed
+version:          1.0
+gitbook_version:  3.2.3
 
-collections:
-  chapters:
-    output: true
+url:              'https://sighingnow.github.io'
+baseurl:          '/jekyll-gitbook'
+rss:              RSS
 
-defaults:
-  - 
-    scope:
-      path: ""
-      type: "chapters"
-    values:
-      layout: "default"
+# markdown render engine.
+markdown:         kramdown
+kramdown:
+  auto_ids:               true
+  input:                  GFM
+  math_engine:            mathjax
+  smart_quotes:           lsquo,rsquo,ldquo,rdquo
+  toc_levels:             1..6
+  syntax_highlighter:     rouge
+  syntax_highlighter_opts:
+    guess_lang:           true
 
-theme: jekyll-theme-dinky
+markdown_ext:     markdown,mkdown,mkdn,mkd,md
+
+# Permalinks
+permalink:        /:categories/:year-:month-:day-:title:output_ext
+
+exclude:
+  - _drafts
+
+destination:      ./_site
+incremental:      false
+regenerate:       true
+
+plugins:
+  - jemoji
