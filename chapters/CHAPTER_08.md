@@ -1,3 +1,5 @@
+<div align="justify">
+
 # 8. Criando e gerenciando imagens
 
 ## 8.1. Agora eu quero criar minha imagem, posso?
@@ -572,3 +574,5 @@ testar a comunicação com o Apache2 a partir do *host*:
 
 Ele retornará a página de boas-vindas do Apache2! Tudo funcionando
 conforme esperado!
+
+</div>

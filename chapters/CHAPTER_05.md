@@ -1,3 +1,5 @@
+<div align="justify">
+
 # 5. Configurando CPU e memória para os meus *containers*
 
 Vamos imaginar que você precise subir quatro *containers* para um
@@ -178,3 +180,5 @@ referentes à memória e ao CPU!
 
 Existem outros parâmetros do "docker container update". Para verificar a
 lista completa, digite "docker update \--help".
+
+</div>

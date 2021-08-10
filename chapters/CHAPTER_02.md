@@ -1,3 +1,5 @@
+<div align="justify">
+
 # 2. O que é o Docker?
 
 ## 2.1. Onde entra o Docker nessa história?
@@ -400,3 +402,5 @@ abordar com mais detalhes no final deste livro.
 
 Ainda temos diversos outros motivos para utilizar *containers* e que
 vamos descobrindo conforme evoluímos com a utilização do Docker. :D
+
+</div>

@@ -1,3 +1,5 @@
+<div align="justify">
+
 # 7. Entendendo volumes
 
 ## 7.1. Introdução a volumes no Docker
@@ -371,3 +373,5 @@ root@linuxtips:~/backup#
 Lembrando que os volumes são sempre criados dentro de
 "/var/lib/docker/volumes". Caso queira fazer o *backup* de todos os
 volumes, basta tratar esse diretório em suas rotinas de *backup*. ;)
+
+</div>

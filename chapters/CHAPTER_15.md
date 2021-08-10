@@ -1,3 +1,5 @@
+<div align="justify">
+
 # 15. Docker Compose
 
 Bem, agora chegamos em uma das partes mais importantes do livro, o
@@ -853,3 +855,5 @@ Junte-se a nós no Discord para que possa acompanhar e tirar dúvidas que
 possam ter surgido durante seus estudos!
 
 \#VAIIII
+
+</div>
