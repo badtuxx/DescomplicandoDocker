@@ -1,3 +1,5 @@
+<div align="justify">
+
 # 6. Meu primeiro e tosco *dockerfile*\...
 
 Tudo que nós fizemos até agora foi escrever na linha de comando, o que é
@@ -67,3 +69,5 @@ necessariamente estar no mesmo diretório, basta passar o *path* do
 diretório onde o arquivo se encontra.
 
 **Lembre apenas que é o *path* do diretório e não do arquivo.**
+
+</div>

@@ -1,3 +1,5 @@
+<div align="justify">
+
 # 9. Compartilhando as imagens
 
 Bem, já aprendemos como criar uma imagem de *container*, seja via
@@ -400,3 +402,5 @@ Fizemos um *registry* totalmente funcional, porém simples. Caso queira
 utilizar recursos como controle de usuários, certificados, outras opções
 de *storage*, etc., visite a página do projeto no GitHub:
 https://github.com/docker/distribution.
+
+</div>

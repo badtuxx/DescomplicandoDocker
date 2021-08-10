@@ -1,3 +1,5 @@
+<div align="justify">
+
 # 1. O que é *container*?
 
 ## 1.1. Então vamos lá, o que é um *container*?
@@ -91,3 +93,5 @@ dos recursos físicos como CPU e memória, maior agilidade no *deployment*
 de novas aplicações em fração de segundos e tudo isso com uma facilidade
 que impressiona. Amigo, estamos falando do simplesmente sensacional
 **Docker**.
+
+</div>

@@ -1,3 +1,5 @@
+<div align="justify">
+
 # 11. Controlando o *daemon* do Docker
 
 Antes de tudo, vamos tentar entender o que é um *daemon*. Sabemos que,
@@ -180,3 +182,4 @@ rede:
 
 -   **\--log-level** -- É possível alterar também a forma como o Docker trabalha com *log*; em algumas situações (geralmente *troubleshoot*) você pode precisar de um *log* mais "verboso", por exemplo.
 
+</div>
