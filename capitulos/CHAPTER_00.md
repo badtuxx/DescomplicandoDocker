@@ -1,3 +1,5 @@
+<div align="justify">
+
 # Introdução
 
 Se você é um desenvolvedor que sempre sonhou em poder reproduzir o
@@ -34,3 +36,5 @@ equalizá-los\...
 
 \...Então este livro e o Docker foram feitos para você! Boa leitura e
 divirta-se!
+
+</div>

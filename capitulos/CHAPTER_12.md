@@ -1,3 +1,5 @@
+<div align="justify">
+
 # 12. Docker Machine
 
 ## 12.1. Ouvi dizer que minha vida ficaria melhor com o Docker Machine!
@@ -339,3 +341,4 @@ root@linuxtips:~# docker-machine rm linuxtips
 Successfully removed linuxtips
 ```
 
+</div>

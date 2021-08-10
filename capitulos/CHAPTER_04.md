@@ -1,3 +1,5 @@
+<div align="justify">
+
 # 4. Executando e administrando *containers* Docker
 
 ## 4.1. Então vamos brincar com esse tal de *container*!
@@ -467,3 +469,5 @@ root@linuxtips:~#
 
 Para confirmar a remoção do *container*, utilize o comando "docker
 container ls -a".
+
+</div>

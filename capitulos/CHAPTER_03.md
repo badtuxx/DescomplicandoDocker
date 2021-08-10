@@ -1,3 +1,5 @@
+<div align="justify">
+
 # 3. Instalando o Docker
 
 ## 3.1. Quero instalar, vamos lá?
@@ -145,3 +147,5 @@ $ sudo usermod -aG docker user
 ```
 
 Dica de um milhão de dólares: **user** = **seu usuário**. :D
+
+</div>
