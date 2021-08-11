@@ -6,7 +6,7 @@ Devido a pandemia do [Coronavirus (COVID-19)](https://coronavirus.jhu.edu/map.ht
 Anteriormente, esse material era somente distribuído através de livros e e-books, onde a Brasport possui o os direitos para a comercialização do livro. Após o Jeferson liberar as [5 mil vagas](https://www.youtube.com/watch?v=RtQj19BYu-0&t=24s) para o treinamento [Descomplicando o Docker](https://www.linuxtips.io/product-page/descomplicando-o-docker), ele percebeu a necessidade de ajudar quem não teria condições para adquirir o livro, caso quisesse complementar os estudos, umaz vez que o livro funciona como apoio ao treinamento.
 Após negociação junto a editora Brasport, conseguimos a liberação do livro para disponibilizar o conteúdo do dele no Github, de maneira totalmente gratuita e aberta. E aqui estamos. \o/
 
-Com o acordo, a Brasport segue com o direito de comercializar o livro, e a nossa comunidade o acesso gratuito e irrestrito ao material.
+Com o acordo, a Brasport segue com o direito de comercializar o livro, e a nossa comunidade com o acesso gratuito e irrestrito ao material.
 
 Vamos seguir com as atualizações do material, bem como adicionar conteúdo novo! 
 
