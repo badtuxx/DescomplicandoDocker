@@ -1,0 +1,807 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>O que é o Docker · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.6.20">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="chapter_03.html" />
+    
+    
+    <link rel="prev" href="chapter_01.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Sobre</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Proposta do livro
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Capítulos</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="chapter_00.html">
+            
+                <a href="chapter_00.html">
+            
+                    
+                    Introdução
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="chapter_01.html">
+            
+                <a href="chapter_01.html">
+            
+                    
+                     O que é container
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.3" data-path="chapter_02.html">
+            
+                <a href="chapter_02.html">
+            
+                    
+                    O que é o Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="chapter_03.html">
+            
+                <a href="chapter_03.html">
+            
+                    
+                    Instalando o Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="chapter_04.html">
+            
+                <a href="chapter_04.html">
+            
+                    
+                    Executando e administrando containers Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="chapter_05.html">
+            
+                <a href="chapter_05.html">
+            
+                    
+                    Configurando CPU e memória para os meus containers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="chapter_06.html">
+            
+                <a href="chapter_06.html">
+            
+                    
+                    Meu primeiro e tosco dockerfile...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="chapter_07.html">
+            
+                <a href="chapter_07.html">
+            
+                    
+                    Entendendo volumes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="chapter_08.html">
+            
+                <a href="chapter_08.html">
+            
+                    
+                    Criando e gerenciando imagens
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="chapter_09.html">
+            
+                <a href="chapter_09.html">
+            
+                    
+                    Compartilhando as imagens
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11" data-path="chapter_10.html">
+            
+                <a href="chapter_10.html">
+            
+                    
+                    Gerenciando a rede dos containers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.12" data-path="chapter_11.html">
+            
+                <a href="chapter_11.html">
+            
+                    
+                    Controlando o daemon do Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.13" data-path="chapter_12.html">
+            
+                <a href="chapter_12.html">
+            
+                    
+                    Docker Machine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.14" data-path="chapter_13.html">
+            
+                <a href="chapter_13.html">
+            
+                    
+                    Docker Swarm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.15" data-path="chapter_14.html">
+            
+                <a href="chapter_14.html">
+            
+                    
+                    Docker Secrets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.16" data-path="chapter_15.html">
+            
+                <a href="chapter_15.html">
+            
+                    
+                    Docker Compose
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >O que é o Docker</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="2-o-que-é-o-docker">2. O que é o Docker?</h1>
+<h2 id="21-onde-entra-o-docker-nessa-história">2.1. Onde entra o Docker nessa história?</h2>
+<p>Tudo começou em 2008, quando Solomon Hykes fundou a dotCloud, empresa
+especializada em PaaS com um grande diferencial: o seu
+<em>Platform-as-a-Service</em> não era atrelado a nenhuma linguagem de
+programação específica, como era o caso, por exemplo, da Heroku, que
+suportava somente aplicações desenvolvidas em Ruby.</p>
+<p>A grande virada na história da dotCloud ocorreu em março de 2013, quando
+decidiram tornar <em>open source</em> o <em>core</em> de sua plataforma -- assim
+nascia o Docker!</p>
+<p>As primeiras versões do Docker nada mais eram do que um <em>wrapper</em> do LXC
+integrado ao <em>Union Filesystem</em>, mas o seu crescimento foi fantástico e
+muito rápido, tanto que em seis meses seu GitHub já possuía mais de seis
+mil <em>stars</em> e mais de 170 pessoas contribuindo para o projeto ao redor
+do mundo.</p>
+<p>Com isso, a dotCloud passou a se chamar Docker e a versão 1.0 foi
+lançada apenas 15 meses após sua versão 0.1. A versão 1.0 do Docker
+trouxe muito mais estabilidade e foi considerada &quot;production ready&quot;,
+além de trazer o Docker Hub, um repositório público para <em>containers</em>.</p>
+<p>Por ser um projeto <em>open source</em>, qualquer pessoa pode visualizar o
+código e contribuir com melhorias para o Docker. Isso traz maior
+transparência e faz com que correções de <em>bugs</em> e melhorias aconteçam
+bem mais rápido do que seria em um software proprietário com uma equipe
+bem menor e poucos cenários de testes.</p>
+<p>Quando o Docker 1.0 foi lançado e anunciado que estava pronto para
+produção, empresas como Spotify já o utilizavam em grande escala; logo
+AWS e Google começaram a oferecer suporte a Docker em suas nuvens. Outra
+gigante a se movimentar foi a Red Hat, que se tornou uma das principais
+parceiras do Docker, inclusive o incorporando-o ao <em>OpenShift</em>.</p>
+<p>Atualmente, o Docker é oficialmente suportado apenas em máquinas Linux
+64 <em>bits</em>. Isso significa que seus <em>containers</em> também terão que ser um
+Linux 64 <em>bits</em>, pois lembre que o <em>container</em> utiliza o mesmo <em>kernel</em>
+da máquina <em>host</em>. ;)</p>
+<p>Hoje o Docker pode ser executado tranquilamente em outras plataformas
+como Windows e MacOS, porém ainda não com a mesma performance e
+estabilidade do Docker sendo executado no Linux. Ahhh, o Linux! \&lt;3 \&lt;3
+\&lt;3</p>
+<h2 id="22-e-esse-negócio-de-camadas">2.2. E esse negócio de camadas?</h2>
+<h3 id="221-copy-on-write-cow-e-docker">2.2.1. <em>Copy-On-Write</em> (COW) e Docker</h3>
+<p>Antes de entender as camadas propriamente ditas, precisamos entender
+como um dos principais requisitos para essa coisa acontecer, o
+<em>Copy-On-Write</em> (ou COW para os íntimos), funciona. Nas palavras do
+próprio Jérome Petazzoni:</p>
+<p><em>It&apos;s a little bit like having a book. You can make notes in that book
+if you want, but each time you approach the pen to the page, suddenly
+someone shows up and takes the page and makes a xerox copy and hand it
+back to you, that&apos;s exactly how copy on write works.</em></p>
+<p>Em tradução livre, seria como se você tivesse um livro e que fosse
+permitido fazer anotações nele caso quisesse, porém, cada vez que você
+estivesse prestes a tocar a página com a caneta, de repente alguém
+aparecesse, tirasse uma xerox dessa página e entregasse a cópia para
+você. É exatamente assim que o <em>Copy-On-Write</em> funciona.</p>
+<p>Basicamente, significa que um novo recurso, seja ele um bloco no disco
+ou uma área em memória, só é alocado quando for modificado.</p>
+<p>Tá, mas o que isso tudo tem a ver com o Docker? Bom, como você sabe, o
+Docker usa um esquema de camadas, ou <em>layers</em>, e para montar essas
+camadas são usadas técnicas de <em>Copy-On-Write</em>. Um <em>container</em> é
+basicamente uma pilha de camadas compostas por N camadas <em>read-only</em> e
+uma, a superior, <em>read-write</em>.</p>
+<h2 id="23-storage-drivers">2.3. <em>Storage drivers</em></h2>
+<p>Apesar de um <em>container</em> possuir uma camada de escrita, na maior parte
+do tempo você não quer escrever dados diretamente nele, por vários
+motivos, dentre eles a sua natureza volátil. Em situações onde sua
+aplicação gera dados, você vai preferir usar volumes &quot;atachados&quot; ao
+<em>container</em> e escrever neles (veremos mais à frente como fazer isso).
+Porém, em algumas situações é, sim, necessária a escrita local no
+<em>container</em>, e é aí que o <em>storage driver</em> entra na história. <em>Storage
+driver</em> é o mecanismo utilizado pela <em>engine</em> do Docker para ditar a
+forma como esses dados serão manipulados no <em>filesystem</em> do <em>container</em>.
+A seguir, os principais <em>storage drivers</em> e suas peculiaridades.</p>
+<h3 id="231-aufs-another-union-file-system">2.3.1. AUFS (<em>Another Union File System</em>)</h3>
+<p>O primeiro <em>filesystem</em> disponível para o Docker foi o AUFS, um dos mais
+antigos <em>Copy-On-Write filesystems</em>, e inicialmente teve que passar por
+algumas modificações a fim de melhorar a estabilidade.</p>
+<p>O AUFS funciona no nível de arquivos (não em bloco), e a ideia é ter
+múltiplos diretórios (camadas) que ele apresenta para o SO como um ponto
+único de montagem.</p>
+<p>Quando você tenta ler um arquivo, a busca é iniciada pela camada
+superior, até achar o arquivo ou concluir que ele não existe. Para
+escrever em um arquivo, este precisa primeiro ser copiado para a camada
+superior (<em>writable</em>) -- e, sim, você adivinhou: escrever em arquivos
+grandes pode causar certa degradação da performance, já que o arquivo
+precisaria ser copiado completamente para a primeira camada, mesmo
+quando uma parte bem pequena vai sofrer alteração.</p>
+<p>Já que estamos falando de coisa chata, outra coisa que pode degradar a
+sua performance usando AUFS é o fato de que ele procura cada diretório
+de um <em>path</em> em cada camada do <em>filesystem</em> toda vez que você tentar
+executar um comando. Por exemplo, se você tem um <em>path</em> com cinco
+camadas, serão realizadas 25 buscas (<em>stat()</em>, uma <em>system call</em>). Isso
+pode ser bem complicado em aplicações que fazem <em>load</em> dinâmico, como os
+<em>apps</em> Python que importam os .py da vida.</p>
+<p>Outra particularidade é quando algum arquivo é deletado. Quando isso
+acontece é criado um <em>whiteout</em> para esse arquivo. Em outras palavras,
+ele é renomeado para &quot;.wh.arquivo&quot; e fica indisponível para o
+<em>container</em>, já que, né, não dá para apagar de verdade, pois as outras
+camadas são <em>read-only</em>.</p>
+<h3 id="232-device-mapper">2.3.2. <em>Device Mapper</em></h3>
+<p><em>Device Mapper</em> é um <em>kernel-based framework</em> da Red Hat usado para
+algumas abstrações, como, por exemplo, o mapeamento de &quot;blocos físicos&quot;
+em &quot;blocos lógicos&quot;, permitindo técnicas como LVM e RAID. No contexto do
+Docker, porém, ele se resume ao &quot;thin provisioning target&quot; ou ao
+<em>storage driver</em> &quot;devicemapper&quot;. Assim que essa coisa de Docker começou
+a andar, o pessoal da Red Hat (e toda a galera que usava alguma <em>distro</em>
+relacionada com Red Hat) se interessou bastante, só que havia um
+problema: eles não queriam usar AUFS. Para resolver isso, eles reuniram
+uma equipe de engenheiros muito habilidosos que adicionaram suporte ao
+<em>Device Mapper</em> no Docker.</p>
+<p>Em se tratando de Docker, o <em>Device Mapper</em> e o AUFS são bem similares:
+a grande diferença entre eles é que, no <em>Device Mapper</em>, quando você
+precisa escrever no arquivo, a cópia é feita em nível de blocos, que era
+um problema lá no AUFS, e com isso você ganha uma granularidade bem
+maior. Em teoria, o problema que você tinha quando escrevia um arquivo
+grande desaparece. Por padrão, <em>Device Mapper</em> escreve em arquivos de
+<em>loopback</em>, o que deixa as coisas mais lentas, mas agora na versão 1.17+
+você já pode configurá-lo em modo <em>direct-lvm</em>, que escreve em blocos e,
+em teoria, resolveria esse problema. É um pouco mais chatinho de
+configurar, mas é uma solução mais elegante para ambientes em produção.</p>
+<p>Além de AUFS e <em>Device Mapper</em>, você também pode usar BRTFS e OverlayFS
+como <em>storage driver</em>. Por serem tecnologias relativamente jovens,
+aprecie com moderação.</p>
+<h3 id="233-overlayfs-e-overlayfs2">2.3.3. OverlayFS e OverlayFS2</h3>
+<p>A bola da vez. Uma versão melhorada do AUFS, o OverlayFS e sua versão
+seguinte e oficialmente recomendada pelo Docker, o Overlay2, são ambos
+<em>other union filesystems</em>, mas dessa vez muito mais eficientes, rápidos
+e com uma implementação muito mais simples.</p>
+<p>Por serem <em>union file systems</em>, também compartilham da ideia de juntar
+vários diretórios em um único ponto de montagem como nosso amigo AUFS,
+porém, no caso do OverlayFS, apenas dois diretórios são suportados, o
+que não acontece no Overlay2, que tem suporte <em>multi-layer</em>. Ambos
+suportam <em>page caching sharing</em>, ou seja, múltiplos <em>containers</em>
+acessando o mesmo arquivo dividem a mesma entrada no arquivo de
+paginação, o que é um uso mais eficiente de memória.</p>
+<p>Aquele problema antigo do AUFS de ter de copiar todo o arquivo para a
+camada de cima para escrever nele ainda persiste, porém no OverlayFS ele
+só é copiado uma vez e fica lá para que as outras escritas no mesmo
+arquivo possam acontecer mais rápido, então tem uma pequena vantagem.</p>
+<p>Nota-se um consumo excessivo de <em>inodes</em> quando se usa OverlayFS. Esse é
+um problema resolvido no Overlay2, então sempre que possível busque
+usá-lo -- até porque, no geral, tem uma performance superior. Lembrando
+que <em>kernel</em> 4.0+ é pré-requisito para usar OverlayFS2.</p>
+<h3 id="234-btrfs">2.3.4. BTRFS</h3>
+<p>BTRFS é a geração seguinte de <em>union filesystem</em>. Ele é muito mais
+<em>space-efficient</em>, suporta muitas tecnologias avançadas de <em>storage</em> e
+já está incluso no <em>mainline</em> do <em>kernel</em>. O BTRFS, diferentemente do
+AUFS, realiza operações a nível de bloco e usa um esquema de <em>thin
+provision</em> parecido com o do <em>Device Mapper</em> e suporta <em>copy-on-write
+snapshots</em>. Você pode inclusive combinar vários <em>devices</em> físicos em um
+único BTRFS <em>filesystem</em>, algo como um LVM.</p>
+<p>O BTRFS é suportado atualmente na versão CE apenas em distribuições
+<em>debian-like</em> e na versão EE apenas em SLES (<em>Suse Linux Enterprise
+Server</em>).</p>
+<p><strong>IMPORTANTE: alterar o <em>storage drive</em> fará com que qualquer
+<em>container</em> já criado se torne inacessível ao sistema local. Cuidado!</strong></p>
+<h2 id="24-docker-internals">2.4. Docker Internals</h2>
+<p>O Docker utiliza algumas <em>features</em> básicas do <em>kernel</em> Linux para seu
+funcionamento. A seguir temos um diagrama no qual é possível visualizar
+os módulos e <em>features</em> do <em>kernel</em> de que o Docker faz uso:</p>
+<p><img src="../media/image5.png" alt="MODULOS E FEATURES DO KERNEL"></p>
+<h2 id="25-namespaces">2.5. <em>Namespaces</em></h2>
+<p><em>Namespaces</em> foram adicionados no <em>kernel</em> Linux na versão 2.6.24 e são
+eles que permitem o isolamento de processos quando estamos utilizando o
+Docker. São os responsáveis por fazer com que cada <em>container</em> possua
+seu próprio <em>environment</em>, ou seja, cada <em>container</em> terá a sua árvore
+de processos, pontos de montagens, etc., fazendo com que um <em>container</em>
+não interfira na execução de outro. Vamos saber um pouco mais sobre
+alguns <em>namespaces</em> utilizados pelo Docker.</p>
+<h3 id="251-pid-namespace">2.5.1. PID <em>namespace</em></h3>
+<p>O PID <em>namespace</em> permite que cada <em>container</em> tenha seus próprios
+identificadores de processos. Isso faz com que o <em>container</em> possua um
+PID para um processo em execução -- e quando você procurar por esse
+processo na máquina <em>host</em> o encontrará; porém, com outra identificação,
+ou seja, com outro PID.</p>
+<p>A seguir temos o processo &quot;testando.sh&quot; sendo executado no <em>container</em>.</p>
+<p>Perceba o PID desse processo na árvore de processos dele:</p>
+<pre><code class="lang-bash">root@c774fa1d6083:/<span class="hljs-comment"># bash testando.sh &amp;</span>
+[1] 7
+
+root@c774fa1d6083:/<span class="hljs-comment"># ps -ef</span>
+UID  PID PPID C STIME TTY TIME     CMD
+root 1   0    0 18:06 ?   00:00:00 /bin/bash
+root 7   1    0 18:07 ?   00:00:00 bash testando.sh
+root 8   7    0 18:07 ?   00:00:00 sleep 60
+root 9   1    0 18:07 ?   00:00:00 ps -ef
+
+root@c774fa1d6083:/<span class="hljs-comment">#</span>
+</code></pre>
+<p>Agora, perceba o PID do mesmo processo exibido através do <em>host</em>:</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># ps -ef | grep testando.sh</span>
+
+root 2958 2593 0 18:12 pts/2 00:00:00 bash testando.sh
+root 2969 2533 0 18:12 pts/0 00:00:00 grep --color=auto testando.sh
+
+root@linuxtips:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Diferentes, né? Porém, são o mesmo processo. :)</p>
+<h3 id="252-net-namespace">2.5.2. Net <em>namespace</em></h3>
+<p>O <em>Net Namespace</em> permite que cada <em>container</em> possua sua interface de
+rede e portas. Para que seja possível a comunicação entre os
+<em>containers</em>, é necessário criar dois <em>Net Namespaces</em> diferentes, um
+responsável pela interface do <em>container</em> (normalmente utilizamos o
+mesmo nome das interfaces convencionais do Linux, por exemplo, a eth0) e
+outro responsável por uma interface do <em>host</em>, normalmente chamada de
+veth* (veth + um identificador aleatório). Essas duas interfaces estão
+<em>linkadas</em> através da <em>bridge</em> Docker0 no <em>host</em>, que permite a
+comunicação entre os <em>containers</em> através de roteamento de pacotes.</p>
+<p>Conforme falamos, veja as interfaces. Interfaces do <em>host</em>:</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># ip addr</span>
+
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default
+       link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+       inet 127.0.0.1/8 scope host lo
+           valid_lft forever preferred_lft forever
+       inet6 ::1/128 scope host
+           valid_lft forever preferred_lft forever
+2: eth1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+        link/ether 00:1c:42:c7:bd:d8 brd ff:ff:ff:ff:ff:ff
+        inet 10.211.55.35/24 brd 10.211.55.255 scope global eth1
+            valid_lft forever preferred_lft forever
+        inet6 fdb2:2c26:f4e4:0:21c:42ff:fec7:bdd8/64 scope global dynamic
+            valid_lft 2591419sec preferred_lft 604219sec
+        inet6 fe80::21c:42ff:fec7:bdd8/64 scope link
+            valid_lft forever preferred_lft forever
+3: docker0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default
+        link/ether 02:42:c7:c1:37:14 brd ff:ff:ff:ff:ff:ff
+        inet 172.17.0.1/16 scope global docker0
+            valid_lft forever preferred_lft forever
+        inet6 fe80::42:c7ff:fec1:3714/64 scope link
+            valid_lft forever preferred_lft forever
+5: vetha2e1681: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue master docker0 state UP group default
+        link/ether 52:99:bc:ab:62:5e brd ff:ff:ff:ff:ff:ff
+        inet6 fe80::5099:bcff:feab:625e/64 scope link
+             valid_lft forever preferred_lft forever
+root@linuxtips:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Interfaces do <em>container</em>:</p>
+<pre><code class="lang-bash">root@6ec75484a5df:/<span class="hljs-comment"># ip addr</span>
+
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default
+        link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+        inet 127.0.0.1/8 scope host lo
+            valid_lft forever preferred_lft forever
+        inet6 ::1/128 scope host
+            valid_lft forever preferred_lft forever
+6: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default
+        link/ether 02:42:ac:11:00:03 brd ff:ff:ff:ff:ff:ff
+        inet 172.17.0.3/16 scope global eth0
+            valid_lft forever preferred_lft forever
+        inet6 fe80::42:acff:fe11:3/64 scope link
+            valid_lft forever preferred_lft forever
+
+root@6ec75484a5df:/<span class="hljs-comment">#</span>
+</code></pre>
+<p>Conseguiu visualizar as interfaces Docker0 e veth* do <em>host</em>? E a eth0
+do <em>container</em>? Sim? <em>Otémooo</em>! :D</p>
+<h3 id="253-mnt-namespace">2.5.3. Mnt <em>namespace</em></h3>
+<p>É evolução do <em>chroot</em>. Com o <em>Mnt Namespace</em> cada <em>container</em> pode ser
+dono de seu ponto de montagem, bem como de seu sistema de arquivos raiz.
+Ele garante que um processo rodando em um sistema de arquivos não
+consiga acessar outro sistema de arquivos montado por outro <em>Mnt
+Namespace</em>.</p>
+<h3 id="254-ipc-namespace">2.5.4. IPC <em>namespace</em></h3>
+<p>Ele provê um SystemV IPC isolado, além de uma fila de mensagens POSIX
+própria.</p>
+<h3 id="255-uts-namespace">2.5.5. UTS <em>namespace</em></h3>
+<p>Responsável por prover o isolamento de <em>hostname</em>, nome de domínio,
+versão do SO, etc.</p>
+<h3 id="256-user-namespace">2.5.6. User <em>namespace</em></h3>
+<p>O mais recente <em>namespace</em> adicionado no <em>kernel</em> Linux, disponível
+desde a versão 3.8. É o responsável por manter o mapa de identificação
+de usuários em cada <em>container</em>.</p>
+<h2 id="26-cgroups">2.6. <em>Cgroups</em></h2>
+<p>É o <em>cgroups</em> o responsável por permitir a limitação da utilização de
+recursos do <em>host</em> pelos <em>containers</em>. Com o <em>cgroups</em> você consegue
+gerenciar a utilização de CPU, memória, dispositivos, I/O, etc.</p>
+<h2 id="27-netfilter">2.7. <em>Netfilter</em></h2>
+<p>A já conhecida ferramenta <em>iptables</em> faz parte de um módulo chamado
+<em>netfilter</em>. Para que os <em>containers</em> consigam se comunicar, o Docker
+constrói diversas regras de roteamento através do <em>iptables</em>; inclusive
+utiliza o NAT, que veremos mais adiante no livro.</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># iptables -t nat -L</span>
+Chain PREROUTING (policy ACCEPT)
+target prot opt <span class="hljs-built_in">source</span> destination
+DOCKER all -- anywhere anywhere ADDRTYPE match dst-type LOCAL
+
+Chain INPUT (policy ACCEPT)
+target prot opt <span class="hljs-built_in">source</span> destination
+
+Chain OUTPUT (policy ACCEPT)
+target prot opt <span class="hljs-built_in">source</span> destination
+DOCKER all -- anywhere !127.0.0.0/8 ADDRTYPE match dst-type LOCAL
+
+Chain POSTROUTING (policy ACCEPT)
+target prot opt <span class="hljs-built_in">source</span> destination
+MASQUERADE all -- 172.17.0.0/16 anywhere
+
+Chain DOCKER (2 references)
+target prot opt <span class="hljs-built_in">source</span> destination
+RETURN all -- anywhere anywhere
+
+root@linuxtips:~<span class="hljs-comment">#</span>
+</code></pre>
+<h2 id="28-para-quem-ele-é-bom">2.8. Para quem ele é bom?</h2>
+<p>O Docker é muito bom para os desenvolvedores, pois com ele você tem
+liberdade para escolher a sua linguagem de programação, seu banco de
+dados e sua distribuição predileta. Já para os <em>sysadmins</em> é melhor
+ainda, pois, além da liberdade de escolher a distribuição, não
+precisamos preparar o servidor com todas as dependências da aplicação.
+Também não precisamos nos preocupar se a máquina é física ou virtual,
+pois o Docker suporta ambas.</p>
+<p>A empresa como um todo ganha, com a utilização do Docker, maior
+agilidade no processo de desenvolvimento de aplicações, encurtando o
+processo de transição entre os ambientes de QA STAGING e PROD, pois é
+utilizada a mesma imagem. Traz menos custos com hardware por conta do
+melhor gerenciamento e aproveitamento dos recursos, além do <em>overhead</em>,
+que é bem menor se comparado com outras soluções, como a virtualização.</p>
+<p>Com Docker fica muito mais viável a criação de <em>microservices</em>
+(microsserviços, a ideia de uma grande aplicação ser quebrada em várias
+pequenas partes e estas executarem tarefas específicas), um assunto que
+tem ganhado cada vez mais espaço no mundo da tecnologia e que vamos
+abordar com mais detalhes no final deste livro.</p>
+<p>Ainda temos diversos outros motivos para utilizar <em>containers</em> e que
+vamos descobrindo conforme evoluímos com a utilização do Docker. :D</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="chapter_01.html" class="navigation navigation-prev " aria-label="Previous page:  O que é container">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="chapter_03.html" class="navigation navigation-next " aria-label="Next page: Instalando o Docker">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"O que é o Docker","level":"2.3","depth":1,"next":{"title":"Instalando o Docker","level":"2.4","depth":1,"path":"chapters/chapter_03.md","ref":"chapters/chapter_03.md","articles":[]},"previous":{"title":" O que é container","level":"2.2","depth":1,"path":"chapters/chapter_01.md","ref":"chapters/chapter_01.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapters/chapter_02.md","mtime":"2021-08-11T08:52:29.563Z","type":"markdown"},"gitbook":{"version":"3.6.20","time":"2021-08-11T08:52:39.457Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

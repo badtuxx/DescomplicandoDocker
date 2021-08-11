@@ -1,0 +1,673 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Docker Secrets · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.6.20">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="chapter_15.html" />
+    
+    
+    <link rel="prev" href="chapter_13.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Sobre</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Proposta do livro
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Capítulos</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="chapter_00.html">
+            
+                <a href="chapter_00.html">
+            
+                    
+                    Introdução
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="chapter_01.html">
+            
+                <a href="chapter_01.html">
+            
+                    
+                     O que é container
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="chapter_02.html">
+            
+                <a href="chapter_02.html">
+            
+                    
+                    O que é o Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="chapter_03.html">
+            
+                <a href="chapter_03.html">
+            
+                    
+                    Instalando o Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="chapter_04.html">
+            
+                <a href="chapter_04.html">
+            
+                    
+                    Executando e administrando containers Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="chapter_05.html">
+            
+                <a href="chapter_05.html">
+            
+                    
+                    Configurando CPU e memória para os meus containers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="chapter_06.html">
+            
+                <a href="chapter_06.html">
+            
+                    
+                    Meu primeiro e tosco dockerfile...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="chapter_07.html">
+            
+                <a href="chapter_07.html">
+            
+                    
+                    Entendendo volumes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="chapter_08.html">
+            
+                <a href="chapter_08.html">
+            
+                    
+                    Criando e gerenciando imagens
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="chapter_09.html">
+            
+                <a href="chapter_09.html">
+            
+                    
+                    Compartilhando as imagens
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11" data-path="chapter_10.html">
+            
+                <a href="chapter_10.html">
+            
+                    
+                    Gerenciando a rede dos containers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.12" data-path="chapter_11.html">
+            
+                <a href="chapter_11.html">
+            
+                    
+                    Controlando o daemon do Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.13" data-path="chapter_12.html">
+            
+                <a href="chapter_12.html">
+            
+                    
+                    Docker Machine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.14" data-path="chapter_13.html">
+            
+                <a href="chapter_13.html">
+            
+                    
+                    Docker Swarm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.15" data-path="chapter_14.html">
+            
+                <a href="chapter_14.html">
+            
+                    
+                    Docker Secrets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.16" data-path="chapter_15.html">
+            
+                <a href="chapter_15.html">
+            
+                    
+                    Docker Compose
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Docker Secrets</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="14-docker-secrets">14. Docker Secrets</h1>
+<p>Ninguém tem dúvida de que a arquitetura de microsserviços já se provou
+eficiente. Porém, implementar segurança, principalmente em um contexto
+de infraestrutura imutável, tem sido um belo desafio.</p>
+<p>Com questões que envolvem desde como separar a senha do <em>template</em> em
+uma imagem até como trocar a senha de acesso a um serviço sem
+interrompê-lo, <em>workarounds</em> não faltam. Mas como sempre dá para
+melhorar, na versão 1.13 nossos queridos amigos do Docker lançaram o que
+foi chamado de Docker Secrets.</p>
+<p>O Docker Secrets é a solução do Docker para trabalhar com toda a parte
+de <em>secrets</em> em um ambiente <em>multi-node</em> e <em>multi-container.</em> Em outras
+palavras, um <em>&quot;swarm mode&quot; cluster</em>. A <em>secret</em> pode conter qualquer
+coisa, porém deve ter um tamanho máximo de 500 KB. Por enquanto essa
+belezinha não está disponível fora do contexto do Docker Swarm -- na
+verdade, não é claro se vai algum dia ser diferente. Por enquanto somos
+encorajados a usar um <em>service</em> para fazer <em>deploy</em> de <em>containers</em>
+individuais.</p>
+<h2 id="141-o-comando-docker-secret">14.1. O comando <em>docker secret</em></h2>
+<p>O comando &quot;docker secret&quot; vem com alguns subcomandos. São eles:</p>
+<pre><code class="lang-bash">docker secret --<span class="hljs-built_in">help</span>
+
+Usage: docker secret COMMAND
+
+Manage Docker secrets
+
+Options:
+     --<span class="hljs-built_in">help</span> Print usage
+
+Commands:
+    create   Create a secret from a file or STDIN as content
+    inspect  Display detailed information on one or more secrets
+    ls       List secrets
+    rm       Remove one or more secrets
+
+Run <span class="hljs-string">&apos;docker secret COMMAND --help&apos;</span> <span class="hljs-keyword">for</span> more information on a <span class="hljs-built_in">command</span>.
+</code></pre>
+<ul>
+<li><p><strong>create</strong> -- Cria uma <em>secret</em> a partir do conteúdo de um arquivo ou STDIN.</p>
+</li>
+<li><p><strong>inspect</strong> -- Mostra informações detalhadas de uma ou mais <em>secrets</em>.</p>
+</li>
+<li><p><strong>ls</strong> -- Lista as <em>secrets</em> existentes.</p>
+</li>
+<li><p><strong>rm</strong> -- Remove uma ou mais <em>secrets</em>.</p>
+</li>
+</ul>
+<p><strong>Create</strong></p>
+<p>Como dito, o &quot;create&quot; aceita conteúdo tanto do STDIN...</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># echo &apos;minha secret&apos; | docker secret create minha_secret -</span>
+jxr0pilzhtqsiqi1f1fjmmg4t
+
+root@linuxtips:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>...quanto de um arquivo:</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># docker secret create minha_secret minha_secret.txt</span>
+ci7mse43i5ak378sg3qc4xt04
+
+root@linuxtips:~<span class="hljs-comment">#</span>
+</code></pre>
+<p><strong>Inspect</strong></p>
+<p>Fique tranquilo, o &quot;inspect&quot; não mostra o conteúdo da sua <em>secret</em>! :P</p>
+<p>Em vez disso, ele mostra uma série de informações sobre a <em>secret</em>,
+incluindo sua criação e modificação (apesar de não ter, na verdade, como
+modificar uma <em>secret</em>; uma vez criada, ela não pode ser atualizada via
+CLI, porém já há um <em>endpoint</em> na API do Docker Swarm para <em>update</em> de
+<em>secret</em> -- &quot;/secrets/{id}/update&quot;, vamos aguardar!)</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># docker secret inspect minha_secret</span>
+[
+    {
+        <span class="hljs-string">&quot;ID&quot;</span>: <span class="hljs-string">&quot;ci7mse43i5ak378sg3qc4xt04&quot;</span>,
+        <span class="hljs-string">&quot;Version&quot;</span>: {
+            <span class="hljs-string">&quot;Index&quot;</span>: 808
+        },
+        <span class="hljs-string">&quot;CreatedAt&quot;</span>: <span class="hljs-string">&quot;2017-07-02T17:17:18.143116694Z&quot;</span>,
+        <span class="hljs-string">&quot;UpdatedAt&quot;</span>: <span class="hljs-string">&quot;2017-07-02T17:17:18.143116694Z&quot;</span>,
+        <span class="hljs-string">&quot;Spec&quot;</span>: {
+            <span class="hljs-string">&quot;Name&quot;</span>: <span class="hljs-string">&quot;minha_secret&quot;</span>,
+            <span class="hljs-string">&quot;Labels&quot;</span>: {}
+        }
+    }
+]
+
+root@linuxtips:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>O &quot;inspect&quot; aceita mais de uma <em>secret</em> por vez e mostrará o resultado
+na mesma sequência.</p>
+<p><strong>ls &amp;&amp; rm</strong></p>
+<p>Servem respectivamente para listar suas <em>secrets</em> e removê-las.</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># docker secret ls</span>
+ID                         NAME           CREATED             UPDATED
+ci7mse43i5ak378sg3qc4xt04  minha_secret   About a minute ago  About a minute ago
+
+root@linuxtips:~<span class="hljs-comment">#</span>
+root@linuxtips:~<span class="hljs-comment"># docker secret rm minha_secret</span>
+minha_secret
+
+root@linuxtips:~<span class="hljs-comment">#</span>
+</code></pre>
+<h2 id="142-tudo-bem-mas-como-uso-isso">14.2. Tudo bem, mas como uso isso?</h2>
+<p>As <em>secrets</em> são consumidas por serviços, como já citamos, e isso
+acontece através de associação explícita, usando a <em>flag</em> &quot;--secret&quot; na
+hora de criar um serviço. Vamos para um exemplo.</p>
+<p>Primeiro vamos criar uma <em>secret</em> com a senha do banco de dados da nossa
+aplicação <em>fake.</em></p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># echo &apos;senha_do_banco&apos; | docker secret create db_pass -</span>
+kxzgmhlu3ytv64hbqzg30nc8u
+
+root@linuxtips:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Agora, vamos associá-la à nossa <em>app</em>, criando um serviço.</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># docker service create --name app --detach=false --secret db_pass minha_app:1.0</span>
+npfmry3vcol61cmcql3jiljk2
+overall progress: 1 out of 1 tasks
+1/1: running [==================================================&gt;]
+verify: Waiting 1 seconds to verify that tasks are stable...
+
+root@linuxtips:~<span class="hljs-comment"># docker service ls</span>
+ID            NAME      MODE        REPLICAS   IMAGE           PORTS
+npfmry3vcol6  app       replicated  1/1        minha_app:1.0
+
+root@linuxtips:~<span class="hljs-comment"># docker container ls</span>
+CONTAINER ID     IMAGE          COMMAND                   CREATED           STATUS           PORTS     NAMES
+65d1533f5b50     minha_app:1.0  <span class="hljs-string">&quot;/bin/sh -c ./scri...&quot;</span>   40 seconds ago     Up 39 seconds              app.1.molbmj0649c7xkzfermkuwrx2
+
+root@linuxtips:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Também é possível dar acesso a <em>keys</em> para serviços já criados, através
+da <em>flag</em> &quot;--secret-add&quot; do comando &quot;docker service update&quot;, assim como
+revogá-las, usando a <em>flag</em> &quot;--secret-rm&quot; no mesmo comando. Ver o
+tópico &quot;Atualizando a <em>secret</em> de um serviço&quot;.</p>
+<h2 id="143-acessando-a-secret">14.3. Acessando a <em>secret</em></h2>
+<p>Com o serviço criado, a <em>secret</em> ficará disponível para todos os
+<em>containers</em> daquele <em>service</em> e estará em arquivos dentro do diretório
+&quot;/run/secrets&quot;, montado em <em>tmpfs</em>. Se a sua <em>secret</em> chamar &quot;db_pass&quot;,
+como no exemplo, o conteúdo dela estará em &quot;/run/secrets/db_pass&quot;.</p>
+<p>É possível incluir alguns parâmetros na hora de adicionar uma <em>secret</em> a
+um serviço, como, por exemplo, o <em>target</em>, que altera o nome do arquivo
+no destino e até itens de segurança, como <em>uid</em>, <em>gid</em> e <em>mode</em>:</p>
+<p>docker service create --detach=false --name app --secret
+source=db_pass,target=password,uid=2000,gid=3000,mode=0400
+minha_app:1.0</p>
+<p>Dentro do <em>container</em> ficaria assim:</p>
+<pre><code class="lang-bash">root@4dd6b9cbff1a:/app<span class="hljs-comment"># ls -lhart /run/secrets/</span>
+total 12K
+-r-------- 1 2000 3000   15 Jul 2 17:44 password
+drwxr-xr-x 7 root root 4.0K Jul 2 17:44 ..
+drwxr-xr-x 2 root root 4.0K Jul 2 17:44 .
+
+root@4dd6b9cbff1a:/app<span class="hljs-comment">#</span>
+</code></pre>
+<p>E aí basta que a sua aplicação leia o conteúdo do arquivo.</p>
+<pre><code class="lang-bash">root@8b16b5335334:/app<span class="hljs-comment"># python</span>
+Python 2.7.12 (default, Nov 19 2016, 06:48:10)
+[GCC 5.4.0 20160609] on linux2
+Type <span class="hljs-string">&quot;help&quot;</span>, <span class="hljs-string">&quot;copyright&quot;</span>, <span class="hljs-string">&quot;credits&quot;</span> or <span class="hljs-string">&quot;license&quot;</span> <span class="hljs-keyword">for</span> more information.
+&gt;&gt;&gt;
+&gt;&gt;&gt; secret = open(<span class="hljs-string">&apos;/run/secrets/password&apos;</span>).<span class="hljs-built_in">read</span>()
+&gt;&gt;&gt;
+&gt;&gt;&gt; <span class="hljs-built_in">print</span> <span class="hljs-string">&quot;minha secret e: %s&quot;</span> % (secret)
+minha secret e: nova_senha
+&gt;&gt;&gt;
+</code></pre>
+<h2 id="144-atualizando-a-secret-de-um-serviço">14.4. Atualizando a <em>secret</em> de um serviço</h2>
+<p><em>Secrets</em> foram criadas para serem imutáveis, ou seja, caso você queira
+trocar a <em>secret</em> de um serviço, você precisará criar outra <em>secret</em>. A
+troca da <em>secret</em> é bem fácil. Por exemplo, para trocar a <em>secret</em>
+&quot;db_pass&quot; do exemplo anterior, teríamos que fazer o seguinte:</p>
+<p>Criar uma nova <em>secret</em>:</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># echo &apos;nova_senha&apos; | docker secret create db_pass_1 -</span>
+221uzilbsl1ybna7g7014hoqr
+
+root@linuxtips:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Adicionar à <em>secret</em> a <em>app</em> criada anteriormente:</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># docker service update --secret-rm db_pass --detach=false --secret-add source=db_pass_1,target=password app</span>
+app
+overall progress: 1 out of 1 tasks
+1/1: running [==================================================&gt;]
+verify: Waiting 1 seconds to verify that tasks are stable...
+
+root@linuxtips:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Após a atualização, basta remover a <em>secret</em> antiga:</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># docker secret rm db_pass</span>
+db_pass
+
+root@linuxtips:~<span class="hljs-comment">#</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="chapter_13.html" class="navigation navigation-prev " aria-label="Previous page: Docker Swarm">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="chapter_15.html" class="navigation navigation-next " aria-label="Next page: Docker Compose">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Docker Secrets","level":"2.15","depth":1,"next":{"title":"Docker Compose","level":"2.16","depth":1,"path":"chapters/chapter_15.md","ref":"chapters/chapter_15.md","articles":[]},"previous":{"title":"Docker Swarm","level":"2.14","depth":1,"path":"chapters/chapter_13.md","ref":"chapters/chapter_13.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapters/chapter_14.md","mtime":"2021-08-11T08:52:29.563Z","type":"markdown"},"gitbook":{"version":"3.6.20","time":"2021-08-11T08:52:39.457Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

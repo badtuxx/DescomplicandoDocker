@@ -1,0 +1,841 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Executando e administrando containers Docker · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.6.20">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="chapter_05.html" />
+    
+    
+    <link rel="prev" href="chapter_03.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Sobre</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Proposta do livro
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Capítulos</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="chapter_00.html">
+            
+                <a href="chapter_00.html">
+            
+                    
+                    Introdução
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="chapter_01.html">
+            
+                <a href="chapter_01.html">
+            
+                    
+                     O que é container
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="chapter_02.html">
+            
+                <a href="chapter_02.html">
+            
+                    
+                    O que é o Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="chapter_03.html">
+            
+                <a href="chapter_03.html">
+            
+                    
+                    Instalando o Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.5" data-path="chapter_04.html">
+            
+                <a href="chapter_04.html">
+            
+                    
+                    Executando e administrando containers Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="chapter_05.html">
+            
+                <a href="chapter_05.html">
+            
+                    
+                    Configurando CPU e memória para os meus containers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="chapter_06.html">
+            
+                <a href="chapter_06.html">
+            
+                    
+                    Meu primeiro e tosco dockerfile...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="chapter_07.html">
+            
+                <a href="chapter_07.html">
+            
+                    
+                    Entendendo volumes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="chapter_08.html">
+            
+                <a href="chapter_08.html">
+            
+                    
+                    Criando e gerenciando imagens
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="chapter_09.html">
+            
+                <a href="chapter_09.html">
+            
+                    
+                    Compartilhando as imagens
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11" data-path="chapter_10.html">
+            
+                <a href="chapter_10.html">
+            
+                    
+                    Gerenciando a rede dos containers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.12" data-path="chapter_11.html">
+            
+                <a href="chapter_11.html">
+            
+                    
+                    Controlando o daemon do Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.13" data-path="chapter_12.html">
+            
+                <a href="chapter_12.html">
+            
+                    
+                    Docker Machine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.14" data-path="chapter_13.html">
+            
+                <a href="chapter_13.html">
+            
+                    
+                    Docker Swarm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.15" data-path="chapter_14.html">
+            
+                <a href="chapter_14.html">
+            
+                    
+                    Docker Secrets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.16" data-path="chapter_15.html">
+            
+                <a href="chapter_15.html">
+            
+                    
+                    Docker Compose
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Executando e administrando containers Docker</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="4-executando-e-administrando-containers-docker">4. Executando e administrando <em>containers</em> Docker</h1>
+<h2 id="41-então-vamos-brincar-com-esse-tal-de-container">4.1. Então vamos brincar com esse tal de <em>container</em>!</h2>
+<p>Como todos sabemos, o Docker utiliza a linha de comando para que você
+possa interagir com ele -- basicamente você utiliza o comando &quot;docker&quot;.</p>
+<p>Bom, agora que já iniciamos o Docker, vamos rodar nosso primeiro
+<em>container</em>.</p>
+<p>Como é de costume quando alguém está aprendendo uma nova linguagem de
+programação, é bem comum fazer como o primeiro código um <strong><em>hello
+world</em>!</strong></p>
+<p>Apesar de o Docker não ser uma linguagem de programação, vamos utilizar
+esse costume com o nosso primeiro exemplo de um <em>container</em> em execução.</p>
+<p>O Docker possui uma imagem personalizada de <em>hello-world</em> e serve para
+que você possa testar a sua instalação e validar se tudo funciona
+conforme o esperado. :D</p>
+<p>Para que possamos executar um <em>container</em>, utilizamos o parâmetro &quot;run&quot;
+do subcomando &quot;container&quot; do comando &quot;docker&quot;. Simples, não? :D</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># docker container run hello-world</span>
+Unable to find image <span class="hljs-string">&apos;hello-world:latest&apos;</span> locally
+latest: Pulling from library/hello-world
+03f4658f8b78: Pull complete a3ed95caeb02: Pull complete
+Digest: sha256:8be990ef2aeb16dbcb9271ddfe2610fa6658d13f6dfb8bc72074cc1ca36966a7
+Status: Downloaded newer image <span class="hljs-keyword">for</span> hello-world:latest
+
+Hello from Docker.
+This message shows that your installation appears to be working correctly.
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the <span class="hljs-string">&quot;hello-world&quot;</span> image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image <span class="hljs-built_in">which</span> runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, <span class="hljs-built_in">which</span> sent it
+    to your terminal.
+
+
+To try something more ambitious, you can run an Ubuntu container with:
+  $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker Hub account: 
+  https://hub.docker.com
+
+For more examples and ideas, visit: 
+  https://docs.docker.com/userguide/
+
+root@linuxtips:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>No exemplo anterior, estamos executando um <em>container</em> utilizando a
+imagem personalizada do <em>hello-world</em>.</p>
+<p>Apesar de ser uma tarefa simples, quando você executou o comando &quot;docker
+container run hello-world&quot; foram necessárias quatro etapas para sua
+conclusão, vamos ver quais:</p>
+<ol>
+<li><p>O comando &quot;docker&quot; se comunica com o <em>daemon</em> do Docker informando a ação desejada.</p>
+</li>
+<li><p>O <em>daemon</em> do Docker verifica se a imagem &quot;hello-world&quot; existe em seu <em>host</em>; caso ainda não, o Docker faz o <em>download</em> da imagem diretamente do Docker Hub.</p>
+</li>
+<li><p>O <em>daemon</em> do Docker cria um novo <em>container</em> utilizando a imagem que você acabou de baixar.</p>
+</li>
+<li><p>O <em>daemon</em> do Docker envia a saída para o comando &quot;docker&quot;, que imprime a mensagem em seu terminal.</p>
+</li>
+</ol>
+<p>Viu? É simples como voar! :)</p>
+<p>Muito bem, agora que nós já temos uma imagem em nosso <em>host</em>, como eu
+faço para visualizá-la?</p>
+<p>Muito simples, basta digitar o seguinte comando:</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># docker image ls</span>
+REPOSITORY  TAG    IMAGE ID     CREATED  SIZE
+hello-world latest 690ed74de00f 5 months 960 B
+
+root@linuxtips:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Como você pode notar no código, a saída traz cinco colunas:</p>
+<ul>
+<li><p><strong>REPOSITORY</strong> -- O nome da imagem.</p>
+</li>
+<li><p><strong>TAG</strong> -- A versão da imagem.</p>
+</li>
+<li><p><strong>IMAGE ID</strong> -- Identificação da imagem.</p>
+</li>
+<li><p><strong>CREATED</strong> -- Quando ela foi criada.</p>
+</li>
+<li><p><strong>SIZE</strong> -- Tamanho da imagem.</p>
+</li>
+</ul>
+<p>Quando executamos o comando &quot;docker container run hello-world&quot;, ele
+criou o <em>container</em>, imprimiu a mensagem na tela e depois o <em>container</em>
+foi finalizado automaticamente, ou seja, ele executou sua tarefa, que
+era exibir a mensagem, e depois foi finalizado.</p>
+<p>Para ter certeza de que ele realmente foi finalizado, digite:</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># docker container ls</span>
+
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORT NAMES
+
+root@linuxtips:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Com o &quot;docker container ls&quot;, você consegue visualizar todos os
+<em>containers</em> em execução e ainda obter os detalhes sobre eles. A saída
+do &quot;docker container ls&quot; é dividida em sete colunas; vamos conhecer o
+que elas nos dizem:</p>
+<ul>
+<li><p><strong>CONTAINER ID</strong> -- Identificação única do <em>container.</em></p>
+</li>
+<li><p><strong>IMAGE</strong> -- A imagem que foi utilizada para a execução do <em>container.</em></p>
+</li>
+<li><p><strong>COMMAND</strong> -- O comando em execução.</p>
+</li>
+<li><p><strong>CREATED</strong> -- Quando ele foi criado.</p>
+</li>
+<li><p><strong>STATUS</strong> -- O seu status atual.</p>
+</li>
+<li><p><strong>PORTS</strong> -- A porta do <em>container</em> e do <em>host</em> que esse <em>container</em> utiliza.</p>
+</li>
+<li><p><strong>NAMES</strong> -- O nome do <em>container.</em></p>
+</li>
+</ul>
+<p>Uma opção interessante do &quot;docker container ls&quot; é o parâmetro &quot;-a&quot;.</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># docker container ls -a</span>
+
+CONTAINER ID  IMAGE        COMMAND   CREATED    STATUS     PORTS      NAMES
+6e45cf509282  hello-world  <span class="hljs-string">&quot;/hello&quot;</span>  4 seconds  Exited(0)             tracted_ardinghelli
+
+root@linuxtips:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Com a opção &quot;-a&quot; você consegue visualizar não somente os <em>containers</em> em
+execução, como também <em>containers</em> que estão parados ou que foram
+finalizados.</p>
+<h2 id="42-legal-quero-mais">4.2. Legal, quero mais!</h2>
+<p>Agora que vimos como criar um simples <em>container</em>, bem como visualizar
+as imagens e <em>containers</em> que estão em nosso <em>host</em>, vamos criar um
+novo, porém conhecendo três parâmetros que irão trazer maior
+flexibilidade no uso e na administração de nossos <em>containers</em>. Estou
+falando dos parâmetros &quot;-t&quot;, &quot;-i&quot; e &quot;-d&quot;.</p>
+<ul>
+<li><p><strong>-t</strong> -- Disponibiliza um TTY (console) para o nosso <em>container</em>.</p>
+</li>
+<li><p><strong>-i</strong> -- Mantém o STDIN aberto mesmo que você não esteja conectado no <em>container.</em></p>
+</li>
+<li><p><strong>-d</strong> -- Faz com que o <em>container</em> rode como um <em>daemon</em>, ou seja, sem a interatividade que os outros dois parâmetros nos fornecem.</p>
+</li>
+</ul>
+<p>Com isso temos dois modos de execução de nossos <em>containers</em>: modo
+interativo ou <em>daemonizando</em> o <em>container</em>.</p>
+<h3 id="421-modo-interativo">4.2.1. Modo interativo</h3>
+<p>Na maior parte das vezes você vai subir um <em>container</em> a partir de uma
+imagem que já está pronta, toda ajustadinha. Porém, há alguns casos em
+que você precisa interagir com o seu <em>container</em> -- isso pode acontecer,
+por exemplo, na hora de montar a sua imagem personalizada.</p>
+<p>Nesse caso, usar o modo interativo é a melhor opção. Para isso, basta
+passar os parâmetros &quot;-ti&quot; ao comando &quot;docker container run&quot;.</p>
+<h3 id="422-daemonizando-o-container">4.2.2. <em>Daemonizando</em> o <em>container</em></h3>
+<p>Utilizando o parâmetro &quot;-d&quot; do comando &quot;docker container run&quot;, é
+possível <em>daemonizar</em> o <em>container</em>, fazendo com que o <em>container</em> seja
+executado como um processo <em>daemon</em>.</p>
+<p>Isso é ideal quando nós já possuímos um <em>container</em> que não iremos
+acessar (via <em>shell</em>) para realizar ajustes. Imagine uma imagem já com a
+sua aplicação e tudo que precisa configurado; você irá subir o
+<em>container</em> e somente irá consumir o serviço entregue por sua aplicação.
+Se for uma aplicação <em>web</em>, basta acessar no <em>browser</em> passando o IP e a
+porta onde o serviço é disponibilizado no <em>container</em>. Sensacional, não?</p>
+<p>Ou seja, se você quer subir um <em>container</em> para ser utilizado como uma
+máquina Linux convencional com <em>shell</em> e que necessita de alguma
+configuração ou ajuste, utilize o modo interativo, ou seja, os
+parâmetros &quot;-ti&quot;.</p>
+<p>Agora, se você já tem o <em>container</em> configurado, com sua aplicação e
+todas as dependências sanadas, não tem a necessidade de usar o modo
+interativo -- nesse caso utilizamos o parâmetro &quot;-d&quot;, ou seja, o
+<em>container daemonizado</em>. Vamos acessar somente os serviços que ele
+provê, simples assim. :D</p>
+<h2 id="43-entendi-agora-vamos-praticar-um-pouco">4.3. Entendi, agora vamos praticar um pouco?</h2>
+<p>Perfeito. Vamos iniciar um novo <em>container</em> utilizando dois desses novos
+parâmetros que aprendemos.</p>
+<p>Para o nosso exemplo, vamos subir um <em>container</em> do Centos 7:</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># docker container run -ti centos:7</span>
+Unable to find image <span class="hljs-string">&apos;centos:7&apos;</span> locally
+7: Pulling from library/centos
+a3ed95caeb02: Pull complete 196355c4b639: Pull complete
+Digest: sha256:3cdc0670fe9130ab3741b126cfac6d7720492dd2c1c8ae033dcd77d32855bab2
+Status: Downloaded newer image <span class="hljs-keyword">for</span> centos:7
+
+[root@3c975fb7fbb5 /]<span class="hljs-comment">#</span>
+</code></pre>
+<p>Como a imagem não existia em nosso <em>host</em>, ele começou a baixar do
+Docker Hub, porém, caso a imagem já estivesse em nosso <em>host</em>, ele a
+utilizaria, não sendo necessário o <em>download</em>.</p>
+<p>Perceba que mudou o seu <em>prompt</em> (variável $PS1), pois agora você já
+está dentro do <em>container</em>. Para provar que estamos dentro do nosso
+<em>container</em> Centos, execute o seguinte comando:</p>
+<pre><code class="lang-bash">[root@3c975fb7fbb5 /]<span class="hljs-comment"># cat /etc/redhat-release</span>
+CentOS Linux release 7.2.1511 (Core)
+
+[root@3c975fb7fbb5 /]<span class="hljs-comment">#</span>
+</code></pre>
+<p>O arquivo &quot;/etc/redhat-release&quot; indica qual a versão do Centos que
+estamos utilizando, ou seja, estamos realmente em nosso <em>container</em>
+Centos 7. :D</p>
+<h2 id="44-tá-agora-quero-sair">4.4. Tá, agora quero sair...</h2>
+<p>Idealmente, no <em>container</em> vai haver apenas um processo rodando. No
+nosso caso, como estamos interagindo (opção &quot;-ti&quot;), é o processo do
+<em>bash</em>; logo, você não pode utilizar o comando &quot;exit&quot; para sair do
+console, pois dessa forma esse único processo para de rodar e seu
+<em>container</em> morre. Caso queira sair do <em>container</em> e mantê-lo em
+execução, é necessário sair com o seguinte atalho do teclado:</p>
+<p><strong>mantenha o botão Ctrl pressionado + p + q</strong></p>
+<p>Assim, você sairá do <em>container</em> e ele continuará em execução. Para
+confirmar se o <em>container</em> continua em execução, faça:</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># docker ps</span>
+CONTAINER ID  IMAGE     COMMAND      CREATED    STATUS        PORTS   NAMES
+3c975fb7fbb5  centos:7  <span class="hljs-string">&quot;/bin/bash&quot;</span>  2 minutes  Up 2 minutes           angry_wescoff
+
+root@linuxtips:~<span class="hljs-comment">#</span>
+</code></pre>
+<h2 id="45-posso-voltar-ao-container">4.5. Posso voltar ao <em>container</em>?</h2>
+<p>Deixamos o nosso <em>container</em> em execução e agora queremos acessá-lo
+novamente. Como podemos fazer?</p>
+<p>Simples! Basta digitar o seguinte comando:</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># docker container attach &lt;CONTAINER ID&gt;</span>
+</code></pre>
+<p>O parâmetro &quot;attach&quot; do comando &quot;docker container&quot; possibilita nos
+conectarmos a um <em>container</em> em execução. Para isso, basta passar como
+parâmetro o &quot;CONTAINER ID&quot;, que você consegue através da saída do
+&quot;docker ps&quot;, conforme mostramos no exemplo anterior.</p>
+<h2 id="46-continuando-com-a-brincadeira">4.6. Continuando com a brincadeira...</h2>
+<p>Existe a possibilidade de criar um <em>container,</em> porém não o executar
+imediatamente. Quando fazemos o uso do parâmetro &quot;create&quot; do comando
+&quot;docker container&quot;, ele apenas cria o <em>container</em>, não o inicializando,
+conforme notamos no exemplo a seguir:</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># docker container create -ti ubuntu</span>
+Unable to find image <span class="hljs-string">&apos;ubuntu:latest&apos;</span> locally
+latest: Pulling from library/ubuntu
+5a132a7e7af1: Pull complete
+fd2731e4c50c: Pull complete
+28a2f68d1120: Pull complete
+a3ed95caeb02: Pull complete
+Digest:sha256:4e85ebe01d056b43955250bbac22bdb8734271122e3c78d21e55ee235fc6802d
+Status: Downloaded newer image <span class="hljs-keyword">for</span>  ubuntu:latest3e63e65db85a6e36950959dc6bdc00279e2208a335580c478e01723819de9467
+
+root@linuxtips:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Perceba que quando você digita &quot;docker container ls&quot; ele não traz o
+<em>container</em> recém-criado, afinal a saída do &quot;docker container ls&quot;
+somente traz os <em>containers</em> em execução. Para visualizar o <em>container</em>
+recém-criado foi necessário utilizar o parâmetro &quot;-a&quot;.</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># docker container ls -a</span>
+CONTAINER ID  IMAGE    COMMAND       CREATED          STATUS    PORTS   NAMES
+3e63e65db85a  ubuntu   <span class="hljs-string">&quot;/bin/bash&quot;</span>   18 seconds ago   Created           elo_visves
+
+root@linuxtips:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Para que o nosso <em>container</em> recém-criado seja executado, basta utilizar
+o &quot;docker container start [CONTAINER ID]&quot;, conforme segue:</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># docker container start [CONTAINER ID]</span>
+root@linuxtips:~<span class="hljs-comment"># docker container attach [CONTAINER ID]</span>
+
+root@b422f04df14c:/<span class="hljs-comment">#</span>
+</code></pre>
+<p>Verificando se estamos realmente utilizando o <em>container</em> do Ubuntu:</p>
+<pre><code class="lang-bash">root@b422f04df14c:/<span class="hljs-comment"># cat /etc/issue</span>
+Ubuntu 18.04 LTS \n \l
+
+root@b422f04df14c:/<span class="hljs-comment">#</span>
+</code></pre>
+<p>Lembrando que para sair do <em>container</em> e mantê-lo em execução é
+necessário utilizar o atalho: <strong>Ctrl + p + q</strong>.</p>
+<h2 id="47-subindo-e-matando-containers">4.7. Subindo e matando <em>containers</em>...</h2>
+<p>Caso eu queira parar um <em>container</em> em execução, basta utilizar o
+parâmetro &quot;stop&quot; seguido do &quot;CONTAINER ID&quot;:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># docker container stop [CONTAINER ID]</span>
+</code></pre>
+<p>Verificando se o <em>container</em> continua em execução:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># docker container ls</span>
+</code></pre>
+<p>Lembrando que para visualizar os <em>containers</em> que não estão em execução
+é necessário utilizar o parâmetro &quot;-a&quot;.</p>
+<p>Para colocar novamente em execução um <em>container</em> que está parado, é
+necessário utilizar o parâmetro &quot;start&quot; do comando &quot;docker container&quot;
+seguido do &quot;CONTAINER ID&quot;:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># docker container start [CONTAINER ID]</span>
+</code></pre>
+<p>Da mesma forma como podemos utilizar o <em>stop/start</em> para
+desligar/iniciar um <em>container</em>, podemos também fazer o uso do
+&quot;restart&quot;, como notamos a seguir:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># docker container restart [CONTAINER ID]</span>
+</code></pre>
+<p>Para pausar um <em>container</em>, execute:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># docker container pause [CONTAINER ID]</span>
+</code></pre>
+<p>E verifique o status do <em>container</em>:</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># docker container ls</span>
+CONTAINER ID   IMAGE   COMMAND      CREATED         STATUS                 PORTS     NAMES
+b34f4987bdce   ubuntu  <span class="hljs-string">&quot;/bin/bash&quot;</span>  12 seconds ago  Up 11 seconds (Paused)           drunk_turi
+
+root@linuxtips:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Para &quot;despausar&quot; o <em>container</em>:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># docker container unpause [CONTAINER ID]</span>
+</code></pre>
+<h2 id="48-visualizando-o-consumo-de-recursos-pelo-container">4.8. Visualizando o consumo de recursos pelo <em>container</em>...</h2>
+<p>Caso você queira visualizar informações referentes ao consumo de
+recursos pelo <em>container</em>, também é bastante simples: basta utilizar o
+parâmetro &quot;stats&quot; para verificar o consumo de CPU, memória e rede pelo
+<em>container</em> em tempo real.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># docker container stats [CONTAINER ID]</span>
+
+CONTAINER       CPU%     MEM USAGE/LIMIT     MEM %    NET I/O     BLOCK I/O   PIDS
+b34f4987bdce    0.00%    503.8kB/2.094GB     0.02%    648B/648B   0B/0B       2
+</code></pre>
+<p>Para sair, pressione <strong>Ctrl + C.</strong></p>
+<p>Para visualizar todos os <em>containers</em> de uma só vez, basta não
+especificar o [CONTAINER ID],conforme segue:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># docker container stats</span>
+</code></pre>
+<p>Agora, se você quer visualizar quais processos estão em execução em
+determinado <em>container</em>, utilize o parâmetro &quot;top&quot;. Com ele você
+consegue informações sobre os processos em execução, como, por exemplo,
+UID e o PID do processo.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># docker container top [CONTAINER ID]</span>
+UID  PID   PPID C STIME  TTY   TIME      COMMAND
+root 10656 4303 0 20:24  pts/3 00:00:00  /bin/bash
+</code></pre>
+<p>Para verificar os <em>logs</em> de um determinado <em>container</em>, utilize o
+parâmetro &quot;logs&quot;, simples assim. :D</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># docker container logs [CONTAINER ID]</span>
+</code></pre>
+<p>Lembre-se: ele exibe o STDOUT, a saída padrão. Ou seja, normalmente você
+irá visualizar o histórico de mensagens que aparecerem em primeiro plano
+durante a execução do <em>container</em>.</p>
+<p>Para exibir os <em>logs</em> de forma dinâmica, ou seja, conforme aparecem
+novas mensagens ele atualiza a saída no terminal utilizamos a opção &quot;-f&quot;</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># docker container logs -f [CONTAINER ID]</span>
+</code></pre>
+<p>. Com isso seu terminal ficará travado, apenas escutando o <em>log</em>, e
+qualquer nova entrada ele exibirá na tela. Saída parecida com o &quot;tail
+-f&quot; no Linux. Lembre-se, utilize o ctrl+c para cancelar a exibição dos
+logs.</p>
+<h2 id="49-cansei-de-brincar-de-container-quero-removê-lo">4.9. Cansei de brincar de <em>container</em>, quero removê-lo!</h2>
+<p>Bem, remover um <em>container</em> é mais simples ainda do que sua criação.
+Quando removemos um <em>container</em>, a imagem que foi utilizada para a sua
+criação permanece no <em>host</em>; somente o <em>container</em> é apagado.</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># docker container rm b34f4987bdce</span>
+
+Failed to remove container (b34f4987bdce): Error response from daemon:
+Conflict, You cannot remove a running container. Stop the container
+before attempting removal or use -f
+
+root@linuxtips:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Perceba que, quando você tentou remover o <em>container</em>, ele retornou um
+erro dizendo que falhou em remover, pois o <em>container</em> estava em
+execução. Ele inclusive recomenda que você pare o <em>container</em> antes de
+removê-lo ou então utilize a opção &quot;-f&quot;, forçando assim sua remoção.</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># docker container rm -f b34f4987bdce</span>
+b34f4987bdce
+
+root@linuxtips:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Para confirmar a remoção do <em>container</em>, utilize o comando &quot;docker
+container ls -a&quot;.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="chapter_03.html" class="navigation navigation-prev " aria-label="Previous page: Instalando o Docker">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="chapter_05.html" class="navigation navigation-next " aria-label="Next page: Configurando CPU e memória para os meus containers">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Executando e administrando containers Docker","level":"2.5","depth":1,"next":{"title":"Configurando CPU e memória para os meus containers","level":"2.6","depth":1,"path":"chapters/chapter_05.md","ref":"chapters/chapter_05.md","articles":[]},"previous":{"title":"Instalando o Docker","level":"2.4","depth":1,"path":"chapters/chapter_03.md","ref":"chapters/chapter_03.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapters/chapter_04.md","mtime":"2021-08-11T08:52:29.563Z","type":"markdown"},"gitbook":{"version":"3.6.20","time":"2021-08-11T08:52:39.457Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

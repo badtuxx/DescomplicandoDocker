@@ -1,0 +1,1219 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Docker Compose · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.6.20">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="chapter_14.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Sobre</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Proposta do livro
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Capítulos</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="chapter_00.html">
+            
+                <a href="chapter_00.html">
+            
+                    
+                    Introdução
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="chapter_01.html">
+            
+                <a href="chapter_01.html">
+            
+                    
+                     O que é container
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="chapter_02.html">
+            
+                <a href="chapter_02.html">
+            
+                    
+                    O que é o Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="chapter_03.html">
+            
+                <a href="chapter_03.html">
+            
+                    
+                    Instalando o Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="chapter_04.html">
+            
+                <a href="chapter_04.html">
+            
+                    
+                    Executando e administrando containers Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="chapter_05.html">
+            
+                <a href="chapter_05.html">
+            
+                    
+                    Configurando CPU e memória para os meus containers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="chapter_06.html">
+            
+                <a href="chapter_06.html">
+            
+                    
+                    Meu primeiro e tosco dockerfile...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="chapter_07.html">
+            
+                <a href="chapter_07.html">
+            
+                    
+                    Entendendo volumes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="chapter_08.html">
+            
+                <a href="chapter_08.html">
+            
+                    
+                    Criando e gerenciando imagens
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="chapter_09.html">
+            
+                <a href="chapter_09.html">
+            
+                    
+                    Compartilhando as imagens
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11" data-path="chapter_10.html">
+            
+                <a href="chapter_10.html">
+            
+                    
+                    Gerenciando a rede dos containers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.12" data-path="chapter_11.html">
+            
+                <a href="chapter_11.html">
+            
+                    
+                    Controlando o daemon do Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.13" data-path="chapter_12.html">
+            
+                <a href="chapter_12.html">
+            
+                    
+                    Docker Machine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.14" data-path="chapter_13.html">
+            
+                <a href="chapter_13.html">
+            
+                    
+                    Docker Swarm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.15" data-path="chapter_14.html">
+            
+                <a href="chapter_14.html">
+            
+                    
+                    Docker Secrets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.16" data-path="chapter_15.html">
+            
+                <a href="chapter_15.html">
+            
+                    
+                    Docker Compose
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Docker Compose</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="15-docker-compose">15. Docker Compose</h1>
+<p>Bem, agora chegamos em uma das partes mais importantes do livro, o
+sensacional e completo Docker Compose!</p>
+<p>O Docker Compose nada mais é do que uma forma de você conseguir escrever
+em um único arquivo todos os detalhes do ambiente de sua aplicação.
+Antes nós usávamos o <em>dockerfile</em> apenas para criar imagens, seja da
+minha aplicação, do meu BD ou do meu <em>webserver</em>, mas sempre de forma
+unitária, pois tenho um <em>dockerfile</em> para cada &quot;tipo&quot; de <em>container</em>: um
+para a minha <em>app</em>, outro para o meu BD e assim por diante.</p>
+<p>Com o Docker Compose nós falamos sobre o ambiente inteiro. Por exemplo,
+no Docker Compose nós definimos quais os <em>services</em> que desejamos criar
+e quais as características de cada <em>service</em> (quantidade de <em>containers</em>
+debaixo daquele <em>service</em>, volumes, <em>network</em>, <em>secrets</em>, etc.).</p>
+<p>O padrão que os <em>compose files</em> seguem é o YML, supersimples e de fácil
+entendimento, porém sempre é bom ficar ligado na sintaxe que o padrão
+YML lhe impõe. ;)</p>
+<p>Bem, vamos parar de falar e começar a brincadeira!</p>
+<p>Antes a gente precisava instalar o Docker Compose para utilizá-lo.
+Porém, hoje nós temos o subcomando &quot;docker stack&quot;, já disponível junto à
+instalação do Docker. Ele é responsável por realizar o <em>deploy</em> de
+nossos <em>services</em> através do Docker Compose de maneira simples, rápida e
+muito efetiva.</p>
+<p>&apos;Bora começar! A primeira coisa que devemos realizar é a própria criação
+do <em>compose file</em>. Vamos começar por um mais simples e vamos aumentando
+a complexidade conforme evoluímos.</p>
+<p>Lembre-se: para que possamos seguir com os próximos exemplos, o seu
+<em>cluster</em> <em>swarm</em> deverá estar funcionando perfeitamente. Portanto, se
+ainda não estiver com o <em>swarm</em> ativo, execute:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># docker swarm init</span>
+</code></pre>
+<p>Vamos criar um diretório chamado &quot;Composes&quot;, somente para que possamos
+organizar melhor nossos arquivos.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># mkdir /root/Composes</span>
+<span class="hljs-comment"># mkdir /root/Composes/1</span>
+<span class="hljs-comment"># cd /root/Composes/1</span>
+<span class="hljs-comment"># vim docker-compose.yml</span>
+</code></pre>
+<pre><code class="lang-yaml"><span class="hljs-attr">version:</span> <span class="hljs-string">&quot;3&quot;</span>
+
+<span class="hljs-attr">services:</span>
+    <span class="hljs-attr">web:</span>
+        <span class="hljs-attr">image:</span> <span class="hljs-string">nginx</span>
+        <span class="hljs-attr">deploy:</span>
+        <span class="hljs-attr">replicas:</span> <span class="hljs-number">5</span>
+        <span class="hljs-attr">resources:</span>
+        <span class="hljs-attr">limits:</span>
+            <span class="hljs-attr">cpus:</span> <span class="hljs-string">&quot;0.1&quot;</span>
+            <span class="hljs-attr">memory:</span> <span class="hljs-string">50M</span>
+        <span class="hljs-attr">restart_policy:</span>
+            <span class="hljs-attr">condition:</span> <span class="hljs-string">on-failure</span>
+        <span class="hljs-attr">ports:</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;8080:80&quot;</span>
+        <span class="hljs-attr">networks:</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-string">webserver</span>
+
+<span class="hljs-attr">networks:</span>
+    <span class="hljs-attr">webserver:</span>
+</code></pre>
+<p>Pronto! Agora já temos o nosso primeiro <em>docker-compose</em>. O que
+precisamos agora é realizar o <em>deploy</em>, porém antes vamos conhecer
+algumas opções que utilizamos anteriormente:</p>
+<ul>
+<li><p><strong>version: \&quot;3\&quot; --</strong> Versão do <em>compose</em> que estamos utilizando.</p>
+</li>
+<li><p><strong>services:</strong> -- Início da definição de meu serviço.</p>
+</li>
+<li><p><strong>web: <em>--</em></strong> Nome do serviço.</p>
+</li>
+<li><p><strong>image: nginx</strong> -- Imagem que vamos utilizar.</p>
+</li>
+<li><p><strong>deploy: --</strong> Início da estratégia de <em>deploy</em>.</p>
+</li>
+<li><p><strong>replicas: 5</strong> -- Quantidade de réplicas.</p>
+</li>
+<li><p><strong>resources:</strong> -- Início da estratégia de utilização de recursos.</p>
+</li>
+<li><p><strong>limits:</strong> -- Limites.</p>
+</li>
+<li><p><strong>cpus: \&quot;0.1\&quot;</strong> -- Limite de CPU.</p>
+</li>
+<li><p><strong>memory: 50M</strong> -- Limite de memória.</p>
+</li>
+<li><p><strong>restart_policy:</strong> -- Políticas de <em>restart</em>.</p>
+</li>
+<li><p><strong>condition: on-failure</strong> -- Somente irá &quot;restartar&quot; o <em>container</em> em caso de falha.</p>
+</li>
+<li><p><strong>ports:</strong> -- Quais portas desejamos expor.</p>
+</li>
+<li><p><strong>- \&quot;8080:80\&quot;</strong> -- Portas expostas e &quot;bindadas&quot;.</p>
+</li>
+<li><p><strong>networks:</strong> -- Definição das redes que irei utilizar nesse serviço.</p>
+</li>
+<li><p><strong><em>-</em> webserver</strong> -- Nome da rede desse serviço.</p>
+</li>
+<li><p><strong>networks:</strong> -- Declarando as redes que usaremos nesse <em>docker-compose</em>.</p>
+</li>
+<li><p><strong>webserver:</strong> -- Nome da rede a ser criada, caso não exista.</p>
+</li>
+</ul>
+<p>Simples como voar, não? :D</p>
+<h2 id="151-o-comando-docker-stack">15.1. O comando <em>docker stack</em></h2>
+<p>Agora precisamos realizar o <em>deploy</em> desse <em>service</em> através do <em>compose
+file</em> que criamos. Para isso, vamos utilizar o sensacional &quot;docker
+stack&quot;:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~/Composes/1<span class="hljs-comment"># docker stack deploy -c docker-compose.yml primeiro</span>
+Creating network primeiro_webserver
+Creating service primeiro_web
+
+root@linuxtips-01:~/Composes/1<span class="hljs-comment">#</span>
+</code></pre>
+<p>Simples assim, e nosso service já está disponível para uso. Agora vamos
+verificar se realmente o <em>service</em> subiu e se está respondendo conforme
+esperado:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~/Composes/1<span class="hljs-comment"># curl 0:8080</span>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Welcome to nginx!&lt;/title&gt;
+        &lt;style&gt;
+        body {
+            width: 35em;
+            margin: 0 auto;
+            font-family: Tahoma, Verdana, Arial, sans-serif;
+        }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Welcome to nginx!&lt;/h1&gt;
+        &lt;p&gt;If you see this page, the nginx web server is successfully installed and working. Further configuration is required.&lt;/p&gt;
+        &lt;p&gt;For online documentation and support please refer to
+        &lt;a href=<span class="hljs-string">&quot;http://nginx.org/&quot;</span>&gt;nginx.org&lt;/a&gt;.&lt;br/&gt;
+        Commercial support is available at
+        &lt;a href=<span class="hljs-string">&quot;http://nginx.com/&quot;</span>&gt;nginx.com&lt;/a&gt;.&lt;/p&gt;
+        &lt;p&gt;&lt;em&gt;Thank you <span class="hljs-keyword">for</span> using nginx.&lt;/em&gt;&lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+
+root@linuxtips-01:~/Composes/1<span class="hljs-comment">#</span>
+</code></pre>
+<p>Sensacional, o nosso <em>service</em> está em pé, pois recebemos a página de
+boas-vindas do Nginx!</p>
+<p>Vamos verificar se está tudo certo com o <em>service</em>:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~/Composes/1<span class="hljs-comment"># docker service ls</span>
+ID     NAME          MODE        REPLICAS    IMAGE           PORTS
+mw95t  primeiro_web  replicated  5/5         nginx:latest    *:8080-&gt;80/tcp
+
+root@linuxtips-01:~/Composes/1<span class="hljs-comment"># docker service ps primeiro_web</span>
+ID            NAME             IMAGE         NODE           DESIRED STATE   CURRENT STATE           ERROR   PORTS
+lrcqo8ifultq  primeiro_web.1   nginx:latest  LINUXtips-02   Running         Running 2 minutes ago
+ty16mkcqdwyl  primeiro_web.2   nginx:latest  LINUXtips-03   Running         Running 2 minutes ago
+dv670shw22o2  primeiro_web.3   nginx:latest  LINUXtips-01   Running         Running 2 minutes ago
+sp0k1tnjftnr  primeiro_web.4   nginx:latest  LINUXtips-01   Running         Running 2 minutes ago
+4fpl35llq1ih  primeiro_web.5   nginx:latest  LINUXtips-03   Running         Running 2 minutes ago
+
+root@linuxtips-01:~/Composes/1<span class="hljs-comment">#</span>
+</code></pre>
+<p>Para listar todos os <em>stacks</em> criados, basta executar:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~/Composes/1<span class="hljs-comment"># docker stack ls</span>
+NAME        SERVICES
+primeiro    1
+
+root@linuxtips-01:~/Composes/1<span class="hljs-comment">#</span>
+</code></pre>
+<p>Perceba: a saída diz que possuímos somente um <em>stack</em> criado e esse
+<em>stack</em> possui um <em>service</em>, que é exatamente o nosso do Nginx.</p>
+<p>Para visualizar os <em>services</em> que existem em determinado <em>stack</em>,
+execute:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~/Composes/1<span class="hljs-comment"># docker stack services primeiro</span>
+ID            NAME          MODE         REPLICAS   IMAGE          PORTS
+mx0p4vbrzfuj  primeiro_web  replicated   5/5        nginx:latest   *:8080-&gt;80/tcp
+
+root@linuxtips-01:~/Composes/1<span class="hljs-comment">#</span>
+</code></pre>
+<p>Podemos verificar os detalhes do nosso <em>stack</em> criado através do comando
+a seguir:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~/Composes/1<span class="hljs-comment"># docker stack ps primeiro</span>
+ID             NAME             IMAGE          NODE           DESIRED STATE    CURRENT STATE            ERROR   PORTS
+x3u03509w9u3   primeiro_web.1   nginx:latest   LINUXtips-03   Running          Running 5 seconds ago
+3hpu5lo6yvld   primeiro_web.2   nginx:latest   LINUXtips-02   Running          Running 5 seconds ago
+m82wbwuwoza0   primeiro_web.3   nginx:latest   LINUXtips-03   Running          Running 5 seconds ago
+y7vizedqvust   primeiro_web.4   nginx:latest   LINUXtips-02   Running          Running 5 seconds ago
+wk0acjnyl6jm   primeiro_web.5   nginx:latest   LINUXtips-01   Running          Running 5 seconds ago
+
+root@linuxtips-01:~/Composes/1<span class="hljs-comment">#</span>
+</code></pre>
+<p>Maravilha! Nosso <em>service</em> está <em>UP</em> e tudo está em paz!</p>
+<p>Em poucos minutos subimos o nosso <em>service</em> do Nginx em nosso <em>cluster</em>
+utilizando o <em>docker-compose</em> e o &quot;docker stack&quot;, simples como voar!</p>
+<p>Agora vamos imaginar que eu queira remover esse meu <em>service</em>. Como eu
+faço? Simples:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~/Composes/1<span class="hljs-comment"># docker stack rm primeiro</span>
+Removing service primeiro_web
+Removing network primeiro_webserver
+
+root@linuxtips-01:~/Composes/1<span class="hljs-comment">#</span>
+</code></pre>
+<p>Para verificar se realmente removeu o <em>service</em>:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~/Composes/1<span class="hljs-comment"># docker service ls</span>
+ID    NAME    MODE     REPLICAS     IMAGE     PORTS
+
+root@linuxtips-01:~/Composes/1<span class="hljs-comment">#</span>
+</code></pre>
+<p>Pronto! Nosso <em>service</em> está removido!</p>
+<p>Vamos aumentar um pouco a complexidade na criação de nosso
+<em>docker-compose</em> nesse novo exemplo.</p>
+<p>Vamos criar mais um diretório, onde criaremos o nosso novo <em>compose
+file</em>:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~/Composes<span class="hljs-comment"># mkdir 2</span>
+root@linuxtips-01:~/Composes<span class="hljs-comment"># cd 2</span>
+root@linuxtips-01:~/Composes<span class="hljs-comment"># vim docker-compose.yml</span>
+</code></pre>
+<pre><code class="lang-yaml"><span class="hljs-attr">version:</span> <span class="hljs-string">&apos;3&apos;</span>
+    <span class="hljs-attr">services:</span>
+        <span class="hljs-attr">db:</span>
+            <span class="hljs-attr">image:</span> <span class="hljs-string">mysql:5.7</span>
+            <span class="hljs-attr">volumes:</span>
+                <span class="hljs-bullet">-</span> <span class="hljs-string">db_data:/var/lib/mysql</span>
+            <span class="hljs-attr">environment:</span>
+                <span class="hljs-attr">MYSQL_ROOT_PASSWORD:</span> <span class="hljs-string">somewordpress</span>
+                <span class="hljs-attr">MYSQL_DATABASE:</span> <span class="hljs-string">wordpress</span>
+                <span class="hljs-attr">MYSQL_USER:</span> <span class="hljs-string">wordpress</span>
+                <span class="hljs-attr">MYSQL_PASSWORD:</span> <span class="hljs-string">wordpress</span>
+
+        <span class="hljs-attr">wordpress:</span>
+            <span class="hljs-attr">depends_on:</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">db</span>
+            <span class="hljs-attr">image:</span> <span class="hljs-string">wordpress:latest</span>
+            <span class="hljs-attr">ports:</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;8000:80&quot;</span>
+            <span class="hljs-attr">environment:</span>
+                <span class="hljs-attr">WORDPRESS_DB_HOST:</span> <span class="hljs-string">db:3306</span>
+                <span class="hljs-attr">WORDPRESS_DB_USER:</span> <span class="hljs-string">wordpress</span>
+                <span class="hljs-attr">WORDPRESS_DB_PASSWORD:</span> <span class="hljs-string">wordpress</span>
+
+<span class="hljs-attr">volumes:</span>
+    <span class="hljs-attr">db_data:</span>
+</code></pre>
+<p>Perfeito!</p>
+<p>Nesse exemplo estamos conhecendo mais algumas opções que podemos
+utilizar no <em>docker-compose</em>. São eles:</p>
+<ul>
+<li><p><strong>volumes:</strong> -- Definição dos volumes utilizados pelo <em>service</em>.</p>
+</li>
+<li><p><strong>- db_data:/var/lib/mysql</strong> -- Volume e destino.</p>
+</li>
+<li><p><strong>environment:</strong> -- Definição de variáveis de ambiente utilizados pelo <em>service.</em></p>
+</li>
+<li><p><strong>MYSQL_ROOT_PASSWORD: somewordpress</strong> -- Variável e valor.</p>
+</li>
+<li><p><strong>MYSQL_DATABASE: wordpress</strong> -- Variável e valor.</p>
+</li>
+<li><p><strong>MYSQL_USER: wordpress</strong> -- Variável e valor.</p>
+</li>
+<li><p><strong>MYSQL_PASSWORD: wordpress</strong> -- Variável e valor.</p>
+</li>
+<li><p><strong>depends_on:</strong> -- Indica que esse <em>service</em> depende de outro para subir.</p>
+</li>
+<li><p><strong>- db</strong> -- Nome do service que necessário para sua execução.</p>
+</li>
+</ul>
+<p>Muito simples, não?!?</p>
+<p>Agora vamos realizar o <em>deploy</em> desse exemplo. Como se pode perceber, o
+nosso <em>stack</em> é composto por dois <em>services</em>, o Wordpress e o MySQL.</p>
+<pre><code class="lang-bash">root@linuxtips-01:~/Composes/2<span class="hljs-comment"># docker stack deploy -c docker-compose.yml segundo</span>
+Creating network segundo_default
+Creating service segundo_db
+Creating service segundo_wordpress
+
+root@linuxtips-01:~/Composes/2<span class="hljs-comment">#</span>
+</code></pre>
+<p>Conforme esperado, ele realizou a criação dos dois <em>services</em> e da rede
+do <em>stack</em>.</p>
+<p>Para acessar o seu Wordpress, basta acessar em um navegador:</p>
+<p><strong><em><a href="http://SEU\_IP:8000" target="_blank">http://SEU\_IP:8000</a></em></strong></p>
+<p>Seu Wordpress está pronto para uso!</p>
+<p>Para verificar se correu tudo bem com os <em>services</em>, lembre-se dos
+comandos:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~/Composes/1<span class="hljs-comment"># docker stack ls</span>
+root@linuxtips-01:~/Composes/1<span class="hljs-comment"># docker stack services segundo</span>
+root@linuxtips-01:~/Composes/1<span class="hljs-comment"># docker service ls</span>
+root@linuxtips-01:~/Composes/1<span class="hljs-comment"># docker service ps segundo_db</span>
+root@linuxtips-01:~/Composes/1<span class="hljs-comment"># docker service ps segundo_wordpress</span>
+</code></pre>
+<p>Para visualizar os <em>logs</em> de determinado <em>service</em>:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~/Composes/2<span class="hljs-comment"># docker service logs segundo_wordpress</span>
+segundo_wordpress.1.r6reuq8fsil0@LINUXtips-01 | WordPress not found <span class="hljs-keyword">in</span> /var/www/html - copying now...
+segundo_wordpress.1.r6reuq8fsil0@LINUXtips-01 | Complete! WordPress has been successfully copied to /var/www/html
+segundo_wordpress.1.r6reuq8fsil0@LINUXtips-01 | AH00558: apache2: Could not reliably determine the server<span class="hljs-string">&apos;s fully qualified domain name, using 10.0.4.5. Set the &apos;</span>ServerName<span class="hljs-string">&apos; directive globally to suppress this message
+segundo_wordpress.1.r6reuq8fsil0@LINUXtips-01 | AH00558: apache2: Could not reliably determine the server&apos;</span>s fully qualified domain name, using 10.0.4.5. Set the <span class="hljs-string">&apos;ServerName&apos;</span> directive globally to suppress this message
+segundo_wordpress.1.r6reuq8fsil0@LINUXtips-01 | [Sun Jun 11 10:32:47.392836 2017] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.10 (Debian) PHP/5.6.30 configured -- resuming normal operations
+segundo_wordpress.1.r6reuq8fsil0@LINUXtips-01 | [Sun Jun 11 10:32:47.392937 2017] [core:notice] [pid 1] AH00094: Command line: <span class="hljs-string">&apos;apache2 -D FOREGROUND&apos;</span>
+
+root@linuxtips-01:~/Composes/2<span class="hljs-comment">#</span>
+</code></pre>
+<p>E se for necessária uma modificação em meu <em>stack</em> e depois um
+<em>re-deploy</em>, como eu faço? É possível?</p>
+<p>Claro! Afinal, Docker é muita vida!</p>
+<pre><code class="lang-bash">root@linuxtips-01:~/Composes<span class="hljs-comment"># mkdir 3</span>
+root@linuxtips-01:~/Composes<span class="hljs-comment"># cd 3</span>
+root@linuxtips-01:~/Composes/3<span class="hljs-comment"># vim docker-compose.yml</span>
+</code></pre>
+<pre><code class="lang-yaml"><span class="hljs-attr">version:</span> <span class="hljs-string">&quot;3&quot;</span>
+    <span class="hljs-attr">services:</span>
+        <span class="hljs-attr">web:</span>
+            <span class="hljs-attr">image:</span> <span class="hljs-string">nginx</span>
+            <span class="hljs-attr">deploy:</span>
+                <span class="hljs-attr">replicas:</span> <span class="hljs-number">5</span>
+            <span class="hljs-attr">resources:</span>
+                <span class="hljs-attr">limits:</span>
+                <span class="hljs-attr">cpus:</span> <span class="hljs-string">&quot;0.1&quot;</span>
+                <span class="hljs-attr">memory:</span> <span class="hljs-string">50M</span>
+            <span class="hljs-attr">restart_policy:</span>
+                <span class="hljs-attr">condition:</span> <span class="hljs-string">on-failure</span>
+            <span class="hljs-attr">ports:</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;8080:80&quot;</span>
+            <span class="hljs-attr">networks:</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">webserver</span>
+
+        <span class="hljs-attr">visualizer:</span>
+            <span class="hljs-attr">image:</span> <span class="hljs-string">dockersamples/visualizer:stable</span>
+            <span class="hljs-attr">ports:</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;8888:8080&quot;</span>
+            <span class="hljs-attr">volumes:</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;/var/run/docker.sock:/var/run/docker.sock&quot;</span>
+            <span class="hljs-attr">deploy:</span>
+                <span class="hljs-attr">placement:</span>
+                    <span class="hljs-attr">constraints:</span> [<span class="hljs-string">node.role</span> <span class="hljs-string">==</span> <span class="hljs-string">manager</span>]
+
+    <span class="hljs-attr">networks:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">webserver</span>
+
+<span class="hljs-attr">networks:</span>
+    <span class="hljs-attr">webserver:</span>
+</code></pre>
+<p>Perceba que apenas adicionamos um novo <em>service</em> ao nosso <em>stack</em>, o
+<em>visualizer</em>. A ideia é realizar o <em>update</em> somente no <em>stack</em> para
+adicionar o <em>visualizer</em>, sem deixar indisponível o <em>service</em> <em>web.</em></p>
+<p>Antes de realizarmos o <em>update</em> desse <em>stack</em>, vamos conhecer as novas
+opções que estão no <em>compose file</em> desse exemplo:</p>
+<p><strong>deploy:</strong></p>
+<ul>
+<li><p><strong>placement:</strong> -- Usado para definir a localização do nosso <em>service.</em></p>
+</li>
+<li><p><strong>constraints: [node.role == manager]</strong> -- Regra que obriga a criação desse <em>service</em> somente nos <em>nodes manager</em>.</p>
+</li>
+</ul>
+<p>Agora vamos atualizar o nosso <em>stack</em>:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~/Composes/3<span class="hljs-comment"># docker stack deploy -c docker-compose.yml primeiro</span>
+Creating service primeiro_visualizer
+Updating service primeiro_web (id: mx0p4vbrzfujk087c3xe2sjvo)
+
+root@linuxtips-01:~/Composes/3<span class="hljs-comment">#</span>
+</code></pre>
+<p>Perceba que, para realizar o <em>update</em> do <em>stack</em>, utilizamos o mesmo
+comando que usamos para realizar o primeiro <em>deploy</em> do <em>stack</em>, o
+&quot;docker stack deploy&quot;.</p>
+<p>Que tal aumentar ainda mais a complexidade e o número de <em>services</em> de
+um <em>stack</em>? &apos;Bora?</p>
+<p>Para esse exemplo, vamos utilizar um projeto do próprio Docker
+(<a href="https://github.com/dockersamples/example-voting-app" target="_blank">https://github.com/dockersamples/example-voting-app</a>),
+onde teremos diversos <em>services</em>. Vamos criar mais um diretório para
+receber o nosso projeto:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~/Composes<span class="hljs-comment"># mkdir 4</span>
+root@linuxtips-01:~/Composes<span class="hljs-comment"># cd 4</span>
+root@linuxtips-01:~/Composes/4<span class="hljs-comment"># vim compose-file.yml</span>
+</code></pre>
+<pre><code class="lang-yaml"><span class="hljs-attr">version:</span> <span class="hljs-string">&quot;3&quot;</span>
+
+<span class="hljs-attr">services:</span>
+    <span class="hljs-attr">redis:</span>
+        <span class="hljs-attr">image:</span> <span class="hljs-string">redis:alpine</span>
+        <span class="hljs-attr">ports:</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;6379&quot;</span>
+        <span class="hljs-attr">networks:</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-string">frontend</span>
+        <span class="hljs-attr">deploy:</span>
+            <span class="hljs-attr">replicas:</span> <span class="hljs-number">2</span>
+            <span class="hljs-attr">update_config:</span>
+                <span class="hljs-attr">parallelism:</span> <span class="hljs-number">2</span>
+                <span class="hljs-attr">delay:</span> <span class="hljs-string">10s</span>
+            <span class="hljs-attr">restart_policy:</span>
+                <span class="hljs-attr">condition:</span> <span class="hljs-string">on-failure</span>
+
+    <span class="hljs-attr">db:</span>
+        <span class="hljs-attr">image:</span> <span class="hljs-string">postgres:9.4</span>
+        <span class="hljs-attr">volumes:</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-string">db-data:/var/lib/postgresql/data</span>
+        <span class="hljs-attr">networks:</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-string">backend</span>
+        <span class="hljs-attr">deploy:</span>
+            <span class="hljs-attr">placement:</span>
+                <span class="hljs-attr">constraints:</span> [<span class="hljs-string">node.role</span> <span class="hljs-string">==</span> <span class="hljs-string">manager</span>]
+
+    <span class="hljs-attr">vote:</span>
+        <span class="hljs-attr">image:</span> <span class="hljs-string">dockersamples/examplevotingapp_vote:before</span>
+        <span class="hljs-attr">ports:</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-number">5000</span><span class="hljs-string">:80</span>
+        <span class="hljs-attr">networks:</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-string">frontend</span>
+        <span class="hljs-attr">depends_on:</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-string">redis</span>
+        <span class="hljs-attr">deploy:</span>
+            <span class="hljs-attr">replicas:</span> <span class="hljs-number">2</span>
+            <span class="hljs-attr">update_config:</span>
+                <span class="hljs-attr">parallelism:</span> <span class="hljs-number">2</span>
+            <span class="hljs-attr">restart_policy:</span>
+                <span class="hljs-attr">condition:</span> <span class="hljs-string">on-failure</span>
+
+    <span class="hljs-attr">result:</span>
+        <span class="hljs-attr">image:</span> <span class="hljs-string">dockersamples/examplevotingapp_result:before</span>
+        <span class="hljs-attr">ports:</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-number">5001</span><span class="hljs-string">:80</span>
+        <span class="hljs-attr">networks:</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-string">backend</span>
+        <span class="hljs-attr">depends_on:</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-string">db</span>
+        <span class="hljs-attr">deploy:</span>
+            <span class="hljs-attr">replicas:</span> <span class="hljs-number">1</span>
+            <span class="hljs-attr">update_config:</span>
+                <span class="hljs-attr">parallelism:</span> <span class="hljs-number">2</span>
+                <span class="hljs-attr">delay:</span> <span class="hljs-string">10s</span>
+            <span class="hljs-attr">restart_policy:</span>
+                <span class="hljs-attr">condition:</span> <span class="hljs-string">on-failure</span>
+
+    <span class="hljs-attr">worker:</span>
+        <span class="hljs-attr">image:</span> <span class="hljs-string">dockersamples/examplevotingapp_worker</span>
+        <span class="hljs-attr">networks:</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-string">frontend</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-string">backend</span>
+        <span class="hljs-attr">deploy:</span>
+            <span class="hljs-attr">mode:</span> <span class="hljs-string">replicated</span>
+            <span class="hljs-attr">replicas:</span> <span class="hljs-number">1</span>
+            <span class="hljs-attr">labels:</span> [<span class="hljs-string">APP=VOTING</span>]
+            <span class="hljs-attr">restart_policy:</span>
+                <span class="hljs-attr">condition:</span> <span class="hljs-string">on-failure</span>
+                <span class="hljs-attr">delay:</span> <span class="hljs-string">10s</span>
+                <span class="hljs-attr">max_attempts:</span> <span class="hljs-number">3</span>
+                <span class="hljs-attr">window:</span> <span class="hljs-string">120s</span>
+            <span class="hljs-attr">placement:</span>
+                <span class="hljs-attr">constraints:</span> [<span class="hljs-string">node.role</span> <span class="hljs-string">==</span> <span class="hljs-string">manager</span>]
+
+    <span class="hljs-attr">visualizer:</span>
+        <span class="hljs-attr">image:</span> <span class="hljs-string">dockersamples/visualizer:stable</span>
+        <span class="hljs-attr">ports:</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;8080:8080&quot;</span>
+        <span class="hljs-attr">stop_grace_period:</span> <span class="hljs-string">1m30s</span>
+        <span class="hljs-attr">volumes:</span>
+            <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;/var/run/docker.sock:/var/run/docker.sock&quot;</span>
+        <span class="hljs-attr">deploy:</span>
+            <span class="hljs-attr">placement:</span>
+                <span class="hljs-attr">constraints:</span> [<span class="hljs-string">node.role</span> <span class="hljs-string">==</span> <span class="hljs-string">manager</span>]
+<span class="hljs-attr">networks:</span>
+    <span class="hljs-attr">frontend:</span>
+    <span class="hljs-attr">backend:</span>
+
+<span class="hljs-attr">volumes:</span>
+    <span class="hljs-attr">db-data:</span>
+</code></pre>
+<p>Ficou mais complexo ou não? Acho que não, pois no Docker tudo é bastante
+simples!</p>
+<p>Temos algumas novas opções nesse exemplo, vamos conhecê-las:</p>
+<p><strong>deploy:</strong></p>
+<ul>
+<li><strong>mode: replicated</strong> -- Qual é o tipo de deployment? Temos dois, o <em>global</em> e o <em>replicated</em>. No <em>replicated</em> você escolhe a quantidade de réplicas do seu <em>service</em>, já no <em>global</em> você não escolhe a quantidade de réplicas, ele irá subir uma réplica por <em>node</em> de seu <em>cluster</em> (uma réplica em cada <em>node</em> de seu <em>cluster</em>).</li>
+</ul>
+<p><strong>update_config:</strong></p>
+<ul>
+<li><p><strong>parallelism: 2</strong> -- Como irão ocorrer os updates (no caso, de 2 em 2).</p>
+</li>
+<li><p><strong>delay: 10s</strong> -- Com intervalo de 10 segundos.</p>
+</li>
+</ul>
+<p><strong>restart_policy:</strong></p>
+<ul>
+<li><p><strong>condition: on-failure</strong> -- Em caso de falha, <em>restart.</em></p>
+</li>
+<li><p><strong>delay: 10s</strong> -- Com intervalo de 10 segundos.</p>
+</li>
+<li><p><strong>max_attempts: 3</strong> -- Com no máximo três tentativas.</p>
+</li>
+<li><p><strong>window: 120s</strong> -- Tempo para definir se o <em>restart</em> do <em>container</em> ocorreu com sucesso.</p>
+</li>
+</ul>
+<p>Agora vamos realizar o <em>deploy</em> do nosso <em>stack</em>:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~/Composes/4<span class="hljs-comment"># docker stack deploy -c docker-compose.yml quarto</span>
+Creating network quarto_default
+Creating network quarto_frontend
+Creating network quarto_backend
+Creating service quarto_worker
+Creating service quarto_visualizer
+Creating service quarto_redis
+Creating service quarto_db
+Creating service quarto_vote
+Creating service quarto_result
+
+root@linuxtips-01:~/Composes/4<span class="hljs-comment">#</span>
+</code></pre>
+<p>Verificando os <em>services</em>:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~/Composes/4<span class="hljs-comment"># docker service ls</span>
+ID            NAME               MODE       REPLICAS   IMAGE                                             PORTS
+3hi3sx2on3t5  quarto_worker      replicated 1/1        dockersamples/examplevotingapp_worker:latest
+hbsp4fdcvgnz  quarto_visualizer  replicated 1/1        dockersamples/visualizer:stable                   :8080-&gt;8080/tcp
+k6xuqbq7g55a  quarto_db          replicated 1/1        postgres:9.4 
+p2reijydxnsw  quarto_result      replicated 1/1        dockersamples/examplevotingapp_result:before      :5001-&gt;80/tcp
+rtwnnkwftg9u  quarto_redis       replicated 2/2        redis:alpine                                      :0-&gt;6379/tcp
+w2ritqiklpok  quarto_vote        replicated 2/2        dockersamples/examplevotingapp_vote:before        :5000-&gt;80/tcp
+
+root@linuxtips-01:~/Composes/4<span class="hljs-comment">#</span>
+</code></pre>
+<p>Lembre-se de sempre utilizar os comandos que já conhecemos para
+visualizar <em>stack</em>, <em>services</em>, volumes, <em>container</em>, etc.</p>
+<p>Para acessar os services em execução, abra um navegador e vá aos
+seguintes endereços:</p>
+<ul>
+<li><p><strong>Visualizar a página de votação:</strong> <a href="http://IP_CLUSTER:5000/" target="_blank">http://IP_CLUSTER:5000/</a></p>
+</li>
+<li><p><strong>Visualizar a página de resultados:</strong> <a href="http://IP_CLUSTER:5001/" target="_blank">http://IP_CLUSTER:5001/</a></p>
+</li>
+<li><p><strong>Visualizar a página de com os <em>containers</em> e seus <em>nodes</em>:</strong> <a href="http://IP_CLUSTER:8080/" target="_blank">http://IP_CLUSTER:8080/</a></p>
+</li>
+</ul>
+<p>Vamos para mais um exemplo. Agora vamos realizar o <em>deploy</em> de um
+<em>stack</em> completo de monitoração para o nosso <em>cluster</em> e todas as demais
+máquinas de nossa infraestrutura. Nesse exemplo vamos utilizar um
+arquivo YML que realizará o <em>deploy</em> de diversos <em>containers</em> para que
+possamos ter as seguintes ferramentas integradas:</p>
+<ul>
+<li><p><strong>Prometheus</strong> -- Para armazenar todas as métricas de nosso ambiente.</p>
+</li>
+<li><p><strong>cAdvisor</strong> -- Para coletar informações dos <em>containers</em>.</p>
+</li>
+<li><p><strong>Node Exporter</strong> -- Para coletar informações dos <em>nodes</em> do <em>cluster</em> e demais máquinas do ambiente.</p>
+</li>
+<li><p><strong>Netdata</strong> -- Para coletar mais de 5 mil métricas de nossas máquinas, além de prover um <em>dashboard</em> sensacional.</p>
+</li>
+<li><p><strong>Rocket.Chat</strong> -- Para que possamos nos comunicar com outros times e pessoas e também para integrá-lo ao sistema de monitoração, notificando quando os alertas acontecem. O Rocket.Chat é uma excelente alternativa ao Slack.</p>
+</li>
+<li><p><strong>AlertManager</strong> -- Integrado ao Prometheus e ao Rocket.Chat, é o responsável por gerenciar nossos alertas.</p>
+</li>
+<li><p><strong>Grafana</strong> -- Integrado à nossa solução de monitoração, ele é o responsável pelos <em>dashboards</em> que são produzidos através das métricas que estão armazenadas no Prometheus.</p>
+</li>
+</ul>
+<p>Com esse <em>stack</em> é possível monitorar <em>containers</em>, VMs e máquinas
+físicas. Porém, o nosso foco agora é somente no que se refere ao livro e
+a este capítulo, ou seja, as informações contidas no <em>compose file</em> que
+definirão nosso <em>stack</em>.</p>
+<p>Para maiores detalhes em relação ao <em>Giropops-Monitoring</em>, acesse o
+repositório no endereço:
+<a href="https://github.com/badtuxx/giropops-monitoring" target="_blank">https://github.com/badtuxx/giropops-monitoring</a>.</p>
+<p>Antes de conhecer nosso <em>compose file</em>, precisamos realizar o clone do
+projeto:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># git clone https://github.com/badtuxx/giropops-monitoring.git</span>
+</code></pre>
+<p>Acesse o diretório &quot;giropops-monitoring&quot;:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># cd giropops-monitoring</span>
+</code></pre>
+<p>O nosso foco aqui será em três caras: o arquivo &quot;grafana.config&quot;, o
+diretório &quot;conf&quot; e o nosso querido e idolatrado &quot;docker-compose.yml&quot;.</p>
+<p>O arquivo &quot;grafana.config&quot; contém variáveis que queremos passar ao nosso
+Grafana. Nesse momento a única informação importante é o <em>password</em> do
+<em>admin</em>, usuário que utilizaremos para logar na interface web do
+Grafana.</p>
+<p>O diretório &quot;conf&quot; possui os arquivos necessários para que a integração
+entre as aplicações de nosso <em>stack</em> funcionem corretamente.</p>
+<p>Já o nosso <em>compose file</em> traz todas as informações necessárias para que
+nós possamos realizar o <em>deploy</em> de nosso <em>stack</em>.</p>
+<p>Como o nosso foco é o <em>compose file</em>, &apos;bora lá conhecê-lo!</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># cat docker-compose.yml</span>
+version: <span class="hljs-string">&apos;3.3&apos;</span>
+services:
+    prometheus:
+        image: linuxtips/prometheus_alpine
+        volumes:
+        - ./conf/prometheus/:/etc/prometheus/
+        - prometheus_data:/var/lib/prometheus
+        networks:
+        - backend
+        ports:
+        - 9090:9090
+
+    node-exporter:
+        image: linuxtips/node-exporter_alpine
+        hostname: {% raw %}<span class="hljs-string">&apos;{{.Node.ID}}&apos;</span>{% endraw %}
+        volumes:
+        - /proc:/usr/proc
+        - /sys:/usr/sys
+        - /:/rootfs
+        deploy:
+            mode: global
+        networks:
+        - backend
+        ports:
+        - 9100:9100
+
+    alertmanager:
+        image: linuxtips/alertmanager_alpine
+        volumes:
+        - ./conf/alertmanager/:/etc/alertmanager/
+        networks:
+        - backend
+        ports:
+        - 9093:9093
+
+    cadvisor:
+        image: google/cadvisor
+        hostname: {% raw %}<span class="hljs-string">&apos;{{.Node.ID}}&apos;</span>{% endraw %}
+        volumes:
+        - /:/rootfs:ro
+        - /var/run:/var/run:rw
+        - /sys:/sys:ro
+        - /var/lib/docker/:/var/lib/docker:ro
+        - /var/run/docker.sock:/var/run/docker.sock:ro
+        networks:
+        - backend
+        deploy:
+            mode: global
+        ports:
+        - 8080:8080
+
+    grafana:
+        image: nopp/grafana_alpine
+        depends_on:
+        - prometheus
+        volumes:
+        - ./conf/grafana/grafana.db:/grafana/data/grafana.db
+        env_file:
+        - grafana.config
+        networks:
+        - backend
+        - frontend
+        ports:
+        - 3000:3000
+
+    <span class="hljs-comment"># If you already has a RocketChat instance running, just comment the code of rocketchat, mongo and mongo-init-replica services bellow</span>
+    rocketchat:
+        image: rocketchat/rocket.chat:latest
+        volumes:
+        - rocket_uploads:/app/uploads
+        environment:
+        - PORT=3080
+        - ROOT_URL=http://YOUR_IP:3080
+        - MONGO_URL=mongodb://giropops_mongo:27017/rocketchat
+        - MONGO_OPLOG_URL=mongodb://giropops_mongo:27017/<span class="hljs-built_in">local</span>
+        depends_on:
+        - giropops_mongo
+        ports:
+        - 3080:3080
+
+    mongo:
+        image: mongo:3.2
+        volumes:
+        - mongodb_data:/data/db
+        <span class="hljs-comment">#- ./data/dump:/dump</span>
+        <span class="hljs-built_in">command</span>: mongod --smallfiles --oplogSize 128 --replSet rs0
+        mongo-init-replica:
+        image: mongo:3.2
+        <span class="hljs-built_in">command</span>: <span class="hljs-string">&apos;mongo giropops_mongo/rocketchat --eval &quot;rs.initiate({_id: &apos;</span><span class="hljs-string">&apos;rs0&apos;</span><span class="hljs-string">&apos;, members: [ { _id: 0, host: &apos;</span><span class="hljs-string">&apos;localhost:27017&apos;</span><span class="hljs-string">&apos;} ]})&quot;&apos;</span>
+        depends_on:
+        - giropops_mongo
+
+networks:
+    frontend:
+    backend:
+
+volumes:
+    prometheus_data:
+    grafana_data:
+    rocket_uploads:
+    mongodb_data:
+</code></pre>
+<p>Perceba que já conhecemos todas as opções que estão nesse exemplo, nada
+de novo. :D</p>
+<p>O que precisamos agora é realizar o <em>deploy</em> de nosso <em>stack</em>:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># docker stack deploy -c docker-compose.yml giropops</span>
+Creating network giropops_backend
+Creating network giropops_frontend
+Creating network giropops_default
+Creating service giropops_grafana
+Creating service giropops_rocketchat
+Creating service giropops_mongo
+Creating service giropops_mongo-init-replica
+Creating service giropops_prometheus
+Creating service giropops_node-exporter
+Creating service giropops_alertmanager
+Creating service giropops_cadvisor
+</code></pre>
+<p>Caso queira verificar se os <em>services</em> estão em execução:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># docker service ls</span>
+</code></pre>
+<p>Para listar os <em>stacks</em>:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># docker stack ls</span>
+</code></pre>
+<p>Para acessar os serviços do quais acabamos de realizar o <em>deploy</em>, basta
+acessar os seguintes endereços:</p>
+<ul>
+<li><p><strong>Prometheus</strong>: <a href="http://SEU_IP:9090" target="_blank">http://SEU_IP:9090</a></p>
+</li>
+<li><p><strong>AlertManager</strong>: <a href="http://SEU_IP:9093" target="_blank">http://SEU_IP:9093</a></p>
+</li>
+<li><p><strong>Grafana</strong>: <a href="http://SEU_IP:3000" target="_blank">http://SEU_IP:3000</a></p>
+</li>
+<li><p><strong>Node_Exporter</strong>: <a href="http://SEU_IP:9100" target="_blank">http://SEU_IP:9100</a></p>
+</li>
+<li><p><strong>Rocket.Chat:</strong> <a href="http://SEU_IP:3080" target="_blank">http://SEU_IP:3080</a></p>
+</li>
+<li><p><strong>cAdivisor</strong>: <a href="http://SEU_IP:8080" target="_blank">http://SEU_IP:8080</a></p>
+</li>
+</ul>
+<p>Para remover o <em>stack</em>:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># docker stack rm giropops</span>
+</code></pre>
+<p>Lembrando: para conhecer mais sobre o <em>giropops-monitoring</em> acesse o
+repositório no GitHub e assista à série de vídeos em que o Jeferson fala
+detalhadamente como montou essa solução:</p>
+<ul>
+<li><p><strong>Repo</strong>:</p>
+<blockquote>
+<p><a href="https://github.com/badtuxx/giropops-monitoring" target="_blank">https://github.com/badtuxx/giropops-monitoring</a></p>
+</blockquote>
+</li>
+<li><p><strong>Vídeos</strong>:</p>
+<blockquote>
+<p><a href="https://www.youtube.com/playlist?list=PLf-O3X2-mxDls9uH8gyCQTnyXNMe10iml" target="_blank">https://www.youtube.com/playlist?list=PLf-O3X2-mxDls9uH8gyCQTnyXNMe10iml</a></p>
+</blockquote>
+</li>
+</ul>
+<p>E assim termina a nossa jornada no mundo do Docker. Esperamos que você
+tenha aprendido e, mais do que isso, tenha gostado de dividir esse tempo
+conosco para falar sobre o que nós mais amamos, tecnologia!</p>
+<h2 id="152-e-já-acabou-">15.2. E já acabou? :(</h2>
+<p>Esperamos que você tenha curtido viajar conosco durante o seu
+aprendizado sobre <em>containers</em> e principalmente sobre o ecossistema do
+Docker, que é sensacional!</p>
+<p>Não pare de aprender mais sobre Docker! Continue acompanhando o Canal
+LinuxTips no <a href="https://www.youtube.com/linuxtips" target="_blank">https://www.youtube.com/linuxtips</a>
+e fique ligado no site do Docker, pois sempre tem novidades e ótima
+documentação!</p>
+<p>Junte-se a nós no Discord para que possa acompanhar e tirar dúvidas que
+possam ter surgido durante seus estudos!</p>
+<p>#VAIIII</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="chapter_14.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Docker Secrets">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Docker Compose","level":"2.16","depth":1,"previous":{"title":"Docker Secrets","level":"2.15","depth":1,"path":"chapters/chapter_14.md","ref":"chapters/chapter_14.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapters/chapter_15.md","mtime":"2021-08-11T08:52:29.563Z","type":"markdown"},"gitbook":{"version":"3.6.20","time":"2021-08-11T08:52:39.457Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

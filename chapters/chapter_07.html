@@ -1,0 +1,768 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Entendendo volumes · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.6.20">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="chapter_08.html" />
+    
+    
+    <link rel="prev" href="chapter_06.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Sobre</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Proposta do livro
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Capítulos</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="chapter_00.html">
+            
+                <a href="chapter_00.html">
+            
+                    
+                    Introdução
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="chapter_01.html">
+            
+                <a href="chapter_01.html">
+            
+                    
+                     O que é container
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="chapter_02.html">
+            
+                <a href="chapter_02.html">
+            
+                    
+                    O que é o Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="chapter_03.html">
+            
+                <a href="chapter_03.html">
+            
+                    
+                    Instalando o Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="chapter_04.html">
+            
+                <a href="chapter_04.html">
+            
+                    
+                    Executando e administrando containers Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="chapter_05.html">
+            
+                <a href="chapter_05.html">
+            
+                    
+                    Configurando CPU e memória para os meus containers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="chapter_06.html">
+            
+                <a href="chapter_06.html">
+            
+                    
+                    Meu primeiro e tosco dockerfile...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.8" data-path="chapter_07.html">
+            
+                <a href="chapter_07.html">
+            
+                    
+                    Entendendo volumes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="chapter_08.html">
+            
+                <a href="chapter_08.html">
+            
+                    
+                    Criando e gerenciando imagens
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="chapter_09.html">
+            
+                <a href="chapter_09.html">
+            
+                    
+                    Compartilhando as imagens
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11" data-path="chapter_10.html">
+            
+                <a href="chapter_10.html">
+            
+                    
+                    Gerenciando a rede dos containers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.12" data-path="chapter_11.html">
+            
+                <a href="chapter_11.html">
+            
+                    
+                    Controlando o daemon do Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.13" data-path="chapter_12.html">
+            
+                <a href="chapter_12.html">
+            
+                    
+                    Docker Machine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.14" data-path="chapter_13.html">
+            
+                <a href="chapter_13.html">
+            
+                    
+                    Docker Swarm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.15" data-path="chapter_14.html">
+            
+                <a href="chapter_14.html">
+            
+                    
+                    Docker Secrets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.16" data-path="chapter_15.html">
+            
+                <a href="chapter_15.html">
+            
+                    
+                    Docker Compose
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Entendendo volumes</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="7-entendendo-volumes">7. Entendendo volumes</h1>
+<h2 id="71-introdução-a-volumes-no-docker">7.1. Introdução a volumes no Docker</h2>
+<p>Bom, volumes nada mais são que diretórios externos ao <em>container</em>, que
+são montados diretamente nele, e dessa forma <em>bypassam</em> seu
+<em>filesystem</em>, ou seja, não seguem aquele padrão de camadas que falamos.
+Decepcionei você? Que bom, sinal de que é bem simples e você não vai ter
+problemas para entender. :)</p>
+<p>A principal função do volume é persistir os dados. Diferentemente do
+<em>filesystem</em> do <em>container,</em> que é volátil e toda informação escrita
+nele é perdida quando o <em>container</em> morre, quando você escreve em um
+volume aquele dado continua lá, independentemente do estado do
+<em>container</em>.</p>
+<p>Existem algumas particularidades entre os volumes e <em>containers</em> que
+valem a pena ser mencionadas:</p>
+<ul>
+<li><p>O volume é inicializado quando o <em>container</em> é criado.</p>
+</li>
+<li><p>Caso ocorra de já haver dados no diretório em que você está montando como volume, ou seja, se o diretório já existe e está &quot;populado&quot; na imagem base, aqueles dados serão copiados para o volume.</p>
+</li>
+<li><p>Um volume pode ser reusado e compartilhado entre <em>containers</em>.</p>
+</li>
+<li><p>Alterações em um volume são feitas diretamente no volume.</p>
+</li>
+<li><p>Alterações em um volume não irão com a imagem quando você fizer uma cópia ou <em>snapshot</em> de um <em>container</em>.</p>
+</li>
+<li><p>Volumes continuam a existir mesmo se você deletar o <em>container</em>.</p>
+</li>
+</ul>
+<p>Dito isso, chega de papo. Vamos aprender a adicionar um volume em um
+<em>container</em>.</p>
+<p>Primeiro, vamos ver como funciona da maneira antiga, que ainda é
+suportada, porém não é elegante. :)</p>
+<p>Essa maneira é muito utilizada quando se quer montar um diretório
+específico do <em>host</em> dentro do <em>container</em>. Isso é ruim quando estamos
+trabalhando em <em>cluster</em>, uma vez que teríamos que garantir esse
+diretório criado em todos os <em>hosts</em> do <em>cluster</em>. Não seria legal.</p>
+<p>Porém, podemos aprender como funciona e utilizar em algum momento, caso
+se faça necessário. Para evitar erros, primeiro crie o diretório
+&quot;/volume&quot; na sua máquina.</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># mkdir /volume</span>
+root@linuxtips:~<span class="hljs-comment"># docker container run -ti --mount type=bind,src=/volume,dst=/volume ubuntu</span>
+root@7db02e999bf2:/<span class="hljs-comment"># df -h</span>
+
+Filesystem                  Size  Used Avail Use%   Mounted on
+none                         13G  6.8G 5.3G   57%   /
+tmpfs                       999M     0 999M    0%   /dev
+tmpfs                       999M     0 999M    0%   /sys/fs/cgroup
+/dev/mapper/ubuntu--vg-root  13G  6.8G 5.3G   57%   /volume 
+shm                          64M     0  64M    0%   /dev/shm
+
+root@7db02e999bf2:/<span class="hljs-comment"># ls</span>
+bin boot dev etc home lib lib64 media mnt opt proc root run sbin srv sys tmp usr var volume
+
+root@7db02e999bf2:/<span class="hljs-comment">#</span>
+</code></pre>
+<p>No exemplo anterior, conhecemos um novo parâmetro do comando &quot;docker
+container run&quot;, o &quot;--mount&quot;.</p>
+<p>O parâmetro &quot;--mount&quot; é o responsável por indicar o volume, que em
+nosso exemplo é o &quot;/volume&quot;, e onde ele será montado no <em>container</em>.
+Perceba que, quando passamos o parâmetro &quot;--mount
+type=bind,src=/volume,dst=/volume&quot;, o Docker montou esse diretório no
+<em>container</em>, porém sem nenhum conteúdo.</p>
+<p>Podemos também montar um volume no <em>container linkando-o</em> com um
+diretório do <em>host</em> já com algum conteúdo. Para exemplificar, vamos
+compartilhar o diretório &quot;/root/primeiro_container&quot;, que utilizamos
+para guardar o nosso primeiro <em>dockerfile</em>, e montá-lo no <em>container</em> em
+um volume chamado &quot;/volume&quot; da seguinte forma:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># docker container run -ti --mount type=bind,src=/root/primeiro_container,dst=/volume ubuntu</span>
+
+root@3d372a410ea2:/<span class="hljs-comment"># df -h</span>
+Filesystem                   Size Used Avail  Use%  Mounted on
+none                          13G 6.8G  5.3G   57%  /
+tmpfs                        999M    0  999M    0%  /dev
+tmpfs                        999M    0  999M    0%  /sys/fs/cgroup
+/dev/mapper/ubuntu--vg-root   13G 6.8G  5.3G   57%  /volume
+shm                           64M    0   64M    0%  /dev/shm
+
+root@3d372a410ea2:/<span class="hljs-comment">#</span>
+</code></pre>
+<p>Com isso, estamos montando o diretório &quot;/root/primeiro_dockerfile&quot; do
+<em>host</em> dentro do <em>container</em> com o nome de &quot;/volume&quot;.</p>
+<p>No <em>container</em>:</p>
+<pre><code class="lang-bash">root@3d372a410ea2:/<span class="hljs-comment"># ls /volume/</span>
+Dockerfile
+
+root@3d372a410ea2:/<span class="hljs-comment">#</span>
+</code></pre>
+<p>No <em>host</em>:</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># ls /root/primeiro_dockerfile/</span>
+Dockerfile
+
+root@linuxtips:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Caso eu queira deixar o volume no <em>container</em> apenas como <em>read-only,</em> é
+possível. Basta passar o parâmetro &quot;ro&quot; após o destino onde será montado
+o volume:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># docker container run -ti --mount type=bind,src=/root/primeiro_container,dst=/volume,ro ubuntu</span>
+root@8d7863b1d9af:/<span class="hljs-comment"># df -h</span>
+
+Filesystem                   Size   Used  Avail  Use%  Mounted on
+none                          13G   6.8G   5.3G   57%  /
+tmpfs                        999M      0   999M    0%  /dev
+tmpfs                        999M      0   999M    0%  /sys/fs/cgroup
+/dev/mapper/ubuntu--vg-root   13G   6.8G   5.3G   57%  /volume
+shm                           64M      0    64M    0%  /dev/shm
+
+root@8d7863b1d9af:/<span class="hljs-comment"># cd /volume/</span>
+root@8d7863b1d9af:/volume<span class="hljs-comment"># ls</span>
+Dockerfile
+
+root@8d7863b1d9af:/volume<span class="hljs-comment"># mkdir teste</span>
+mkdir: cannot create directory <span class="hljs-string">&apos;teste&apos;</span>: Read-only file system
+
+root@8d7863b1d9af:/volume<span class="hljs-comment">#</span>
+</code></pre>
+<p>Assim como é possível montar um diretório como volume, também é possível
+montar um arquivo:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># docker container run -ti --mount type=bind,src=/root/primeiro_container/Dockerfile,dst=/Dockerfile ubuntu</span>
+
+root@df0e3e58280a:/<span class="hljs-comment"># df -h</span>
+
+Filesystem                   Size   Used  Avail  Use%  Mounted on
+none                          13G   6.8G   5.3G   57%  /
+tmpfs                        999M      0   999M    0%  /dev
+tmpfs                        999M      0   999M    0%  /sys/fs/cgroup
+/dev/mapper/ubuntu--vg-root   13G   6.8G   5.3G   57%  /Dockerfile
+shm                           64M      0    64M    0%  /dev/shm
+
+root@df0e3e58280a:/<span class="hljs-comment"># cat Dockerfile</span>
+FROM debian
+RUN /bin/<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;HELLO DOCKER&quot;</span>
+
+root@df0e3e58280a:/<span class="hljs-comment">#</span>
+</code></pre>
+<p>Isso faz com que o arquivo &quot;/root/primeiro_dockerfile/Dockerfile&quot; seja
+montado em &quot;/Dockerfile&quot; no <em>container</em>.</p>
+<h2 id="72-criando-volumes">7.2. Criando volumes</h2>
+<p>Agora vamos criar os volumes da maneira mais elegante e atual. Hoje
+temos a possibilidade de realizar o gerenciamento de volumes de maneira
+muito simples e inteligente.</p>
+<p>Sempre que criamos um volume, ele cria um diretório com o mesmo nome
+dentro de &quot;/var/lib/docker/volumes/&quot;.</p>
+<p>No exemplo a seguir, o volume &quot;giropops&quot; seria então criado em
+&quot;/var/lib/docker/volumes/giropops&quot;; com isso, todos os arquivos
+disponíveis nesse diretório também estariam disponíveis no local
+indicado no <em>container</em>. Vamos aos exemplos! :D</p>
+<p>É possível fazer a criação de volumes e toda a sua administração através
+do comando:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># docker volume create giropops</span>
+</code></pre>
+<p>É possível removê-lo através do comando:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># docker volume rm giropops</span>
+</code></pre>
+<p>Para verificar detalhes sobre esse volume:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># docker volume inspect giropops</span>
+</code></pre>
+<p>Para remover os volumes que não estão sendo utilizados (use com extrema
+moderação! :D):</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># docker volume prune</span>
+</code></pre>
+<p>Para que você possa montar o volume criado em algum
+<em>container</em>/<em>service</em>, basta executar o seguinte comando:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># docker container run -d --mount type=volume,source=giropops,destination=/var/opa nginx</span>
+</code></pre>
+<p>Onde:</p>
+<ul>
+<li><p><strong>--mount</strong> -- Comando utilizado para montar volumes.</p>
+</li>
+<li><p><strong>type=volume</strong> -- Indica que o tipo é &quot;volume&quot;. Ainda existe o tipo &quot;bind&quot;, onde, em vez de indicar um volume, você indicaria um diretório como <em>source</em>.</p>
+</li>
+<li><p><strong>source=giropops</strong> -- Qual o volume que pretendo montar.</p>
+</li>
+<li><p><strong>destination=/var/opa</strong> -- Onde no <em>container</em> montarei esse volume.</p>
+</li>
+</ul>
+<p>Simples como voar, não?</p>
+<h2 id="73-localizando-volumes">7.3. Localizando volumes</h2>
+<p>Caso você queira obter a localização do seu volume, é simples. Mas para
+isso você precisa conhecer o comando &quot;docker volume inspect&quot;.</p>
+<p>Com o &quot;docker volume inspect&quot; você consegue obter detalhes do seu
+<em>container</em>, como, por exemplo, detalhes do volume.</p>
+<p>A saída do comando &quot;docker volume inspect&quot; retorna mais informação do
+que somente o <em>path</em> do diretório no <em>host</em>. Vamos usar a opção
+&quot;--format&quot; ou &quot;-f&quot; para filtrar a saída do &quot;inspect&quot;.</p>
+<pre><code class="lang-bash">docker volume inspect --format {% raw %}<span class="hljs-string">&apos;{{ .Mountpoint }}&apos;</span>{% endraw %} giropops
+/var/lib/docker/volumes/giropopos/_data
+</code></pre>
+<h2 id="73-criando-e-montando-um-data-only-container">7.3. Criando e montando um <em>data-only container</em></h2>
+<p>Uma opção bastante interessante em relação aos volumes diz respeito ao
+<em>data-only container</em>, cuja principal função é prover volumes para
+outros <em>containers</em>. Lembra do NFS <em>server</em> e do Samba? Ambos
+centralizavam diretórios com a finalidade de compartilhar entre outros
+servidores. Pois bem, o <em>data-only container</em> tem a mesma finalidade:
+prover volumes a outros <em>containers</em>.</p>
+<p>Um dos grandes baratos do Docker é a portabilidade. Um <em>container</em>
+criado no seu <em>laptop</em> deve ser portátil a ponto de rodar em qualquer
+outro ambiente que utilize o Docker, em todos os cantos do universo!</p>
+<p>Sendo assim, o que acontece se eu criar um ambiente em Docker que diz
+para os <em>containers</em> montarem um diretório do <em>host</em> local? Depende.
+Depende de como está esse tal <em>host</em> local. Perguntas como &quot;o diretório
+existe?&quot; &quot;as permissões estão ajustadas?&quot;, entre outras mais, definirão
+o sucesso na execução dos <em>containers</em>, o que foge completamente do
+escopo do Docker.</p>
+<p>Vamos ver como funciona isso na prática! :)</p>
+<p>Para o nosso exemplo, primeiro vamos criar um <em>container</em> chamado
+&quot;dbdados&quot;, com um volume chamado &quot;/data&quot;, que guardará os dados de um
+banco PostgreSQL.</p>
+<p>Para que possamos criar um <em>container</em> especificando um nome para ele,
+utilizamos o parâmetro &quot;--name&quot;, conforme veremos no exemplo a seguir:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># docker container create -v /data --name dbdados centos</span>
+</code></pre>
+<p>Com isso, apenas criamos o <em>container</em> e especificamos um volume para
+ele, mas ainda não o iniciamos.</p>
+<p>Sabemos que no <em>container</em> o volume se encontra montado em &quot;/data&quot;.
+Porém, qual a localização desse volume no <em>host</em>?</p>
+<p>Lembra do &quot;docker inspect&quot;? Vamos utilizá-lo novamente:</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># docker inspect -f {% raw %}{{.Mounts}}{% endraw %} dbdados</span>
+
+[{46255137fe3f6d5f593e9ba9aaaf570b2f8b5c870f587c2fb34f29b79f97c30c /var/lib/docker/volumes/46255137fe3f6d5f593e9ba9aaaf570b2f8b5c870f587c2fb34f29b79f97c30c/_data /data <span class="hljs-built_in">local</span> <span class="hljs-literal">true</span> }]
+</code></pre>
+<p>Perceba que agora utilizamos o nome do <em>container</em> em vez do &quot;CONTAINER
+ID&quot;. Totalmente possível e muito mais intuitivo.</p>
+<p>Quando executamos o &quot;docker inspect&quot;, ele nos retornou o caminho do
+nosso volume. Vamos ver se existe algum conteúdo dentro dele:</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># ls \</span>
+ /var/lib/docker/volumes/46255137fe3f6d5f593e9ba9aaaf570b2f8b5c870f587c2fb34f29b79f97c30c/_data
+</code></pre>
+<p>Como vimos, o diretório ainda não possui conteúdo.</p>
+<p>Agora vamos criar os <em>containers</em> que rodarão o PostgreSQL utilizando o
+volume &quot;/data&quot; do <em>container</em> &quot;dbdados&quot; para guardar os dados.</p>
+<p>Para que possamos fazer o exemplo, precisamos conhecer mais dois
+parâmetros superimportantes:</p>
+<ul>
+<li><p><strong>--volumes-from</strong> -- É utilizado quando queremos montar um volume disponibilizado por outro <em>container</em>.</p>
+</li>
+<li><p><strong>-e</strong> -- É utilizado para informar variáveis de ambiente para o <em>container</em>. No exemplo, estamos passando as variáveis de ambiente do PostgreSQL.</p>
+</li>
+</ul>
+<p>Pronto, agora estamos preparados! Vamos criar os <em>containers</em> com o
+PostgreSQL:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># docker run -d -p 5432:5432 --name pgsql1 --volumes-from dbdados \</span>
+    -e POSTGRESQL_USER=docker -e POSTGRESQL_PASS=docker \
+    -e POSTGRESQL_DB=docker kamui/postgresql
+
+<span class="hljs-comment"># docker run -d -p 5433:5432 --name pgsql2 --volumes-from dbdados \</span>
+   -e POSTGRESQL_USER=docker -e POSTGRESQL_PASS=docker \
+   -e POSTGRESQL_DB=docker kamui/postgresql
+</code></pre>
+<p>Para verificar os dois <em>containers</em> com o PostgreSQL em execução,
+utilize o &quot;docker container ls&quot;.</p>
+<p>Pronto, agora temos os dois <em>containers</em> com PostgreSQL em execução!
+Será que já temos algum dado no volume &quot;/data&quot; do <em>container</em> &quot;dbdados&quot;?</p>
+<p>Vamos verificar novamente no <em>host</em> se o volume agora possui algum dado:</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># ls /var/lib/docker/volumes/46255137fe3f6d5f593e9ba9aaaf570b2f8b5c870f587c2fb34f29b79f97c30c/_data</span>
+
+base pg_clog pg_ident.conf pg_notify pg_snapshots pg_stat_tmp pg_tblspc PG_VERSION postgresql.conf postmaster.pid server.key global pg_hba.conf pg_multixact pg_serial pg_stat pg_subtrans pg_twophase pg_xlog postmaster.opts server.crt
+
+root@linuxtips:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Sensacional! Como percebemos, os dois <em>containers</em> do PostgreSQL estão
+escrevendo seus dados no volume &quot;/data&quot; do <em>container</em> &quot;dbdados&quot;. Chega
+a ser lacrimejante! :D</p>
+<h2 id="74-sempre-é-bom-um-backup">7.4. Sempre é bom um <em>backup</em>...</h2>
+<p>Outra coisa bem bacana é a possibilidade de fazer <em>backups</em> dos seus
+<em>containers</em> de dados de forma muito simples e rápida.</p>
+<p>Digamos que você queira fazer o <em>backup</em> do diretório &quot;/data&quot; do
+<em>container</em> &quot;dbdados&quot; que nós criamos há pouco; como faríamos?</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># cd backup/</span>
+root@linuxtips:~/backup<span class="hljs-comment"># docker run -ti --volumes-from dbdados -v $(pwd):/backup debian tar -cvf /backup/backup.tar /data</span>
+</code></pre>
+<p>Quando executamos o comando anterior, é criado um novo <em>container</em>
+montando o(s) volume(s) do <em>container</em> &quot;dbdados&quot; (que no caso é o
+&quot;/data&quot;, lembra?). Além disso, será montado o diretório corrente do
+<em>host</em> no volume &quot;/backup&quot; do <em>container</em>, e em seguida será executado o
+comando do <em>tar</em> para empacotar o diretório &quot;/data&quot; dentro do diretório
+&quot;/backup&quot;. Bem simples, né?</p>
+<pre><code class="lang-bash">root@linuxtips:~/backup<span class="hljs-comment"># ls</span>
+backup.tar
+root@linuxtips:~/backup<span class="hljs-comment">#</span>
+</code></pre>
+<p>Lembrando que os volumes são sempre criados dentro de
+&quot;/var/lib/docker/volumes&quot;. Caso queira fazer o <em>backup</em> de todos os
+volumes, basta tratar esse diretório em suas rotinas de <em>backup</em>. ;)</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="chapter_06.html" class="navigation navigation-prev " aria-label="Previous page: Meu primeiro e tosco dockerfile...">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="chapter_08.html" class="navigation navigation-next " aria-label="Next page: Criando e gerenciando imagens">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Entendendo volumes","level":"2.8","depth":1,"next":{"title":"Criando e gerenciando imagens","level":"2.9","depth":1,"path":"chapters/chapter_08.md","ref":"chapters/chapter_08.md","articles":[]},"previous":{"title":"Meu primeiro e tosco dockerfile...","level":"2.7","depth":1,"path":"chapters/chapter_06.md","ref":"chapters/chapter_06.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapters/chapter_07.md","mtime":"2021-08-11T08:52:29.563Z","type":"markdown"},"gitbook":{"version":"3.6.20","time":"2021-08-11T08:52:39.457Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

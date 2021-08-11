@@ -1,0 +1,588 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Instalando o Docker · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.6.20">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="chapter_04.html" />
+    
+    
+    <link rel="prev" href="chapter_02.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Sobre</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Proposta do livro
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Capítulos</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="chapter_00.html">
+            
+                <a href="chapter_00.html">
+            
+                    
+                    Introdução
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="chapter_01.html">
+            
+                <a href="chapter_01.html">
+            
+                    
+                     O que é container
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="chapter_02.html">
+            
+                <a href="chapter_02.html">
+            
+                    
+                    O que é o Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.4" data-path="chapter_03.html">
+            
+                <a href="chapter_03.html">
+            
+                    
+                    Instalando o Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="chapter_04.html">
+            
+                <a href="chapter_04.html">
+            
+                    
+                    Executando e administrando containers Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="chapter_05.html">
+            
+                <a href="chapter_05.html">
+            
+                    
+                    Configurando CPU e memória para os meus containers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="chapter_06.html">
+            
+                <a href="chapter_06.html">
+            
+                    
+                    Meu primeiro e tosco dockerfile...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="chapter_07.html">
+            
+                <a href="chapter_07.html">
+            
+                    
+                    Entendendo volumes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="chapter_08.html">
+            
+                <a href="chapter_08.html">
+            
+                    
+                    Criando e gerenciando imagens
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="chapter_09.html">
+            
+                <a href="chapter_09.html">
+            
+                    
+                    Compartilhando as imagens
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11" data-path="chapter_10.html">
+            
+                <a href="chapter_10.html">
+            
+                    
+                    Gerenciando a rede dos containers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.12" data-path="chapter_11.html">
+            
+                <a href="chapter_11.html">
+            
+                    
+                    Controlando o daemon do Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.13" data-path="chapter_12.html">
+            
+                <a href="chapter_12.html">
+            
+                    
+                    Docker Machine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.14" data-path="chapter_13.html">
+            
+                <a href="chapter_13.html">
+            
+                    
+                    Docker Swarm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.15" data-path="chapter_14.html">
+            
+                <a href="chapter_14.html">
+            
+                    
+                    Docker Secrets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.16" data-path="chapter_15.html">
+            
+                <a href="chapter_15.html">
+            
+                    
+                    Docker Compose
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Instalando o Docker</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="3-instalando-o-docker">3. Instalando o Docker</h1>
+<h2 id="31-quero-instalar-vamos-lá">3.1. Quero instalar, vamos lá?</h2>
+<p>Bom, dado que você já sabe o que é um <em>container</em> e o que é o tal do
+Docker, chegou a hora de pôr a mão na massa. Vamos instalar o Docker
+pela primeira vez!</p>
+<p>O <em>daemon</em> do Docker roda nativo em distribuições Linux, e por isso a
+instalação em sistemas operacionais que não sejam Linux consiste
+basicamente em subir uma VM e rodar o <em>daemon</em> de lá. O cliente, no
+entanto, pode ser instalado nos principais sistemas operacionais
+disponíveis atualmente.</p>
+<p>Para realizar a instalação do Docker em máquinas Linux é bastante
+simples. Precisamos somente observar alguns pontos:</p>
+<ul>
+<li><p>O Docker não suporta processadores 32 <em>bits</em>.</p>
+</li>
+<li><p>O Docker é suportado (<em>stable</em>) somente na versão do <em>kernel</em> 3.8 ou superior.</p>
+</li>
+<li><p>O <em>kernel</em> deve ter suporte aos sistemas de arquivos utilizados pelo Docker, como o AUFS, <em>Device Mapper</em>, OverlayFS, etc.</p>
+</li>
+<li><p>O <em>kernel</em> deverá ter suporte a <em>cgroups</em> e <em>namespaces</em>, o que normalmente já vem por <em>default</em> habilitado na maioria das <em>distros</em>.</p>
+</li>
+</ul>
+<p>Você também pode acessar a URL:
+<a href="https://docs.docker.com/install/" target="_blank">https://docs.docker.com/install/</a>.
+Lá é possível aprender a instalar o Docker em diversas distribuições
+Linux, nos principais <em>clouds</em> e também no MacOS e no Windows.</p>
+<p>Neste livro vamos utilizar a distribuição Ubuntu Linux, porém não muda
+nada para outras distribuições. Chega de conversa, vamos lá!</p>
+<p>Primeiro, vamos verificar a versão do <em>kernel</em> para saber se ele é
+compatível com o Docker:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># uname -r</span>
+</code></pre>
+<h2 id="32-instalando-no-debiancentosubuntususefedora">3.2. Instalando no Debian/Centos/Ubuntu/Suse/Fedora</h2>
+<p>A instalação do Docker é bastante simples. Você pode optar por
+instalá-lo utilizando os pacotes disponíveis para sua <em>distro</em> -- por
+exemplo, o <em>apt-get</em> ou <em>yum.</em></p>
+<p>Nós preferimos fazer a instalação através da execução do <em>curl</em> a
+seguir, que irá executar um <em>script</em> e detectará qual a distribuição que
+estamos utilizando, para então adicionar o repositório oficial do Docker
+em nosso gerenciador de pacotes, o <em>rpm</em> ou <em>apt</em>, por exemplo.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># curl -fsSL https://get.docker.com/ | sh</span>
+</code></pre>
+<p>Assim ele sempre buscará a versão mais recente do Docker. :)</p>
+<h2 id="33-instalando-manualmente-no-debian">3.3. Instalando &apos;manualmente&apos; no Debian</h2>
+<p>Caso você esteja utilizando o Debian e queira realizar a instalação
+através dos pacotes disponíveis no repositório, faça:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># apt-key adv --keyserver \</span>
+  hkp://pgp.mit.edu:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+</code></pre>
+<p>Agora vamos criar/editar o arquivo &quot;/etc/apt/sources.list.d/docker.list&quot;
+e adicionar o endereço do repositório correspondente à versão do seu
+Debian. No nosso caso estamos utilizando a versão Debian 8, também
+conhecida como Jessie.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># vim /etc/apt/sources.list.d/docker.list # Debian Jessie</span>
+
+deb https://apt.dockerproject.org/repo debian-jessie main
+</code></pre>
+<p>Após adicionar a linha anterior, é necessário atualizar a lista de
+repositórios executando:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># apt-get update</span>
+</code></pre>
+<p>Após finalizar a atualização da lista de repositórios disponíveis, já
+podemos fazer a instalação do Docker. O nome do pacote é &quot;docker-ce&quot;. :)</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># apt-get install docker-ce</span>
+</code></pre>
+<p>Vamos verificar se o Docker está em execução. Digite na linha de comando
+o seguinte:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># /etc/init.d/docker status</span>
+</code></pre>
+<p>Ou:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># service docker status</span>
+
+docker container stop/waiting
+</code></pre>
+<p>Com isso, podemos verificar se o processo está em execução. Como podemos
+notar, o <em>daemon</em> do Docker não está em execução, portanto vamos
+iniciá-lo.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># service docker start</span>
+docker container start/running, process 4303
+
+<span class="hljs-comment"># service docker status</span>
+docker container start/running, process 4303
+</code></pre>
+<p>Perfeito! Agora já temos o Docker instalado e pronto para começar a
+brincar com os <em>containers</em>. \o/</p>
+<h3 id="331-dica-importante">3.3.1. Dica importante</h3>
+<p>Por padrão, o <em>daemon</em> do Docker faz <em>bind</em> em um <em>socket</em> Unix, e não
+em uma porta TCP. <em>Sockets</em> Unix, por sua vez, são de propriedade e de
+uso exclusivo do usuário <em>root</em> (por isso o Docker sempre é iniciado
+como <em>root</em>), mas também podem ser acessados através do <em>sudo</em> por
+outros usuários.</p>
+<p>Para evitar que você tenha que ficar usando <em>sudo</em> ao rodar comandos do
+Docker, crie um grupo chamado <em>docker</em> e adicione o seu usuário a ele.
+Pare o serviço e inicie-o novamente.</p>
+<p>Infelizmente, nem tudo são flores. Esse procedimento faz com que o
+usuário tenha <strong>os mesmos privilégios do usuário <em>root</em></strong> em operações
+relacionadas ao Docker. Mais informações no link:
+<a href="https://docs.docker.com/engine/security/" target="_blank">https://docs.docker.com/engine/security/</a>.</p>
+<p>Para criar um grupo no Linux e adicionar um usuário não tem segredo,
+basta rodar:</p>
+<pre><code class="lang-bash">$ sudo usermod -aG docker user
+</code></pre>
+<p>Dica de um milhão de dólares: <strong>user</strong> = <strong>seu usuário</strong>. :D</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="chapter_02.html" class="navigation navigation-prev " aria-label="Previous page: O que é o Docker">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="chapter_04.html" class="navigation navigation-next " aria-label="Next page: Executando e administrando containers Docker">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Instalando o Docker","level":"2.4","depth":1,"next":{"title":"Executando e administrando containers Docker","level":"2.5","depth":1,"path":"chapters/chapter_04.md","ref":"chapters/chapter_04.md","articles":[]},"previous":{"title":"O que é o Docker","level":"2.3","depth":1,"path":"chapters/chapter_02.md","ref":"chapters/chapter_02.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapters/chapter_03.md","mtime":"2021-08-11T08:52:29.563Z","type":"markdown"},"gitbook":{"version":"3.6.20","time":"2021-08-11T08:52:39.457Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

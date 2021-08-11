@@ -1,0 +1,663 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Gerenciando a rede dos containers · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.6.20">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="chapter_11.html" />
+    
+    
+    <link rel="prev" href="chapter_09.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Sobre</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Proposta do livro
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Capítulos</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="chapter_00.html">
+            
+                <a href="chapter_00.html">
+            
+                    
+                    Introdução
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="chapter_01.html">
+            
+                <a href="chapter_01.html">
+            
+                    
+                     O que é container
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="chapter_02.html">
+            
+                <a href="chapter_02.html">
+            
+                    
+                    O que é o Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="chapter_03.html">
+            
+                <a href="chapter_03.html">
+            
+                    
+                    Instalando o Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="chapter_04.html">
+            
+                <a href="chapter_04.html">
+            
+                    
+                    Executando e administrando containers Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="chapter_05.html">
+            
+                <a href="chapter_05.html">
+            
+                    
+                    Configurando CPU e memória para os meus containers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="chapter_06.html">
+            
+                <a href="chapter_06.html">
+            
+                    
+                    Meu primeiro e tosco dockerfile...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="chapter_07.html">
+            
+                <a href="chapter_07.html">
+            
+                    
+                    Entendendo volumes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="chapter_08.html">
+            
+                <a href="chapter_08.html">
+            
+                    
+                    Criando e gerenciando imagens
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="chapter_09.html">
+            
+                <a href="chapter_09.html">
+            
+                    
+                    Compartilhando as imagens
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.11" data-path="chapter_10.html">
+            
+                <a href="chapter_10.html">
+            
+                    
+                    Gerenciando a rede dos containers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.12" data-path="chapter_11.html">
+            
+                <a href="chapter_11.html">
+            
+                    
+                    Controlando o daemon do Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.13" data-path="chapter_12.html">
+            
+                <a href="chapter_12.html">
+            
+                    
+                    Docker Machine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.14" data-path="chapter_13.html">
+            
+                <a href="chapter_13.html">
+            
+                    
+                    Docker Swarm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.15" data-path="chapter_14.html">
+            
+                <a href="chapter_14.html">
+            
+                    
+                    Docker Secrets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.16" data-path="chapter_15.html">
+            
+                <a href="chapter_15.html">
+            
+                    
+                    Docker Compose
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Gerenciando a rede dos containers</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="10-gerenciando-a-rede-dos-containers">10. Gerenciando a rede dos <em>containers</em></h1>
+<p>Quando o Docker é executado, ele cria uma <em>bridge</em> virtual chamada
+&quot;docker0&quot;, para que possa gerenciar a comunicação interna entre o
+<em>container</em> e o <em>host</em> e também entre os <em>containers</em>.</p>
+<p>Vamos conhecer alguns parâmetros do comando &quot;Docker container run&quot; que
+irão nos ajudar com a rede em que os <em>containers</em> irão se comunicar.</p>
+<ul>
+<li><p><strong>--dns</strong> -- Indica o servidor DNS.</p>
+</li>
+<li><p><strong>--hostname</strong> -- Indica um <em>hostname.</em></p>
+</li>
+<li><p><strong>--link</strong> -- Cria um <em>link</em> entre os <em>containers</em>, sem a necessidade de se saber o IP um do outro.</p>
+</li>
+<li><p><strong>--net</strong> -- Permite configurar o modo de rede que você usará com o <em>container</em>. Temos quatro opções, mas a mais conhecida e utilizada é a &quot;--net=host&quot;, que permite que o <em>container</em> utilize a rede do <em>host</em> para se comunicar e não crie um <em>stack</em> de rede para o <em>container</em>.</p>
+</li>
+<li><p><strong>--expose</strong> -- Expõe a porta do <em>container</em> apenas.</p>
+</li>
+<li><p><strong>--publish</strong> -- Expõe a porta do <em>container</em> e do <em>host</em>.</p>
+</li>
+<li><p><strong>--default-gateway</strong> -- Determina a rota padrão.</p>
+</li>
+<li><p><strong>--mac-address</strong> -- Determina um MAC <em>address</em>.</p>
+</li>
+</ul>
+<p>Quando o <em>container</em> é iniciado, a rede passa por algumas etapas até a
+sua inicialização completa:</p>
+<ol>
+<li><p>Cria-se um par de interfaces virtuais.</p>
+</li>
+<li><p>Cria-se uma interface com nome único, como &quot;veth1234&quot;, e em seguida <em>linka-se</em> com a <em>bridge</em> do Docker, a &quot;docker0&quot;.</p>
+</li>
+<li><p>Com isso, é disponibilizada a interface &quot;eth0&quot; dentro do <em>container</em>, em um <em>network namespace</em> único.</p>
+</li>
+<li><p>Configura-se o MAC <em>address</em> da interface virtual do <em>container.</em></p>
+</li>
+<li><p>Aloca-se um IP na &quot;eth0&quot; do <em>container</em>. Esse IP tem que pertencer ao <em>range</em> da <em>bridge</em> &quot;docker0&quot;<em>.</em></p>
+</li>
+</ol>
+<p>Com isso, o <em>container</em> já possui uma interface de rede e já está apto a
+se comunicar com outros <em>containers</em> ou com o <em>host</em>. :D</p>
+<h2 id="101-consigo-fazer-com-que-a-porta-do-container-responda-na-porta-do-host">10.1. Consigo fazer com que a porta do <em>container</em> responda na porta do <em>host</em>?</h2>
+<p>Sim, isso é possível e bastante utilizado.</p>
+<p>Vamos conhecer um pouco mais sobre isso em um exemplo utilizando aquela
+nossa imagem &quot;linuxtips/apache&quot;.</p>
+<p>Primeira coisa que temos que saber é a porta pela qual o Apache2 se
+comunica. Isso é fácil, né? Se estiver com as configurações padrões de
+porta de um <em>web server</em>, o Apache2 do <em>container</em> estará respondendo na
+porta 80/TCP, correto?</p>
+<p>Agora vamos fazer com que a porta 8080 do nosso <em>host</em> responda pela
+porta 80 do nosso <em>container</em>, ou seja, sempre que alguém bater na porta
+8080 do nosso <em>host</em>, a requisição será encaminhada para a porta 80 do
+<em>container</em>. Simples, né?</p>
+<p>Para conseguir fazer esse encaminhamento, precisamos utilizar o
+parâmetro &quot;-p&quot; do comando &quot;docker container run&quot;, conforme faremos no
+exemplo a seguir:</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># # docker container run -ti -p 8080:80 linuxtips/apache:1.0 /bin/bash</span>
+root@4a0645de6d94:/<span class="hljs-comment"># ps -ef</span>
+UID   PID PPID C STIME TTY      TIME CMD
+root    1    0 1 18:18 ?    00:00:00 /bin/bash
+root    6    1 0 18:18 ?    00:00:00 ps -ef
+
+root@4a0645de6d94:/<span class="hljs-comment"># /etc/init.d/apache2 start</span>
+[....] Starting web server: apache2AH00558: apache2: Could not reliably determine the server<span class="hljs-string">&apos;s fully qualified domain name, using 172.17.0.3. Set the &apos;</span>ServerName<span class="hljs-string">&apos; directive globally to suppress this message
+. ok
+
+root@4a0645de6d94:/# ps -ef
+UID       PID PPID C STIME TTY        TIME CMD
+root        1    0 0 18:18 ?      00:00:00 /bin/bash
+root       30    1 0 18:19 ?      00:00:00 /usr/sbin/apache2 -k start
+www-data   33   30 0 18:19 ?      00:00:00 /usr/sbin/apache2 -k start
+www-data   34   30 0 18:19 ?      00:00:00 /usr/sbin/apache2 -k start
+root      109    1 0 18:19 ?      00:00:00 ps -ef
+
+root@4a0645de6d94:/# ip addr
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default
+        link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+        inet 127.0.0.1/8 scope host lo
+             valid_lft forever preferred_lft forever
+        inet6 ::1/128 scope host
+             valid_lft forever preferred_lft forever
+74: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default
+        link/ether 02:42:ac:11:00:03 brd ff:ff:ff:ff:ff:ff
+        inet 172.17.0.3/16 scope global eth0
+             valid_lft forever preferred_lft forever
+        inet6 fe80::42:acff:fe11:3/64 scope link
+             valid_lft forever preferred_lft forever
+
+root@4a0645de6d94:/#
+</span></code></pre>
+<p>Repare que passamos o parâmetro &quot;-p&quot; da seguinte forma:</p>
+<ul>
+<li><strong>-p 8080:80</strong> -- Onde &quot;8080&quot; é a porta do host e &quot;80&quot; a do container.</li>
+</ul>
+<p>Com isso, estamos dizendo que toda requisição que chegar na porta 8080
+do meu <em>host</em> deverá ser encaminhada para a porta 80 do <em>container.</em></p>
+<p>Já no <em>container</em>, subimos o Apache2 e verificamos o IP do <em>container</em>,
+correto?</p>
+<p>Agora vamos sair do <em>container</em> com o atalho &quot;Ctrl + p + q&quot;. :)</p>
+<p>A partir do <em>host</em>, vamos realizar um &quot;curl&quot; com destino ao IP do
+<em>container</em> na porta 80, depois com destino à porta 8080 do <em>host</em> e em
+seguida analisar as saídas:</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># curl &lt;IPCONTAINER&gt;:80</span>
+</code></pre>
+<p>Se tudo ocorreu bem até aqui, você verá o código da página de
+boas-vindas do Apache2.</p>
+<p>O mesmo ocorre quando executamos o &quot;curl&quot; novamente, porém batendo no IP
+do <em>host</em>. Veja:</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># curl &lt;IPHOST&gt;:8080</span>
+</code></pre>
+<p>Muito fácil, chega a ser lacrimejante! \o/</p>
+<h2 id="102-e-como-ele-faz-isso-mágica">10.2. E como ele faz isso? Mágica?</h2>
+<p>Não, não é mágica! Na verdade, o comando apenas utiliza um módulo
+bastante antigo do <em>kernel</em> do Linux chamado <em>netfilter</em>, que
+disponibiliza a ferramenta <em>iptables</em>, que todos nós já cansamos de
+usar.</p>
+<p>Vamos dar uma olhada nas regras de <em>iptables</em> referentes a esse nosso
+<em>container</em>. Primeiro a tabela <em>filter</em>:</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># iptables -L -n</span>
+Chain INPUT (policy ACCEPT)
+target prot opt <span class="hljs-built_in">source</span> destination
+
+Chain FORWARD (policy ACCEPT)
+target prot opt <span class="hljs-built_in">source</span> destination
+DOCKER-ISOLATION all -- 0.0.0.0/0 0.0.0.0/0
+DOCKER all -- 0.0.0.0/0 0.0.0.0/0
+ACCEPT all -- 0.0.0.0/0 0.0.0.0/0 ctstate RELATED,ESTABLISHED
+ACCEPT all -- 0.0.0.0/0 0.0.0.0/0
+ACCEPT all -- 0.0.0.0/0 0.0.0.0/0
+
+Chain OUTPUT (policy ACCEPT)
+target prot opt <span class="hljs-built_in">source</span> destination
+
+Chain DOCKER (1 references)
+target prot opt <span class="hljs-built_in">source</span> destination
+ACCEPT tcp -- 0.0.0.0/0 172.17.0.2 tcp dpt:5000
+ACCEPT tcp -- 0.0.0.0/0 172.17.0.3 tcp dpt:80
+
+Chain DOCKER-ISOLATION (1 references)
+target prot opt <span class="hljs-built_in">source</span> destination
+RETURN all -- 0.0.0.0/0 0.0.0.0/0
+
+root@linuxtips:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Agora a tabela NAT:</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># iptables -L -n -t nat</span>
+
+Chain PREROUTING (policy ACCEPT)
+target prot opt <span class="hljs-built_in">source</span> destination
+DOCKER all -- 0.0.0.0/0 0.0.0.0/0 ADDRTYPE match dst-type LOCAL
+
+Chain INPUT (policy ACCEPT)
+target prot opt <span class="hljs-built_in">source</span> destination
+
+Chain OUTPUT (policy ACCEPT)
+target prot opt <span class="hljs-built_in">source</span> destination
+DOCKER all -- 0.0.0.0/0 !127.0.0.0/8 ADDRTYPE match dst-type LOCAL
+
+Chain POSTROUTING (policy ACCEPT)
+target prot opt <span class="hljs-built_in">source</span> destination
+MASQUERADE all -- 172.17.0.0/16 0.0.0.0/0
+MASQUERADE tcp -- 172.17.0.2 172.17.0.2 tcp dpt:5000
+MASQUERADE tcp -- 172.17.0.3 172.17.0.3 tcp dpt:80
+
+Chain DOCKER (2 references)
+target prot opt <span class="hljs-built_in">source</span> destination
+RETURN all -- 0.0.0.0/0 0.0.0.0/0
+DNAT tcp -- 0.0.0.0/0 0.0.0.0/0 tcp dpt:5000 to:172.17.0.2:5000
+DNAT tcp -- 0.0.0.0/0 0.0.0.0/0 tcp dpt:8080 to:172.17.0.3:80
+
+root@linuxtips:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Como podemos notar, temos regras de NAT configuradas que permitem o DNAT
+da porta 8080 do <em>host</em> para a 80 do <em>container.</em> Veja a seguir:</p>
+<pre><code class="lang-bash">MASQUERADE tcp -- 172.17.0.3  172.17.0.3  tcp dpt:80
+DNAT       tcp -- 0.0.0.0/0   0.0.0.0/0   tcp dpt:8080 to:172.17.0.3:80
+</code></pre>
+<p>Tudo isso feito &quot;automagicamente&quot; pelo Docker, sem a necessidade de
+precisar configurar diversas regras de <em>iptables</em>. \&lt;3</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="chapter_09.html" class="navigation navigation-prev " aria-label="Previous page: Compartilhando as imagens">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="chapter_11.html" class="navigation navigation-next " aria-label="Next page: Controlando o daemon do Docker">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Gerenciando a rede dos containers","level":"2.11","depth":1,"next":{"title":"Controlando o daemon do Docker","level":"2.12","depth":1,"path":"chapters/chapter_11.md","ref":"chapters/chapter_11.md","articles":[]},"previous":{"title":"Compartilhando as imagens","level":"2.10","depth":1,"path":"chapters/chapter_09.md","ref":"chapters/chapter_09.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapters/chapter_10.md","mtime":"2021-08-11T08:52:29.563Z","type":"markdown"},"gitbook":{"version":"3.6.20","time":"2021-08-11T08:52:39.457Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

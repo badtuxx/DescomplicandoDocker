@@ -1,0 +1,976 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Docker Swarm · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.6.20">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="chapter_14.html" />
+    
+    
+    <link rel="prev" href="chapter_12.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Sobre</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Proposta do livro
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Capítulos</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="chapter_00.html">
+            
+                <a href="chapter_00.html">
+            
+                    
+                    Introdução
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="chapter_01.html">
+            
+                <a href="chapter_01.html">
+            
+                    
+                     O que é container
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="chapter_02.html">
+            
+                <a href="chapter_02.html">
+            
+                    
+                    O que é o Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="chapter_03.html">
+            
+                <a href="chapter_03.html">
+            
+                    
+                    Instalando o Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="chapter_04.html">
+            
+                <a href="chapter_04.html">
+            
+                    
+                    Executando e administrando containers Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="chapter_05.html">
+            
+                <a href="chapter_05.html">
+            
+                    
+                    Configurando CPU e memória para os meus containers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="chapter_06.html">
+            
+                <a href="chapter_06.html">
+            
+                    
+                    Meu primeiro e tosco dockerfile...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="chapter_07.html">
+            
+                <a href="chapter_07.html">
+            
+                    
+                    Entendendo volumes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="chapter_08.html">
+            
+                <a href="chapter_08.html">
+            
+                    
+                    Criando e gerenciando imagens
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="chapter_09.html">
+            
+                <a href="chapter_09.html">
+            
+                    
+                    Compartilhando as imagens
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11" data-path="chapter_10.html">
+            
+                <a href="chapter_10.html">
+            
+                    
+                    Gerenciando a rede dos containers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.12" data-path="chapter_11.html">
+            
+                <a href="chapter_11.html">
+            
+                    
+                    Controlando o daemon do Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.13" data-path="chapter_12.html">
+            
+                <a href="chapter_12.html">
+            
+                    
+                    Docker Machine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.14" data-path="chapter_13.html">
+            
+                <a href="chapter_13.html">
+            
+                    
+                    Docker Swarm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.15" data-path="chapter_14.html">
+            
+                <a href="chapter_14.html">
+            
+                    
+                    Docker Secrets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.16" data-path="chapter_15.html">
+            
+                <a href="chapter_15.html">
+            
+                    
+                    Docker Compose
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Docker Swarm</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="13-docker-swarm">13. Docker Swarm</h1>
+<p>Bom, agora temos uma ferramenta muito interessante e que nos permite
+construir <em>clusters</em> de <em>containers</em> de forma nativa e com extrema
+facilidade, como já é de costume com os produtos criados pelo time do
+Docker. ;)</p>
+<p>Com o Docker Swarm você consegue construir <em>clusters</em> de <em>containers</em>
+com características importantes como balanceador de cargas e <em>failover</em>.</p>
+<p>Para criar um <em>cluster</em> com o Docker Swarm, basta indicar quais os
+<em>hosts</em> que ele irá supervisionar e o restante é com ele.</p>
+<p>Por exemplo, quando você for criar um novo <em>container</em>, ele irá criá-lo
+no <em>host</em> que possuir a menor carga, ou seja, cuidará do balanceamento
+de carga e garantirá sempre que o <em>container</em> será criado no melhor
+<em>host</em> disponível no momento.</p>
+<p>A estrutura de <em>cluster</em> do Docker Swarm é bastante simples e se resume
+a um <em>manager</em> e diversos <em>workers</em>. O <em>manager</em> é o responsável por
+orquestrar os <em>containers</em> e distribuí-los entre os <em>hosts workers</em>. Os
+<em>workers</em> são os que carregam o piano, que hospedam os <em>containers</em>.</p>
+<h2 id="131-criando-o-nosso-cluster">13.1. Criando o nosso <em>cluster</em>!</h2>
+<p>Uma coisa importante que começou após a versão 1.12 foi a inclusão do
+Docker Swarm dentro do Docker, ou seja, hoje quando você realiza a
+instalação do Docker, automaticamente você está instalando o Docker
+Swarm, que nada mais é do que uma forma de orquestrar seus <em>containers</em>
+através da criação de um <em>cluster</em> com alta disponibilidade,
+balanceamento de carga e comunicação criptografada, tudo isso nativo,
+sem qualquer esforço ou dificuldade.</p>
+<p>Para o nosso cenário, vamos utilizar três máquinas Ubuntu. A ideia é
+fazer com que tenhamos dois <em>managers</em> e 1 <em>worker</em>.</p>
+<p>Precisamos ter sempre mais do que um <em>node</em> representando o <em>manager</em>,
+pois, se ficarmos sem <em>manager</em>, nosso <em>cluster</em> estará totalmente
+indisponível.</p>
+<p>Com isso temos o seguinte cenário:</p>
+<ul>
+<li><p><strong>LINUXtips-01</strong> -- <em>Manager</em> ativo.</p>
+</li>
+<li><p><strong>LINUXtips-02</strong> -- <em>Manager</em>.</p>
+</li>
+<li><p><strong>LINUXtips-03</strong> -- <em>Worker</em>.</p>
+</li>
+</ul>
+<p>Não precisa falar que precisamos ter o Docker instalado em todas essas
+máquinas, certo, amiguinho? :D</p>
+<p>Para iniciar, vamos executar o seguinte comando na &quot;LINUXtips-01&quot;:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~<span class="hljs-comment"># docker swarm init</span>
+Swarm initialized: current node (2qacv429fvnret8v09fqmjm16) is now a manager.
+
+To add a worker to this swarm, run the following <span class="hljs-built_in">command</span>:
+
+   docker swarm join --token SWMTKN-1-100qtga34hfnf14xdbbhtv8ut6ugcvuhsx427jtzwaw1td2otj-18wccykydxte59gch2pix 172.31.58.90:2377
+
+To add a manager to this swarm, run <span class="hljs-string">&apos;docker swarm join-token manager&apos;</span> and follow the instructions.
+
+root@linuxtips-01:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Com o comando anterior, iniciamos o nosso <em>cluster</em>!</p>
+<p>Repare no seguinte trecho da saída do último comando:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># docker swarm join --token SWMTKN-1-100qtga34hfnf14xdbbhtv8ut6ugcvuhsx427jtzwaw1td2otj-18wccykydxte59gch2pix 172.31.58.90:2377</span>
+</code></pre>
+<p>Essa linha nada mais é do que toda informação que você precisa para
+adicionar <em>workers</em> ao seu <em>cluster</em>! Como assim?</p>
+<p>Simples: o que você precisa agora é executar exatamente esse comando na
+próxima máquina que você deseja incluir no <em>cluster</em> como <em>worker</em>!
+Simples como voar, não?</p>
+<p>De acordo com o nosso plano, a única máquina que seria <em>worker</em> é a
+máquina &quot;LINUXtips-03&quot;, correto? Então vamos acessá-la e executar
+exatamente a linha de comando recomendada na saída do &quot;docker swarm
+init&quot;.</p>
+<pre><code class="lang-bash">root@linuxtips-03:~<span class="hljs-comment"># docker swarm join --token SWMTKN-1-100qtga34hfnf14xdbbhtv8ut6ugcvuhsx427jtzwaw1td2otj-18wccykydxte59gch2pix 172.31.58.90:2377</span>
+This node joined a swarm as a worker.
+
+root@linuxtips-03:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Maravilha! Mais um <em>node</em> adicionado ao <em>cluster</em>!</p>
+<p>Para que você possa ver quais os <em>nodes</em> que existem no <em>cluster</em>, basta
+digitar o seguinte comando no <strong><em>manager</em> ativo</strong>:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~<span class="hljs-comment"># docker node ls</span>
+ID             HOSTNAME       STATUS    AVAILABILITY   MANAGER STATUS   ENGINE VERSION
+2qac           LINUXtips-01   Ready     Active         Leader           18.03.1-ce
+nmxl           LINUXtips-03   Ready     Active                          18.03.1-ce
+
+root@linuxtips-01:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Como podemos notar na saída do comando, temos dois <em>nodes</em> em nosso
+<em>cluster</em>, um como <em>manager</em> e outro como <em>worker</em>. A coluna &quot;MANAGER
+STATUS&quot; traz a informação de quem é o &quot;Leader&quot;, ou seja, quem é o nosso
+<em>manager</em>.</p>
+<p>Em nosso plano nós teríamos dois <em>managers</em>, correto?</p>
+<p>Agora a pergunta é: como eu sei qual é o <em>token</em> que preciso utilizar
+para adicionar mais um <em>node</em> em meu <em>cluster</em>, porém dessa vez como
+outro <em>manager</em>?</p>
+<p>Lembra que, quando executamos o comando para adicionar o <em>worker</em> ao
+<em>cluster</em>, nós tínhamos no comando um <em>token</em>? Pois bem, esse <em>token</em> é
+quem define se o <em>node</em> será um <em>worker</em> ou um <em>manager</em>, e naquela
+saída ele nos trouxe somente o <em>token</em> para adicionarmos <em>workers</em>.</p>
+<p>Para que possamos visualizar o comando e o <em>token</em> referente aos
+<em>managers</em>, precisamos executar o seguinte comando no <em>manager</em> ativo:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~<span class="hljs-comment"># docker swarm join-token manager</span>
+To add a manager to this swarm, run the following <span class="hljs-built_in">command</span>:
+
+    docker swarm join --token SWMTKN-1-100qtga34hfnf14xdbbhtv8ut6ugcvuhsx427jtzwaw1td2otj-3i4jsv4i70odu1mes0ebe1l1e 172.31.58.90:2377 
+
+root@linuxtips-01:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Para visualizar o comando e o <em>token</em> referente aos <em>workers</em>:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~<span class="hljs-comment"># docker swarm join-token worker</span>
+To add a worker to this swarm, run the following <span class="hljs-built_in">command</span>:
+
+    docker swarm join --token SWMTKN-1-100qtga34hfnf14xdbbhtv8ut6ugcvuhsx427jtzwaw1td2otj-18wccykydxte59gch2pixq9av 172.31.58.90:2377 
+
+root@linuxtips-01:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Fácil, não?</p>
+<p>Agora o que precisamos é executar na &quot;LINUXtips-02&quot; o comando para
+inclusão de mais um <em>node</em> como <em>manager</em>. Portanto, execute:</p>
+<pre><code class="lang-bash">root@linuxtips-02:~<span class="hljs-comment"># docker swarm join --token SWMTKN-1-100qtga34hfnf14xdbbhtv8ut6ugcvuhsx427jtzwaw1td2otj-3i4jsv4i70odu1mes0ebe1l1e 172.31.58.90:2377</span>
+
+This node joined a swarm as a manager.
+
+root@linuxtips-02:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Pronto! Agora temos o nosso <em>cluster</em> completo com dois <em>managers</em> e um
+<em>worker</em>!</p>
+<p>Vamos visualizar os <em>nodes</em> que fazem parte de nosso <em>cluster</em>.
+Lembre-se: qualquer comando para administração do <em>cluster</em> ou criação
+de serviços deverá obrigatoriamente ser executado no <em>manager</em> ativo,
+sempre!</p>
+<pre><code class="lang-bash">root@linuxtips-01:~<span class="hljs-comment"># docker node ls</span>
+ID             HOSTNAME       STATUS    AVAILABILITY   MANAGER STATUS   ENGINE VERSION
+2qac           LINUXtips-01   Ready     Active         Leader           18.03.1-ce
+j6lm           LINUXtips-02   Ready     Active         Reachable        18.03.1-ce
+nmxl           LINUXtips-03   Ready     Active                          18.03.1-ce
+
+root@linuxtips-01:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Perceba que o &quot;MANAGER STATUS&quot; da &quot;LINUXtips-02&quot; é &quot;Reachable&quot;. Isso
+indica que ela é um <em>manager</em>, porém não é o <em>manager</em> ativo, que sempre
+carrega o &quot;MANAGER STATUS&quot; como &quot;Leader&quot;.</p>
+<p>Se nós quisermos saber detalhes sobre determinado <em>node</em>, podemos usar o
+subcomando &quot;inspect&quot;:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~<span class="hljs-comment"># docker node inspect LINUXtips-02</span>
+[
+    {
+        <span class="hljs-string">&quot;ID&quot;</span>: <span class="hljs-string">&quot;x3fuo6tdaqjyjl549r3lu0vbj&quot;</span>,
+        <span class="hljs-string">&quot;Version&quot;</span>: {
+            <span class="hljs-string">&quot;Index&quot;</span>: 27
+        },
+        <span class="hljs-string">&quot;CreatedAt&quot;</span>: <span class="hljs-string">&quot;2017-06-09T18:09:48.925847118Z&quot;</span>,
+        <span class="hljs-string">&quot;UpdatedAt&quot;</span>: <span class="hljs-string">&quot;2017-06-09T18:09:49.053416781Z&quot;</span>,
+        <span class="hljs-string">&quot;Spec&quot;</span>: {
+            <span class="hljs-string">&quot;Labels&quot;</span>: {},
+            <span class="hljs-string">&quot;Role&quot;</span>: <span class="hljs-string">&quot;worker&quot;</span>,
+            <span class="hljs-string">&quot;Availability&quot;</span>: <span class="hljs-string">&quot;active&quot;</span>
+        },
+        <span class="hljs-string">&quot;Description&quot;</span>: {
+            <span class="hljs-string">&quot;Hostname&quot;</span>: <span class="hljs-string">&quot;LINUXtips-02&quot;</span>,
+            <span class="hljs-string">&quot;Platform&quot;</span>: {
+                <span class="hljs-string">&quot;Architecture&quot;</span>: <span class="hljs-string">&quot;x86_64&quot;</span>,
+                <span class="hljs-string">&quot;OS&quot;</span>: <span class="hljs-string">&quot;linux&quot;</span>
+            },
+            <span class="hljs-string">&quot;Resources&quot;</span>: {
+                <span class="hljs-string">&quot;NanoCPUs&quot;</span>: 1000000000,
+                <span class="hljs-string">&quot;MemoryBytes&quot;</span>: 1038807040
+            },
+            <span class="hljs-string">&quot;Engine&quot;</span>: {
+                <span class="hljs-string">&quot;EngineVersion&quot;</span>: <span class="hljs-string">&quot;17.05.0-ce&quot;</span>,
+                <span class="hljs-string">&quot;Plugins&quot;</span>: [
+                    {
+                        <span class="hljs-string">&quot;Type&quot;</span>: <span class="hljs-string">&quot;Network&quot;</span>,
+                        <span class="hljs-string">&quot;Name&quot;</span>: <span class="hljs-string">&quot;bridge&quot;</span>
+                    },
+                    {
+                        <span class="hljs-string">&quot;Type&quot;</span>: <span class="hljs-string">&quot;Network&quot;</span>,
+                        <span class="hljs-string">&quot;Name&quot;</span>: <span class="hljs-string">&quot;host&quot;</span>
+                    },
+                    {
+                        <span class="hljs-string">&quot;Type&quot;</span>: <span class="hljs-string">&quot;Network&quot;</span>,
+                        <span class="hljs-string">&quot;Name&quot;</span>: <span class="hljs-string">&quot;null&quot;</span>
+                    },
+                    {
+                        <span class="hljs-string">&quot;Type&quot;</span>: <span class="hljs-string">&quot;Network&quot;</span>,
+                        <span class="hljs-string">&quot;Name&quot;</span>: <span class="hljs-string">&quot;overlay&quot;</span>
+                    },
+                    {
+                        <span class="hljs-string">&quot;Type&quot;</span>: <span class="hljs-string">&quot;Volume&quot;</span>,
+                        <span class="hljs-string">&quot;Name&quot;</span>: <span class="hljs-string">&quot;local&quot;</span>
+                    }
+                ]
+            }
+        },
+        <span class="hljs-string">&quot;Status&quot;</span>: {
+            <span class="hljs-string">&quot;State&quot;</span>: <span class="hljs-string">&quot;ready&quot;</span>,
+            <span class="hljs-string">&quot;Addr&quot;</span>: <span class="hljs-string">&quot;172.31.53.23&quot;</span>
+        }
+    }
+]
+
+root@linuxtips-01:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>E se nós quisermos promover um <em>node worker</em> para <em>manager</em>, como
+devemos fazer? Simples como voar, confira a seguir:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~<span class="hljs-comment"># docker node promote LINUXtips-03</span>
+Node LINUXtips-03 promoted to a manager <span class="hljs-keyword">in</span> the swarm.
+
+root@linuxtips-01:~<span class="hljs-comment"># docker node ls</span>
+ID             HOSTNAME       STATUS    AVAILABILITY   MANAGER STATUS   ENGINE VERSION
+2qac           LINUXtips-01   Ready     Active         Leader           18.03.1-ce
+j6lm           LINUXtips-02   Ready     Active         Reachable        18.03.1-ce
+nmxl           LINUXtips-03   Ready    Active          Reachable        18.03.1-ce
+
+root@linuxtips-01:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Se quiser tornar um <em>node manager</em> em <em>worker</em>, faça:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~<span class="hljs-comment"># docker node demote LINUXtips-03</span>
+Node LINUXtips-03 demoted to a manager <span class="hljs-keyword">in</span> the swarm.
+</code></pre>
+<p>Vamos conferir:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~<span class="hljs-comment"># docker node ls</span>
+
+ID             HOSTNAME       STATUS    AVAILABILITY   MANAGER STATUS   ENGINE VERSION
+2qac           LINUXtips-01   Ready     Active         Leader           18.03.1-ce
+j6lm           LINUXtips-02   Ready     Active         Reachable        18.03.1-ce
+nmxl           LINUXtips-03   Ready     Active                          18.03.1-ce
+
+root@linuxtips-01:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Agora, caso você queira remover um <em>node</em> do <em>cluster</em>, basta digitar o
+seguinte comando no <em>node</em> desejado:</p>
+<pre><code class="lang-bash">root@linuxtips-03:~<span class="hljs-comment"># docker swarm leave</span>
+Node left the swarm.
+
+root@linuxtips-03:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>E precisamos ainda executar o comando de remoção desse <em>node</em> também em
+nosso <em>manager</em> ativo da seguinte forma:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~<span class="hljs-comment"># docker node rm LINUXtips-03</span>
+LINUXtips-03
+
+root@linuxtips-01:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Com isso, podemos executar o &quot;docker node ls&quot; e constatar que o <em>node</em>
+foi realmente removido do <em>cluster</em>. Caso queira adicioná-lo novamente,
+basta repetir o processo que foi utilizado para adicioná-lo, está
+lembrado? :D</p>
+<p>Para remover um <em>node</em> <em>manager</em> de nosso <em>cluster</em>, precisamos
+adicionar a <em>flag</em> &quot;--force&quot; ao comando &quot;docker swarm leave&quot;, como
+mostrado a seguir:</p>
+<pre><code class="lang-bash">root@linuxtips-02:~<span class="hljs-comment"># docker swarm leave --force</span>
+Node left the swarm.
+
+root@linuxtips-02:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Agora, basta removê-lo também em nosso <em>node manager</em>:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~<span class="hljs-comment"># docker node rm LINUXtips-02</span>
+LINUXtips-02
+
+root@linuxtips-01:~<span class="hljs-comment">#</span>
+</code></pre>
+<h2 id="132-o-sensacional-services">13.2. O sensacional <em>services</em>!</h2>
+<p>Uma das melhores coisas que o Docker Swarm nos oferece é justamente a
+possibilidade de fazer o uso dos <em>services</em>.</p>
+<p>O <em>services</em> nada mais é do que um VIP ou DNS que realizará o
+balanceamento de requisições entre os <em>containers</em>. Podemos estabelecer
+um número x de <em>containers</em> respondendo por um <em>service</em> e esses
+<em>containers</em> estarão espalhados pelo nosso <em>cluster</em>, entre nossos
+<em>nodes</em>, garantindo alta disponibilidade e balanceamento de carga, tudo
+isso nativamente!</p>
+<p>O <em>services</em> é uma forma, já utilizada no Kubernetes, de você conseguir
+gerenciar melhor seus <em>containers</em>, focando no serviço que esses
+<em>containers</em> estão oferecendo e garantindo alta disponibilidade e
+balanceamento de carga. É uma maneira muito simples e efetiva para
+escalar seu ambiente, aumentando ou diminuindo a quantidade de
+<em>containers</em> que responderá para um determinado <em>service</em>.</p>
+<p>Meio confuso? Sim eu sei, mas vai ficar fácil. :)</p>
+<p>Imagine que precisamos disponibilizar o serviço do Nginx para ser o novo
+<em>web server</em>. Antes de criar esse <em>service</em>, precisamos de algumas
+informações:</p>
+<ul>
+<li><p>Nome do <em>service</em> que desejo criar </p>
+<blockquote>
+<p><strong>webserver</strong>.</p>
+</blockquote>
+</li>
+<li><p>Quantidade de <em>containers</em> que desejo debaixo do <em>service</em> </p>
+<blockquote>
+<p><strong>5</strong>.</p>
+</blockquote>
+</li>
+<li><p>Portas que iremos &quot;bindar&quot;, entre o <em>service</em> e o <em>node</em> </p>
+<blockquote>
+<p><strong>8080:80</strong>.</p>
+</blockquote>
+</li>
+<li><p>Imagem dos <em>containers</em> que irei utilizar </p>
+<blockquote>
+<p><strong>nginx</strong>.</p>
+</blockquote>
+</li>
+</ul>
+<p>Agora que já temos essas informações, &apos;bora criar o nosso primeiro
+service. :)</p>
+<pre><code class="lang-bash">root@linuxtips-01:~<span class="hljs-comment"># docker service create --name webserver --replicas 5 -p 8080:80 nginx</span>
+0azz4psgfpkf0i5i3mbfdiptk
+
+root@linuxtips-01:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Agora já temos o nosso <em>service</em> criado. Para testá-lo, basta executar:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~<span class="hljs-comment"># curl QUALQUER_IP_NODES_CLUSTER:8080</span>
+</code></pre>
+<p>O resultado do comando anterior lhe trará a página de boas-vindas do
+Nginx.</p>
+<p>Como estamos utilizando o <em>services</em>, cada conexão cairá em um
+<em>container</em> diferente, fazendo assim o balanceamento de cargas
+&quot;automagicamente&quot;!</p>
+<p>Para visualizar o <em>service</em> criado, execute:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~<span class="hljs-comment"># docker service ls</span>
+ID       NAME      MODE           REPLICAS   IMAGE         PORTS
+0azz4p   webserver replicated     5/5        nginx:lates   *:8080-&gt;80/tcp
+</code></pre>
+<p>Conforme podemos notar, temos o <em>service</em> criado e com ele cinco
+réplicas em execução, ou seja, cinco <em>containers</em> em execução.</p>
+<p>Se quisermos saber onde estão rodando nossos <em>containers</em>, em quais
+<em>nodes</em> eles estão sendo executados, basta digitar o seguinte comando:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~<span class="hljs-comment"># docker service ps webserver</span>
+ID       NAME          IMAGE          NODE           DESIRED STATE  CURRENT STATE              ERROR     PORTS
+zbt1j    webserver.1   nginx:latest   LINUXtips-01   Running        Running 8 minutes ago
+iqm9p    webserver.2   nginx:latest   LINUXtips-02   Running        Running 8 minutes ago
+jliht    webserver.3   nginx:latest   LINUXtips-01   Running        Running 8 minutes ago
+qcfth    webserver.4   nginx:latest   LINUXtips-03   Running        Running 8 minutes ago
+e17um    webserver.5   nginx:latest   LINUXtips-02   Running        Running 8 minutes ago
+
+root@linuxtips-01:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Assim conseguimos saber onde está rodando cada <em>container</em> e ainda o seu
+<em>status</em>.</p>
+<p>Se eu preciso saber maiores detalhes sobre o meu <em>service</em>, basta
+utilizar o subcomando &quot;inspect&quot;.</p>
+<pre><code class="lang-bash">root@linuxtips-01:~<span class="hljs-comment"># docker service inspect webserver</span>
+[
+    {
+        <span class="hljs-string">&quot;ID&quot;</span>: <span class="hljs-string">&quot;0azz4psgfpkf0i5i3mbfdiptk&quot;</span>,
+        <span class="hljs-string">&quot;Version&quot;</span>: {
+            <span class="hljs-string">&quot;Index&quot;</span>: 29
+        },
+        <span class="hljs-string">&quot;CreatedAt&quot;</span>: <span class="hljs-string">&quot;2017-06-09T19:35:58.180235688Z&quot;</span>,
+        <span class="hljs-string">&quot;UpdatedAt&quot;</span>: <span class="hljs-string">&quot;2017-06-09T19:35:58.18899891Z&quot;</span>,
+        <span class="hljs-string">&quot;Spec&quot;</span>: {
+            <span class="hljs-string">&quot;Name&quot;</span>: <span class="hljs-string">&quot;webserver&quot;</span>,
+            <span class="hljs-string">&quot;Labels&quot;</span>: {},
+            <span class="hljs-string">&quot;TaskTemplate&quot;</span>: {
+                <span class="hljs-string">&quot;ContainerSpec&quot;</span>: {
+                    <span class="hljs-string">&quot;Image&quot;</span>: <span class="hljs-string">&quot;nginx:latest@sha256:41ad9967ea448d7c2b203c699b429abe1ed5af331cd92533900c6d77490e0268&quot;</span>,
+                    <span class="hljs-string">&quot;StopGracePeriod&quot;</span>: 10000000000,
+                    <span class="hljs-string">&quot;DNSConfig&quot;</span>: {}
+                },
+                <span class="hljs-string">&quot;Resources&quot;</span>: {
+                    <span class="hljs-string">&quot;Limits&quot;</span>: {},
+                    <span class="hljs-string">&quot;Reservations&quot;</span>: {}
+                },
+                <span class="hljs-string">&quot;RestartPolicy&quot;</span>: {
+                    <span class="hljs-string">&quot;Condition&quot;</span>: <span class="hljs-string">&quot;any&quot;</span>,
+                    <span class="hljs-string">&quot;Delay&quot;</span>: 5000000000,
+                    <span class="hljs-string">&quot;MaxAttempts&quot;</span>: 0
+                },
+                <span class="hljs-string">&quot;Placement&quot;</span>: {},
+                <span class="hljs-string">&quot;ForceUpdate&quot;</span>: 0
+            },
+            <span class="hljs-string">&quot;Mode&quot;</span>: {
+                <span class="hljs-string">&quot;Replicated&quot;</span>: {
+                    <span class="hljs-string">&quot;Replicas&quot;</span>: 5
+                }
+            },
+            <span class="hljs-string">&quot;UpdateConfig&quot;</span>: {
+                <span class="hljs-string">&quot;Parallelism&quot;</span>: 1,
+                <span class="hljs-string">&quot;FailureAction&quot;</span>: <span class="hljs-string">&quot;pause&quot;</span>,
+                <span class="hljs-string">&quot;Monitor&quot;</span>: 5000000000,
+                <span class="hljs-string">&quot;MaxFailureRatio&quot;</span>: 0,
+                <span class="hljs-string">&quot;Order&quot;</span>: <span class="hljs-string">&quot;stop-first&quot;</span>
+            },
+            <span class="hljs-string">&quot;RollbackConfig&quot;</span>: {
+                <span class="hljs-string">&quot;Parallelism&quot;</span>: 1,
+                <span class="hljs-string">&quot;FailureAction&quot;</span>: <span class="hljs-string">&quot;pause&quot;</span>,
+                <span class="hljs-string">&quot;Monitor&quot;</span>: 5000000000,
+                <span class="hljs-string">&quot;MaxFailureRatio&quot;</span>: 0,
+                <span class="hljs-string">&quot;Order&quot;</span>: <span class="hljs-string">&quot;stop-first&quot;</span>
+            },
+            <span class="hljs-string">&quot;EndpointSpec&quot;</span>: {
+                <span class="hljs-string">&quot;Mode&quot;</span>: <span class="hljs-string">&quot;vip&quot;</span>,
+                <span class="hljs-string">&quot;Ports&quot;</span>: [
+                    {
+                        <span class="hljs-string">&quot;Protocol&quot;</span>: <span class="hljs-string">&quot;tcp&quot;</span>,
+                        <span class="hljs-string">&quot;TargetPort&quot;</span>: 80,
+                        <span class="hljs-string">&quot;PublishedPort&quot;</span>: 8080,
+                        <span class="hljs-string">&quot;PublishMode&quot;</span>: <span class="hljs-string">&quot;ingress&quot;</span>
+                    }
+                ]
+            }
+        },
+        <span class="hljs-string">&quot;Endpoint&quot;</span>: {
+            <span class="hljs-string">&quot;Spec&quot;</span>: {
+                <span class="hljs-string">&quot;Mode&quot;</span>: <span class="hljs-string">&quot;vip&quot;</span>,
+                <span class="hljs-string">&quot;Ports&quot;</span>: [
+                    {
+                        <span class="hljs-string">&quot;Protocol&quot;</span>: <span class="hljs-string">&quot;tcp&quot;</span>,
+                        <span class="hljs-string">&quot;TargetPort&quot;</span>: 80,
+                        <span class="hljs-string">&quot;PublishedPort&quot;</span>: 8080,
+                        <span class="hljs-string">&quot;PublishMode&quot;</span>: <span class="hljs-string">&quot;ingress&quot;</span>
+                    }
+                ]
+            },
+            <span class="hljs-string">&quot;Ports&quot;</span>: [
+                {
+                    <span class="hljs-string">&quot;Protocol&quot;</span>: <span class="hljs-string">&quot;tcp&quot;</span>,
+                    <span class="hljs-string">&quot;TargetPort&quot;</span>: 80,
+                    <span class="hljs-string">&quot;PublishedPort&quot;</span>: 8080,
+                    <span class="hljs-string">&quot;PublishMode&quot;</span>: <span class="hljs-string">&quot;ingress&quot;</span>
+                }
+            ],
+            <span class="hljs-string">&quot;VirtualIPs&quot;</span>: [
+                {
+                    <span class="hljs-string">&quot;NetworkID&quot;</span>: <span class="hljs-string">&quot;89t2aobeik8j7jcre8lxhj04l&quot;</span>,
+                    <span class="hljs-string">&quot;Addr&quot;</span>: <span class="hljs-string">&quot;10.255.0.5/16&quot;</span>
+                }
+            ]
+        }
+    }
+]
+
+root@linuxtips-01:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Na saída do &quot;inspect&quot; conseguiremos pegar informações importantes sobre
+nosso <em>service</em>, como portas expostas, volumes, <em>containers</em>,
+limitações, entre outras coisas.</p>
+<p>Uma informação muito importante é o endereço do VIP do <em>service</em>:</p>
+<pre><code class="lang-json">    <span class="hljs-string">&quot;VirtualIPs&quot;</span>: [
+        {
+            <span class="hljs-string">&quot;NetworkID&quot;</span>: <span class="hljs-string">&quot;89t2aobeik8j7jcre8lxhj04l&quot;</span>,
+            <span class="hljs-string">&quot;Addr&quot;</span>: <span class="hljs-string">&quot;10.255.0.5/16&quot;</span>
+        }
+    ]
+</code></pre>
+<p>Esse é o endereço IP do &quot;balanceador&quot; desse <em>service</em>, ou seja, sempre
+que acessarem via esse IP, ele distribuirá a conexão entre os
+<em>containers</em>. Simples, não?</p>
+<p>Agora, se quisermos aumentar o número de <em>containers</em> debaixo desse
+<em>service</em>, é muito simples. Basta executar o comando a seguir:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~<span class="hljs-comment"># docker service scale webserver=10</span>
+webserver scaled to 10
+
+root@linuxtips-01:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Pronto, simples assim!</p>
+<p>Agora já temos dez <em>containers</em> respondendo requisições debaixo do nosso
+<em>service</em> <em>webserver</em>! Simples como voar!</p>
+<p>Para visualizar, basta executar:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~<span class="hljs-comment"># docker service ls</span>
+ID      NAME      MODE        REPLICAS   IMAGE           PORTS
+0azz    webserver replicated  10/10      nginx:latest    *:8080-&gt;80/tcp
+
+root@linuxtips-01:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Para saber em quais <em>nodes</em> eles estão em execução, lembre-se do &quot;docker
+service ls webserver&quot;.</p>
+<p>Para acessar os <em>logs</em> desse <em>service</em>, basta digitar:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~<span class="hljs-comment"># docker service logs -f webserver</span>
+webserver.5.e17umj6u6bix@LINUXtips-02 | 10.255.0.2 - - [09/Jun/2017:19:36:12 +0000] <span class="hljs-string">&quot;GET / HTTP/1.1&quot;</span> 200 612 <span class="hljs-string">&quot;-&quot;</span> <span class="hljs-string">&quot;curl/7.47.0&quot;</span> <span class="hljs-string">&quot;-&quot;</span>
+</code></pre>
+<p>Assim, você terá acesso aos <em>logs</em> de todos os <em>containers</em> desse
+<em>service</em>. Muito prático!</p>
+<p>&quot;Cansei de brincar! Quero remover esse meu <em>service</em>!&quot; É tão simples
+quanto criá-lo. Digite:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~<span class="hljs-comment"># docker service rm webserver</span>
+webserver
+
+root@linuxtips-01:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Pronto! Seu <em>service</em> foi excluído e você pode conferir na saída do
+comando a seguir:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~<span class="hljs-comment"># docker service ls</span>
+ID      NAME      MODE        REPLICAS   IMAGE           PORTS
+
+root@linuxtips-01:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Criar um <em>service</em> com um volume conectado é bastante simples. Faça:</p>
+<pre><code class="lang-bash">root@linuxtips-01:~<span class="hljs-comment"># docker service create --name webserver --replicas 5 -p 8080:80 --mount type=volume,src=teste,dst=/app nginx</span>
+yfheu3k7b8u4d92jemglnteqa
+
+root@linuxtips-01:~<span class="hljs-comment">#</span>
+</code></pre>
+<p>Quando eu crio um <em>service</em> com um volume conectado a ele, isso indica
+que esse volume estará disponível em todos os meus <em>containers</em> desse
+<em>service</em>, ou seja, o volume com o nome de &quot;teste&quot; estará montado em
+todos os <em>containers</em> no diretório &quot;/app&quot;<em>.</em></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="chapter_12.html" class="navigation navigation-prev " aria-label="Previous page: Docker Machine">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="chapter_14.html" class="navigation navigation-next " aria-label="Next page: Docker Secrets">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Docker Swarm","level":"2.14","depth":1,"next":{"title":"Docker Secrets","level":"2.15","depth":1,"path":"chapters/chapter_14.md","ref":"chapters/chapter_14.md","articles":[]},"previous":{"title":"Docker Machine","level":"2.13","depth":1,"path":"chapters/chapter_12.md","ref":"chapters/chapter_12.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapters/chapter_13.md","mtime":"2021-08-11T08:52:29.563Z","type":"markdown"},"gitbook":{"version":"3.6.20","time":"2021-08-11T08:52:39.457Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,625 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Configurando CPU e memória para os meus containers · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.6.20">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="chapter_06.html" />
+    
+    
+    <link rel="prev" href="chapter_04.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Sobre</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Proposta do livro
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Capítulos</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="chapter_00.html">
+            
+                <a href="chapter_00.html">
+            
+                    
+                    Introdução
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="chapter_01.html">
+            
+                <a href="chapter_01.html">
+            
+                    
+                     O que é container
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="chapter_02.html">
+            
+                <a href="chapter_02.html">
+            
+                    
+                    O que é o Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="chapter_03.html">
+            
+                <a href="chapter_03.html">
+            
+                    
+                    Instalando o Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="chapter_04.html">
+            
+                <a href="chapter_04.html">
+            
+                    
+                    Executando e administrando containers Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.6" data-path="chapter_05.html">
+            
+                <a href="chapter_05.html">
+            
+                    
+                    Configurando CPU e memória para os meus containers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="chapter_06.html">
+            
+                <a href="chapter_06.html">
+            
+                    
+                    Meu primeiro e tosco dockerfile...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="chapter_07.html">
+            
+                <a href="chapter_07.html">
+            
+                    
+                    Entendendo volumes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="chapter_08.html">
+            
+                <a href="chapter_08.html">
+            
+                    
+                    Criando e gerenciando imagens
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="chapter_09.html">
+            
+                <a href="chapter_09.html">
+            
+                    
+                    Compartilhando as imagens
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11" data-path="chapter_10.html">
+            
+                <a href="chapter_10.html">
+            
+                    
+                    Gerenciando a rede dos containers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.12" data-path="chapter_11.html">
+            
+                <a href="chapter_11.html">
+            
+                    
+                    Controlando o daemon do Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.13" data-path="chapter_12.html">
+            
+                <a href="chapter_12.html">
+            
+                    
+                    Docker Machine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.14" data-path="chapter_13.html">
+            
+                <a href="chapter_13.html">
+            
+                    
+                    Docker Swarm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.15" data-path="chapter_14.html">
+            
+                <a href="chapter_14.html">
+            
+                    
+                    Docker Secrets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.16" data-path="chapter_15.html">
+            
+                <a href="chapter_15.html">
+            
+                    
+                    Docker Compose
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Configurando CPU e memória para os meus containers</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="5-configurando-cpu-e-memória-para-os-meus-containers">5. Configurando CPU e memória para os meus <em>containers</em></h1>
+<p>Vamos imaginar que você precise subir quatro <em>containers</em> para um
+projeto novo. Esses <em>containers</em> possuem as seguintes características:</p>
+<ul>
+<li><p>Dois <em>web</em> <em>servers</em>.</p>
+</li>
+<li><p>Dois DB MySQL.</p>
+</li>
+</ul>
+<p>Evidentemente, por se tratar de serviços diferentes, na maioria dos
+casos possuem características de consumo de recursos, como CPU e
+memória, diferentes um do outro.</p>
+<ul>
+<li><p><em>Web server</em> -- 0,5 CPU | 128 MB de memória</p>
+</li>
+<li><p>DB MySQL -- 1 CPU | 256 MB de memória</p>
+</li>
+</ul>
+<p>E agora, como fazemos? :(</p>
+<p>Por padrão, quando você executa um <em>container</em> sem especificar a
+quantidade de recursos que ele irá utilizar, ele sobe sem um controle,
+podendo inclusive impactar o <em>host</em> onde está sendo executado.</p>
+<p>Portanto, é muito importante limitar a utilização de recursos de seus
+<em>containers</em>, visando um melhor aproveitamento de seus recursos
+computacionais, como veremos agora. :)</p>
+<h2 id="51-especificando-a-quantidade-de-memória">5.1. Especificando a quantidade de memória</h2>
+<p>Primeiro, vamos executar um <em>container</em> para realizarmos o nosso
+exemplo.</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># docker container run -ti --name teste debian</span>
+</code></pre>
+<p>Agora vamos visualizar a quantidade de memória que está configurada para
+esse <em>container</em>. Uma forma fácil é utilizar a saída do comando &quot;docker
+container inspect&quot;:</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># docker container inspect teste | grep -i mem</span>
+    <span class="hljs-string">&quot;CpusetMems&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-string">&quot;KernelMemory&quot;</span>: 0,
+    <span class="hljs-string">&quot;Memory&quot;</span>: 0,
+    <span class="hljs-string">&quot;MemoryReservation&quot;</span>: 0,
+    <span class="hljs-string">&quot;MemorySwap&quot;</span>: 0,
+    <span class="hljs-string">&quot;MemorySwappiness&quot;</span>: -1,
+</code></pre>
+<p>Como percebemos, os valores correspondentes à memória estão zerados, ou
+seja, sem nenhum limite estabelecido.</p>
+<p>Vamos agora subir um novo <em>container</em>, porém passando os valores para
+que utilize 512 MB de memória:</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># docker container run -ti -m 512M --name novo_container debian</span>
+</code></pre>
+<p>Utilizamos o parâmetro &quot;-m&quot; para especificar a quantidade de memória que
+desejamos disponibilizar ao <em>container</em>. Vamos utilizar o &quot;docker
+container inspect&quot; novamente para verificar se a nossa configuração
+funcionou:</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># docker container inspect novo_container | grep -i mem</span>
+    <span class="hljs-string">&quot;CpusetMems&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-string">&quot;KernelMemory&quot;</span>: 0,
+    <span class="hljs-string">&quot;Memory&quot;</span>: 536870912,
+    <span class="hljs-string">&quot;MemoryReservation&quot;</span>: 0,
+    <span class="hljs-string">&quot;MemorySwap&quot;</span>: -1,
+    <span class="hljs-string">&quot;MemorySwappiness&quot;</span>: -1,
+</code></pre>
+<p>Muito bom, parece que deu certo!</p>
+<p>Podemos ver no campo &quot;Memory&quot; o valor utilizado na criação do
+<em>container</em>. Vale ressaltar que o valor exibido é em <em>bytes</em>.</p>
+<p>Quando você utiliza o parâmetro &quot;-m&quot; ou &quot;--memory&quot;, você está passando
+o máximo de memória que o <em>container</em> utilizará do <em>host</em>.</p>
+<h2 id="52-especificando-a-quantidade-de-cpu">5.2. Especificando a quantidade de CPU</h2>
+<p>Para que você consiga limitar a quantidade de CPUs que os <em>containers</em>
+irão consumir, basta utilizar o parâmetro &quot;--cpu&quot;. Com ele é possível
+dizer a quantidade de CPUs que você deseja disponibilizar para
+determinado <em>container</em>. Por exemplo, se utilizarmos &quot;--cpus=0.5&quot;
+estamos dizendo ao Docker para limitar o consumo pelo <em>container</em> em
+meio CPU. Fácil, não?</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># docker container run --cpus=0.5 --name teste1 nginx</span>
+</code></pre>
+<p>Com o comando anterior, estamos subindo um <em>container</em> utilizando a
+imagem do Nginx -- até aqui nenhuma novidade, certo? Porém, agora
+passamos o parâmetro &quot;--cpus=0.5&quot; falando para o Docker que esse
+<em>container</em> poderá utilizar no máximo 0,5 CPU, ou seja, metade de 1
+<em>core</em>. :D Simples como voar.</p>
+<p>Para verificar, vamos utilizar o comando &quot;docker container inspect&quot;:</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># docker container inspect teste1 | grep -i cpu</span>
+    <span class="hljs-string">&quot;CpuShares&quot;</span>: 0,
+    <span class="hljs-string">&quot;NanoCpus&quot;</span>: 500000000,
+    <span class="hljs-string">&quot;CpuPeriod&quot;</span>: 0,
+    <span class="hljs-string">&quot;CpuQuota&quot;</span>: 0,
+    <span class="hljs-string">&quot;CpusetCpus&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-string">&quot;CpusetMems&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+</code></pre>
+<p>O campo &quot;NanoCpus&quot; traz a informação que configuramos. :)</p>
+<p>Simples, fácil e rápido!</p>
+<h2 id="53-eu-consigo-alterar-cpu-e-memória-dos-meus-containers-em-execução">5.3. Eu consigo alterar CPU e memória dos meus <em>containers</em> em execução?</h2>
+<p>Sim! \o/</p>
+<p>Com o lançamento da versão 1.10 do Docker, temos o comando &quot;docker
+update&quot;, que permite alterar as configurações referentes a CPU, memória
+e I/O com o <em>container</em> em execução de forma muito simples! Isso é
+fantástico!</p>
+<p>Como exemplo, iremos subir um <em>container</em> e também alterar as
+informações referentes a memória e CPU:</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># docker container run -ti --cpus=4 -m 512m --name teste1 nginx</span>
+
+root@linuxtips:~<span class="hljs-comment"># docker container inspect teste1 | grep -i cpu</span>
+    <span class="hljs-string">&quot;CpuShares&quot;</span>: 0,
+    <span class="hljs-string">&quot;NanoCpus&quot;</span>: 4000000000,
+    <span class="hljs-string">&quot;CpuPeriod&quot;</span>: 0,
+    <span class="hljs-string">&quot;CpuQuota&quot;</span>: 0,
+    <span class="hljs-string">&quot;CpusetCpus&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-string">&quot;CpusetMems&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+
+root@linuxtips:~<span class="hljs-comment"># docker container inspect teste1 | grep -i mem</span>
+    <span class="hljs-string">&quot;CpusetMems&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-string">&quot;KernelMemory&quot;</span>: 0,
+    <span class="hljs-string">&quot;Memory&quot;</span>: 536870912,
+    <span class="hljs-string">&quot;MemoryReservation&quot;</span>: 0,
+    <span class="hljs-string">&quot;MemorySwap&quot;</span>: -1,
+    <span class="hljs-string">&quot;MemorySwappiness&quot;</span>: -1,
+</code></pre>
+<p>Agora, vamos alterar os valores de limite de CPU e memória:</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># docker container update -m 256m --cpus=1 teste1</span>
+teste1
+
+root@linuxtips:~<span class="hljs-comment"># docker container inspect teste1 | grep -i cpu</span>
+    <span class="hljs-string">&quot;CpuShares&quot;</span>: 0,
+    <span class="hljs-string">&quot;NanoCpus&quot;</span>: 1000000000,
+    <span class="hljs-string">&quot;CpuPeriod&quot;</span>: 0,
+    <span class="hljs-string">&quot;CpuQuota&quot;</span>: 0,
+    <span class="hljs-string">&quot;CpusetCpus&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-string">&quot;CpusetMems&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+
+root@linuxtips:~<span class="hljs-comment"># docker container inspect teste1 | grep -i mem</span>
+    <span class="hljs-string">&quot;CpusetMems&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-string">&quot;KernelMemory&quot;</span>: 0,
+    <span class="hljs-string">&quot;Memory&quot;</span>: 268435456,
+    <span class="hljs-string">&quot;MemoryReservation&quot;</span>: 0,
+    <span class="hljs-string">&quot;MemorySwap&quot;</span>: -1,
+    <span class="hljs-string">&quot;MemorySwappiness&quot;</span>: -1,
+</code></pre>
+<p>Funcionou? SIMMM!</p>
+<p>Assim, com os <em>containers</em> em execução, mudamos as informações
+referentes à memória e ao CPU!</p>
+<p>Existem outros parâmetros do &quot;docker container update&quot;. Para verificar a
+lista completa, digite &quot;docker update --help&quot;.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="chapter_04.html" class="navigation navigation-prev " aria-label="Previous page: Executando e administrando containers Docker">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="chapter_06.html" class="navigation navigation-next " aria-label="Next page: Meu primeiro e tosco dockerfile...">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Configurando CPU e memória para os meus containers","level":"2.6","depth":1,"next":{"title":"Meu primeiro e tosco dockerfile...","level":"2.7","depth":1,"path":"chapters/chapter_06.md","ref":"chapters/chapter_06.md","articles":[]},"previous":{"title":"Executando e administrando containers Docker","level":"2.5","depth":1,"path":"chapters/chapter_04.md","ref":"chapters/chapter_04.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapters/chapter_05.md","mtime":"2021-08-11T08:52:29.563Z","type":"markdown"},"gitbook":{"version":"3.6.20","time":"2021-08-11T08:52:39.457Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,637 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Controlando o daemon do Docker · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.6.20">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="chapter_12.html" />
+    
+    
+    <link rel="prev" href="chapter_10.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Sobre</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Proposta do livro
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Capítulos</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="chapter_00.html">
+            
+                <a href="chapter_00.html">
+            
+                    
+                    Introdução
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="chapter_01.html">
+            
+                <a href="chapter_01.html">
+            
+                    
+                     O que é container
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="chapter_02.html">
+            
+                <a href="chapter_02.html">
+            
+                    
+                    O que é o Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="chapter_03.html">
+            
+                <a href="chapter_03.html">
+            
+                    
+                    Instalando o Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="chapter_04.html">
+            
+                <a href="chapter_04.html">
+            
+                    
+                    Executando e administrando containers Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="chapter_05.html">
+            
+                <a href="chapter_05.html">
+            
+                    
+                    Configurando CPU e memória para os meus containers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="chapter_06.html">
+            
+                <a href="chapter_06.html">
+            
+                    
+                    Meu primeiro e tosco dockerfile...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="chapter_07.html">
+            
+                <a href="chapter_07.html">
+            
+                    
+                    Entendendo volumes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="chapter_08.html">
+            
+                <a href="chapter_08.html">
+            
+                    
+                    Criando e gerenciando imagens
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="chapter_09.html">
+            
+                <a href="chapter_09.html">
+            
+                    
+                    Compartilhando as imagens
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11" data-path="chapter_10.html">
+            
+                <a href="chapter_10.html">
+            
+                    
+                    Gerenciando a rede dos containers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.12" data-path="chapter_11.html">
+            
+                <a href="chapter_11.html">
+            
+                    
+                    Controlando o daemon do Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.13" data-path="chapter_12.html">
+            
+                <a href="chapter_12.html">
+            
+                    
+                    Docker Machine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.14" data-path="chapter_13.html">
+            
+                <a href="chapter_13.html">
+            
+                    
+                    Docker Swarm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.15" data-path="chapter_14.html">
+            
+                <a href="chapter_14.html">
+            
+                    
+                    Docker Secrets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.16" data-path="chapter_15.html">
+            
+                <a href="chapter_15.html">
+            
+                    
+                    Docker Compose
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Controlando o daemon do Docker</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="11-controlando-o-daemon-do-docker">11. Controlando o <em>daemon</em> do Docker</h1>
+<p>Antes de tudo, vamos tentar entender o que é um <em>daemon</em>. Sabemos que,
+em sistemas operacionais <em>multitask</em>, isto é, em um sistema operacional
+capaz de executar mais de uma tarefa por vez (<em>not really</em>), um <em>daemon</em>
+é um software que roda de forma independente em <em>background</em>. Ele
+executa certas ações predefinidas em resposta a certos eventos. Pois
+bem, o <em>daemon</em> do Docker é exatamente isso: uma espécie de processo-pai
+que controla tudo, <em>containers</em>, imagens, etc., etc., etc.</p>
+<p>Até o Docker 1.7 as configurações referentes especificamente ao <em>daemon</em>
+se confundiam bastante com configurações globais -- isso porque quando
+você digitava lá o &quot;docker -help&quot; um monte de coisas retornava, e você
+não sabia o que era o quê. A partir da versão 1.8 tivemos o &quot;docker
+daemon&quot;, e agora, mais recentemente, acreditamos que na versão 18.03 do
+Docker, ele foi substituído pelo &quot;dockerd&quot;, que resolve de vez esse
+problema e trata especificamente de configurações referentes,
+obviamente, ao <em>daemon</em> do Docker.</p>
+<h2 id="111-o-docker-sempre-utiliza-17216xx-ou-posso-configurar-outro-intervalo-de-ip">11.1. O Docker sempre utiliza 172.16.X.X ou posso configurar outro intervalo de IP?</h2>
+<p>Sim, você pode configurar outro <em>range</em> para serem utilizados pela
+<em>bridge</em> &quot;docker0&quot; e também pelas interfaces dos <em>containers</em>.</p>
+<p>Para que você consiga configurar um <em>range</em> diferente para utilização do
+Docker é necessário iniciá-lo com o parâmetro &quot;--bip&quot;.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># dockerd --bip 192.168.0.1/24</span>
+</code></pre>
+<p>Assim, você estará informando ao Docker que deseja utilizar o IP
+&quot;192.168.0.1&quot; para sua <em>bridge</em> &quot;docker0&quot; e, consequentemente, para a
+<em>subnet</em> dos <em>containers</em>.</p>
+<p>Você também poderá utilizar o parâmetro &quot;--fixed-cidr&quot; para restringir
+o <em>range</em> que o Docker irá utilizar para a <em>bridge</em> &quot;docker0&quot; e para a
+<em>subnet</em> dos <em>containers</em>.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># dockerd --fixed-cidr 192.168.0.0/24</span>
+</code></pre>
+<h2 id="112-opções-de-sockets">11.2. Opções de <em>sockets</em></h2>
+<p><em>Sockets</em> são <em>end-points</em> com as quais duas ou mais aplicações ou
+processos se comunicam em um ambiente, geralmente um &quot;IP:porta&quot; ou um
+arquivo, como no caso do <em>Unix Domain Sockets</em>.</p>
+<p>Atualmente o Docker consegue trabalhar com três tipos de <em>sockets</em>,
+Unix, TCP e FD, e por <em>default</em> ele usa <em>unix sockets</em>. Você deve ter
+notado que, ao <em>startar</em> seu Docker, foi criado um arquivo em
+&quot;/var/run/docker.sock&quot;. Para fazer alterações nele você vai precisar ou
+de permissão de <em>root</em> ou de que o usuário que esteja executando as
+ações faça parte do grupo &quot;docker&quot;, como dissemos no começo deste livro,
+lembra?</p>
+<p>Por mais prático que isso seja, existem algumas limitações, como, por
+exemplo, o <em>daemon</em> só poder ser acessado localmente. Para resolver isso
+usamos geralmente o TCP. Nesse modelo nós definimos um IP, que pode ser
+tanto &quot;qualquer um&quot; (0.0.0.0 e uma porta) como um IP específico e uma
+porta.</p>
+<p>Nos sistemas baseados em <em>systemd</em> você ainda pode se beneficiar do
+<em>systemd socket activation</em>, uma tecnologia que visa economia de
+recursos. Consiste basicamente em ativar um <em>socket</em> somente enquanto
+uma conexão nova chega e desativar quando não está sendo mais usado.</p>
+<p>Além disso tudo, dependendo do seu ambiente, você também pode fazer o
+Docker escutar em diferentes tipos de <em>sockets</em>, o que é feito através
+do parâmetro &quot;-H&quot; do comando &quot;dockerd&quot;.</p>
+<p>Exemplos:</p>
+<h3 id="1121-unix-domain-socket">11.2.1. <em>Unix Domain Socket</em></h3>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># dockerd -H unix:///var/run/docker.sock</span>
+INFO[0000] [graphdriver] using prior storage driver <span class="hljs-string">&quot;aufs&quot;</span>
+INFO[0000] Graph migration to content-addressability took 0.00 seconds
+INFO[0000] Firewalld running: <span class="hljs-literal">false</span>
+INFO[0000] Default bridge (docker0) is assigned with an IP address 172.17.0.0/16. Daemon option --bip can be used to <span class="hljs-built_in">set</span> a preferred IP
+address
+WARN[0000] Your kernel does not support swap memory <span class="hljs-built_in">limit</span>.
+INFO[0000] Loading containers: start.
+..........................
+INFO[0000] Loading containers: <span class="hljs-keyword">done</span>.
+INFO[0000] Daemon has completed initialization
+INFO[0000] Docker daemon commit=c3959b1 execdriver=native-0.2 graphdriver=aufs version=1.10.2
+INFO[0000] API listen on /var/run/docker.sock
+</code></pre>
+<h3 id="1122-tcp">11.2.2. TCP</h3>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># dockerd -H tcp://0.0.0.0:2375</span>
+WARN[0000] /! DON<span class="hljs-string">&apos;T BIND ON ANY IP ADDRESS WITHOUT setting -tlsverify IF YOU DON&apos;</span>T KNOW WHAT YOU<span class="hljs-string">&apos;RE DOING /!
+INFO[0000] [graphdriver] using prior storage driver &quot;aufs&quot;
+INFO[0000] Graph migration to content-addressability took 0.01 seconds
+INFO[0000] Firewalld running: false
+INFO[0000] Default bridge (docker0) is assigned with an IP address 172.17.0.0/16. Daemon option --bip can be used to set a preferred IP address
+WARN[0000] Your kernel does not support swap memory limit.
+INFO[0000] Loading containers: start.
+..........................
+INFO[0000] Loading containers: done.
+INFO[0000] Daemon has completed initialization
+INFO[0000] Docker daemon commit=c3959b1 execdriver=native-0.2 graphdriver=aufs version=1.10.2
+INFO[0000] API listen on [::]:2375
+</span></code></pre>
+<h2 id="113-opções-de-storage">11.3. Opções de <em>storage</em></h2>
+<p>Sendo o cara que controla tudo, naturalmente é possível passar opções
+que mudam a forma como o Docker se comporta ao trabalhar com <em>storages</em>.
+Como falamos anteriormente, o Docker suporta alguns <em>storage drivers</em>,
+todos baseados no esquema de <em>layers</em>.</p>
+<p>Essas opções são passadas para o <em>daemon</em> pelo parâmetro
+&quot;--storage-opt&quot;, com o qual itens relacionados ao <em>Device Mapper</em>
+recebem o prefixo &quot;dm&quot; e &quot;zfs&quot; para (adivinha?) o ZFS. A seguir vamos
+demonstrar algumas opções mais comuns:</p>
+<ul>
+<li><strong>dm.thinpooldev</strong> -- Com esta opção você consegue especificar o <em>device</em> que será usado pelo <em>Device Mapper</em> para desenvolver o <em>thin-pool</em> que ele usa para criar os <em>snapshots</em> usados por <em>containers</em> e imagens.</li>
+</ul>
+<p>Exemplo:</p>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># dockerd --storage-opt dm.thinpooldev=/dev/mapper/thin-pool</span>
+INFO[0000] [graphdriver] using prior storage driver <span class="hljs-string">&quot;aufs&quot;</span>
+INFO[0000] Graph migration to content-addressability took 0.00 seconds
+INFO[0000] Firewalld running: <span class="hljs-literal">false</span>
+INFO[0000] Default bridge (docker0) is assigned with an IP address 172.17.0.0/16. Daemon option --bip can be used to <span class="hljs-built_in">set</span> a preferred IP address
+WARN[0000] Your kernel does not support swap memory <span class="hljs-built_in">limit</span>.
+INFO[0000] Loading containers: start.
+................................
+INFO[0000] Loading containers: <span class="hljs-keyword">done</span>. 
+INFO[0000] Daemon has completed initialization 
+INFO[0000] Docker daemon commit=c3959b1 execdriver=native-0.2 graphdriver=aufs version=1.10.2
+INFO[0000] API listen on /var/run/docker.sock
+</code></pre>
+<ul>
+<li><strong>dm.basesize</strong> -- Este parâmetro define o tamanho máximo do <em>container</em>. O chato disso é que você precisa deletar tudo dentro de &quot;/var/lib/docker&quot; (o que implica em matar todos os <em>containers</em> e imagens) e <em>restartar</em> o serviço do Docker.</li>
+</ul>
+<pre><code class="lang-bash">root@linuxtips:~<span class="hljs-comment"># dockerd --storage-opt dm.basesize=10G</span>
+INFO[0000] [graphdriver] using prior storage driver <span class="hljs-string">&quot;aufs&quot;</span>
+INFO[0000] Graph migration to content-addressability took 0.00 seconds
+INFO[0000] Firewalld running: <span class="hljs-literal">false</span>
+INFO[0000] Default bridge (docker0) is assigned with an IP address 172.17.0.0/16. Daemon option --bip can be used to <span class="hljs-built_in">set</span> a preferred IP address
+WARN[0000] Your kernel does not support swap memory <span class="hljs-built_in">limit</span>.
+INFO[0000] Loading containers: start.
+..........................
+INFO[0000] Loading containers: <span class="hljs-keyword">done</span>.
+INFO[0000] Daemon has completed initialization
+INFO[0000] Docker daemon commit=c3959b1 execdriver=native-0.2 graphdriver=aufs version=1.10.2
+INFO[0000] API listen on /var/run/docker.sock
+</code></pre>
+<ul>
+<li><strong>dm.fs</strong> -- Especifica o <em>filesystem</em> do <em>container</em>. As opções suportadas são: <strong>EXT4</strong> e <strong>XFS</strong>.</li>
+</ul>
+<h2 id="114-opções-de-rede">11.4. Opções de rede</h2>
+<p>Também é possível controlar como o <em>daemon</em> se comportará em relação à
+rede:</p>
+<ul>
+<li><p><strong>--default-gateway</strong> -- Autoexplicativo, né? Todos os <em>containers</em> receberão esse IP como <em>gateway</em>.</p>
+</li>
+<li><p><strong>--dns</strong> -- Também sem segredo: é o DNS que será usado para consultas.</p>
+</li>
+<li><p><strong>--dns-search</strong> -- Especifica o domínio a ser procurado, assim você consegue pesquisar máquinas sem usar o fqdn.</p>
+</li>
+<li><p><strong>--ip-forward</strong> -- Esta opção habilita o roteamento entre <em>containers.</em> Por padrão, ela já vem <em>setada</em> como <em>true</em>.</p>
+</li>
+</ul>
+<h2 id="115-opções-diversas">11.5. Opções diversas</h2>
+<ul>
+<li><p><strong>--default-ulimit</strong> -- Passando isso para o <em>daemon</em>, todos os <em>containers</em> serão iniciados com esse valor para o &quot;ulimit&quot;. Esta opção é sobrescrita pelo parâmetro &quot;--ulimit&quot; do comando &quot;docker container run&quot;, que geralmente vai dar uma visão mais específica.</p>
+</li>
+<li><p><strong>--icc</strong> -- &quot;icc&quot; vem de <em>inter container comunication</em>. Por padrão, ele vem marcado como <em>true</em>; caso você não queira esse tipo de comunicação, você pode marcar no <em>daemon</em> como <em>false</em>.</p>
+</li>
+<li><p><strong>--log-level</strong> -- É possível alterar também a forma como o Docker trabalha com <em>log</em>; em algumas situações (geralmente <em>troubleshoot</em>) você pode precisar de um <em>log</em> mais &quot;verboso&quot;, por exemplo.</p>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="chapter_10.html" class="navigation navigation-prev " aria-label="Previous page: Gerenciando a rede dos containers">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="chapter_12.html" class="navigation navigation-next " aria-label="Next page: Docker Machine">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Controlando o daemon do Docker","level":"2.12","depth":1,"next":{"title":"Docker Machine","level":"2.13","depth":1,"path":"chapters/chapter_12.md","ref":"chapters/chapter_12.md","articles":[]},"previous":{"title":"Gerenciando a rede dos containers","level":"2.11","depth":1,"path":"chapters/chapter_10.md","ref":"chapters/chapter_10.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapters/chapter_11.md","mtime":"2021-08-11T08:52:29.563Z","type":"markdown"},"gitbook":{"version":"3.6.20","time":"2021-08-11T08:52:39.457Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
