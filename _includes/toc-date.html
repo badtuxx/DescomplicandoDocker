@@ -13,8 +13,6 @@
 
             <li class="divider"></li>
 
-            {% assign reversed_posts = site.posts | reverse %}
-
             {% for chapter in site.chapters %}
                 {% if page.url == chapter.url %}
                     <li class="chapter active" data-level="1.2" data-path="{{ chapter.url | relative_url }}">
