@@ -1,4 +1,4 @@
-# Descomplicando o Kubernetes
+# Descomplicando o Docker
 
 
 Devido a pandemia do [Coronavirus (COVID-19)](https://coronavirus.jhu.edu/map.html), [Jeferson Fernando](https://twitter.com/badtux_) liberou o acesso público a este repositório como forma de ajudar no combate a pandemia incentivando as pessoas a ficarem em casa adquirindo o conhecimento e se aprimorando na profissão para poderem contribuir no local de trabalho ou mesmo se prepararem para novas oportunidades.
@@ -14,7 +14,7 @@ Nesse material você terá contato com conteúdos que abordam do nível iniciant
 
 Contamos com sua ajuda para tornar esse material ainda mais completo, colabore! Para contribuir com melhorias no conteúdo, siga as instruções deste [tutorial](CONTRIBUTING.md).
 
-Veja os vídeos sobre Kubernetes, DevOps, Automação e outros assuntos relacionado a tecnologia nos canais da LINUXtips:
+Veja os vídeos sobre Docker, Kubernetes, DevOps, Automação e outros assuntos relacionado a tecnologia nos canais da LINUXtips:
 
 * [Canal da LINUXtips no Youtube](https://www.youtube.com/LINUXtips)
 * [Canal da LINUXtips na Twitch](https://www.twitch.com/LINUXtips)
