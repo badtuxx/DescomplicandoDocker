@@ -1,68 +1,33 @@
-![LOGO](.//media/image2.png)
+# Descomplicando o Docker
 
-# Prefácio
 
-If you are a developer, you probably have heard about Docker by now:
-Docker is the ideal platform to run applications in containers. Fine,
-but what are those containers? Containers are a lightweight
-virtualization technique providing us with lots of possibilities: thanks
-to them, we can ship applications faster; we can easily implement CI/CD
-(continuous integration and continuous delivery); we can set up
-development environments faster than ever; we can ensure parity between
-those development environments and our production servers; and much
-more. If you write code, if you deploy code, if you operate code, then I
-promise that containers are going to make your life easier.
+Devido a pandemia do [Coronavirus (COVID-19)](https://coronavirus.jhu.edu/map.html), [Jeferson Fernando](https://twitter.com/badtux_) liberou o acesso público a este repositório como forma de ajudar no combate a pandemia incentivando as pessoas a ficarem em casa adquirindo o conhecimento e se aprimorando na profissão para poderem contribuir no local de trabalho ou mesmo se prepararem para novas oportunidades.
 
-But containers have been around for *decades*, and Docker was only
-released in 2013. So what's the big deal? Why is everybody so excited
-about Docker, if the technology behind it is more than ten years old?
+Anteriormente, esse material era somente distribuído através de livros e e-books, onde a Brasport possui o os direitos para a comercialização do livro. Após o Jeferson [liberar gratuitamente as 5 mil vagas](https://www.youtube.com/watch?v=RtQj19BYu-0&t=24s) para o treinamento [Descomplicando o Docker](https://www.linuxtips.io/product-page/descomplicando-o-docker), ele percebeu a necessidade de ajudar quem não teria condições para adquirir o livro, caso quisesse complementar os estudos, umaz vez que o livro funciona como apoio ao treinamento.
+Após negociação junto a editora Brasport, conseguimos a liberação do livro para disponibilizar o conteúdo do dele no Github, de maneira totalmente gratuita e aberta. E aqui estamos. \o/
 
-Because the main innovation of Docker is not the technology. The main
-innovation of Docker is to make this technology available to every
-developer and sysadmin, very easily, without having to spend years of
-practice to become an expert, and without requiring to develop tons of
-custom tools.
+Com o acordo, a Brasport segue com o direito de comercializar o livro, e a nossa comunidade com o acesso gratuito e irrestrito ao material.
 
-I will share a secret with you: the really important thing is not Docker
-and containers. What is really important is to improve the quality of
-our software, reduce our development and deployment costs, release
-better, more reliable code, faster. It turns out that Docker is an
-insanely efficient way to achieve those goals. That's why it is so
-popular.
+Vamos seguir com as atualizações do material, bem como adicionar conteúdo novo! 
 
-This book will teach you all you need to know to get started with
-Docker, and use it to build, ship, and run your applications. It will be
-your guide in the world of containers, and on the path to ship code
-better than you ever did before.
+Nesse material você terá contato com conteúdos que abordam do nível iniciante ao avançado sobre Docker, e agora que ele se tornou aberto, com a ajuda de todos vamos construir o maior e mais completo material sobre Docker do mundo.
 
-***Jérôme Petazzoni***
+Contamos com sua ajuda para tornar esse material ainda mais completo, colabore! Para contribuir com melhorias no conteúdo, siga as instruções deste [tutorial](CONTRIBUTING.md).
 
-Docker Tinkerer Extraordinaire
+Veja os vídeos sobre Docker, Kubernetes, DevOps, Automação e outros assuntos relacionado a tecnologia nos canais da LINUXtips:
 
-# Sobre o Livro
+* [Canal da LINUXtips no Youtube](https://www.youtube.com/LINUXtips)
+* [Canal da LINUXtips na Twitch](https://www.twitch.com/LINUXtips)
 
-A proposta deste livro é ajudá-lo a construir ambientes utilizando
-*containers* com a ferramenta que está revolucionando as empresas de
-tecnologia ao redor do mundo: vamos aprender e brincar bastante com o
-sensacional Docker!
+Veja os treinamentos disponíveis da LINUXtips:
 
-De maneira leve e totalmente prática, vamos aprender desde o que é o
-Docker até a criação de um *cluster* Docker com diversos *containers* em
-execução! Sempre de forma prática, vamos abordar temas importantes para
-que consiga administrar ambientes que utilizam ou pretendam utilizar o
-Docker.
+* [Site Oficial da LINUXtips](https://linuxtips.io/loja)
 
-Inclusive, vamos aprender a montar *dockerfiles* personalizados para
-construção de imagens de *containers*, além de conhecer como melhor
-administrá-las.
 
-Também veremos na prática como utilizar o Docker Machine para criação de
-*hosts* Docker, seja local ou na nuvem. Vamos criar um *cluster*
-utilizando o Swarm e aprender como escalar o nosso ambiente através do
-Compose.
+Principais links da LINUXtips:
 
-Nesta segunda edição adicionamos muitas novidades, como o 'docker
-secret' e o 'docker stack', e atualizamos praticamente todo o
-restante do livro, visando torna-lo super atual e didático. Adicionamos
-mais exemplos práticos, para que sua experiência possa ser ainda mais
-agradável e proveitosa.
+* [Todos os Links da LINUXtips](https://linktr.ee/LINUXtips)
+
+
+Acesso ao Livro Descomplicando o Docker:  
+- [LIVRO - Descomplicando o Docker](https://badtuxx.github.io/DescomplicandoDocker/)

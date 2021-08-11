@@ -50,8 +50,8 @@ problema de dependência ou algo do tipo -- nem mesmo o bom e velho
 "engraçado, na minha máquina funciona" escapa, hein?
 
 Lembre-se: na máquina virtual você emula um novo sistema operacional
-dentro do sistema operacional do *host*. Já no *container* você emular
-somente as aplicações e suas dependências e as torna portáteis.
+dentro do sistema operacional do *host*. Já no *container* você emula
+somente as aplicações e suas dependências tornando-o portátil.
 
 ## 1.2. E quando começou que eu não vi?
 
