@@ -348,7 +348,14 @@ de usuários em cada *container*.
 recursos do *host* pelos *containers*. Com o *cgroups* você consegue
 gerenciar a utilização de CPU, memória, dispositivos, I/O, etc.
 
-## 2.7. *Netfilter*
+## 2.7. *SELinux*
+
+O Security-Enhanced Linux (SELinux) define controles de acesso para 
+aplicações, processos, e arquivos em um sistema. Ele usa políticas de
+segurança, que nada mais são que conjuntos de regras que dizem ao 
+SELinux o que pode ou não ser acessado.
+
+## 2.8. *Netfilter*
 
 A já conhecida ferramenta *iptables* faz parte de um módulo chamado
 *netfilter*. Para que os *containers* consigam se comunicar, o Docker
@@ -379,7 +386,7 @@ RETURN all -- anywhere anywhere
 root@linuxtips:~#
 ```
 
-## 2.8. Para quem ele é bom?
+## 2.9. Para quem ele é bom?
 
 O Docker é muito bom para os desenvolvedores, pois com ele você tem
 liberdade para escolher a sua linguagem de programação, seu banco de
