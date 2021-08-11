@@ -1,0 +1,45 @@
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            {% if page.url == "/index.html" or page.url == "/" %}
+            <li class="chapter active" data-level="1.1" data-path="{{site.baseurl}}">
+            {% else %}
+            <li class="chapter" data-level="1.1" data-path="{{site.baseurl}}">
+            {% endif %}
+                <a href="{{site.baseurl}}">
+                    {{ site.title | escape }}
+                </a>
+            </li>
+
+            <li class="divider"></li>
+
+            {% assign reversed_posts = site.posts | reverse %}
+
+            {% for chapter in site.chapters %}
+                {% if page.url == chapter.url %}
+                    <li class="chapter active" data-level="1.2" data-path="{{ chapter.url | relative_url }}">
+                {% else %}
+                    <li class="chapter" data-level="1.1" data-path="{{ chapter.url | relative_url }}">
+                {% endif %}
+                        <a href="{{ chapter.url | relative_url }}">
+                            {{ chapter.title | escape }}
+                        </a>
+                    </li>
+            {% endfor %}
+
+            <li class="divider"></li>
+
+            <li>
+                <a href="https://github.com/badtuxx/DescomplicandoDocker" target="blank" class="gitbook-link">
+                    Rep do Livro
+                </a>
+            </li>
+
+            <li class="divider"></li>
+
+            <li>
+               <a href=""><small>Copyright 2019 Tao He.</small></a>
+            </li>
+        </ul>
+    </nav>
+</div>
