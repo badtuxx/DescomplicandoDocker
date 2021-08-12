@@ -31,7 +31,26 @@
 </div>
 
 {% for socialMedia in book.socialNetworks.medias %}
-  <a class="btn pull-right" aria-label="" href="{{ socialMedia.url }}">
-    <i class="fa fa-{{ socialMedia.icon }}"></i>
-  </a>
+  {% if socialMedia.url %}
+    <a class="btn pull-right" aria-label="" href="{{ socialMedia.url }}" target="_blank">
+      <i class="fa fa-{{ socialMedia.icon }}"></i>
+    </a>
+
+  {% else %} 
+  
+    {% if socialMedia.links %}
+      <div class="dropdown pull-right">
+        <a class="btn toggle-dropdown" href="#">
+          <i class="fa fa-{{ socialMedia.icon }}"></i>
+        </a>
+        <div class="dropdown-menu dropdown-left">
+          {% for link in socialMedia.links %}
+            <a href="{{ link.url }}" class="button size-5" target="_blank">
+              {{ link.name }}
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  {% endif %}
 {% endfor %}

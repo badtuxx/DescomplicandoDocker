@@ -8,15 +8,11 @@
           "icon": "facebook"
         },
         {
-          "name": "Twitter Jeferson",
-          "url": "https://twitter.com/badtux_",
-          "icon": "twitter",
-          "sharing": true,
-          "sharingBaseUrl": "https://twitter.com/intent/tweet?text=:text&url=:url"
-        },
-        {
-          "name": "Twitter LINUXtips",
-          "url": "https://twitter.com/LINUXtipsBR",
+          "name": "Twitter",
+          "links": [
+            { "url": "https://twitter.com/badtux_", "name": "Jeferson" },
+            { "url": "https://twitter.com/LINUXtipsBR", "name": "LINUXtips" }
+          ],
           "icon": "twitter",
           "sharing": true,
           "sharingBaseUrl": "https://twitter.com/intent/tweet?text=:text&url=:url"
