@@ -1,0 +1,26 @@
+{
+  "variables": {
+    "socialNetworks": {
+      "medias": [
+        {
+          "name": "Facebook",
+          "url": "https://www.facebook.com/linuxtipsbr",
+          "icon": "facebook"
+        },
+        {
+          "name": "Twitter",
+          "url": "https://twitter.com/badtux_",
+          "icon": "twitter",
+          "sharing": true,
+          "sharingBaseUrl": "https://twitter.com/intent/tweet?text=:text&url=:url"
+        },
+        {
+          "name": "Youtube",
+          "url": "https://www.youtube.com/linuxtips",
+          "icon": "youtube"
+        }
+      ],
+      "sharingText": "Olha que incrível este capítulo do Descomplicando o Docker!"
+    }
+  }
+}
