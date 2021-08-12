@@ -1,0 +1,37 @@
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    let buttonsWrapper = document.getElementById('sharing-buttons');
+    buttonsWrapper.querySelectorAll('button').forEach(button => {
+      button.addEventListener('click', function(event) {
+        let url = location.href;
+        let baseUrl = event.target.dataset.sharingBaseUrl
+                        .replace(":url", url)
+                        .replace(":text", buttonsWrapper.dataset.sharingText)
+        window.open(baseUrl);
+      })
+    })
+  })
+</script>
+
+<div class="dropdown pull-right">
+  <a class="btn toggle-dropdown" aria-label="Share" href="#">
+    <i class="fa fa-share-alt"></i>
+  </a>
+  <div class="dropdown-menu dropdown-left">
+    <div id="sharing-buttons" data-sharing-text="{{ book.socialNetworks.sharingText }}">
+      {% for socialMedia in book.socialNetworks.medias %}
+        {% if socialMedia.sharing %}
+          <button class="button size-5" data-sharing-base-url="{{ socialMedia.sharingBaseUrl }}">
+            {{ socialMedia.name }}
+          </button>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% for socialMedia in book.socialNetworks.medias %}
+  <a class="btn pull-right" aria-label="" href="{{ socialMedia.url }}">
+    <i class="fa fa-{{ socialMedia.icon }}"></i>
+  </a>
+{% endfor %}
