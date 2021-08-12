@@ -8,8 +8,14 @@
           "icon": "facebook"
         },
         {
-          "name": "Twitter",
+          "name": "Twitter Jeferson",
           "url": "https://twitter.com/badtux_",
+          "icon": "twitter",
+          "sharing": true,
+          "sharingBaseUrl": "https://twitter.com/intent/tweet?text=:text&url=:url"
+        },
+          "name": "Twitter LINUXtips",
+          "url": "https://twitter.com/LINUXtipsBR",
           "icon": "twitter",
           "sharing": true,
           "sharingBaseUrl": "https://twitter.com/intent/tweet?text=:text&url=:url"
@@ -18,6 +24,11 @@
           "name": "Youtube",
           "url": "https://www.youtube.com/linuxtips",
           "icon": "youtube"
+        },
+        {
+          "name": "Twitch",
+          "url": "https://www.twitch.com/linuxtips",
+          "icon": "twitch"
         }
       ],
       "sharingText": "Olha que incrível este capítulo do Descomplicando o Docker!"
