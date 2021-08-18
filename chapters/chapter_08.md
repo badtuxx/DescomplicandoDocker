@@ -360,7 +360,7 @@ WORKDIR /app
 
 ADD . /app
 
-RUN go build -o goapp
+RUN go mod init goapp && go build -o goapp
 
 ENTRYPOINT ./goapp
 ```
