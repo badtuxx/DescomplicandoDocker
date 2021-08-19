@@ -30,4 +30,4 @@ Principais links da LINUXtips:
 
 
 Acesso ao Livro Descomplicando o Docker:  
-- [LIVRO - Descomplicando o Docker](https://badtuxx.github.io/DescomplicandoDocker/)
+- [LIVRO - Descomplicando o Docker](https://livro.descomplicandodocker.com.br/chapters/chapter_00.html)
