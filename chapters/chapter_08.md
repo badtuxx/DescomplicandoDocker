@@ -58,7 +58,7 @@ adicionar o conteúdo conforme exemplo a seguir:
 ```
 
 ```Dockerfile
-FROM debian
+FROM debian:10
 
 RUN apt-get update && apt-get install -y apache2 && apt-get clean
 
@@ -213,7 +213,7 @@ A primeira coisa é deixar o nosso *dockerfile* como segue:
 ```
 
 ```Dockerfile
-FROM debian
+FROM debian:10
 
 RUN apt-get update && apt-get install -y apache2 && apt-get clean
 
