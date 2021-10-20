@@ -238,7 +238,7 @@ que somente o *path* do diretório no *host*. Vamos usar a opção
 "\--format" ou "-f" para filtrar a saída do "inspect".
 
 ```bash
-docker volume inspect --format {% raw %}'{{ .Mountpoint }}'{% endraw %} giropops
+docker volume inspect --format '{{ .Mountpoint }}' giropops
 /var/lib/docker/volumes/giropopos/_data
 ```
 
