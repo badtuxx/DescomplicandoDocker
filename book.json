@@ -1,4 +1,12 @@
 {
+  "pdf": {
+    "margin": {
+      "top": 10,
+      "bottom": 10,
+      "left": 16,
+      "right": 16
+    }
+  },
   "variables": {
     "socialNetworks": {
       "medias": [
