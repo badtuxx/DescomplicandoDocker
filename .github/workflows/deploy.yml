@@ -1,21 +1,45 @@
 name: Build and Deploy
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    env:
+      QTWEBENGINE_CHROMIUM_FLAGS: --no-sandbox
     steps:
       - name: Checkout
         uses: actions/checkout@v2
         with:
           persist-credentials: false
-      - name: Install the dependencies 
-        run: npm install
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: Install the dependencies
+        run: |
+          npm install
+          apt-get update
+          apt-get install -y wget python xz-utils xdg-utils libnss3 libgbm1
+          apt-get clean
+          wget --no-check-certificate -nv -O- https://download.calibre-ebook.com/linux-installer.py | python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main()"
       - name: Build docs
         run: npx honkit build
+      - name: Build PDF
+        run: npx honkit pdf ./ ./book.pdf
+      - name: Build ePub
+        run: npx honkit epub ./ ./book.epub
+      - name: Build Mobi
+        run: npx honkit mobi ./ ./book.mobi
+      - name: Store artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: e-books
+          path: |
+            book.pdf
+            book.epub
+            book.mobi
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
