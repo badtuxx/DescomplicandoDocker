@@ -406,7 +406,7 @@ ADD . /src
 
 WORKDIR /src
 
-RUN go build -o goapp
+RUN go mod init goapp && go build -o goapp
 
 FROM alpine:3.1
 
