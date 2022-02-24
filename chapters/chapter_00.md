@@ -4,38 +4,37 @@ title: Introdução
 
 # Prefácio
 
-If you are a developer, you probably have heard about Docker by now:
-Docker is the ideal platform to run applications in containers. Fine,
-but what are those containers? Containers are a lightweight
-virtualization technique providing us with lots of possibilities: thanks
-to them, we can ship applications faster; we can easily implement CI/CD
-(continuous integration and continuous delivery); we can set up
-development environments faster than ever; we can ensure parity between
-those development environments and our production servers; and much
-more. If you write code, if you deploy code, if you operate code, then I
-promise that containers are going to make your life easier.
+Se você é um desenvolvedor, você provavelmente já ouviu falar sobre Docker.
+Docker é a plataforma ideal para executar aplicações em containers. Certo.
+mas o que são esses containers? Containers são uma técnica de virtualização
+eficiente e que provém muitas possibilidades:
+Graças a eles, nós podemos entregar aplicações mais rapidamente;
+- Podemos facilmente implementar CI/CD (Integração Continua e entrega continua);
+- Podemos configurar variáveis de ambiente mais rápido que nunca;
+- Podemos garantir consistência entre o nosso ambiente de desenvolvimento e a produção;
+- E muito mais.
 
-But containers have been around for *decades*, and Docker was only
-released in 2013. So what's the big deal? Why is everybody so excited
-about Docker, if the technology behind it is more than ten years old?
+Se você escreve código, se você implanta código ou opera código, então eu
+prometo que containers irão fazer sua vida muito mais fácil.
 
-Because the main innovation of Docker is not the technology. The main
-innovation of Docker is to make this technology available to every
-developer and sysadmin, very easily, without having to spend years of
-practice to become an expert, and without requiring to develop tons of
-custom tools.
+Porém containers estão há *décadas* por aí, e o Docker só foi lançado em 2013.
+Então o que aconteceu? Por que todo mundo está tão empolgado com o Docker,
+se a tecnologia por trás dele é de mais de dez anos atrás?
 
-I will share a secret with you: the really important thing is not Docker
-and containers. What is really important is to improve the quality of
-our software, reduce our development and deployment costs, release
-better, more reliable code, faster. It turns out that Docker is an
-insanely efficient way to achieve those goals. That's why it is so
-popular.
+**Porque de a maior inovação do Docker não é tecnológica.**
+A principal inovação do Docker é tornar essa tecnologia acessível a todos os 
+desenvolvedores e administradores de sistema, de forma fácil, sem a necessidade de anos 
+de prática para atingir a proficiência e sem a obrigação de serem desenvolvidas várias ferramentas personalizadas.
 
-This book will teach you all you need to know to get started with
-Docker, and use it to build, ship, and run your applications. It will be
-your guide in the world of containers, and on the path to ship code
-better than you ever did before.
+Vou lhe contar um segredo: o mais importante não é o Docker ou os containers.
+O mais importante é elevar a qualidade das nossas aplicações. Reduzir os custos de desenvolvimento e implantação, 
+entregar código melhor, mais confiável e mais rápido.
+E acontece que o Docker é uma forma extremamente eficiente para atingir esses objetivos.
+E esse é o motivo de o Docker ser tão popular.
+
+Esse livro irá te ensinar tudo que você precisa para começar a utilizar o Docker e utilizá-lo
+para criar, entregar e executar suas aplicações.
+Este será seu guia no mundo dos containers e mostrará o caminho para você entregar suas aplicações melhor que nunca antes
 
 ***Jérôme Petazzoni***
 
